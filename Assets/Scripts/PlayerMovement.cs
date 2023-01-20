@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using EasyButtons;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //New Input System
+    InputMaster m_inputMaster;
+
     //Components
     CharacterController m_cc;
 
@@ -38,6 +42,26 @@ public class PlayerMovement : MonoBehaviour
 
 
     //Booleans
+    bool m_canJump = false;
+
+    private void Awake()
+    {
+        m_inputMaster = new InputMaster();
+        m_inputMaster.Player.Jump.performed += ctx => Jump();
+        m_inputMaster.Player.Movement.performed += ctx => GetDirection(ctx.ReadValue<Vector2>());
+        m_inputMaster.Player.Movement.canceled += ctx => GetDirection(Vector2.zero);
+    }
+
+
+    private void OnEnable()
+    {
+        m_inputMaster.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        m_inputMaster.Player.Disable();
+    }
 
     private void Start()
     {
@@ -46,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-
         MovePlayer();
         RotatePlayer();
 
@@ -62,6 +85,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    //Set Move Direction Values
+    private void GetDirection(Vector2 direction)
+    {
+        m_vertical = direction.y;
+        m_horizontal = direction.x;
+
+    }
+
     //Moves the player
     private void MovePlayer()
     {
@@ -73,22 +104,23 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        m_vertical = Input.GetAxisRaw("Vertical");
-        m_horizontal = Input.GetAxisRaw("Horizontal");
+
         m_inputDir = m_horizontal * Vector3.right + m_vertical * Vector3.forward;
         m_speed = IsGrounded ? Speed : Speed * 0.75f;
         m_cc.Move(m_inputDir.normalized * m_speed * Time.deltaTime);
 
 
-        if (Input.GetButtonDown("Jump") && IsGrounded)
+        if (m_canJump && IsGrounded)
         {
+            m_canJump = false;
             Debug.Log("Jumped");
             m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravityPullValue);
+
             IsGrounded = false;
         }
 
 
-        
+
 
         if (!IsGrounded)
         {
@@ -116,6 +148,13 @@ public class PlayerMovement : MonoBehaviour
     private void GroundCheck()
     {
         IsGrounded = Physics.CheckSphere(m_groundChecker.position, m_groundCheckSphereRadius, m_groundLayer);
+    }
+
+    //Jump
+    public void Jump()
+    {
+        if (IsGrounded)
+            m_canJump = true;
     }
 
     //Gizmos
