@@ -7,6 +7,8 @@ using UnityEngine.Audio;
 
 public class UIManager : MonoBehaviour
 {
+    //Player Movement
+    [SerializeField] PlayerMovement m_playerMoveScript;
     //Game Status
 
     //Main Menu
@@ -114,12 +116,14 @@ public class UIManager : MonoBehaviour
         if(!m_pauseScreen.activeSelf)
         {
             Time.timeScale = 0f;
+            m_playerMoveScript.enabled = false;
             m_pauseScreen.SetActive(true);
 
         }
         else if(m_pauseScreen.activeSelf)
         {
             Time.timeScale = 1f;
+            m_playerMoveScript.enabled = true;
             m_pauseScreen.SetActive(false);
             
         }

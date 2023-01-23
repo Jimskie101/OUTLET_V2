@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     CharacterController m_cc;
 
     //GameObjects and Transforms
+    [SerializeField] Animator m_animator;
     [SerializeField] Transform m_groundChecker;
 
     //WASD / Joystick Analog Right
@@ -38,11 +39,13 @@ public class PlayerMovement : MonoBehaviour
 
     //Public PlayerStats
     public float Speed;
+    public float RunSpeedMultiplier;
     public bool IsGrounded = false;
 
 
     //Booleans
     bool m_canJump = false;
+    bool m_isRunning = false;
 
     private void Awake()
     {
@@ -50,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
         m_inputMaster.Player.Jump.performed += ctx => Jump();
         m_inputMaster.Player.Movement.performed += ctx => GetDirection(ctx.ReadValue<Vector2>());
         m_inputMaster.Player.Movement.canceled += ctx => GetDirection(Vector2.zero);
+        m_inputMaster.Player.Sprint.performed += ctx => Run();
+        m_inputMaster.Player.Sprint.canceled += ctx => Walk();
     }
 
 
@@ -106,7 +111,13 @@ public class PlayerMovement : MonoBehaviour
 
 
         m_inputDir = m_horizontal * Vector3.right + m_vertical * Vector3.forward;
+
+
+
         m_speed = IsGrounded ? Speed : Speed * 0.75f;
+        m_speed = m_isRunning ? m_speed * RunSpeedMultiplier : m_speed;
+        
+
         m_cc.Move(m_inputDir.normalized * m_speed * Time.deltaTime);
 
 
@@ -121,17 +132,18 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
         if (!IsGrounded)
         {
             //Gravity
             m_velocity.y += m_gravityPullValue * Time.deltaTime;
             m_cc.Move(m_velocity * Time.deltaTime);
+            m_animator.SetBool("falling",true);
         }
+        else m_animator.SetBool("falling",false);
 
 
 
-
+        AnimationUpdate();
 
     }
 
@@ -154,8 +166,16 @@ public class PlayerMovement : MonoBehaviour
     public void Jump()
     {
         if (IsGrounded)
+        {
             m_canJump = true;
+            m_animator.SetTrigger("jump");
+        }
+            
     }
+    
+    //Run
+    public void Run(){ m_isRunning = true; }
+    public void Walk(){ m_isRunning = false; }
 
     //Gizmos
     private void OnDrawGizmos()
@@ -164,7 +184,26 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(m_groundChecker.position, m_groundCheckSphereRadius);
     }
 
-
+    private void AnimationUpdate()
+    {
+        if(m_inputDir != Vector3.zero && IsGrounded)
+        {
+            m_animator.SetBool("walking",true);
+        }
+        else if(m_inputDir == Vector3.zero || !IsGrounded)
+        {
+            m_animator.SetBool("walking",false);
+        }
+        
+        if(m_inputDir != Vector3.zero && m_isRunning && IsGrounded)
+        {
+            m_animator.SetBool("running",true);
+        }
+        else if(!m_isRunning || !IsGrounded)
+        {
+            m_animator.SetBool("running",false);
+        }
+    }
 
 
 }
