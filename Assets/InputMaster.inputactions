@@ -169,7 +169,7 @@
                 {
                     "name": "",
                     "id": "3ae0254b-ae77-4b6c-9f63-b85507a5ab30",
-                    "path": "<XInputController>/leftTrigger",
+                    "path": "<XInputController>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -185,6 +185,76 @@
                     "processors": "",
                     "groups": "",
                     "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Camera",
+            "id": "7aef7fb3-c825-442c-88e4-d9dc5b3b6543",
+            "actions": [
+                {
+                    "name": "PreviousCamera",
+                    "type": "Button",
+                    "id": "c4b47a81-ccfc-4839-b716-8718376ee42f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NextCamera",
+                    "type": "Button",
+                    "id": "c366d4cf-0458-4bcd-9a37-005c5c5734be",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c35446e1-d6b4-4eb3-9bda-8117f89d81f5",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c56b9f78-5a78-432f-92c8-0fc622c9583b",
+                    "path": "<XInputController>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4bfeb59e-1694-4696-899b-cba9ff5f0063",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PreviousCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ccdcd9c4-7902-4ebb-a0f9-3a02341ec9f1",
+                    "path": "<XInputController>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PreviousCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

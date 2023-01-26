@@ -55,22 +55,30 @@ public class PlayerMovement : MonoBehaviour
         m_inputMaster.Player.Movement.canceled += ctx => GetDirection(Vector2.zero);
         m_inputMaster.Player.Sprint.performed += ctx => Run();
         m_inputMaster.Player.Sprint.canceled += ctx => Walk();
+        m_inputMaster.Camera.NextCamera.canceled += ctx => Managers.Instance.CameraHandler.PrevCam();
+        m_inputMaster.Camera.PreviousCamera.canceled += ctx => Managers.Instance.CameraHandler.NextCam();
+        
+       
     }
+    
 
 
     private void OnEnable()
     {
         m_inputMaster.Player.Enable();
+        m_inputMaster.Camera.Enable();
     }
 
     private void OnDisable()
     {
         m_inputMaster.Player.Disable();
+        m_inputMaster.Camera.Disable();
     }
 
     private void Start()
     {
         Initializer();
+        ChangeGameDirection();
     }
 
     private void Update()
@@ -98,6 +106,48 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public enum Direction
+    {
+        front,
+        left,
+        back,
+        right,
+    }
+
+    public Direction GameDirection;
+    Vector3 m_xOrientation;
+    Vector3 m_zOrientation;
+
+
+    //Changes the game control direction
+    [Button]
+    public void ChangeGameDirection()
+    {
+        switch (GameDirection)
+        {
+            case Direction.front:
+                m_xOrientation = Vector3.right;
+                m_zOrientation = Vector3.forward;
+                break;
+
+            case Direction.left:
+                m_xOrientation = -Vector3.forward;
+                m_zOrientation = Vector3.right;
+                break;
+
+            case Direction.back:
+                m_xOrientation = -Vector3.right;
+                m_zOrientation = -Vector3.forward;
+                break;
+
+            case Direction.right:
+                m_xOrientation = Vector3.forward;
+                m_zOrientation = -Vector3.right;
+                break;
+        }
+    }
+
+
     //Moves the player
     private void MovePlayer()
     {
@@ -110,13 +160,13 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        m_inputDir = m_horizontal * Vector3.right + m_vertical * Vector3.forward;
+        m_inputDir = m_horizontal * m_xOrientation + m_vertical * m_zOrientation;
 
 
 
         m_speed = IsGrounded ? Speed : Speed * 0.75f;
         m_speed = m_isRunning ? m_speed * RunSpeedMultiplier : m_speed;
-        
+
 
         m_cc.Move(m_inputDir.normalized * m_speed * Time.deltaTime);
 
@@ -133,13 +183,14 @@ public class PlayerMovement : MonoBehaviour
 
 
         if (!IsGrounded)
-        {
+        {   
             //Gravity
+            if(m_velocity.y > m_gravityPullValue)
             m_velocity.y += m_gravityPullValue * Time.deltaTime;
             m_cc.Move(m_velocity * Time.deltaTime);
-            m_animator.SetBool("falling",true);
+            m_animator.SetBool("falling", true);
         }
-        else m_animator.SetBool("falling",false);
+        else m_animator.SetBool("falling", false);
 
 
 
@@ -170,12 +221,12 @@ public class PlayerMovement : MonoBehaviour
             m_canJump = true;
             m_animator.SetTrigger("jump");
         }
-            
+
     }
-    
+
     //Run
-    public void Run(){ m_isRunning = true; }
-    public void Walk(){ m_isRunning = false; }
+    public void Run() { m_isRunning = true; }
+    public void Walk() { m_isRunning = false; }
 
     //Gizmos
     private void OnDrawGizmos()
@@ -186,22 +237,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void AnimationUpdate()
     {
-        if(m_inputDir != Vector3.zero && IsGrounded)
+        if (m_inputDir != Vector3.zero && IsGrounded)
         {
-            m_animator.SetBool("walking",true);
+            m_animator.SetBool("walking", true);
         }
-        else if(m_inputDir == Vector3.zero || !IsGrounded)
+        else if (m_inputDir == Vector3.zero || !IsGrounded)
         {
-            m_animator.SetBool("walking",false);
+            m_animator.SetBool("walking", false);
         }
-        
-        if(m_inputDir != Vector3.zero && m_isRunning && IsGrounded)
+
+        if (m_inputDir != Vector3.zero && m_isRunning && IsGrounded)
         {
-            m_animator.SetBool("running",true);
+            m_animator.SetBool("running", true);
         }
-        else if(!m_isRunning || !IsGrounded)
+        else if (!m_isRunning || !IsGrounded || m_inputDir == Vector3.zero)
         {
-            m_animator.SetBool("running",false);
+            m_animator.SetBool("running", false);
         }
     }
 

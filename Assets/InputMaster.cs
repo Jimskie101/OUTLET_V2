@@ -191,7 +191,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3ae0254b-ae77-4b6c-9f63-b85507a5ab30"",
-                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""path"": ""<XInputController>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -211,6 +211,76 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Camera"",
+            ""id"": ""7aef7fb3-c825-442c-88e4-d9dc5b3b6543"",
+            ""actions"": [
+                {
+                    ""name"": ""PreviousCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""c4b47a81-ccfc-4839-b716-8718376ee42f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""c366d4cf-0458-4bcd-9a37-005c5c5734be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c35446e1-d6b4-4eb3-9bda-8117f89d81f5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c56b9f78-5a78-432f-92c8-0fc622c9583b"",
+                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4bfeb59e-1694-4696-899b-cba9ff5f0063"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ccdcd9c4-7902-4ebb-a0f9-3a02341ec9f1"",
+                    ""path"": ""<XInputController>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -220,6 +290,10 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        // Camera
+        m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
+        m_Camera_PreviousCamera = m_Camera.FindAction("PreviousCamera", throwIfNotFound: true);
+        m_Camera_NextCamera = m_Camera.FindAction("NextCamera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -324,10 +398,56 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Camera
+    private readonly InputActionMap m_Camera;
+    private ICameraActions m_CameraActionsCallbackInterface;
+    private readonly InputAction m_Camera_PreviousCamera;
+    private readonly InputAction m_Camera_NextCamera;
+    public struct CameraActions
+    {
+        private @InputMaster m_Wrapper;
+        public CameraActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PreviousCamera => m_Wrapper.m_Camera_PreviousCamera;
+        public InputAction @NextCamera => m_Wrapper.m_Camera_NextCamera;
+        public InputActionMap Get() { return m_Wrapper.m_Camera; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CameraActions set) { return set.Get(); }
+        public void SetCallbacks(ICameraActions instance)
+        {
+            if (m_Wrapper.m_CameraActionsCallbackInterface != null)
+            {
+                @PreviousCamera.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnPreviousCamera;
+                @PreviousCamera.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnPreviousCamera;
+                @PreviousCamera.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnPreviousCamera;
+                @NextCamera.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnNextCamera;
+                @NextCamera.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnNextCamera;
+                @NextCamera.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnNextCamera;
+            }
+            m_Wrapper.m_CameraActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @PreviousCamera.started += instance.OnPreviousCamera;
+                @PreviousCamera.performed += instance.OnPreviousCamera;
+                @PreviousCamera.canceled += instance.OnPreviousCamera;
+                @NextCamera.started += instance.OnNextCamera;
+                @NextCamera.performed += instance.OnNextCamera;
+                @NextCamera.canceled += instance.OnNextCamera;
+            }
+        }
+    }
+    public CameraActions @Camera => new CameraActions(this);
     public interface IPlayerActions
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+    }
+    public interface ICameraActions
+    {
+        void OnPreviousCamera(InputAction.CallbackContext context);
+        void OnNextCamera(InputAction.CallbackContext context);
     }
 }

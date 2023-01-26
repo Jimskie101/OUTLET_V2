@@ -7,6 +7,7 @@ public class Managers : MonoBehaviour
     public static Managers Instance { get; private set; }
     public UIManager UIManager;
     public SceneHandler SceneHandler;
+    public CameraHandler CameraHandler;
 
     private void Awake() 
 { 
