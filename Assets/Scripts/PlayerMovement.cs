@@ -147,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
+    
     //Moves the player
     private void MovePlayer()
     {
@@ -182,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (!IsGrounded)
+        if (!IsGrounded || m_cc.velocity.y < 0)
         {   
             //Gravity
             if(m_velocity.y > m_gravityPullValue)
@@ -191,8 +191,7 @@ public class PlayerMovement : MonoBehaviour
             m_animator.SetBool("falling", true);
         }
         else m_animator.SetBool("falling", false);
-
-
+        m_cc.Move(m_velocity * Time.deltaTime);
 
         AnimationUpdate();
 
@@ -211,6 +210,7 @@ public class PlayerMovement : MonoBehaviour
     private void GroundCheck()
     {
         IsGrounded = Physics.CheckSphere(m_groundChecker.position, m_groundCheckSphereRadius, m_groundLayer);
+        m_animator.SetBool("grounded", IsGrounded);
     }
 
     //Jump
@@ -254,7 +254,7 @@ public class PlayerMovement : MonoBehaviour
         {
             m_animator.SetBool("running", false);
         }
-    }
+    }   
 
 
 }
