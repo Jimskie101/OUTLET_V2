@@ -11,6 +11,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] PlayerMovement m_playerMoveScript;
     //Game Status
 
+
+    private void Start()
+    {
+        GetResolutionData();
+    }
+
+    public void UpdateCollectibleCount(int amount)
+    {
+
+    }
+
+
+
+
     //Main Menu
 
     public void ExitGame()
@@ -62,13 +76,9 @@ public class UIManager : MonoBehaviour
     Resolution[] m_resolutions;
     [SerializeField] AudioMixer m_audioMixer;
 
-    public void SetResolution(int i_resolutionIndex)
-    {
-        Resolution resolution = m_resolutions[i_resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
 
-    private void Start()
+
+    private void GetResolutionData()
     {
         m_resolutions = Screen.resolutions;
         m_resolutionDropdown.ClearOptions();
@@ -91,8 +101,15 @@ public class UIManager : MonoBehaviour
         m_resolutionDropdown.AddOptions(resolutionList);
         m_resolutionDropdown.value = currentResolutionIndex;
         m_resolutionDropdown.RefreshShownValue();
+
+    }
+    public void SetResolution(int i_resolutionIndex)
+    {
+        Resolution resolution = m_resolutions[i_resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
+    
 
     public void SetVolume(float f_volume)
     {
@@ -108,7 +125,6 @@ public class UIManager : MonoBehaviour
     {
         Screen.fullScreen = b_isFullscreen;
     }
-
 
     //Pause
     public void PauseGame()
@@ -128,4 +144,5 @@ public class UIManager : MonoBehaviour
             
         }
     }
+   
 }

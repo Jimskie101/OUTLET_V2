@@ -259,6 +259,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Wires",
+            "id": "246b11d0-52f5-4438-9b3c-6d26c1a17dc0",
+            "actions": [
+                {
+                    "name": "Connect_Neutral",
+                    "type": "Button",
+                    "id": "cb87a0a0-af8d-4fa9-ada0-be4f993bc5e9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Connect_Hot",
+                    "type": "Button",
+                    "id": "95bab6b8-8d33-4c5d-9ffd-397fc229ea96",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "19747516-76fb-41f9-b94d-f679e3a1c998",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Connect_Hot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89268e44-251c-4e9a-9022-42be12237db6",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Connect_Neutral",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

@@ -8,6 +8,8 @@ public class Managers : MonoBehaviour
     public UIManager UIManager;
     public SceneHandler SceneHandler;
     public CameraHandler CameraHandler;
+    public CollectibleManager CollectibleManager;
+    public InputHandler InputHandler;
 
     private void Awake() 
 { 

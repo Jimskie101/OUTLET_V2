@@ -281,6 +281,54 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Wires"",
+            ""id"": ""246b11d0-52f5-4438-9b3c-6d26c1a17dc0"",
+            ""actions"": [
+                {
+                    ""name"": ""Connect_Neutral"",
+                    ""type"": ""Button"",
+                    ""id"": ""cb87a0a0-af8d-4fa9-ada0-be4f993bc5e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Connect_Hot"",
+                    ""type"": ""Button"",
+                    ""id"": ""95bab6b8-8d33-4c5d-9ffd-397fc229ea96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""19747516-76fb-41f9-b94d-f679e3a1c998"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Connect_Hot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89268e44-251c-4e9a-9022-42be12237db6"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Connect_Neutral"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -294,6 +342,10 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_PreviousCamera = m_Camera.FindAction("PreviousCamera", throwIfNotFound: true);
         m_Camera_NextCamera = m_Camera.FindAction("NextCamera", throwIfNotFound: true);
+        // Wires
+        m_Wires = asset.FindActionMap("Wires", throwIfNotFound: true);
+        m_Wires_Connect_Neutral = m_Wires.FindAction("Connect_Neutral", throwIfNotFound: true);
+        m_Wires_Connect_Hot = m_Wires.FindAction("Connect_Hot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -439,6 +491,47 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         }
     }
     public CameraActions @Camera => new CameraActions(this);
+
+    // Wires
+    private readonly InputActionMap m_Wires;
+    private IWiresActions m_WiresActionsCallbackInterface;
+    private readonly InputAction m_Wires_Connect_Neutral;
+    private readonly InputAction m_Wires_Connect_Hot;
+    public struct WiresActions
+    {
+        private @InputMaster m_Wrapper;
+        public WiresActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Connect_Neutral => m_Wrapper.m_Wires_Connect_Neutral;
+        public InputAction @Connect_Hot => m_Wrapper.m_Wires_Connect_Hot;
+        public InputActionMap Get() { return m_Wrapper.m_Wires; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(WiresActions set) { return set.Get(); }
+        public void SetCallbacks(IWiresActions instance)
+        {
+            if (m_Wrapper.m_WiresActionsCallbackInterface != null)
+            {
+                @Connect_Neutral.started -= m_Wrapper.m_WiresActionsCallbackInterface.OnConnect_Neutral;
+                @Connect_Neutral.performed -= m_Wrapper.m_WiresActionsCallbackInterface.OnConnect_Neutral;
+                @Connect_Neutral.canceled -= m_Wrapper.m_WiresActionsCallbackInterface.OnConnect_Neutral;
+                @Connect_Hot.started -= m_Wrapper.m_WiresActionsCallbackInterface.OnConnect_Hot;
+                @Connect_Hot.performed -= m_Wrapper.m_WiresActionsCallbackInterface.OnConnect_Hot;
+                @Connect_Hot.canceled -= m_Wrapper.m_WiresActionsCallbackInterface.OnConnect_Hot;
+            }
+            m_Wrapper.m_WiresActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Connect_Neutral.started += instance.OnConnect_Neutral;
+                @Connect_Neutral.performed += instance.OnConnect_Neutral;
+                @Connect_Neutral.canceled += instance.OnConnect_Neutral;
+                @Connect_Hot.started += instance.OnConnect_Hot;
+                @Connect_Hot.performed += instance.OnConnect_Hot;
+                @Connect_Hot.canceled += instance.OnConnect_Hot;
+            }
+        }
+    }
+    public WiresActions @Wires => new WiresActions(this);
     public interface IPlayerActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -449,5 +542,10 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     {
         void OnPreviousCamera(InputAction.CallbackContext context);
         void OnNextCamera(InputAction.CallbackContext context);
+    }
+    public interface IWiresActions
+    {
+        void OnConnect_Neutral(InputAction.CallbackContext context);
+        void OnConnect_Hot(InputAction.CallbackContext context);
     }
 }

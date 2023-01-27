@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Components
     CharacterController m_cc;
+    InputHandler m_inputHandler;
 
     //GameObjects and Transforms
     [SerializeField] Animator m_animator;
@@ -19,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     //WASD / Joystick Analog Right
     float m_vertical;
     float m_horizontal;
-    Vector3 m_inputDir;
+    [SerializeField]Vector3 m_inputDir;
     float m_speed;
     Vector3 m_rotateDir = Vector3.zero;
     [SerializeField] float m_rotationTime;
@@ -47,38 +48,31 @@ public class PlayerMovement : MonoBehaviour
     bool m_canJump = false;
     bool m_isRunning = false;
 
+
     private void Awake()
     {
-        m_inputMaster = new InputMaster();
-        m_inputMaster.Player.Jump.performed += ctx => Jump();
-        m_inputMaster.Player.Movement.performed += ctx => GetDirection(ctx.ReadValue<Vector2>());
-        m_inputMaster.Player.Movement.canceled += ctx => GetDirection(Vector2.zero);
-        m_inputMaster.Player.Sprint.performed += ctx => Run();
-        m_inputMaster.Player.Sprint.canceled += ctx => Walk();
-        m_inputMaster.Camera.NextCamera.canceled += ctx => Managers.Instance.CameraHandler.PrevCam();
-        m_inputMaster.Camera.PreviousCamera.canceled += ctx => Managers.Instance.CameraHandler.NextCam();
-        
-       
+        m_inputHandler = Managers.Instance.InputHandler;
     }
-    
+
+
 
 
     private void OnEnable()
     {
-        m_inputMaster.Player.Enable();
-        m_inputMaster.Camera.Enable();
+        m_inputHandler.PlayerMovementEnabled();
     }
 
     private void OnDisable()
     {
-        m_inputMaster.Player.Disable();
-        m_inputMaster.Camera.Disable();
+        m_inputHandler.PlayerMovementDisabled();
     }
 
     private void Start()
     {
         Initializer();
+
         ChangeGameDirection();
+
     }
 
     private void Update()
@@ -99,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     //Set Move Direction Values
-    private void GetDirection(Vector2 direction)
+    public void GetDirection(Vector2 direction)
     {
         m_vertical = direction.y;
         m_horizontal = direction.x;
@@ -147,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    
+
     //Moves the player
     private void MovePlayer()
     {
@@ -183,10 +177,10 @@ public class PlayerMovement : MonoBehaviour
 
 
         if (!IsGrounded || m_cc.velocity.y < 0)
-        {   
+        {
             //Gravity
-            if(m_velocity.y > m_gravityPullValue)
-            m_velocity.y += m_gravityPullValue * Time.deltaTime;
+            if (m_velocity.y > m_gravityPullValue)
+                m_velocity.y += m_gravityPullValue * Time.deltaTime;
             m_cc.Move(m_velocity * Time.deltaTime);
             m_animator.SetBool("falling", true);
         }
@@ -197,14 +191,25 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void RotatePlayer()
+    //Rotate the player
+    [SerializeField]Vector3 m_targetPos;
+    public bool WiresConnected;
+    public Transform TargetSource;
+    public void RotatePlayer()
     {
-        if (m_inputDir != Vector3.zero)
+        if (m_inputDir != Vector3.zero && !WiresConnected)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(m_inputDir), m_rotationTime);
-            m_rotateDir.y = transform.localEulerAngles.y;
-            transform.localEulerAngles = m_rotateDir;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(m_inputDir), m_rotationTime);
         }
+        else if (WiresConnected)
+        {
+            m_targetPos = TargetSource.position - transform.position ;
+            m_targetPos.y = 0;
+            //Debug.DrawRay(transform.position, m_targetPos, Color.cyan);
+            
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(m_targetPos), m_rotationTime);
+        }
+
     }
     //Ground Checker
     private void GroundCheck()
@@ -254,7 +259,7 @@ public class PlayerMovement : MonoBehaviour
         {
             m_animator.SetBool("running", false);
         }
-    }   
+    }
 
 
 }

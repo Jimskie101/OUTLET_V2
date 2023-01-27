@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Socket_Hot
+  - Socket_Neutral
+  - Hook
   layers:
   - Default
   - TransparentFX
@@ -13,8 +16,8 @@ TagManager:
   - UI
   - 
   - Player
-  - 
-  - 
+  - SocketPorts
+  - Hooks
   - 
   - 
   - 
