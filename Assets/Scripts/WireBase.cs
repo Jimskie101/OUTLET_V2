@@ -65,12 +65,13 @@ public class WireBase : MonoBehaviour
         if (TargetObject != null)
         {
             m_targetPoint = TargetObject.position;
-            Source = TargetObject.parent.transform;
+            
             m_handsUp = true;
             Connect = true;
             //PlayerMovementUpdate
             if (m_isEnergySource)
             {
+                Source = TargetObject.parent.transform;
                 m_playerMovement.ConnectedToSource = true;
                 m_playerMovement.TargetSource = Source;
             }
@@ -86,7 +87,12 @@ public class WireBase : MonoBehaviour
     public void StopGrapple()
     {
         StopAllCoroutines();
-        if (joint != null) Destroy(joint);
+        if (joint != null)
+        {
+            Destroy(joint);
+            ResetFakeRigidBody();
+
+        } 
         Connect = false;
         //PlayerMovementUpdate
         m_playerMovement.ConnectedToSource = false;
@@ -160,12 +166,25 @@ public class WireBase : MonoBehaviour
 
     }
 
+    GameObject m_tempObj;
+    CharacterController m_tempCc;
     IEnumerator HookSwing()
     {
+        m_tempObj = m_playerMovement.FakeRigidBody;
+        m_tempObj.SetActive(true);
+        m_tempObj.transform.position = m_playerMovement.transform.position;
+        m_tempObj.transform.rotation = m_playerMovement.transform.rotation;
+        m_tempCc = m_playerMovement.GetComponent<CharacterController>();
+        m_tempCc.enabled = false;
+        m_playerMovement.transform.SetParent(m_tempObj.transform);
+        
+
+
+
         if (joint != null) Destroy(joint);
         yield return connectTime;
         if (joint != null) Destroy(joint);
-        joint = m_playerMovement.gameObject.AddComponent<SpringJoint>();
+        joint = m_tempObj.AddComponent<SpringJoint>();
         joint.autoConfigureConnectedAnchor = false;
         joint.connectedAnchor = TargetObject.position;
 
@@ -189,6 +208,17 @@ public class WireBase : MonoBehaviour
             if (joint.maxDistance > joint.minDistance)
                 joint.maxDistance -= Time.deltaTime * m_pullPower;
         }
+
+    }
+    private void ResetFakeRigidBody()
+    {
+        m_tempObj.transform.DetachChildren();
+        m_tempCc.enabled = true;
+        m_tempObj.SetActive(false);
+        m_tempCc = null;
+        m_tempObj = null;
+
+        m_playerMovement.transform.rotation = Quaternion.Euler(0, m_playerMovement.transform.rotation.y, 0);
 
     }
 

@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     //GameObjects and Transforms
     [SerializeField] Animator m_animator;
     [SerializeField] Transform m_groundChecker;
+    public GameObject FakeRigidBody;
 
     //WASD / Joystick Analog Right
     float m_vertical;
@@ -77,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if(m_cc.enabled)
         MovePlayer();
         RotatePlayer();
 

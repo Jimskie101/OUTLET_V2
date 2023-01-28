@@ -42,6 +42,7 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Camera.Enable();
         m_inputMaster.Wires.Enable();
         m_inputMaster.UI.Enable();
+        m_inputMaster.OnHook.Enable();
     }
     private void OnDisable()
     {
@@ -49,6 +50,7 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Camera.Disable();
         m_inputMaster.Wires.Disable();
         m_inputMaster.UI.Disable();
+        m_inputMaster.OnHook.Disable();
     }
 
 

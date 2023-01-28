@@ -421,6 +421,164 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""OnHook"",
+            ""id"": ""ec31b412-4220-4c8e-96d5-abe9b53a0f59"",
+            ""actions"": [
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""01bab5a5-74e6-4ae0-bd9f-e5f3467e67b5"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""89a711ed-aea0-4c6f-98fb-a96debb73226"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a3d62277-ac69-4167-8b1a-86974fc6213f"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7406aece-7dc4-45b4-808e-3631bbe16a29"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""XboxLeftStick"",
+                    ""id"": ""4ff63f92-a0cd-4f79-9983-934acc274bcb"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""58386e9e-e1cd-44fe-b6c1-8fb96c6eb98c"",
+                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""c9b4f791-a6e2-433d-9db4-d95dbf5b523b"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""dd83958c-865f-416d-9e8c-42290b611152"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c097b274-9b45-4a7b-bd82-bb08dd8748c8"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""dc07f9ae-ce31-46f5-9099-b060bc33009b"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""6eedf2f5-57ae-4c10-b89f-b740a3a55c1f"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""51d82042-475b-42a7-8611-d8f470785323"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""4fd1bff4-f775-4d8c-a3ea-4f7a83bb0ac5"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ef6c725d-8e3c-441a-aa1b-6faaa2546761"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -442,6 +600,10 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Continue = m_UI.FindAction("Continue", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
+        // OnHook
+        m_OnHook = asset.FindActionMap("OnHook", throwIfNotFound: true);
+        m_OnHook_Movement = m_OnHook.FindAction("Movement", throwIfNotFound: true);
+        m_OnHook_Jump = m_OnHook.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -669,6 +831,47 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // OnHook
+    private readonly InputActionMap m_OnHook;
+    private IOnHookActions m_OnHookActionsCallbackInterface;
+    private readonly InputAction m_OnHook_Movement;
+    private readonly InputAction m_OnHook_Jump;
+    public struct OnHookActions
+    {
+        private @InputMaster m_Wrapper;
+        public OnHookActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_OnHook_Movement;
+        public InputAction @Jump => m_Wrapper.m_OnHook_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_OnHook; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OnHookActions set) { return set.Get(); }
+        public void SetCallbacks(IOnHookActions instance)
+        {
+            if (m_Wrapper.m_OnHookActionsCallbackInterface != null)
+            {
+                @Movement.started -= m_Wrapper.m_OnHookActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_OnHookActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_OnHookActionsCallbackInterface.OnMovement;
+                @Jump.started -= m_Wrapper.m_OnHookActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_OnHookActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_OnHookActionsCallbackInterface.OnJump;
+            }
+            m_Wrapper.m_OnHookActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
+            }
+        }
+    }
+    public OnHookActions @OnHook => new OnHookActions(this);
     public interface IPlayerActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -689,5 +892,10 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     {
         void OnContinue(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IOnHookActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
