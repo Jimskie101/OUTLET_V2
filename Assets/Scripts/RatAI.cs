@@ -19,9 +19,70 @@ public class RatAI : MonoBehaviour
     [SerializeField] bool m_onChase = false;
     [SerializeField] bool m_alreadyAttacked = false;
     WaitForSeconds m_cdTime;
-    private void Start()
+    float m_targetDistance;
+
+    Vector3 m_lookPos;
+    Quaternion m_rotation;
+    [SerializeField] float angleToShoot = 0.01f;
+
+    private void OnEnable()
     {
         m_cdTime = new WaitForSeconds(m_attackCD);
+    }
+
+    
+
+    private bool FaceTarget(Vector3 pos)
+    {
+        m_lookPos = pos - transform.position;
+        m_lookPos.y = 0;
+        m_rotation = Quaternion.LookRotation(m_lookPos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, m_rotation, Time.deltaTime * 5);
+        if (Quaternion.Angle(transform.rotation, m_rotation) <= angleToShoot)
+            return true;
+        else return false;
+    }
+
+    private void Update()
+    {   
+        m_targetDistance = Vector3.Distance(transform.position, m_player.position);
+
+
+        //if in chase range, chase player
+        if (m_targetDistance <= m_chaseRange && m_targetDistance > m_attackRange)
+        {
+            m_agent.isStopped = false;
+            m_onChase = true;
+            m_target = m_player.position;
+            m_agent.SetDestination(m_player.position);
+
+        }
+        else if (m_targetDistance <= m_attackRange)
+        {
+            if(m_agent.enabled)m_agent.isStopped = true;
+            FaceTarget(m_player.position);
+           
+        }
+
+        else
+        {
+            m_agent.isStopped = false;
+            if (!m_agent.pathPending)
+            {
+                if (m_agent.remainingDistance <= m_agent.stoppingDistance)
+                {
+                    if (!m_agent.hasPath || m_agent.velocity.sqrMagnitude == 0f)
+                    {
+
+                        m_onChase = false;
+                        RandomMove();
+
+
+                    }
+                }
+            }
+
+        }
     }
 
     IEnumerator Cooldown()
@@ -30,54 +91,34 @@ public class RatAI : MonoBehaviour
         m_alreadyAttacked = false;
     }
 
-
-
-    private void Update()
-    {
-        //if in attack range, attack player
-        if (Vector3.Distance(transform.position, m_player.position) < m_attackRange)
-        {
-            
-            transform.LookAt(m_player);
-            if (!m_alreadyAttacked)
-            {
-                Debug.Log("attacked");
-                m_alreadyAttacked = true;
-                
-                m_agent.velocity += transform.forward * m_attackForce;
-                
-                StartCoroutine(Cooldown());
-
-            }
-        }
-
-
-
-        //if in chase range, chase player
-        else if (Vector3.Distance(transform.position, m_player.position) < m_chaseRange)
-        {
-            m_agent.isStopped = false;
-            m_onChase = true;
-            m_target = m_player.position;
-            m_agent.SetDestination(m_player.position);
-
-        }
-
-        else if (!m_agent.pathPending)
-        {
-            if (m_agent.remainingDistance <= m_agent.stoppingDistance)
-            {
-                if (!m_agent.hasPath || m_agent.velocity.sqrMagnitude == 0f)
-                {
-
-                    m_onChase = false;
-                    RandomMove();
-
-
-                }
-            }
-        }
+    [Button]
+    private void AttackPlayer()
+    {   
+        m_agent.enabled = false;
+        m_rb.isKinematic = false;
+        m_rb.AddForce(transform.forward * m_attackForce, ForceMode.Impulse);
+        
+        StartCoroutine(DashAttack());
     }
+
+    IEnumerator DashAttack()
+    {
+        yield return m_cdTime;
+        m_rb.AddForce(-transform.forward * m_attackForce, ForceMode.Impulse);
+        
+        StartCoroutine(WindUp());
+    }
+
+    IEnumerator WindUp()
+    {
+        yield return m_cdTime;
+        m_rb.isKinematic = true;
+        m_agent.enabled = true;
+        
+        
+    }
+
+
     [Button]
     private void RandomMove()
     {
