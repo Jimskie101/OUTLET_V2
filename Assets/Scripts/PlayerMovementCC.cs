@@ -4,15 +4,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using EasyButtons;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementCC : MonoBehaviour
 {
     //New Input System
     InputMaster m_inputMaster;
 
-    //Reference Fields
-    Rigidbody m_rb;
+    //Components
+    CharacterController m_cc;
     InputHandler m_inputHandler;
-    [SerializeField] CapsuleCollider m_CapsuleCollider;
 
     //GameObjects and Transforms
     [SerializeField] Animator m_animator;
@@ -22,26 +21,13 @@ public class PlayerMovement : MonoBehaviour
     float m_vertical;
     float m_horizontal;
     Vector3 m_inputDir;
-
     float m_speed;
     Vector3 m_rotateDir = Vector3.zero;
     [SerializeField] float m_rotationTime;
 
-    //Private Variables
-    private float m_Vertical;
-    private float m_Horizontal;
-    private Vector3 m_MoveDirection;
-    private float m_multiplier = 0f;
-
-
-    //Serialized Fields
-    [SerializeField] float m_AirMultiplier = 0.4f;
-    [SerializeField] float m_GroundMultiplier = 0.4f;
-    [SerializeField] float m_GroundDrag = 6f;
-    [SerializeField] float m_AirDrag = 0f;
-
     //Jump
     [SerializeField] float m_jumpHeight;
+
 
     //Ground
     [SerializeField] float m_groundCheckSphereRadius;
@@ -56,42 +42,45 @@ public class PlayerMovement : MonoBehaviour
     public float Speed;
     public float RunSpeedMultiplier;
     public bool IsGrounded = false;
+
+
     //Booleans
     bool m_canJump = false;
     bool m_isRunning = false;
-    bool m_brake = false;
-    float m_friction= 0; // 1 means no friction, 0 stops instantly
 
-    private void Awake()
-    {
-        m_inputHandler = Managers.Instance.InputHandler;
-    }
-    private void OnEnable()
-    {
-        m_inputHandler.PlayerMovementEnabled();
-    }
 
-    private void OnDisable()
-    {
-        m_inputHandler.PlayerMovementDisabled();
-    }
+    
 
-    private void Start()
-    {
-        Initializer();
 
-        ChangeGameDirection();
+
+
+    
+
+    private void Update()
+    {
+        MovePlayer();
+        RotatePlayer();
 
     }
+
+
+
+    [Button]
     public void Initializer()
     {
-        m_rb = GetComponent<Rigidbody>();
+        m_cc = GetComponent<CharacterController>();
         m_groundChecker = GameObject.Find("GroundChecker").transform;
     }
 
-    public Direction GameDirection;
-    Vector3 m_xOrientation;
-    Vector3 m_zOrientation;
+
+    //Set Move Direction Values
+    public void GetDirection(Vector2 direction)
+    {
+        m_vertical = direction.y;
+        m_horizontal = direction.x;
+
+    }
+
     public enum Direction
     {
         front,
@@ -99,7 +88,14 @@ public class PlayerMovement : MonoBehaviour
         back,
         right,
     }
+
+    public Direction GameDirection;
+    Vector3 m_xOrientation;
+    Vector3 m_zOrientation;
+
+
     //Changes the game control direction
+    [Button]
     public void ChangeGameDirection()
     {
         switch (GameDirection)
@@ -125,98 +121,56 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
     }
-    //Set Move Direction Values
-    public void GetDirection(Vector2 direction)
-    {
-        m_vertical = direction.y;
-        m_horizontal = direction.x;
-    }
 
-    [SerializeField] Vector3 rbVel;
 
-    private void Update()
+    //Moves the player
+    private void MovePlayer()
     {
-        rbVel = m_rb.velocity;
         GroundCheck();
-        ControlDrag();
-        MoveInput();
-
-        RotatePlayer();
-    }
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
-
-    private void KillMomentum()
-    {
-        if (m_brake)
+        if (IsGrounded && m_velocity.y < 0)
         {
-            m_velocity = m_rb.velocity;
-            m_velocity.x *= m_friction; // modify only x and z components
-            m_velocity.z *= m_friction;
-            m_rb.velocity = m_velocity;
-            // angularVelocity should be reduced as a whole:
-            m_rb.angularVelocity *= m_friction;
+            m_velocity.y = -2f;
         }
-    }
-    /////////// Custom Methods //////////
 
-    //User Input like WASD, Joystick
-    private void MoveInput()
-    {
+
+
 
         m_inputDir = m_horizontal * m_xOrientation + m_vertical * m_zOrientation;
+
 
 
         m_speed = IsGrounded ? Speed : Speed * 0.75f;
         m_speed = m_isRunning ? m_speed * RunSpeedMultiplier : m_speed;
 
-        // if (m_canJump && IsGrounded)
-        // {
-        //     m_canJump = false;
-        //     Debug.Log("Jumped");
-        //     m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravityPullValue);
 
-        //     IsGrounded = false;
-        // }
-        if(m_inputDir == Vector3.zero) m_brake = true;
-        else m_brake = false;
-        if (!IsGrounded)
+        m_cc.Move(m_inputDir.normalized * m_speed * Time.deltaTime);
+
+
+        if (m_canJump && IsGrounded)
         {
+            m_canJump = false;
+            Debug.Log("Jumped");
+            m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravityPullValue);
+
+            IsGrounded = false;
+        }
+
+
+
+        if (!IsGrounded || m_cc.velocity.y < 0)
+        {
+            //Gravity
+            if (m_velocity.y > m_gravityPullValue)
+                m_velocity.y += m_gravityPullValue * Time.deltaTime;
+            m_cc.Move(m_velocity * Time.deltaTime);
             m_animator.SetBool("falling", true);
         }
         else m_animator.SetBool("falling", false);
+        m_cc.Move(m_velocity * Time.deltaTime);
+
         AnimationUpdate();
 
     }
-
-
-
-    //Moving the player towards direction
-    private void MovePlayer()
-    {
-        m_multiplier = IsGrounded ? m_GroundMultiplier : m_AirMultiplier;
-        m_rb.AddForce(m_inputDir * m_speed * m_multiplier * Time.deltaTime,ForceMode.Acceleration);
-        // m_rb.velocity = m_inputDir * m_speed * (m_multiplier * 0.1f);
-    }
-
-
-    //Checks if the player is airborne or on the ground
-    private void GroundCheck()
-    {
-        IsGrounded = Physics.CheckSphere(new Vector3(transform.position.x,
-            transform.position.y - (m_CapsuleCollider.height / 2), transform.position.z),
-            m_groundCheckSphereRadius, m_groundLayer);
-    }
-
-    //Controls the air resistance when airborne or on the ground
-    private void ControlDrag()
-    {
-        m_rb.drag = IsGrounded ? m_GroundDrag : m_AirDrag;
-    }
-
 
     //Rotate the player
     Vector3 m_targetPos;
@@ -230,26 +184,42 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (ConnectedToSource)
         {
-            m_targetPos = TargetSource.position - transform.position;
+            m_targetPos = TargetSource.position - transform.position ;
             m_targetPos.y = 0;
             //Debug.DrawRay(transform.position, m_targetPos, Color.cyan);
-
+            
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(m_targetPos), m_rotationTime);
         }
 
     }
+    //Ground Checker
+    private void GroundCheck()
+    {
+        IsGrounded = Physics.CheckSphere(m_groundChecker.position, m_groundCheckSphereRadius, m_groundLayer);
+        m_animator.SetBool("grounded", IsGrounded);
+    }
 
-    //Jump Mechanic
+    //Jump
     public void Jump()
     {
         if (IsGrounded)
-            m_rb.AddForce(transform.up * m_jumpHeight, ForceMode.Impulse);
+        {
+            m_canJump = true;
+            m_animator.SetTrigger("jump");
+        }
+
     }
 
     //Run
     public void Run() { m_isRunning = true; }
     public void Walk() { m_isRunning = false; }
 
+    //Gizmos
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(m_groundChecker.position, m_groundCheckSphereRadius);
+    }
 
     private void AnimationUpdate()
     {
@@ -272,10 +242,5 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //Gizmos
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(m_groundChecker.position, m_groundCheckSphereRadius);
-    }
+
 }
