@@ -24,7 +24,7 @@ public class WireBase : MonoBehaviour
     bool m_handsUp = false;
     Vector3 m_handRotation;
     Quaternion m_lookAtTarget;
-
+    bool m_isEnergySource = false;
 
     private void OnEnable()
     {
@@ -69,8 +69,12 @@ public class WireBase : MonoBehaviour
             m_handsUp = true;
             Connect = true;
             //PlayerMovementUpdate
-            m_playerMovement.WiresConnected = true;
-            m_playerMovement.TargetSource = Source;
+            if (m_isEnergySource)
+            {
+                m_playerMovement.ConnectedToSource = true;
+                m_playerMovement.TargetSource = Source;
+            }
+
 
 
         }
@@ -85,8 +89,9 @@ public class WireBase : MonoBehaviour
         if (joint != null) Destroy(joint);
         Connect = false;
         //PlayerMovementUpdate
-        m_playerMovement.WiresConnected = false;
+        m_playerMovement.ConnectedToSource = false;
         m_playerMovement.TargetSource = null;
+        m_isEnergySource = false;
         //
         TargetObject = null;
         m_handsUp = false;
@@ -118,6 +123,7 @@ public class WireBase : MonoBehaviour
             {
                 TargetObject = hitCollider.transform;
                 m_handsUp = true;
+                m_isEnergySource = true;
             }
             if (hitCollider.gameObject.CompareTag("Hook"))
             {
@@ -129,11 +135,7 @@ public class WireBase : MonoBehaviour
 
 
             }
-            if (hitCollider.gameObject.CompareTag("Hook"))
-            {
-                TargetObject = hitCollider.transform;
-                m_handsUp = true;
-            }
+
 
         }
     }
@@ -163,7 +165,7 @@ public class WireBase : MonoBehaviour
         if (joint != null) Destroy(joint);
         yield return connectTime;
         if (joint != null) Destroy(joint);
-        joint = transform.parent.parent.gameObject.AddComponent<SpringJoint>();
+        joint = m_playerMovement.gameObject.AddComponent<SpringJoint>();
         joint.autoConfigureConnectedAnchor = false;
         joint.connectedAnchor = TargetObject.position;
 

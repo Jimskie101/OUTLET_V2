@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     //WASD / Joystick Analog Right
     float m_vertical;
     float m_horizontal;
-    [SerializeField]Vector3 m_inputDir;
+    Vector3 m_inputDir;
     float m_speed;
     Vector3 m_rotateDir = Vector3.zero;
     [SerializeField] float m_rotationTime;
@@ -192,16 +192,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Rotate the player
-    [SerializeField]Vector3 m_targetPos;
-    public bool WiresConnected;
+    Vector3 m_targetPos;
+    public bool ConnectedToSource;
     public Transform TargetSource;
     public void RotatePlayer()
     {
-        if (m_inputDir != Vector3.zero && !WiresConnected)
+        if (m_inputDir != Vector3.zero && !ConnectedToSource)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(m_inputDir), m_rotationTime);
         }
-        else if (WiresConnected)
+        else if (ConnectedToSource)
         {
             m_targetPos = TargetSource.position - transform.position ;
             m_targetPos.y = 0;

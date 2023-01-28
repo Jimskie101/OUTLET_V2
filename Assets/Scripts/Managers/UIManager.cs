@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using TMPro;
 
 
 public class UIManager : MonoBehaviour
@@ -22,20 +23,42 @@ public class UIManager : MonoBehaviour
 
     }
 
+    [Header("Info/Hint UI")]
+    [SerializeField] TMP_Text m_titleText;
+    [SerializeField] TMP_Text m_infoText;
+    public void ShowInfo(string title, string info)
+    {
+        Time.timeScale = 0f;
+        if (!m_titleText.transform.parent.gameObject.activeSelf)
+        {
+            Managers.Instance.InputHandler.PlayerMovementDisabled();
+            m_titleText.transform.parent.gameObject.SetActive(true);
+            m_titleText.text = title;
+            m_infoText.text = info;
+        }
+    }
+    public void HideInfo()
+    {
+        if (m_titleText.transform.parent.gameObject.activeSelf)
+        {
+            Managers.Instance.InputHandler.PlayerMovementEnabled();
+            m_titleText.transform.parent.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+        }
 
-
+    }
 
     //Main Menu
 
     public void ExitGame()
     {
-        #if UNITY_EDITOR
-         UnityEditor.EditorApplication.isPlaying = false;
-         #elif UNITY_WEBPLAYER
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_WEBPLAYER
          Application.OpenURL(webplayerQuitURL);
-         #else
+#else
          Application.Quit();
-         #endif
+#endif
     }
     public void StartGame()
     {
@@ -109,7 +132,7 @@ public class UIManager : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    
+
 
     public void SetVolume(float f_volume)
     {
@@ -129,20 +152,20 @@ public class UIManager : MonoBehaviour
     //Pause
     public void PauseGame()
     {
-        if(!m_pauseScreen.activeSelf)
+        if (!m_pauseScreen.activeSelf)
         {
             Time.timeScale = 0f;
             m_playerMoveScript.enabled = false;
             m_pauseScreen.SetActive(true);
 
         }
-        else if(m_pauseScreen.activeSelf)
+        else if (m_pauseScreen.activeSelf)
         {
             Time.timeScale = 1f;
             m_playerMoveScript.enabled = true;
             m_pauseScreen.SetActive(false);
-            
+
         }
     }
-   
+
 }

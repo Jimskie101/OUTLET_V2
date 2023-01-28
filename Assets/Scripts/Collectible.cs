@@ -12,7 +12,8 @@ public class Collectible : MonoBehaviour
     /// </summary>
     Vector3 m_rotation = new Vector3(0, 360f, 0);
     private void Start()
-    {
+    {   
+        disableDelay = new WaitForSeconds(0.5f);
         m_collectibleManager = Managers.Instance.CollectibleManager;
         transform.DOLocalRotate(m_rotation, 4f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
     }
@@ -24,9 +25,17 @@ public class Collectible : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            transform.GetComponentInChildren<ParticleSystem>().Play();
             m_collectibleManager.CollectedSomething();
-            this.gameObject.SetActive(false);
+            StartCoroutine(Disabling());
         }
 
+    }
+    WaitForSeconds disableDelay;
+    
+    IEnumerator Disabling()
+    {
+        yield return disableDelay;
+        this.gameObject.SetActive(false);
     }
 }

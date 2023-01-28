@@ -30,6 +30,8 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Wires.Connect_Neutral.performed += ctx => m_neutralWire.StartGrapple();
         m_inputMaster.Wires.Connect_Hot.canceled += ctx => m_hotWire.StopGrapple();
         m_inputMaster.Wires.Connect_Neutral.canceled += ctx => m_neutralWire.StopGrapple();
+        m_inputMaster.UI.Continue.performed += ctx => Managers.Instance.UIManager.HideInfo();
+        m_inputMaster.UI.Pause.performed += ctx => Managers.Instance.UIManager.PauseGame();
     }
 
 
@@ -39,12 +41,14 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Player.Enable();
         m_inputMaster.Camera.Enable();
         m_inputMaster.Wires.Enable();
+        m_inputMaster.UI.Enable();
     }
     private void OnDisable()
     {
         m_inputMaster.Player.Disable();
         m_inputMaster.Camera.Disable();
         m_inputMaster.Wires.Disable();
+        m_inputMaster.UI.Disable();
     }
 
 
