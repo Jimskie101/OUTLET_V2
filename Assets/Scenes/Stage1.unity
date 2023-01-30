@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.006827848, g: 0.2867696, b: 0.38235947, a: 1}
+  m_AmbientSkyColor: {r: 0.010457456, g: 0.040956702, b: 0.047169805, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1.48
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731725, g: 0.13414745, b: 0.12107873, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -268,7 +268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 48307946}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Stage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,8 +282,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48307945}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.350261, y: -0.48526376, z: 1.2409711}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -312,8 +312,8 @@ Transform:
   - {fileID: 1921033648}
   - {fileID: 9086060357844086804}
   - {fileID: 3600477348501220686}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 692354835}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &56876757
 GameObject:
@@ -744,7 +744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110662330}
   m_LocalRotation: {x: 0.07514002, y: -0.7031031, z: 0.07514002, w: 0.7031031}
-  m_LocalPosition: {x: 13.78, y: -5.7100124, z: 13.78}
+  m_LocalPosition: {x: 13.78, y: -6.983012, z: 13.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1108,7 +1108,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &166594488
 MonoBehaviour:
@@ -1781,9 +1781,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 265364280}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WashingMachineParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1818,6 +1818,75 @@ Transform:
   m_Father: {fileID: 48307946}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &302506320
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 620065994}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 091118ffb04fc374dbcd275adee2f48d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 091118ffb04fc374dbcd275adee2f48d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 091118ffb04fc374dbcd275adee2f48d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 091118ffb04fc374dbcd275adee2f48d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.88999987
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 091118ffb04fc374dbcd275adee2f48d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70657223
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 091118ffb04fc374dbcd275adee2f48d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.027517118
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 091118ffb04fc374dbcd275adee2f48d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70657015
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 091118ffb04fc374dbcd275adee2f48d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.027517037
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 091118ffb04fc374dbcd275adee2f48d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 091118ffb04fc374dbcd275adee2f48d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 091118ffb04fc374dbcd275adee2f48d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 4.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 091118ffb04fc374dbcd275adee2f48d,
+        type: 3}
+      propertyPath: m_Name
+      value: Rat
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 091118ffb04fc374dbcd275adee2f48d, type: 3}
 --- !u!1 &328005024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,9 +2159,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 341388695}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cars
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2150,7 +2219,7 @@ Transform:
   - {fileID: 1792330819}
   - {fileID: 1718888328}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &371968172
 MonoBehaviour:
@@ -2263,7 +2332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383980052}
   m_LocalRotation: {x: -0, y: 0.994338, z: -0.10626403, w: 0}
-  m_LocalPosition: {x: 0, y: -5.7100124, z: 27.56}
+  m_LocalPosition: {x: 0, y: -6.983012, z: 27.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3191,11 +3260,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 528930064}
-  - component: {fileID: 528930063}
-  - component: {fileID: 528930062}
   - component: {fileID: 528930061}
   m_Layer: 8
-  m_Name: hot
+  m_Name: SocketHot
   m_TagString: Socket_Hot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3212,58 +3279,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &528930062
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528930059}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &528930063
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528930059}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &528930064
 Transform:
   m_ObjectHideFlags: 0
@@ -3271,12 +3288,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528930059}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.29838, y: 0, z: 0}
-  m_LocalScale: {x: 0.3636, y: 0.3636, z: 0.3636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.24, y: 1.134, z: -0.023}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1548751518}
+  m_Father: {fileID: 609562811192578879}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &542902776
@@ -8525,7 +8542,6 @@ GameObject:
   - component: {fileID: 620065999}
   - component: {fileID: 620065998}
   - component: {fileID: 620065997}
-  - component: {fileID: 620066000}
   - component: {fileID: 620065996}
   - component: {fileID: 620065995}
   m_Layer: 0
@@ -8534,7 +8550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &620065994
 Transform:
   m_ObjectHideFlags: 0
@@ -8543,11 +8559,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620065993}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.18, y: 3, z: 4.76}
+  m_LocalPosition: {x: 45.6, y: 3, z: 10.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1726236833}
+  - {fileID: 1919463871}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8565,15 +8581,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 2040021644}
   m_agent: {fileID: 620065996}
-  m_rb: {fileID: 620066000}
   wanderRadius: {x: 2, y: 5}
   m_attackRange: 5
   m_chaseRange: 10
+  m_activityRange: 30
   m_attackForce: 10
-  m_attackCD: 0.4
+  m_attackCD: 3
+  m_attackDamage: 0.1
+  m_damageCD: 2
   m_onChase: 0
   m_alreadyAttacked: 0
   angleToShoot: 0.01
+  m_doneAttacking: 1
 --- !u!195 &620065996
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8605,7 +8624,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 620065993}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -8617,7 +8636,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620065993}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8660,22 +8679,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620065993}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &620066000
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620065993}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!65 &629426383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8877,9 +8880,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 692354835}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Environment
-  m_TagString: Untagged
+  m_TagString: Hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8896,9 +8899,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 48307946}
   - {fileID: 779545230}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &715223326
 BoxCollider:
@@ -9214,9 +9218,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 731954818}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CactusParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9262,9 +9266,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 736231610}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FridgeParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9406,7 +9410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 779545230}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Land
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9426,7 +9430,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 692354835}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &787229781 stripped
 Transform:
@@ -10326,9 +10330,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 881663421}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: VendingRedParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10551,9 +10555,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 914808652}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrashParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11053,7 +11057,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 2336
-    _typelessdata: 775ddfbe84fedebe800000bf27f9643f2ef9e4be6b7e5dba867cc03d57724e3e7f19e1be130ee1be60c3323e27f9e43e2ef964bf6582ddb9ca9bc13d56724e3e678ddebe000000bf25c2323ef9ff7f3f00000000c1a177baca9bc13d77be1f3eede0debe000000bf8f0000bff9ff7f3f00000000c1a177ba867cc03d77be1f3ee78fdfbe87b19ebd9cc2323efee6473f05ec1f3fdc5b41baca9bc13d9502de3ebcd4a2befdf6a1bd055b323e27f9643f2ef9e43e197a5dbacc57483e9502de3ec337a5bec0b899bd400000bf27f9e43e2ef9643f2075ddb940c8473e9502de3e5a28b5be98c697bd000000bf7dd299330000803fb6148b3324ea2f3e9502de3e28c9cfbe98c697bd000000bf7dd299330000803fb0f096335d1f023e9502de3e703ae0bea32c9dbd650000bfee04353ff304353f03172fba867cc03d9502de3e71f2b9be29c0e0be500000bfe5660f3fd31054bf2eba0aba493d233e57724e3e933fbbbe1171e1be0b81323e6ef4533ebb747abf97124db9ddcc233e56724e3ecc96c4be9c8ae1be000000bf00000000000080bffcd13db39b60153e57724e3e28c9cfbe9c8ae1be000000bf532959ae000080bfc8c83db35d1f023e57724e3e2c19efbe3268af3d400000bf28f9e43e2ef9643f1974ddb92f76913dc7660a3f1bc2ecbef529a73d04de9e3d28f9643f2ef9e43eb2795dba246c923dc7660a3fb9eeecbee98d763db9fbffbe66cf6a3f4cf4cb3ee08c6d3b2f76913dc7d2063f7082efbeb064703d1ced9e3d1f3f983e636b743f78291a3b246c923d97b6053fede0debe320050bd8f0000bff9ff7f3f00000000c3a177ba867cc03d3f08e93eede0debe5b20a93c8f0000bff9ff7f3fdbd007358b9c77ba867cc03d48b1003f9807e0be4092653d81fcffbebe0d403ff743293f494c423b827cc03d97b6053f6df1dfbe8243673de9adb73dee04353ff304353f921b2fbaa377c13d97b6053f678ddebe60d52ebd1ec2323ef9ff7f3f0000000032ac77baca9bc13d03cbeb3eababa2be6914a0be8f0000bff8ff7f3f50548aae41a077ba40c8473e26bf8f3ed9bda2be192ec5beff5a323eb7f0693f0deccfbe4d4c62bacc57483e0593703ea5f1a2be49dfc4be860000bf65d0703ffab7adbedcf168ba40c8473e0893703e6445b3be34fdd8be6e0000bfe60e453fe76923bf34a13eba210f2d3e0c9e573e000000bf545ab13d93e1e13d25d820b30000803f9d2282331ed63c3dc7660a3fa6faf7be5a5ab13d000000bf778383b30000803f0ffc85339c02743dc7660a3f000000bf585ab13da6b592be3245c5b30000803f476f87331ed63c3dc7660a3f000000bf5a5ab13d000000bf000000000000803f98e995331ed63c3dc7660a3f000000bf970f723dce55003e438904340000803f11bf25341ed63c3d96b6053f000000bf980f723d94e1e13d815e93340000803fa20885341ed63c3d97b6053f010000bf31d2003f3cbdbcbe7fad73b62ef9643f2bf9e4be1ed63c3da295513fe452d93ec059ff3e1b97bebe6a97b33e9554cb3e411c59bf8299563fa295513f010000bf7fe5d23e5549bfbeb03308b75fc7b934000080bf25d63c3d7b64433f5b21023f057d123e648d7abe44b36c3fa71a17beabccb3be1bec673f5dc9153fd3b9fd3e43dc053e43e688bebf1e003f682110bf195e28bf00f4653f5b52143f6d51da3e20f2583e6844bebe6108113f02178bbe292947bf8299563fe6b4213f2a08023f40f65b3ed1df61bef9c3613fc7c7633d95b1efbe1bec673fe6b4213f010000bf000000bf78b1a6beec1f09b72059b234000080bf1ed63c3d77be1f3e010000bf7e22a4be76b1a6bebd740ab720593234000080bf1ed63c3de00b8d3eead4febd000000bfdfb1a6be929509b738e18334000080bf1bf2bc3e77be1f3e010000bf765e7fbe76b1a6be859809b7d130d233000080bf1ed63c3db251a53efeffff3e765e7fbe87b2a6be2c9708b7926c7534000080bf1bec673fb251a53efeffff3e000000bf8ab2a6beccec08b72487bf34000080bf1bec673f77be1f3eb55d013f2cb254bd7a428ebe38c8173f8480123f240911bf1bec673fa6e2e63e3ba4fe3e03f20cbd04f488be2c44333ff2667a3e1cb32bbf73f3653f0ddded3e72d9ff3e5beb0bbdffffff3e3d52763f32748b3ea1ba11b68cf3653f0cdded3e5c1c023f8eff5abdffffff3ed0876a3fd83ecd3e70c40ab61bec673fffe2e63e010000bff66c09be1f8ca6be0a2e04b79d957f3ed1e577bf1ed63c3dc4d2cb3efeffff3ef66c09be308da6bea13304b796957f3ed3e577bf1bec673fc4d2cb3e010000bf9fcf70be76b1a6bea17a08b773814a34000080bf1ed63c3d922aaa3e020000bf86f2063ebcfc89be6abe6eb70c58e3be006165bf1ed63c3df351143f020000bfb3ca2fbc6a778abe9d5c58b7af0ac5b7000080bf1ed63c3d1bb0f63e010000bf42c20cbd14528abeb06504b782957f3ed4e577bf1ed63c3d0ddded3e010000bf9191e9bdd703a1bed6e7eeb6b67ef73e9a1a60bf1ed63c3d84fad13ea6a7ff3e576d073effffff3eb2836b3f36b0c8be83d3b7358cf3653ff351143f0603003f5b25bd3dffffff3e0000803f0443dbab405718b68cf3653fdaea0c3f010000bffdc1583ee815bfbef8d002b7428995be94d674bf25d63c3de6b4213f010000bfb600873e5649bfbe286808b7aa09a234000080bf1ed63c3d871f2a3f010000bf7b39a53e5649bfbec2a807b71c5e3334000080bf1ed63c3d8a2f343f010000bfac0b263ed4349fbe949ba6b6ecb34bbf580d1bbf1ed63c3d71091a3f010000bfbbf2343ee2fea8be0b05a6b6edb34bbf560d1bbf1ed63c3d92841c3f6270013fb563003f809d60be45e31f3ff304353f6bc0a9be1bec673fa295513ff808023f58d2b23e86e161be8c1d623f69581c34af10f0be1bec673f84b6383f9898013f9c330d3e351c0ebe7057313fb59f38bfa310d9b51bec673f5bc9153f9898013f3e330d3e0000003f7357313fb39f38bfe040d4b51bec673f4bc9153f0000003f7610013ffe5d43be53c0af340000803f797ba0321bec673fa295513f7c33d53edafe003f7051abbe435d5b3e435b783fc3e5e8bd0419553fa295513f6270013fb563003f51ad33be44e31f3ff104353f73c0a9be1bec673fa295513f000000bf7610013f50caaabe000000000000803f000000001ed63c3da295513fe735e13e0000003f9c239cbe8a1d623fad2ae232b610f0be77ef583ff868523f
+    _typelessdata: 735ddfbe84fedebe800000bf27f9643f2ef9e4be6b7e5dba947cc03d57724e3e7b19e1be130ee1be5ec3323e27f9e43e2ef964bf6682ddb9d89bc13d56724e3e638ddebe000000bf23c2323ef9ff7f3f05fae1afc1a177bad89bc13d77be1f3ee9e0debe000000bf8f0000bff9ff7f3f00000000c1a177ba947cc03d77be1f3ee38fdfbe87b19ebd9bc2323efee6473f05ec1f3fde5b41bad89bc13d9502de3eb8d4a2befdf6a1bd045b323e27f9643f2ef9e43e1a7a5dbad357483e9502de3ebf37a5bec0b899bd3f0000bf27f9e43e2ef9643f2175ddb947c8473e9502de3e5628b5be98c697bd000000bf7dd299330000803fb6148b332aea2f3e9502de3e24c9cfbe98c697bd000000bf7dd299330000803fb0f09633641f023e9502de3e6c3ae0bea32c9dbd650000bfee04353ff304353f03172fba947cc03d9502de3e6df2b9be29c0e0be500000bfe5660f3fd31054bf2eba0aba4f3d233e57724e3e8f3fbbbe1171e1be0a81323e6ef4533ebb747abf97124db9e4cc233e56724e3ec896c4be9c8ae1be000000bf00000000000080bffcd13db3a260153e57724e3e24c9cfbe9c8ae1be000000bf132659ae000080bfc8c83db3641f023e57724e3e2819efbe3268af3d400000bf28f9e43e2ef9643f1974ddb93d76913dc7660a3f17c2ecbef529a73d01de9e3d28f9643f2ef9e43eb2795dba326c923dc7660a3fb5eeecbee98d763db9fbffbe66cf6a3f4cf4cb3ee08c6d3b3d76913dc7d2063f6c82efbeb064703d19ed9e3d1f3f983e636b743f78291a3b326c923d97b6053fe9e0debe320050bd8f0000bff9ff7f3f00000000c3a177ba947cc03d3f08e93ee9e0debe5b20a93c8f0000bff9ff7f3fdbd007358b9c77ba947cc03d48b1003f9407e0be4092653d81fcffbebe0d403ff743293f494c423b907cc03d97b6053f69f1dfbe8243673de6adb73dee04353ff304353f941b2fbab177c13d97b6053f638ddebe60d52ebd1cc2323ef9ff7f3f5c75bfaf39ac77bad89bc13d03cbeb3ea7aba2be6814a0be8e0000bff8ff7f3f7393a12e41a077ba47c8473e27bf8f3ed5bda2be192ec5befd5a323eb7f0693f0deccfbe4d4c62bad357483e0593703ea1f1a2be49dfc4be860000bf65d0703ffab7adbedcf168ba47c8473e0893703e6045b3be34fdd8be6e0000bfe60e453fe76923bf34a13eba280f2d3e0c9e573e000000bf545ab13da1e1e13d65d420b30000803fa72282331ed63c3dc7660a3fa2faf7be5a5ab13d000000bf978183b30000803f00fc8533b802743dc7660a3f000000bf585ab13d70b592be6242c5b30000803f316f87331ed63c3dc7660a3f000000bf5a5ab13d000000bf000000000000803f4ee995331ed63c3dc7660a3f000000bf970f723dd255003e608904340000803f26bf25341ed63c3d96b6053f000000bf980f723da2e1e13d9c5e93340000803fbc0885341ed63c3d97b6053f010000bf31d2003f3cbdbcbe7fad73b62ef9643f2bf9e4be1ed63c3da295513fe452d93ec059ff3e1b97bebe6b97b33e9554cb3e411c59bf8299563fa295513f010000bf7fe5d23e5549bfbeb03308b75fc7b934000080bf25d63c3d7b64433f5b21023f057d123e668d7abe43b36c3fa81a17beadccb3be1bec673f5dc9153fd3b9fd3e43dc053e44e688bebf1e003f682110bf195e28bf00f4653f5b52143f6d51da3e20f2583e6844bebe6008113ffd168bbe2a2947bf8299563fe6b4213f2a08023f40f65b3ed3df61bef7c3613fcfc7633d95b1efbe1bec673fe6b4213f010000bf000000bf78b1a6beec1f09b72059b234000080bf1ed63c3d77be1f3e010000bf7e22a4be76b1a6bebd740ab720593234000080bf1ed63c3de00b8d3eead4febd000000bfdfb1a6be929509b738e18334000080bf1bf2bc3e77be1f3e010000bf765e7fbe76b1a6be859809b7d130d233000080bf1ed63c3db251a53efeffff3e765e7fbe87b2a6be2c9708b7926c7534000080bf1bec673fb251a53efeffff3e000000bf8ab2a6beccec08b72487bf34000080bf1bec673f77be1f3eb55d013f2cb254bd7a428ebe38c8173f8480123f240911bf1bec673fa6e2e63e3ba4fe3e03f20cbd04f488be2c44333fef667a3e1cb32bbf73f3653f0ddded3e72d9ff3e5beb0bbdffffff3e3d52763f32748b3ea1ba11b68cf3653f0cdded3e5c1c023f8eff5abdffffff3ed0876a3fd83ecd3e70c40ab61bec673fffe2e63e010000bff66c09be1f8ca6be0a2e04b79d957f3ed1e577bf1ed63c3dc4d2cb3efeffff3ef66c09be308da6bea13304b796957f3ed3e577bf1bec673fc4d2cb3e010000bf9fcf70be76b1a6bea17a08b773814a34000080bf1ed63c3d922aaa3e020000bf86f2063ebdfc89be67be6eb70f58e3beff6065bf1ed63c3df351143f020000bfb4ca2fbc6a778abe136358b70918c6b7000080bf1ed63c3d1bb0f63e010000bf42c20cbd14528abeb06504b782957f3ed4e577bf1ed63c3d0ddded3e010000bf9191e9bdd703a1bed6e7eeb6b67ef73e9a1a60bf1ed63c3d84fad13ea6a7ff3e576d073effffff3eb2836b3f36b0c8be81d3b7358cf3653ff351143f0603003f5c25bd3dffffff3e0000803f0443dbab405718b68cf3653fdaea0c3f010000bffdc1583ee815bfbef8d002b73e8995be94d674bf25d63c3de6b4213f010000bfb600873e5649bfbe286808b7aa09a234000080bf1ed63c3d871f2a3f010000bf7b39a53e5649bfbec2a807b71c5e3334000080bf1ed63c3d8a2f343f010000bfac0b263ed5349fbe949ba6b6ecb34bbf580d1bbf1ed63c3d71091a3f010000bfbbf2343ee3fea8beaee3a5b6ecb34bbf590d1bbf1ed63c3d92841c3f6270013fb563003f829d60be45e31f3ff204353f6dc0a9be1bec673fa295513ff808023f58d2b23e86e161be8c1d623fa4832034af10f0be1bec673f84b6383f9898013f9c330d3e351c0ebe7057313fb79f38bfa110d9b51bec673f5bc9153f9898013f3e330d3e0000003f7357313fb39f38bfe040d4b51bec673f4bc9153f0000003f7610013f005e43be53c0af340000803f797ba0321bec673fa295513f7c33d53edafe003f7051abbe435d5b3e435b783fc3e5e8bd0419553fa295513f6270013fb563003f51ad33be44e31f3ff104353f73c0a9be1bec673fa295513f000000bf7610013f50caaabe000000000000803f000000001ed63c3da295513fe735e13e0000003f9c239cbe8a1d623fad2ae232b610f0be77ef583ff868523f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -11341,7 +11345,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 39a2db94f83bb524298735a046d37d78,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39a2db94f83bb524298735a046d37d78,
         type: 3}
@@ -11393,10 +11397,135 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8449662668263618823, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2200327e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8449662668263618823, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0018014943
+      objectReference: {fileID: 0}
+    - target: {fileID: -8449662668263618823, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.6251886e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8449662668263618823, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9391517
+      objectReference: {fileID: 0}
+    - target: {fileID: -8449662668263618823, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.34327012
+      objectReference: {fileID: 0}
+    - target: {fileID: -8449662668263618823, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.009652083
+      objectReference: {fileID: 0}
+    - target: {fileID: -8449662668263618823, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.008157997
+      objectReference: {fileID: 0}
+    - target: {fileID: -8449662668263618823, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -88.459
+      objectReference: {fileID: 0}
+    - target: {fileID: -8449662668263618823, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -158.432
+      objectReference: {fileID: 0}
+    - target: {fileID: -8449662668263618823, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 158.298
+      objectReference: {fileID: 0}
+    - target: {fileID: -7298988994431031694, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4901162e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: -7298988994431031694, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0023610026
+      objectReference: {fileID: 0}
+    - target: {fileID: -7298988994431031694, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0000000010728837
+      objectReference: {fileID: 0}
+    - target: {fileID: -7298988994431031694, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.88110507
+      objectReference: {fileID: 0}
+    - target: {fileID: -7298988994431031694, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.46676773
+      objectReference: {fileID: 0}
+    - target: {fileID: -7298988994431031694, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.075583465
+      objectReference: {fileID: 0}
+    - target: {fileID: -7298988994431031694, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00830616
+      objectReference: {fileID: 0}
+    - target: {fileID: -7298988994431031694, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 48.081
+      objectReference: {fileID: 0}
+    - target: {fileID: -7298988994431031694, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.296
+      objectReference: {fileID: 0}
+    - target: {fileID: -7298988994431031694, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.079
+      objectReference: {fileID: 0}
+    - target: {fileID: -6693637044195384104, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -6693637044195384104, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -6393954335983304131, guid: 39a2db94f83bb524298735a046d37d78,
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -6090257985504364130, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 46.195484
+      objectReference: {fileID: 0}
+    - target: {fileID: -6090257985504364130, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.99998
+      objectReference: {fileID: 0}
+    - target: {fileID: -6090257985504364130, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 89.999985
       objectReference: {fileID: 0}
     - target: {fileID: -6031291066297007669, guid: 39a2db94f83bb524298735a046d37d78,
         type: 3}
@@ -11408,10 +11537,40 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: -4596174998042542076, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 46.195484
+      objectReference: {fileID: 0}
+    - target: {fileID: -4596174998042542076, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: -4596174998042542076, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90.00001
+      objectReference: {fileID: 0}
     - target: {fileID: -4550534266260664697, guid: 39a2db94f83bb524298735a046d37d78,
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4494876456940095680, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.60250986
+      objectReference: {fileID: 0}
+    - target: {fileID: -4494876456940095680, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.40123945
+      objectReference: {fileID: 0}
+    - target: {fileID: -4494876456940095680, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 71.81021
       objectReference: {fileID: 0}
     - target: {fileID: -3906310661033346947, guid: 39a2db94f83bb524298735a046d37d78,
         type: 3}
@@ -11443,6 +11602,106 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: -981573740943460309, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.195639e-11
+      objectReference: {fileID: 0}
+    - target: {fileID: -981573740943460309, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0018014957
+      objectReference: {fileID: 0}
+    - target: {fileID: -981573740943460309, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.9802324e-11
+      objectReference: {fileID: 0}
+    - target: {fileID: -981573740943460309, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99472004
+      objectReference: {fileID: 0}
+    - target: {fileID: -981573740943460309, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.102499366
+      objectReference: {fileID: 0}
+    - target: {fileID: -981573740943460309, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.001609104
+      objectReference: {fileID: 0}
+    - target: {fileID: -981573740943460309, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0048325676
+      objectReference: {fileID: 0}
+    - target: {fileID: -981573740943460309, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -88.459
+      objectReference: {fileID: 0}
+    - target: {fileID: -981573740943460309, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -158.431
+      objectReference: {fileID: 0}
+    - target: {fileID: -981573740943460309, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 158.297
+      objectReference: {fileID: 0}
+    - target: {fileID: -545932674351426762, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000033298184
+      objectReference: {fileID: 0}
+    - target: {fileID: -545932674351426762, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00019150683
+      objectReference: {fileID: 0}
+    - target: {fileID: -545932674351426762, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.019943
+      objectReference: {fileID: 0}
+    - target: {fileID: -545932674351426762, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6387461
+      objectReference: {fileID: 0}
+    - target: {fileID: -545932674351426762, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.76940936
+      objectReference: {fileID: 0}
+    - target: {fileID: -545932674351426762, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0027012273
+      objectReference: {fileID: 0}
+    - target: {fileID: -545932674351426762, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0023252044
+      objectReference: {fileID: 0}
+    - target: {fileID: -545932674351426762, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 84.831
+      objectReference: {fileID: 0}
+    - target: {fileID: -545932674351426762, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 179.91905
+      objectReference: {fileID: 0}
+    - target: {fileID: -545932674351426762, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -179.67224
+      objectReference: {fileID: 0}
     - target: {fileID: -236622155237175185, guid: 39a2db94f83bb524298735a046d37d78,
         type: 3}
       propertyPath: m_Layer
@@ -11463,6 +11722,71 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 999641762021478094, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.0756776e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 999641762021478094, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0023609349
+      objectReference: {fileID: 0}
+    - target: {fileID: 999641762021478094, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.8545347e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 999641762021478094, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9735279
+      objectReference: {fileID: 0}
+    - target: {fileID: 999641762021478094, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.22852497
+      objectReference: {fileID: 0}
+    - target: {fileID: 999641762021478094, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0016618804
+      objectReference: {fileID: 0}
+    - target: {fileID: 999641762021478094, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0041234135
+      objectReference: {fileID: 0}
+    - target: {fileID: 999641762021478094, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 48.081
+      objectReference: {fileID: 0}
+    - target: {fileID: 999641762021478094, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 999641762021478094, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.503
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006829080506973068, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -2.93359
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006829080506973068, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 7.847746
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006829080506973068, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -159.35484
+      objectReference: {fileID: 0}
     - target: {fileID: 1022175519811531805, guid: 39a2db94f83bb524298735a046d37d78,
         type: 3}
       propertyPath: m_Layer
@@ -11482,6 +11806,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666591913253723295, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 41.68023
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666591913253723295, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.99992
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666591913253723295, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.00001864858
       objectReference: {fileID: 0}
     - target: {fileID: 2333620189120031951, guid: 39a2db94f83bb524298735a046d37d78,
         type: 3}
@@ -11518,15 +11857,220 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6558363576897490448, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0018283386
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558363576897490448, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00067479926
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558363576897490448, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.000055908793
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558363576897490448, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.32788578
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558363576897490448, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 179.99858
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558363576897490448, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -179.56526
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797959271228604141, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.9138758
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797959271228604141, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.3953907
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797959271228604141, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -66.506
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574683765997745899, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 41.68022
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574683765997745899, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.99994
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574683765997745899, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.000020122921
+      objectReference: {fileID: 0}
     - target: {fileID: 8342642658984298882, guid: 39a2db94f83bb524298735a046d37d78,
         type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8478237306166710781, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0018541262
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478237306166710781, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00111352
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478237306166710781, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.000061113824
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478237306166710781, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.32824603
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478237306166710781, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 179.55566
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478237306166710781, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -179.95291
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663483740824699114, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00003329818
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663483740824699114, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00017128095
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663483740824699114, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.017405653
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663483740824699114, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7112872
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663483740824699114, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.70290154
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663483740824699114, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000008479201
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663483740824699114, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000083792365
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663483740824699114, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 89.32073
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663483740824699114, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.0011519109
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663483740824699114, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.00115183
+      objectReference: {fileID: 0}
     - target: {fileID: 8861052898415708381, guid: 39a2db94f83bb524298735a046d37d78,
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976088880442041766, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4551915e-12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976088880442041766, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0037509336
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976088880442041766, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.8639497e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976088880442041766, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9990725
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976088880442041766, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.04291283
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976088880442041766, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00008927403
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976088880442041766, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0035630327
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976088880442041766, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -4.9188905
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976088880442041766, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.027844137
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976088880442041766, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.40986666
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128057977902959537, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -2.8864348
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128057977902959537, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -8.538063
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128057977902959537, guid: 39a2db94f83bb524298735a046d37d78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 161.83377
       objectReference: {fileID: 0}
     - target: {fileID: 9140238485838377864, guid: 39a2db94f83bb524298735a046d37d78,
         type: 3}
@@ -11861,9 +12405,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1111613533}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GarbageParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11967,7 +12511,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 63
+    m_Bits: 1855
   m_RenderingLayerMask: 1
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
@@ -11980,38 +12524,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &1127708512 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e91291bb494c69047b956ba4030c41a1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1156383435}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1127708513 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e91291bb494c69047b956ba4030c41a1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1156383435}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1127708514
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127708512}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 42513d8f126cea4409f5252eb25cdc40, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1156110608
 GameObject:
   m_ObjectHideFlags: 0
@@ -12148,460 +12660,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156110608}
   m_CullTransparentMesh: 1
---- !u!1001 &1156383435
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1483977422}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 45.463
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.83
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.165
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8449662668263618823, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -46.476894
-      objectReference: {fileID: 0}
-    - target: {fileID: -8449662668263618823, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.72658837
-      objectReference: {fileID: 0}
-    - target: {fileID: -8449662668263618823, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.8273779
-      objectReference: {fileID: 0}
-    - target: {fileID: -7298988994431031694, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 3.684813
-      objectReference: {fileID: 0}
-    - target: {fileID: -7298988994431031694, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.09746496
-      objectReference: {fileID: 0}
-    - target: {fileID: -7298988994431031694, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.9972284
-      objectReference: {fileID: 0}
-    - target: {fileID: -6693637044195384104, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5578264
-      objectReference: {fileID: 0}
-    - target: {fileID: -6693637044195384104, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.22026236
-      objectReference: {fileID: 0}
-    - target: {fileID: -6693637044195384104, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98021
-      objectReference: {fileID: 0}
-    - target: {fileID: -6393954335983304131, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -6090257985504364130, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 46.195477
-      objectReference: {fileID: 0}
-    - target: {fileID: -6090257985504364130, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -179.99998
-      objectReference: {fileID: 0}
-    - target: {fileID: -6090257985504364130, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: -4596174998042542076, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 46.195484
-      objectReference: {fileID: 0}
-    - target: {fileID: -4596174998042542076, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -179.99997
-      objectReference: {fileID: 0}
-    - target: {fileID: -4596174998042542076, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: -4550534266260664697, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -4494876456940095680, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.60250986
-      objectReference: {fileID: 0}
-    - target: {fileID: -4494876456940095680, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.40123945
-      objectReference: {fileID: 0}
-    - target: {fileID: -4494876456940095680, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 71.81021
-      objectReference: {fileID: 0}
-    - target: {fileID: -3906310661033346947, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -3678116898188776116, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -3267307262349558257, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -1951088776446097102, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -1552408813108574819, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -981573740943460309, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -46.47689
-      objectReference: {fileID: 0}
-    - target: {fileID: -981573740943460309, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.7266137
-      objectReference: {fileID: 0}
-    - target: {fileID: -981573740943460309, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.82739335
-      objectReference: {fileID: 0}
-    - target: {fileID: -545932674351426762, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 84.831
-      objectReference: {fileID: 0}
-    - target: {fileID: -545932674351426762, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 179.91905
-      objectReference: {fileID: 0}
-    - target: {fileID: -545932674351426762, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -179.67224
-      objectReference: {fileID: 0}
-    - target: {fileID: -236622155237175185, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 565362442056338491, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Name
-      value: RL_New
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 999641762021478094, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 3.6840641
-      objectReference: {fileID: 0}
-    - target: {fileID: 999641762021478094, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.32063726
-      objectReference: {fileID: 0}
-    - target: {fileID: 999641762021478094, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.61132264
-      objectReference: {fileID: 0}
-    - target: {fileID: 1006829080506973068, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -2.9335892
-      objectReference: {fileID: 0}
-    - target: {fileID: 1006829080506973068, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 7.8477445
-      objectReference: {fileID: 0}
-    - target: {fileID: 1006829080506973068, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -159.35484
-      objectReference: {fileID: 0}
-    - target: {fileID: 1022175519811531805, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098589210993342830, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1401746324947584608, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1526728777892547068, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1666591913253723295, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 41.68023
-      objectReference: {fileID: 0}
-    - target: {fileID: 1666591913253723295, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -179.99992
-      objectReference: {fileID: 0}
-    - target: {fileID: 1666591913253723295, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.000018648576
-      objectReference: {fileID: 0}
-    - target: {fileID: 3181572521046993426, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066543586760481912, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4318359420862014413, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5669622321716541939, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6558363576897490448, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.32788578
-      objectReference: {fileID: 0}
-    - target: {fileID: 6558363576897490448, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 179.99858
-      objectReference: {fileID: 0}
-    - target: {fileID: 6558363576897490448, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -179.56526
-      objectReference: {fileID: 0}
-    - target: {fileID: 6797959271228604141, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.9138758
-      objectReference: {fileID: 0}
-    - target: {fileID: 6797959271228604141, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.39539063
-      objectReference: {fileID: 0}
-    - target: {fileID: 6797959271228604141, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -66.506
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574683765997745899, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 41.680225
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574683765997745899, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -179.99994
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574683765997745899, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.000020122932
-      objectReference: {fileID: 0}
-    - target: {fileID: 8478237306166710781, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.32824603
-      objectReference: {fileID: 0}
-    - target: {fileID: 8478237306166710781, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 179.55566
-      objectReference: {fileID: 0}
-    - target: {fileID: 8478237306166710781, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -179.95291
-      objectReference: {fileID: 0}
-    - target: {fileID: 8663483740824699114, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.00017128095
-      objectReference: {fileID: 0}
-    - target: {fileID: 8663483740824699114, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.017405653
-      objectReference: {fileID: 0}
-    - target: {fileID: 8663483740824699114, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 89.32073
-      objectReference: {fileID: 0}
-    - target: {fileID: 8663483740824699114, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.0011519109
-      objectReference: {fileID: 0}
-    - target: {fileID: 8663483740824699114, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.00115183
-      objectReference: {fileID: 0}
-    - target: {fileID: 8861052898415708381, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8976088880442041766, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -4.9188905
-      objectReference: {fileID: 0}
-    - target: {fileID: 8976088880442041766, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.027844138
-      objectReference: {fileID: 0}
-    - target: {fileID: 8976088880442041766, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.4098667
-      objectReference: {fileID: 0}
-    - target: {fileID: 9128057977902959537, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -2.886435
-      objectReference: {fileID: 0}
-    - target: {fileID: 9128057977902959537, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -8.538063
-      objectReference: {fileID: 0}
-    - target: {fileID: 9128057977902959537, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 161.83377
-      objectReference: {fileID: 0}
-    - target: {fileID: 9140238485838377864, guid: e91291bb494c69047b956ba4030c41a1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e91291bb494c69047b956ba4030c41a1, type: 3}
 --- !u!1 &1161869455
 GameObject:
   m_ObjectHideFlags: 0
@@ -12673,9 +12731,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1163666840}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Concrete
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12715,11 +12773,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1164669016}
-  - component: {fileID: 1164669015}
-  - component: {fileID: 1164669014}
   - component: {fileID: 1164669013}
   m_Layer: 8
-  m_Name: neutral
+  m_Name: SocketNeutral
   m_TagString: Socket_Neutral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12736,58 +12792,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1164669014
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164669011}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1164669015
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164669011}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1164669016
 Transform:
   m_ObjectHideFlags: 0
@@ -12795,12 +12801,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164669011}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.30338, y: 0, z: 0}
-  m_LocalScale: {x: 0.3636, y: 0.3636, z: 0.3636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.245, y: 1.137, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1548751518}
+  m_Father: {fileID: 609562811192578879}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1191153256
@@ -12848,7 +12854,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198071766
 GameObject:
@@ -13092,9 +13098,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1240363598}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barriers
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13193,6 +13199,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247251144}
   m_CullTransparentMesh: 1
+--- !u!137 &1255230421 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -2681627329826823504, guid: 39a2db94f83bb524298735a046d37d78,
+    type: 3}
+  m_PrefabInstance: {fileID: 1005448925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1275615425
 GameObject:
   m_ObjectHideFlags: 0
@@ -13218,14 +13230,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275615425}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.06, z: 0}
+  m_LocalPosition: {x: 0, y: 1.787, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 521966632}
   - {fileID: 1961353565}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1773428102 &1275615427
 ParentConstraint:
@@ -13262,9 +13274,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1280103769}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VendingGreenParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13295,9 +13307,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1297567559}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OvenParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13417,7 +13429,7 @@ RectTransform:
   - {fileID: 901045069}
   - {fileID: 580938846}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13529,7 +13541,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1360390407
 GameObject:
@@ -13540,9 +13552,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1360390408}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GratesParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14154,9 +14166,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1426274084}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Others
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14493,7 +14505,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1127708513}
   - {fileID: 1005448926}
   m_Father: {fileID: 2040021644}
   m_RootOrder: 3
@@ -15128,39 +15139,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.033455826, y: 0.02170318, z: 0.046181846}
   m_Center: {x: -0.0031274422, y: 0.000000015366822, z: 0.01309093}
---- !u!1 &1548751517
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1548751518}
-  m_Layer: 0
-  m_Name: Source
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1548751518
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548751517}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.07, z: 5.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 528930064}
-  - {fileID: 1164669016}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1570968593
 GameObject:
   m_ObjectHideFlags: 0
@@ -16047,104 +16025,6 @@ MonoBehaviour:
   m_cameraHandler: {fileID: 454835378}
   m_hotWire: {fileID: 521966634}
   m_neutralWire: {fileID: 1961353567}
---- !u!1 &1726236832
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1726236833}
-  - component: {fileID: 1726236836}
-  - component: {fileID: 1726236835}
-  - component: {fileID: 1726236834}
-  m_Layer: 0
-  m_Name: Capsule
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1726236833
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726236832}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.522, z: 0.172}
-  m_LocalScale: {x: 0.82322, y: 0.2547372, z: 0.82322}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 620065994}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1726236834
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726236832}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1726236835
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726236832}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: f80adbeacdaf7314e8e2e42df2e6b0c1, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1726236836
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726236832}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1737791815
 GameObject:
   m_ObjectHideFlags: 0
@@ -16154,9 +16034,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1737791816}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CartonParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17048,7 +16928,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879222661}
   m_LocalRotation: {x: 0.07514002, y: 0.7031031, z: -0.07514002, w: 0.7031031}
-  m_LocalPosition: {x: -13.780001, y: -5.7100124, z: 13.78}
+  m_LocalPosition: {x: -13.780001, y: -6.983012, z: 13.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17171,7 +17051,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1886202826
 GameObject:
@@ -17249,9 +17129,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1897924043}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VendingBlueParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17283,6 +17163,120 @@ Transform:
   m_Father: {fileID: 48307946}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1905612588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1905612593}
+  - component: {fileID: 1905612592}
+  - component: {fileID: 1905612591}
+  - component: {fileID: 1905612590}
+  - component: {fileID: 1905612589}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!54 &1905612589
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905612588}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1905612590
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905612588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1905612591
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905612588}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1905612592
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905612588}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1905612593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905612588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.56052, y: 2.1831083, z: 11.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1905627111
 GameObject:
   m_ObjectHideFlags: 0
@@ -17292,9 +17286,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1905627112}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ContainerParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17323,6 +17317,12 @@ Transform:
   m_Father: {fileID: 48307946}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1919463871 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 091118ffb04fc374dbcd275adee2f48d,
+    type: 3}
+  m_PrefabInstance: {fileID: 302506320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1921033647
 GameObject:
   m_ObjectHideFlags: 0
@@ -17332,9 +17332,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1921033648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RailParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18056,9 +18056,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1980415439}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VendingYellowParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18212,7 +18212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013406225}
   m_LocalRotation: {x: 0.10626403, y: 0, z: 0, w: 0.994338}
-  m_LocalPosition: {x: 0, y: 6.99, z: -13.78}
+  m_LocalPosition: {x: 0, y: 5.717, z: -13.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18342,9 +18342,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2020547323}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlankParent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18528,6 +18528,7 @@ GameObject:
   - component: {fileID: 2040021647}
   - component: {fileID: 2040021648}
   - component: {fileID: 2040021650}
+  - component: {fileID: 2040021651}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -18607,7 +18608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040021640}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.06, z: 0}
+  m_LocalPosition: {x: 0, y: 1.787, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18616,7 +18617,7 @@ Transform:
   - {fileID: 845057360}
   - {fileID: 1483977422}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2040021645
 MonoBehaviour:
@@ -18638,7 +18639,7 @@ MonoBehaviour:
   m_groundCheckSphereRadius: 0.31
   m_groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 1032
   m_gravityPullValue: -9.8
   Speed: 4
   RunSpeedMultiplier: 2
@@ -18677,8 +18678,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pointLight: {fileID: 1118629468}
-  Bulb: {fileID: 2040021642}
-  m_initialLightValue: 10
+  Bulb: {fileID: 1255230421}
+  m_initialLightValue: 12
   m_lightValue: 0
   initialValue: 0
   BulbIntensity: 10
@@ -18696,7 +18697,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_lightController: {fileID: 2040021647}
   LifePercentage: 1
-  DimMultiplier: 0
+  DimMultiplier: 3
+  isDead: 0
+  m_hot: {fileID: 521966634}
+  m_neutral: {fileID: 1961353567}
+  m_energySource: {fileID: 0}
 --- !u!114 &2040021650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18715,6 +18720,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &2040021651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040021640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd2cb1fe9c106e4889a3b17b2bd840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &2058511939
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19124,7 +19141,7 @@ Transform:
   m_Children:
   - {fileID: 619340709}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2114748686
 MonoBehaviour:
@@ -19449,7 +19466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141484193}
   m_LocalRotation: {x: 0.10626403, y: -0, z: -0, w: 0.994338}
-  m_LocalPosition: {x: 0, y: -5.7100124, z: 0}
+  m_LocalPosition: {x: 0, y: -6.983012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19531,7 +19548,7 @@ GameObject:
   - component: {fileID: 6876804342362139219}
   - component: {fileID: 3107367653104290268}
   - component: {fileID: 1243999090704763430}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19549,7 +19566,8 @@ GameObject:
   - component: {fileID: 3089292270296576428}
   - component: {fileID: 7184499552095785264}
   - component: {fileID: 8839853225983606896}
-  m_Layer: 3
+  - component: {fileID: 8839853225983606897}
+  m_Layer: 10
   m_Name: Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19582,7 +19600,7 @@ GameObject:
   - component: {fileID: 8840325784319714665}
   - component: {fileID: 88299776748362533}
   - component: {fileID: 2448033282900789225}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Planks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19615,7 +19633,7 @@ GameObject:
   - component: {fileID: 8622353167865906178}
   - component: {fileID: 4356012028497189219}
   - component: {fileID: 220048890271934695}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlUnit_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19648,7 +19666,7 @@ GameObject:
   - component: {fileID: 1410012229042696895}
   - component: {fileID: 8728686306232419735}
   - component: {fileID: 7225901607758993948}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19689,7 +19707,7 @@ GameObject:
   - component: {fileID: 7718865356099572854}
   - component: {fileID: 4220052521427516639}
   - component: {fileID: 5403306645592574944}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlPanel_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19757,7 +19775,7 @@ GameObject:
   - component: {fileID: 5816055693736370169}
   - component: {fileID: 3596288101900690633}
   - component: {fileID: 5070357652427790442}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19817,7 +19835,8 @@ GameObject:
   - component: {fileID: 3471422608482174764}
   - component: {fileID: 5856643289221196654}
   - component: {fileID: 6286941004655880569}
-  m_Layer: 3
+  - component: {fileID: 6286941004655880570}
+  m_Layer: 10
   m_Name: Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19843,7 +19862,7 @@ GameObject:
   - component: {fileID: 1349831195664532207}
   - component: {fileID: 2557786569153474376}
   - component: {fileID: 5297281610335445676}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19861,7 +19880,7 @@ GameObject:
   - component: {fileID: 5610675949081266634}
   - component: {fileID: 932514156739770752}
   - component: {fileID: 624351361860131550}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19879,7 +19898,7 @@ GameObject:
   - component: {fileID: 6721265926695986468}
   - component: {fileID: 5932666498553180122}
   - component: {fileID: 4628347513104532756}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20011,7 +20030,7 @@ GameObject:
   - component: {fileID: 8051499407174178950}
   - component: {fileID: 6830571861927965195}
   - component: {fileID: 2784698195084192125}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20068,6 +20087,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &233706183878003077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 609562811192578879}
+  - component: {fileID: 4601062197431573658}
+  - component: {fileID: 1747034886053816400}
+  - component: {fileID: 4601062197431573661}
+  - component: {fileID: 4601062197431573659}
+  - component: {fileID: 4601062197431573660}
+  m_Layer: 0
+  m_Name: 9V
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &249185188490291772
 Transform:
   m_ObjectHideFlags: 0
@@ -20094,9 +20134,9 @@ GameObject:
   - component: {fileID: 3612539100317037989}
   - component: {fileID: 2943081936978422289}
   - component: {fileID: 2786534777670490761}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlUnit
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20162,7 +20202,7 @@ GameObject:
   - component: {fileID: 1398618388116715174}
   - component: {fileID: 2050809773633248385}
   - component: {fileID: 1079662025136580380}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlUnit_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20381,7 +20421,7 @@ GameObject:
   - component: {fileID: 4601691177628606246}
   - component: {fileID: 8331573711844219949}
   - component: {fileID: 7358938726660266123}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20449,7 +20489,7 @@ GameObject:
   - component: {fileID: 2536711008632288823}
   - component: {fileID: 8462906596083155840}
   - component: {fileID: 189216315202524743}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20482,7 +20522,7 @@ GameObject:
   - component: {fileID: 2974669907624749792}
   - component: {fileID: 6749577034089202033}
   - component: {fileID: 6964462607348680008}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20508,7 +20548,7 @@ GameObject:
   - component: {fileID: 7547064138561581831}
   - component: {fileID: 8291441809957569226}
   - component: {fileID: 6708725040764298377}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Barrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20549,7 +20589,7 @@ GameObject:
   - component: {fileID: 6087969013797459159}
   - component: {fileID: 4931391610205157055}
   - component: {fileID: 4738518723560759000}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20618,7 +20658,7 @@ GameObject:
   - component: {fileID: 3856016633363413594}
   - component: {fileID: 5731281652918599514}
   - component: {fileID: 5176309963798855063}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMill_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20636,7 +20676,7 @@ GameObject:
   - component: {fileID: 7056180010469040265}
   - component: {fileID: 2801433218706277542}
   - component: {fileID: 6753253886503133657}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlPanel_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20654,7 +20694,7 @@ GameObject:
   - component: {fileID: 249185188490291772}
   - component: {fileID: 8274470407307475529}
   - component: {fileID: 5573531429187581100}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Cactus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20788,7 +20828,7 @@ GameObject:
   - component: {fileID: 4931764533167737670}
   - component: {fileID: 4883097654148080552}
   - component: {fileID: 5136842434652939454}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20806,7 +20846,7 @@ GameObject:
   - component: {fileID: 4774166538891883662}
   - component: {fileID: 3802202281713851588}
   - component: {fileID: 6395083535547170032}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMillBox_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20843,6 +20883,23 @@ Transform:
   m_Father: {fileID: 1897924043}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &609562811192578879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233706183878003077}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.878614, y: 1.9299936, z: 15.794197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 528930064}
+  - {fileID: 1164669016}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &618748790373907556
 GameObject:
   m_ObjectHideFlags: 0
@@ -20854,7 +20911,7 @@ GameObject:
   - component: {fileID: 211269864471551762}
   - component: {fileID: 3553386099068400226}
   - component: {fileID: 6616148966615200465}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21116,7 +21173,7 @@ GameObject:
   - component: {fileID: 5071954541322041305}
   - component: {fileID: 4327454310982992525}
   - component: {fileID: 3468639199251429276}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21314,7 +21371,7 @@ GameObject:
   - component: {fileID: 186174672490115013}
   - component: {fileID: 3884412203586183946}
   - component: {fileID: 282174841433832276}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21332,7 +21389,7 @@ GameObject:
   - component: {fileID: 3891952177897780177}
   - component: {fileID: 7856627243178388853}
   - component: {fileID: 3258533172575826847}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21358,7 +21415,7 @@ GameObject:
   - component: {fileID: 3194643783074000420}
   - component: {fileID: 9017783146548998876}
   - component: {fileID: 497116252600134672}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21581,7 +21638,7 @@ GameObject:
   - component: {fileID: 3745622628374284208}
   - component: {fileID: 5334037119385432366}
   - component: {fileID: 4539702728345726449}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: TrainHouse_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21975,7 +22032,7 @@ GameObject:
   - component: {fileID: 3441818840012090903}
   - component: {fileID: 5873270183841553645}
   - component: {fileID: 5670784105176027461}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMillBox_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22058,9 +22115,9 @@ GameObject:
   - component: {fileID: 3600477348501220686}
   - component: {fileID: 1767970370037239383}
   - component: {fileID: 3915549515201937342}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Keypad
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22329,7 +22386,7 @@ GameObject:
   - component: {fileID: 1294622713432323961}
   - component: {fileID: 154481537346259851}
   - component: {fileID: 6435289466671168384}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22446,7 +22503,7 @@ GameObject:
   - component: {fileID: 1578115775218961675}
   - component: {fileID: 8534081337338735504}
   - component: {fileID: 8443713291876630962}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMillBox_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22566,7 +22623,7 @@ GameObject:
   - component: {fileID: 1986193395951815427}
   - component: {fileID: 8930293287429925930}
   - component: {fileID: 5728077318657136143}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22665,7 +22722,7 @@ GameObject:
   - component: {fileID: 4516647793860277999}
   - component: {fileID: 5920653031572582910}
   - component: {fileID: 4169877456902501515}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22780,7 +22837,7 @@ GameObject:
   - component: {fileID: 2875861304106976541}
   - component: {fileID: 6894759667283062040}
   - component: {fileID: 1525860218}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ConcreteSteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22806,7 +22863,7 @@ GameObject:
   - component: {fileID: 4967197091379229}
   - component: {fileID: 3715694787191328243}
   - component: {fileID: 6090903471571683539}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22824,7 +22881,7 @@ GameObject:
   - component: {fileID: 5342867201403303752}
   - component: {fileID: 2366555104876355661}
   - component: {fileID: 4640121139662396746}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: TrainHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22842,7 +22899,7 @@ GameObject:
   - component: {fileID: 5497255735973646911}
   - component: {fileID: 3153334230651939169}
   - component: {fileID: 1043414940229879430}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMill_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22860,7 +22917,7 @@ GameObject:
   - component: {fileID: 4750246834305964763}
   - component: {fileID: 2439130421754265721}
   - component: {fileID: 6177577550019501032}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23088,7 +23145,7 @@ GameObject:
   - component: {fileID: 5210025417761625283}
   - component: {fileID: 2261168351095872603}
   - component: {fileID: 4129304133363976754}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Planks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23290,7 +23347,7 @@ GameObject:
   - component: {fileID: 6473417938762426520}
   - component: {fileID: 1894945301602976119}
   - component: {fileID: 3376347122222802421}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23403,7 +23460,7 @@ GameObject:
   - component: {fileID: 7830623048029666016}
   - component: {fileID: 7048900226889023094}
   - component: {fileID: 8709458868498061221}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23546,7 +23603,7 @@ GameObject:
   - component: {fileID: 4581423034430925498}
   - component: {fileID: 1124569292528286285}
   - component: {fileID: 793518140}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ConcreteSteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23572,7 +23629,7 @@ GameObject:
   - component: {fileID: 4927978470258224043}
   - component: {fileID: 1645232601330662709}
   - component: {fileID: 8189146203647131271}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23632,7 +23689,7 @@ GameObject:
   - component: {fileID: 311182069934164006}
   - component: {fileID: 5386575051745829448}
   - component: {fileID: 327064008876628108}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23776,7 +23833,7 @@ GameObject:
   - component: {fileID: 1531831666209529581}
   - component: {fileID: 877096781433827422}
   - component: {fileID: 4543239735368766195}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Container_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23809,7 +23866,7 @@ GameObject:
   - component: {fileID: 8272940749302773353}
   - component: {fileID: 1916865254700948619}
   - component: {fileID: 1975935043163075939}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMill_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23869,7 +23926,7 @@ GameObject:
   - component: {fileID: 3326807929724782727}
   - component: {fileID: 1168419865802487866}
   - component: {fileID: 8182608104457239105}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23887,7 +23944,7 @@ GameObject:
   - component: {fileID: 7239055624147306820}
   - component: {fileID: 8985649165196047045}
   - component: {fileID: 1818635134379360909}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: calculator.button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23947,7 +24004,7 @@ GameObject:
   - component: {fileID: 666369313878335263}
   - component: {fileID: 3418485910845542643}
   - component: {fileID: 976723959904488280}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlUnit_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23980,7 +24037,7 @@ GameObject:
   - component: {fileID: 4865064391294683857}
   - component: {fileID: 8897240367376376708}
   - component: {fileID: 3129779573437635448}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24136,7 +24193,7 @@ GameObject:
   - component: {fileID: 4524298505611196250}
   - component: {fileID: 3441275452894382944}
   - component: {fileID: 953134147058158203}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24204,7 +24261,7 @@ GameObject:
   - component: {fileID: 1435932475159400103}
   - component: {fileID: 6848922643172717666}
   - component: {fileID: 1663870361972795688}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMill_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24230,7 +24287,7 @@ GameObject:
   - component: {fileID: 1352317011546577034}
   - component: {fileID: 1306312293122654614}
   - component: {fileID: 8644517533687799235}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24347,13 +24404,55 @@ GameObject:
   - component: {fileID: 6998211431856767284}
   - component: {fileID: 8542410598102157684}
   - component: {fileID: 5379156595152692113}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!23 &1747034886053816400
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233706183878003077}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1756558219875533294
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -24373,9 +24472,9 @@ GameObject:
   - component: {fileID: 3795460581261201524}
   - component: {fileID: 8572701770586226919}
   - component: {fileID: 8505205406921052868}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlPanel
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24391,7 +24490,7 @@ GameObject:
   - component: {fileID: 34011207113614164}
   - component: {fileID: 1925892975849202978}
   - component: {fileID: 3976557873187130166}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24432,7 +24531,7 @@ GameObject:
   - component: {fileID: 6595887436162180008}
   - component: {fileID: 6900070842509552914}
   - component: {fileID: 7653977287557320551}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24549,7 +24648,7 @@ GameObject:
   - component: {fileID: 715841818681854203}
   - component: {fileID: 1195439189412915340}
   - component: {fileID: 1838182524184758812}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Sedan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24567,7 +24666,7 @@ GameObject:
   - component: {fileID: 5586477882789589538}
   - component: {fileID: 5109987460440473169}
   - component: {fileID: 895425838314420173}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24699,7 +24798,7 @@ GameObject:
   - component: {fileID: 1359981597231092277}
   - component: {fileID: 402789258205509944}
   - component: {fileID: 1261580767601043908}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24717,7 +24816,7 @@ GameObject:
   - component: {fileID: 5491727226377433116}
   - component: {fileID: 6692044739563102827}
   - component: {fileID: 5489721588551168648}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24758,7 +24857,7 @@ GameObject:
   - component: {fileID: 3350217803938878441}
   - component: {fileID: 5116206860064358445}
   - component: {fileID: 3293979179840830976}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24892,7 +24991,7 @@ GameObject:
   - component: {fileID: 83694669803669277}
   - component: {fileID: 512038740343158843}
   - component: {fileID: 8715479567404711597}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24910,7 +25009,7 @@ GameObject:
   - component: {fileID: 3204170507686132316}
   - component: {fileID: 4334219410323379748}
   - component: {fileID: 3519993626158541531}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24944,7 +25043,7 @@ GameObject:
   - component: {fileID: 1295866398101987919}
   - component: {fileID: 2355982399430979174}
   - component: {fileID: 877279378}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ConcreteSteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25130,7 +25229,7 @@ GameObject:
   - component: {fileID: 4295780108245722824}
   - component: {fileID: 7896021338567727054}
   - component: {fileID: 2821655904215299737}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25163,7 +25262,7 @@ GameObject:
   - component: {fileID: 3021040873673317687}
   - component: {fileID: 1232574958693134707}
   - component: {fileID: 1347674529407386316}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25181,7 +25280,7 @@ GameObject:
   - component: {fileID: 7400858018925347287}
   - component: {fileID: 6214807056988794144}
   - component: {fileID: 4127316761890406969}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: TrainHouse_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25318,7 +25417,7 @@ GameObject:
   - component: {fileID: 1276125223166579396}
   - component: {fileID: 7825864939826866437}
   - component: {fileID: 4945870949932614573}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25336,7 +25435,7 @@ GameObject:
   - component: {fileID: 7967766325906161886}
   - component: {fileID: 8482381505210752021}
   - component: {fileID: 8418640414563291712}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25354,7 +25453,7 @@ GameObject:
   - component: {fileID: 1427672040350380653}
   - component: {fileID: 108669396126905386}
   - component: {fileID: 1397873225357063441}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25467,9 +25566,9 @@ GameObject:
   - component: {fileID: 4931218026281737994}
   - component: {fileID: 4876933053398787337}
   - component: {fileID: 1305037033860471268}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25623,7 +25722,7 @@ GameObject:
   - component: {fileID: 2426298340277824396}
   - component: {fileID: 8252373076068538762}
   - component: {fileID: 3979176973179293382}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25740,7 +25839,7 @@ GameObject:
   - component: {fileID: 4891294558045340217}
   - component: {fileID: 4967552733454637246}
   - component: {fileID: 4146735899663794785}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25759,7 +25858,7 @@ GameObject:
   - component: {fileID: 8349693513104240977}
   - component: {fileID: 2653415441211406149}
   - component: {fileID: 2111705312}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ConcreteSteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25964,7 +26063,7 @@ GameObject:
   - component: {fileID: 3213450644669890036}
   - component: {fileID: 6089389933715341679}
   - component: {fileID: 3929435374739059780}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26083,7 +26182,7 @@ GameObject:
   - component: {fileID: 4668013534626919493}
   - component: {fileID: 8567717000926489692}
   - component: {fileID: 1330298425}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ConcreteSteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26143,7 +26242,7 @@ GameObject:
   - component: {fileID: 3316992658321845394}
   - component: {fileID: 9203870080005031877}
   - component: {fileID: 7783642029246818245}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMill_Wire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26260,7 +26359,7 @@ GameObject:
   - component: {fileID: 6657668695818144245}
   - component: {fileID: 2248683036242686281}
   - component: {fileID: 5610089356047485057}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Container_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26458,7 +26557,8 @@ GameObject:
   - component: {fileID: 8589026183768708157}
   - component: {fileID: 6876059422299586095}
   - component: {fileID: 5384421884580844004}
-  m_Layer: 3
+  - component: {fileID: 8589026183768708158}
+  m_Layer: 10
   m_Name: Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26499,7 +26599,7 @@ GameObject:
   - component: {fileID: 7700494545189826904}
   - component: {fileID: 3970153656454662628}
   - component: {fileID: 8022435055707806094}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26517,7 +26617,7 @@ GameObject:
   - component: {fileID: 2660640660898647744}
   - component: {fileID: 1264384252906238196}
   - component: {fileID: 6148596154694183556}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: LampPost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26608,7 +26708,7 @@ GameObject:
   - component: {fileID: 4152482545527912795}
   - component: {fileID: 5630148977444189119}
   - component: {fileID: 6981245954625272151}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26847,7 +26947,7 @@ GameObject:
   - component: {fileID: 3747905951800511198}
   - component: {fileID: 8457469434021080197}
   - component: {fileID: 5372520288081356020}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26903,7 +27003,7 @@ GameObject:
   - component: {fileID: 603361558265052771}
   - component: {fileID: 6144111819792871139}
   - component: {fileID: 5457133885219282825}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27005,7 +27105,7 @@ GameObject:
   - component: {fileID: 3260391154717922120}
   - component: {fileID: 1462197902582862671}
   - component: {fileID: 366890687902841404}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Rail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27204,7 +27304,7 @@ GameObject:
   - component: {fileID: 2860862314455311581}
   - component: {fileID: 2648511430391767063}
   - component: {fileID: 6977748261996943869}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Cactus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27237,7 +27337,7 @@ GameObject:
   - component: {fileID: 7089867583599208326}
   - component: {fileID: 4696586164110687208}
   - component: {fileID: 7791936969358528733}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMillBox_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27511,9 +27611,9 @@ GameObject:
   - component: {fileID: 6614996721126795854}
   - component: {fileID: 5341121480131381273}
   - component: {fileID: 7934638892882188230}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMill
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27560,7 +27660,7 @@ GameObject:
   - component: {fileID: 4363266974381591560}
   - component: {fileID: 7536968936861236781}
   - component: {fileID: 8776723657072842858}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27646,7 +27746,7 @@ GameObject:
   - component: {fileID: 831576136219364098}
   - component: {fileID: 3625254889871913090}
   - component: {fileID: 7286577652463748012}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Oven
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27664,7 +27764,7 @@ GameObject:
   - component: {fileID: 6337170183922204044}
   - component: {fileID: 8491329099219960346}
   - component: {fileID: 8061922575322908182}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMillBox_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27727,7 +27827,7 @@ GameObject:
   - component: {fileID: 3342091544488521669}
   - component: {fileID: 5026897620537074172}
   - component: {fileID: 4316424114515521687}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27753,7 +27853,7 @@ GameObject:
   - component: {fileID: 6658855197414415440}
   - component: {fileID: 662626206184804655}
   - component: {fileID: 1052254512554266649}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Container_Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27895,7 +27995,7 @@ GameObject:
   - component: {fileID: 5280273934099528269}
   - component: {fileID: 1728479365561848771}
   - component: {fileID: 8391255556498893573}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Bin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27928,7 +28028,7 @@ GameObject:
   - component: {fileID: 6246141778470341095}
   - component: {fileID: 3278749229116807554}
   - component: {fileID: 878067979081539824}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27946,7 +28046,7 @@ GameObject:
   - component: {fileID: 8281321744071328673}
   - component: {fileID: 6953112055570609676}
   - component: {fileID: 3567318532903115253}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27979,7 +28079,7 @@ GameObject:
   - component: {fileID: 8846092024933278953}
   - component: {fileID: 4480724377848797450}
   - component: {fileID: 8030719234841762076}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28379,7 +28479,7 @@ GameObject:
   - component: {fileID: 4624088327537895619}
   - component: {fileID: 1688957146003226786}
   - component: {fileID: 887688285975695802}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28442,7 +28542,7 @@ GameObject:
   - component: {fileID: 990419790544583640}
   - component: {fileID: 2215456986980411329}
   - component: {fileID: 2528204404946285876}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28682,7 +28782,7 @@ GameObject:
   - component: {fileID: 8542164415115932023}
   - component: {fileID: 5898958501355192380}
   - component: {fileID: 1431928627997545114}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28784,7 +28884,7 @@ GameObject:
   - component: {fileID: 836453291954317807}
   - component: {fileID: 2928514860168549623}
   - component: {fileID: 6947464325783840096}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: GrateDoor_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28817,7 +28917,7 @@ GameObject:
   - component: {fileID: 6914128300549391361}
   - component: {fileID: 6116965057713245847}
   - component: {fileID: 5082708652373609375}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMillBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28873,7 +28973,7 @@ GameObject:
   - component: {fileID: 8538648396269418281}
   - component: {fileID: 4263830047553977820}
   - component: {fileID: 312902459332397371}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28957,7 +29057,7 @@ GameObject:
   - component: {fileID: 393426108954539416}
   - component: {fileID: 5816652059698564696}
   - component: {fileID: 4059279300851427377}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28975,7 +29075,7 @@ GameObject:
   - component: {fileID: 6137466813092429696}
   - component: {fileID: 9081674080330796907}
   - component: {fileID: 7137442478873990405}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Bin_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29035,7 +29135,7 @@ GameObject:
   - component: {fileID: 6790097620639286198}
   - component: {fileID: 2985466376661434592}
   - component: {fileID: 4541392981324754427}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Planks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29053,7 +29153,7 @@ GameObject:
   - component: {fileID: 6564075230934036324}
   - component: {fileID: 5583825106411162249}
   - component: {fileID: 7836259204503361673}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29122,7 +29222,7 @@ GameObject:
   - component: {fileID: 4275980921285825725}
   - component: {fileID: 1438763577307635136}
   - component: {fileID: 1958464292066610497}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29231,7 +29331,8 @@ GameObject:
   - component: {fileID: 8796187630751583630}
   - component: {fileID: 1079302431245982565}
   - component: {fileID: 5003168026870272350}
-  m_Layer: 3
+  - component: {fileID: 8796187630751583631}
+  m_Layer: 10
   m_Name: Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29249,7 +29350,7 @@ GameObject:
   - component: {fileID: 6645823804594282767}
   - component: {fileID: 5366159435877057403}
   - component: {fileID: 7202271454703635937}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29452,7 +29553,7 @@ GameObject:
   - component: {fileID: 7590727478484093117}
   - component: {fileID: 4575050370096695927}
   - component: {fileID: 278887077127623136}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Planks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29674,7 +29775,7 @@ GameObject:
   - component: {fileID: 5566828612747541247}
   - component: {fileID: 4370242494771150885}
   - component: {fileID: 5207550527137585414}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29898,7 +29999,7 @@ GameObject:
   - component: {fileID: 3697166522905317982}
   - component: {fileID: 6490044622369506150}
   - component: {fileID: 5266119471436203944}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30115,7 +30216,7 @@ GameObject:
   - component: {fileID: 3349870570099152355}
   - component: {fileID: 3517685580030008198}
   - component: {fileID: 1060481912968208181}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Planks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30243,7 +30344,7 @@ GameObject:
   - component: {fileID: 3280282832064172359}
   - component: {fileID: 4938768174934268408}
   - component: {fileID: 4876285997094502193}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30524,7 +30625,7 @@ GameObject:
   - component: {fileID: 6511196526270265868}
   - component: {fileID: 805827206877926642}
   - component: {fileID: 3699295531074168624}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30641,7 +30742,7 @@ GameObject:
   - component: {fileID: 2956613754446738764}
   - component: {fileID: 8336391998234738540}
   - component: {fileID: 1809034822673164217}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30667,7 +30768,7 @@ GameObject:
   - component: {fileID: 8577611361435194034}
   - component: {fileID: 8307813400925879285}
   - component: {fileID: 2128355837147002697}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Drawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30788,7 +30889,7 @@ GameObject:
   - component: {fileID: 1869425052749982984}
   - component: {fileID: 7881527266348907248}
   - component: {fileID: 6330589771510317963}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30836,7 +30937,7 @@ GameObject:
   - component: {fileID: 6809991594144078090}
   - component: {fileID: 4906347696136177756}
   - component: {fileID: 4730727992238828243}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30896,7 +30997,7 @@ GameObject:
   - component: {fileID: 589897757537721796}
   - component: {fileID: 6772912780846768870}
   - component: {fileID: 1914653232132526131}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlUnit_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31080,7 +31181,7 @@ GameObject:
   - component: {fileID: 4129377013788761719}
   - component: {fileID: 2210192937868554615}
   - component: {fileID: 1738776581858189882}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlUnit_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31113,7 +31214,7 @@ GameObject:
   - component: {fileID: 2256981873248522407}
   - component: {fileID: 2660845947325998380}
   - component: {fileID: 6688144978002428207}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31181,7 +31282,7 @@ GameObject:
   - component: {fileID: 2405308046299011174}
   - component: {fileID: 3223795820839583474}
   - component: {fileID: 3409390531310221365}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Train_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31352,7 +31453,7 @@ GameObject:
   - component: {fileID: 1148649772600700082}
   - component: {fileID: 2579349565706430577}
   - component: {fileID: 6729895695981765265}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31370,7 +31471,7 @@ GameObject:
   - component: {fileID: 8906773799071546345}
   - component: {fileID: 8678946765060520361}
   - component: {fileID: 6275833175717592265}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31418,7 +31519,7 @@ GameObject:
   - component: {fileID: 3252668802124905456}
   - component: {fileID: 8448070401081030434}
   - component: {fileID: 1229045600154807353}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Train_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31562,7 +31663,7 @@ GameObject:
   - component: {fileID: 1611180393095103936}
   - component: {fileID: 1113017198452532808}
   - component: {fileID: 915154578951113055}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31580,7 +31681,7 @@ GameObject:
   - component: {fileID: 2122975070222000956}
   - component: {fileID: 5551643946980133444}
   - component: {fileID: 3894228510523465013}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31634,6 +31735,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4632270156873891452}
   m_Mesh: {fileID: 9221262714969941925, guid: c97c66d1a4b8e32458add036b49e1523, type: 3}
+--- !u!33 &4601062197431573658
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233706183878003077}
+  m_Mesh: {fileID: -8936622394817868014, guid: c05be1a827a19a649b2570d6a74a4920, type: 3}
+--- !u!114 &4601062197431573659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233706183878003077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.99701774, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &4601062197431573660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233706183878003077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aa4b99b6eeb7e4a99c784e41752bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_initialCharge: 60
+  m_hot: {fileID: 528930061}
+  m_neutral: {fileID: 1164669013}
+  Outline: {fileID: 4601062197431573659}
+  Charge: 0
+  isATask: 0
+--- !u!65 &4601062197431573661
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233706183878003077}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2346215, y: 2.330309, z: 0.6840706}
+  m_Center: {x: 0.0000010430813, y: 0, z: -0.00000013411045}
 --- !u!4 &4601691177628606246
 Transform:
   m_ObjectHideFlags: 0
@@ -31660,7 +31818,7 @@ GameObject:
   - component: {fileID: 807048563182082950}
   - component: {fileID: 5236502782497827250}
   - component: {fileID: 2480147832271838822}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Jeep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31750,7 +31908,7 @@ GameObject:
   - component: {fileID: 6631176896136492547}
   - component: {fileID: 4594413402365494817}
   - component: {fileID: 1837861886967336195}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Garbage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31791,7 +31949,7 @@ GameObject:
   - component: {fileID: 6812546549191878563}
   - component: {fileID: 6831729882756311383}
   - component: {fileID: 5817012108504000689}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Train_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31851,7 +32009,7 @@ GameObject:
   - component: {fileID: 5439073788770356109}
   - component: {fileID: 8439309905125886822}
   - component: {fileID: 1707986048448373654}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Train_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31877,7 +32035,7 @@ GameObject:
   - component: {fileID: 437972981448606886}
   - component: {fileID: 737823877351225038}
   - component: {fileID: 4289082992149170091}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Table2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31926,7 +32084,7 @@ GameObject:
   - component: {fileID: 670689084591262952}
   - component: {fileID: 8546306058577182156}
   - component: {fileID: 1524243885587518169}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Truck2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32100,7 +32258,7 @@ GameObject:
   - component: {fileID: 5811517544619472557}
   - component: {fileID: 4321851932981805932}
   - component: {fileID: 2199397639950436062}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32661,7 +32819,7 @@ GameObject:
   - component: {fileID: 3782382551084842438}
   - component: {fileID: 1920174153265438484}
   - component: {fileID: 739171840538157902}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32695,7 +32853,7 @@ GameObject:
   - component: {fileID: 357558767935008126}
   - component: {fileID: 2108807923254297857}
   - component: {fileID: 830597131326811106}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32812,7 +32970,7 @@ GameObject:
   - component: {fileID: 2024219433271939033}
   - component: {fileID: 6232573140366482902}
   - component: {fileID: 2056398764046039333}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32830,7 +32988,7 @@ GameObject:
   - component: {fileID: 5473709128599794884}
   - component: {fileID: 2874840443501569571}
   - component: {fileID: 6659182531373643845}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32890,7 +33048,7 @@ GameObject:
   - component: {fileID: 2114071028438869700}
   - component: {fileID: 5640423264332301894}
   - component: {fileID: 5425505346899594743}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Container_Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33032,7 +33190,7 @@ GameObject:
   - component: {fileID: 1729776008037750368}
   - component: {fileID: 6697621763914492780}
   - component: {fileID: 882129737888539771}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33050,7 +33208,7 @@ GameObject:
   - component: {fileID: 71915518379317037}
   - component: {fileID: 6646400850535083148}
   - component: {fileID: 7152520436104084008}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33125,7 +33283,7 @@ GameObject:
   - component: {fileID: 3036819884287504244}
   - component: {fileID: 568656253791198927}
   - component: {fileID: 5052876897099192409}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33143,7 +33301,7 @@ GameObject:
   - component: {fileID: 4637328704663844278}
   - component: {fileID: 5033075959176141804}
   - component: {fileID: 1957819986788255019}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33276,7 +33434,7 @@ GameObject:
   - component: {fileID: 1845986698623662623}
   - component: {fileID: 2001263134080258258}
   - component: {fileID: 3859947755009560642}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33410,7 +33568,7 @@ GameObject:
   - component: {fileID: 5630985325406774698}
   - component: {fileID: 6179951801065417817}
   - component: {fileID: 4106205127100391145}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Planks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33778,7 +33936,7 @@ GameObject:
   - component: {fileID: 2597374479704794049}
   - component: {fileID: 7398712691558608308}
   - component: {fileID: 7132763444979068863}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMill_Wire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33880,7 +34038,7 @@ GameObject:
   - component: {fileID: 6942875694283566992}
   - component: {fileID: 3141954986580498865}
   - component: {fileID: 8602934197029281292}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33928,7 +34086,7 @@ GameObject:
   - component: {fileID: 6490625522541744400}
   - component: {fileID: 2040280107393364213}
   - component: {fileID: 5008022236159189479}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34003,7 +34161,7 @@ GameObject:
   - component: {fileID: 3328508632970319735}
   - component: {fileID: 8373555444921305771}
   - component: {fileID: 7400049671426580112}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Cactus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34154,7 +34312,7 @@ GameObject:
   - component: {fileID: 4720191581028336639}
   - component: {fileID: 1199777295590551470}
   - component: {fileID: 5380011292901205411}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlUnit_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34172,7 +34330,7 @@ GameObject:
   - component: {fileID: 4283760718946229532}
   - component: {fileID: 6889526263852046379}
   - component: {fileID: 3249160911903639364}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34198,7 +34356,7 @@ GameObject:
   - component: {fileID: 5482811521622718065}
   - component: {fileID: 3809741620023926470}
   - component: {fileID: 8765068027538929897}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Garbage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34231,7 +34389,7 @@ GameObject:
   - component: {fileID: 2799749411070202743}
   - component: {fileID: 689035095961883505}
   - component: {fileID: 5213662669126758076}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Planks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34291,7 +34449,7 @@ GameObject:
   - component: {fileID: 4619381423251193601}
   - component: {fileID: 7374881024865314814}
   - component: {fileID: 8999316590105270304}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34389,7 +34547,7 @@ GameObject:
   - component: {fileID: 629417918690276149}
   - component: {fileID: 6789992801358837222}
   - component: {fileID: 4826702756483663632}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34503,7 +34661,7 @@ GameObject:
   - component: {fileID: 4406155116299545665}
   - component: {fileID: 9170846852724605728}
   - component: {fileID: 355894166788793696}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34579,7 +34737,7 @@ GameObject:
   - component: {fileID: 4207549116595236906}
   - component: {fileID: 7954281552686996014}
   - component: {fileID: 3899637299593499925}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Train_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34620,7 +34778,7 @@ GameObject:
   - component: {fileID: 8791695570661084040}
   - component: {fileID: 7579511988144695445}
   - component: {fileID: 3642935124061818400}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMill_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34653,7 +34811,7 @@ GameObject:
   - component: {fileID: 5134136590064318163}
   - component: {fileID: 5383179511484999661}
   - component: {fileID: 8616184510985330356}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34751,7 +34909,7 @@ GameObject:
   - component: {fileID: 6533163579177602667}
   - component: {fileID: 5498856433496002091}
   - component: {fileID: 2306860798645414832}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34874,7 +35032,7 @@ GameObject:
   - component: {fileID: 8075791901278591138}
   - component: {fileID: 5961168366710631762}
   - component: {fileID: 2411194861959143324}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34923,7 +35081,7 @@ GameObject:
   - component: {fileID: 2371282149866776197}
   - component: {fileID: 8549356106977923082}
   - component: {fileID: 6636589365613910906}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35040,7 +35198,7 @@ GameObject:
   - component: {fileID: 3049066016041899632}
   - component: {fileID: 2889888934430958477}
   - component: {fileID: 1466806967559953714}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35058,7 +35216,7 @@ GameObject:
   - component: {fileID: 4088688947336599538}
   - component: {fileID: 1048724835209767474}
   - component: {fileID: 4432071487351460836}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35120,7 +35278,7 @@ GameObject:
   - component: {fileID: 5183018676452399555}
   - component: {fileID: 8576697198626082255}
   - component: {fileID: 636163985232374295}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35180,7 +35338,7 @@ GameObject:
   - component: {fileID: 7171206058827545659}
   - component: {fileID: 6973898162512837441}
   - component: {fileID: 2824965587641580934}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMillBox_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35198,7 +35356,7 @@ GameObject:
   - component: {fileID: 1274316343065966091}
   - component: {fileID: 789173350723982864}
   - component: {fileID: 2549569356116175255}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlUnit_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35281,7 +35439,7 @@ GameObject:
   - component: {fileID: 5490063846667329348}
   - component: {fileID: 3943889307249294700}
   - component: {fileID: 1737892525951127106}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35307,7 +35465,7 @@ GameObject:
   - component: {fileID: 759783742139111901}
   - component: {fileID: 3870519101650019826}
   - component: {fileID: 8184322679040364557}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35325,7 +35483,7 @@ GameObject:
   - component: {fileID: 4992734258100429609}
   - component: {fileID: 3699297345816124166}
   - component: {fileID: 3255330669204497132}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WindMill_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35408,7 +35566,7 @@ GameObject:
   - component: {fileID: 1898001179400686888}
   - component: {fileID: 775332716694889449}
   - component: {fileID: 6633947738647059617}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Planks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35557,7 +35715,7 @@ GameObject:
   - component: {fileID: 1818169785110121546}
   - component: {fileID: 7628154277490567325}
   - component: {fileID: 7938001497811197133}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35640,7 +35798,7 @@ GameObject:
   - component: {fileID: 1102640297393527777}
   - component: {fileID: 3517951207796521191}
   - component: {fileID: 1512191506656285490}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Outpost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35821,6 +35979,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6286941004655880570
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152955310344501237}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1056782124063008565, guid: c97c66d1a4b8e32458add036b49e1523, type: 3}
 --- !u!1 &6292129311348659959
 GameObject:
   m_ObjectHideFlags: 0
@@ -35832,7 +36004,7 @@ GameObject:
   - component: {fileID: 2002393305370162807}
   - component: {fileID: 1295300213253782124}
   - component: {fileID: 3196148031018871641}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35950,7 +36122,7 @@ GameObject:
   - component: {fileID: 1677264337436622275}
   - component: {fileID: 9105937448623679328}
   - component: {fileID: 4773068486393116206}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Cactus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35983,7 +36155,7 @@ GameObject:
   - component: {fileID: 5328442484934667465}
   - component: {fileID: 1723629720718812902}
   - component: {fileID: 5366800995267172626}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: GrateDoor_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36001,7 +36173,7 @@ GameObject:
   - component: {fileID: 4085725207912904383}
   - component: {fileID: 5871254736377415257}
   - component: {fileID: 1164606062303094595}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Outpost_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36019,7 +36191,7 @@ GameObject:
   - component: {fileID: 4436456653781595503}
   - component: {fileID: 5215340677273844394}
   - component: {fileID: 771409446984291690}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36037,7 +36209,7 @@ GameObject:
   - component: {fileID: 8031158642728823567}
   - component: {fileID: 1241005164973980624}
   - component: {fileID: 5984788298556268771}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36063,7 +36235,7 @@ GameObject:
   - component: {fileID: 6592560982665139875}
   - component: {fileID: 2446893474164766105}
   - component: {fileID: 754589257612162900}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36081,7 +36253,7 @@ GameObject:
   - component: {fileID: 6198204461876780103}
   - component: {fileID: 6313836130927174073}
   - component: {fileID: 859622175250284577}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36149,7 +36321,7 @@ GameObject:
   - component: {fileID: 2218439426786186343}
   - component: {fileID: 4652966703565529192}
   - component: {fileID: 7496881162956290532}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Train_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36167,7 +36339,7 @@ GameObject:
   - component: {fileID: 4587513858751521917}
   - component: {fileID: 3241353849040270}
   - component: {fileID: 1930576379796561536}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36185,7 +36357,7 @@ GameObject:
   - component: {fileID: 6868712900446953881}
   - component: {fileID: 8160934137318364298}
   - component: {fileID: 3597395169886197797}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36245,7 +36417,7 @@ GameObject:
   - component: {fileID: 6461109677686086037}
   - component: {fileID: 475926140215054820}
   - component: {fileID: 466608246713010665}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36263,7 +36435,7 @@ GameObject:
   - component: {fileID: 977615933056825455}
   - component: {fileID: 7188264125859983779}
   - component: {fileID: 109973492360331681}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36304,7 +36476,7 @@ GameObject:
   - component: {fileID: 9048710943673225444}
   - component: {fileID: 5690318110784665163}
   - component: {fileID: 4971084388864248176}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Jeep_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36337,7 +36509,7 @@ GameObject:
   - component: {fileID: 5744909990679538366}
   - component: {fileID: 872289989482587620}
   - component: {fileID: 5308126664494955451}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36378,7 +36550,7 @@ GameObject:
   - component: {fileID: 7685259906184405453}
   - component: {fileID: 508709922686917209}
   - component: {fileID: 7339356831939900954}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36411,7 +36583,7 @@ GameObject:
   - component: {fileID: 1268127577685304961}
   - component: {fileID: 6779607286314071073}
   - component: {fileID: 3819512085078045533}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36444,9 +36616,9 @@ GameObject:
   - component: {fileID: 9086060357844086804}
   - component: {fileID: 5510423871177639635}
   - component: {fileID: 707229742525958113}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Train
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36615,7 +36787,7 @@ GameObject:
   - component: {fileID: 3095268267347268739}
   - component: {fileID: 2068503745010473876}
   - component: {fileID: 4325970221576900621}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36827,7 +36999,7 @@ GameObject:
   - component: {fileID: 7680448791596563}
   - component: {fileID: 6312536319746995774}
   - component: {fileID: 8868913853716486645}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36911,7 +37083,7 @@ GameObject:
   - component: {fileID: 1066235068193753316}
   - component: {fileID: 9155275840798800916}
   - component: {fileID: 6749947461680274700}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlUnit_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36971,7 +37143,7 @@ GameObject:
   - component: {fileID: 5463601097134018746}
   - component: {fileID: 3753547065251525481}
   - component: {fileID: 4382882260128548395}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37105,7 +37277,7 @@ GameObject:
   - component: {fileID: 10783184425396142}
   - component: {fileID: 8084970639750420124}
   - component: {fileID: 2732890462361698122}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Train_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37365,7 +37537,7 @@ GameObject:
   - component: {fileID: 4789816724417327576}
   - component: {fileID: 7013723230514041614}
   - component: {fileID: 6052149032649096749}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37383,7 +37555,7 @@ GameObject:
   - component: {fileID: 967435241203612583}
   - component: {fileID: 6211369512581114989}
   - component: {fileID: 7029752985611511626}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37454,7 +37626,7 @@ GameObject:
   - component: {fileID: 9069629275410553292}
   - component: {fileID: 2216916813966992728}
   - component: {fileID: 4229448175711496491}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37560,7 +37732,7 @@ GameObject:
   - component: {fileID: 6861918040310424536}
   - component: {fileID: 6398214916003154014}
   - component: {fileID: 6567718102397817435}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37792,7 +37964,7 @@ GameObject:
   - component: {fileID: 3800919634611936921}
   - component: {fileID: 7250595021712823684}
   - component: {fileID: 2726731778698162038}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Container_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37925,7 +38097,7 @@ GameObject:
   - component: {fileID: 8571526815232408220}
   - component: {fileID: 8723295418639146146}
   - component: {fileID: 6231021827756676202}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Container_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37985,7 +38157,7 @@ GameObject:
   - component: {fileID: 6260506084641166292}
   - component: {fileID: 7638219867802879263}
   - component: {fileID: 3388032051430497353}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38003,7 +38175,7 @@ GameObject:
   - component: {fileID: 1341056751203560541}
   - component: {fileID: 4870004671192955882}
   - component: {fileID: 1442450553473215059}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38021,7 +38193,7 @@ GameObject:
   - component: {fileID: 3092923551480681981}
   - component: {fileID: 6464393432651776833}
   - component: {fileID: 7841272781256950817}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38119,7 +38291,7 @@ GameObject:
   - component: {fileID: 4937290518115348939}
   - component: {fileID: 7271672130896610018}
   - component: {fileID: 5134118399322230901}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38137,7 +38309,7 @@ GameObject:
   - component: {fileID: 2873417956553284208}
   - component: {fileID: 2603240574804309903}
   - component: {fileID: 137163846017232183}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Planks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38155,7 +38327,7 @@ GameObject:
   - component: {fileID: 6902850991451183296}
   - component: {fileID: 370415572201629161}
   - component: {fileID: 2927593092094073608}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Outpost_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38173,7 +38345,7 @@ GameObject:
   - component: {fileID: 7599965304667450967}
   - component: {fileID: 1756558219875533294}
   - component: {fileID: 7952231458089416797}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Oven
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38290,7 +38462,7 @@ GameObject:
   - component: {fileID: 2941352426258446286}
   - component: {fileID: 677407277350168286}
   - component: {fileID: 2816831734685642919}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Container_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38366,7 +38538,7 @@ GameObject:
   - component: {fileID: 215592839023493057}
   - component: {fileID: 1558643248398970899}
   - component: {fileID: 715223326}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ConcreteSteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38427,7 +38599,7 @@ GameObject:
   - component: {fileID: 5371671862205636917}
   - component: {fileID: 4348440454218610945}
   - component: {fileID: 8628502785712922021}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38461,7 +38633,7 @@ GameObject:
   - component: {fileID: 2287347675972238060}
   - component: {fileID: 4784959121182659410}
   - component: {fileID: 7977718531742508896}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38479,7 +38651,7 @@ GameObject:
   - component: {fileID: 5830686056684729261}
   - component: {fileID: 1147230179196339763}
   - component: {fileID: 6126031748379925462}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38539,7 +38711,7 @@ GameObject:
   - component: {fileID: 6906874769520145801}
   - component: {fileID: 4068307149630348830}
   - component: {fileID: 642183387063746729}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38599,7 +38771,7 @@ GameObject:
   - component: {fileID: 974205934899099151}
   - component: {fileID: 281657580417374146}
   - component: {fileID: 3232887948425870130}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlPanel_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38632,7 +38804,7 @@ GameObject:
   - component: {fileID: 3894554533995566257}
   - component: {fileID: 2219043076744664739}
   - component: {fileID: 7181012073099537048}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38708,7 +38880,7 @@ GameObject:
   - component: {fileID: 1771266950945706070}
   - component: {fileID: 7536177112567934702}
   - component: {fileID: 945454400270215254}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Container_Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38726,7 +38898,7 @@ GameObject:
   - component: {fileID: 6286393608208212074}
   - component: {fileID: 3901834440936474040}
   - component: {fileID: 6272350532058262675}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlUnit_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38828,7 +39000,7 @@ GameObject:
   - component: {fileID: 8934385354502558679}
   - component: {fileID: 777982543300719052}
   - component: {fileID: 7725258897242055645}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Planks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38846,7 +39018,7 @@ GameObject:
   - component: {fileID: 4005393330227265129}
   - component: {fileID: 8436024266666946165}
   - component: {fileID: 6955233919908659827}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38980,7 +39152,7 @@ GameObject:
   - component: {fileID: 6272787469747028824}
   - component: {fileID: 8554505259787922133}
   - component: {fileID: 2452755170324905017}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38998,7 +39170,7 @@ GameObject:
   - component: {fileID: 4944335328924424479}
   - component: {fileID: 900776484866570976}
   - component: {fileID: 2303505233037064183}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39058,7 +39230,7 @@ GameObject:
   - component: {fileID: 3475114726088783030}
   - component: {fileID: 6376125965999727953}
   - component: {fileID: 832761273588672740}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39076,7 +39248,7 @@ GameObject:
   - component: {fileID: 3384663438392196324}
   - component: {fileID: 3719001747749242798}
   - component: {fileID: 3416647289766973188}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39110,7 +39282,7 @@ GameObject:
   - component: {fileID: 2493986293772560260}
   - component: {fileID: 5901898936797672107}
   - component: {fileID: 4000066032825675943}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Washing_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39158,7 +39330,7 @@ GameObject:
   - component: {fileID: 5441959332752456238}
   - component: {fileID: 6704013020277003510}
   - component: {fileID: 3975487412409305018}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39265,7 +39437,7 @@ GameObject:
   - component: {fileID: 4306643203113342543}
   - component: {fileID: 8401952774852258428}
   - component: {fileID: 7416691523766252173}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39341,7 +39513,7 @@ GameObject:
   - component: {fileID: 7942816438778779213}
   - component: {fileID: 8542036706186527994}
   - component: {fileID: 3251961985281121530}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39359,7 +39531,7 @@ GameObject:
   - component: {fileID: 8580188406343708534}
   - component: {fileID: 3475707242007161946}
   - component: {fileID: 5987426365958347118}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39377,7 +39549,7 @@ GameObject:
   - component: {fileID: 5899486044996125255}
   - component: {fileID: 2777927262653408194}
   - component: {fileID: 6913879345589391946}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39410,7 +39582,7 @@ GameObject:
   - component: {fileID: 1947981820196505981}
   - component: {fileID: 3667490959343841427}
   - component: {fileID: 7912484003176622258}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39500,7 +39672,7 @@ GameObject:
   - component: {fileID: 2184395688510363198}
   - component: {fileID: 633711616915685586}
   - component: {fileID: 7847830369385606903}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Oven
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39859,7 +40031,7 @@ GameObject:
   - component: {fileID: 40796180475782008}
   - component: {fileID: 1075669132493809637}
   - component: {fileID: 6294062970224655923}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39893,7 +40065,7 @@ GameObject:
   - component: {fileID: 778550145649826090}
   - component: {fileID: 8898752990128285483}
   - component: {fileID: 629426383}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WashingMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40075,7 +40247,7 @@ GameObject:
   - component: {fileID: 8494251016156998139}
   - component: {fileID: 420694216533233369}
   - component: {fileID: 1595097082054571971}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40135,7 +40307,7 @@ GameObject:
   - component: {fileID: 2804892262723209724}
   - component: {fileID: 547282167006633299}
   - component: {fileID: 1573357408522004645}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40154,7 +40326,7 @@ GameObject:
   - component: {fileID: 7606442907414933460}
   - component: {fileID: 4321514657217056699}
   - component: {fileID: 108034396}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ConcreteSteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40172,7 +40344,7 @@ GameObject:
   - component: {fileID: 3486015691218709557}
   - component: {fileID: 2249302368729859143}
   - component: {fileID: 5905997158731138613}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Rail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40411,7 +40583,7 @@ GameObject:
   - component: {fileID: 8616562853087727786}
   - component: {fileID: 763392349467215881}
   - component: {fileID: 8981784599366671742}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40647,7 +40819,7 @@ GameObject:
   - component: {fileID: 4419257187494015083}
   - component: {fileID: 4634003920424167975}
   - component: {fileID: 4465461991480180448}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40681,7 +40853,7 @@ GameObject:
   - component: {fileID: 1288006998804988637}
   - component: {fileID: 3165241815318737685}
   - component: {fileID: 3467768901714322661}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40738,7 +40910,7 @@ GameObject:
   - component: {fileID: 9165736883788743678}
   - component: {fileID: 9099483055072256668}
   - component: {fileID: 2538364783641479576}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40814,7 +40986,7 @@ GameObject:
   - component: {fileID: 4088891923100486159}
   - component: {fileID: 2585226212205583908}
   - component: {fileID: 816970053929898365}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40832,7 +41004,7 @@ GameObject:
   - component: {fileID: 2049240596578078718}
   - component: {fileID: 3783241353941054699}
   - component: {fileID: 1954737084002154337}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Garbage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40850,7 +41022,7 @@ GameObject:
   - component: {fileID: 5680519944499919623}
   - component: {fileID: 3010172806895375598}
   - component: {fileID: 8544783548566510835}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41051,7 +41223,7 @@ GameObject:
   - component: {fileID: 4170065581254652614}
   - component: {fileID: 4567223325554304534}
   - component: {fileID: 2522682729978855246}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Chair2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41077,13 +41249,28 @@ GameObject:
   - component: {fileID: 1187514422334422398}
   - component: {fileID: 3404236367968966756}
   - component: {fileID: 6027543245755328202}
-  m_Layer: 3
+  - component: {fileID: 8485173162025753927}
+  m_Layer: 10
   m_Name: Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &8485173162025753927
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485173162025753926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5741174448488666723, guid: c97c66d1a4b8e32458add036b49e1523, type: 3}
 --- !u!33 &8491329099219960346
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -41118,7 +41305,7 @@ GameObject:
   - component: {fileID: 5266605204439685860}
   - component: {fileID: 1003254524663633864}
   - component: {fileID: 203547780011628310}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41178,7 +41365,7 @@ GameObject:
   - component: {fileID: 6738450968088029679}
   - component: {fileID: 4109396432831064879}
   - component: {fileID: 7071182760997065604}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Generator_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41204,7 +41391,7 @@ GameObject:
   - component: {fileID: 943105241287092568}
   - component: {fileID: 2263865757306076803}
   - component: {fileID: 4750593644736291203}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41377,7 +41564,7 @@ GameObject:
   - component: {fileID: 4205860534324380046}
   - component: {fileID: 6094484959236461514}
   - component: {fileID: 8436230607567168225}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41441,7 +41628,7 @@ GameObject:
   - component: {fileID: 645056540564775394}
   - component: {fileID: 4780790647191243571}
   - component: {fileID: 7621133391955967246}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41478,6 +41665,20 @@ Transform:
   m_Father: {fileID: 914808652}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &8589026183768708158
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2596957926089661188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6593217175389860584, guid: c97c66d1a4b8e32458add036b49e1523, type: 3}
 --- !u!23 &8602934197029281292
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41689,7 +41890,7 @@ GameObject:
   - component: {fileID: 3023404609292638661}
   - component: {fileID: 5394297675861679159}
   - component: {fileID: 1512853137254798939}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41716,7 +41917,7 @@ GameObject:
   - component: {fileID: 3260616448511819966}
   - component: {fileID: 7762067042209126703}
   - component: {fileID: 1425603391}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ConcreteSteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41849,7 +42050,8 @@ GameObject:
   - component: {fileID: 7129599249364912383}
   - component: {fileID: 8894691112894841916}
   - component: {fileID: 6745302439282359537}
-  m_Layer: 3
+  - component: {fileID: 8894691112894841917}
+  m_Layer: 10
   m_Name: Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41952,7 +42154,7 @@ GameObject:
   - component: {fileID: 7923383770427516132}
   - component: {fileID: 5129709613519851891}
   - component: {fileID: 845826043270778781}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41989,6 +42191,20 @@ Transform:
   m_Father: {fileID: 914808652}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &8796187630751583631
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3654328044368048402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 665085963770613444, guid: c97c66d1a4b8e32458add036b49e1523, type: 3}
 --- !u!1 &8808639470741193844
 GameObject:
   m_ObjectHideFlags: 0
@@ -42000,7 +42216,7 @@ GameObject:
   - component: {fileID: 4688603909541042798}
   - component: {fileID: 4265237120552503304}
   - component: {fileID: 3705730529703776183}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Planks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42051,6 +42267,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8839853225983606897
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26844662563930487}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3874432442672741690, guid: c97c66d1a4b8e32458add036b49e1523, type: 3}
 --- !u!4 &8840325784319714665
 Transform:
   m_ObjectHideFlags: 0
@@ -42134,7 +42364,7 @@ GameObject:
   - component: {fileID: 9213472316088389806}
   - component: {fileID: 992621563467685910}
   - component: {fileID: 4349925143236394780}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Vending_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42148,6 +42378,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8757042445910726746}
+  m_Mesh: {fileID: -2228417370725966487, guid: c97c66d1a4b8e32458add036b49e1523, type: 3}
+--- !u!64 &8894691112894841917
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757042445910726746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2228417370725966487, guid: c97c66d1a4b8e32458add036b49e1523, type: 3}
 --- !u!33 &8897240367376376708
 MeshFilter:
@@ -42248,7 +42492,7 @@ GameObject:
   - component: {fileID: 7565610896153020050}
   - component: {fileID: 2347402253371728121}
   - component: {fileID: 6781182773798628871}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Container_Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42373,7 +42617,7 @@ GameObject:
   - component: {fileID: 5949365508514357459}
   - component: {fileID: 1703912659525693911}
   - component: {fileID: 8102382928110920837}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlUnit_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42391,13 +42635,28 @@ GameObject:
   - component: {fileID: 1447523070535144520}
   - component: {fileID: 4902934332951808950}
   - component: {fileID: 1099556530450243572}
-  m_Layer: 3
+  - component: {fileID: 9017328541967008932}
+  m_Layer: 10
   m_Name: Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &9017328541967008932
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017328541967008931}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4563637298700409943, guid: c97c66d1a4b8e32458add036b49e1523, type: 3}
 --- !u!33 &9017783146548998876
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42432,7 +42691,7 @@ GameObject:
   - component: {fileID: 8229763681800564054}
   - component: {fileID: 5652059673045853711}
   - component: {fileID: 9097550958343250745}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Oven
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42473,7 +42732,7 @@ GameObject:
   - component: {fileID: 3812998814758897392}
   - component: {fileID: 8166223444805755338}
   - component: {fileID: 553710487645535786}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Carton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42584,7 +42843,7 @@ GameObject:
   - component: {fileID: 4313627430521931046}
   - component: {fileID: 1386623391349107566}
   - component: {fileID: 2511929419708301264}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Train_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42603,7 +42862,7 @@ GameObject:
   - component: {fileID: 19156297004865292}
   - component: {fileID: 649251792296894357}
   - component: {fileID: 734633625}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ConcreteSteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42621,7 +42880,7 @@ GameObject:
   - component: {fileID: 8710271320599381589}
   - component: {fileID: 4259737087404809629}
   - component: {fileID: 1066157690073759646}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Train_Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42647,13 +42906,28 @@ GameObject:
   - component: {fileID: 2592037896146239155}
   - component: {fileID: 1922597697313690553}
   - component: {fileID: 2733319493396586896}
-  m_Layer: 3
+  - component: {fileID: 9158743094137578684}
+  m_Layer: 10
   m_Name: Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &9158743094137578684
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9158743094137578683}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7035690196794747791, guid: c97c66d1a4b8e32458add036b49e1523, type: 3}
 --- !u!4 &9165736883788743678
 Transform:
   m_ObjectHideFlags: 0
@@ -42712,7 +42986,7 @@ GameObject:
   - component: {fileID: 2989901907992774759}
   - component: {fileID: 2380718651161872878}
   - component: {fileID: 1793906564}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ConcreteSteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42730,7 +43004,7 @@ GameObject:
   - component: {fileID: 8248265939902931838}
   - component: {fileID: 822108830284070342}
   - component: {fileID: 2845224497460933350}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Grate
   m_TagString: Untagged
   m_Icon: {fileID: 0}

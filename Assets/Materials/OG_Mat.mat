@@ -37,7 +37,7 @@ Material:
     - _MinLight: 0
     - _Offset: 0
     - _Segmented: 1
-    - _ShnIntense: 1
+    - _ShnIntense: 0
     - _ShnOverlap: 0
     - _ShnRange: 0
     - _ShnSmooth: 0

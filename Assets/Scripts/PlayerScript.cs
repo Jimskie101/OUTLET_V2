@@ -11,11 +11,15 @@ public class PlayerScript : MonoBehaviour
     //Life
     [Range(0, 1f)] public float LifePercentage = 1;
     public float DimMultiplier = 0;
+    public bool isDead = false;
 
 
     private void Update()
     {
-        ConsumeHealth();
+        ClosedCircuit();
+        if (!isDead && !m_charging)
+            ConsumeHealth();
+
     }
 
 
@@ -36,8 +40,54 @@ public class PlayerScript : MonoBehaviour
 
     public void ConsumeHealth()
     {
-        LifePercentage -= Time.deltaTime * DimMultiplier * 0.01f;
+        if (LifePercentage > 0)
+        {
+            LifePercentage -= Time.deltaTime * DimMultiplier * 0.01f;
+        }
+        else
+        {
+            isDead = true;
+        }
         UpdateLife();
+    }
+
+    private void ClosedCircuit()
+    {
+        if (m_hot.Connect && m_neutral.Connect)
+        {
+            //Action();
+            Regen();
+        }
+        else m_charging = false;
+
+          
+    
+
+        
+    }
+    [Header("Wires")]
+    [SerializeField] WireBase m_hot;
+    [SerializeField] WireBase m_neutral;
+    [SerializeField] EnergySource m_energySource;
+    bool m_charging;
+    private void Regen()
+    {
+        m_charging = true;
+        m_energySource = m_hot.Source.GetComponent<EnergySource>();
+        if (m_energySource != null)
+        {
+            if (m_energySource.Charge > 0)
+            {
+                if (m_lightController.LightValue < m_lightController.initialValue)
+                {
+                    LifePercentage += Time.deltaTime * 15f * 0.01f;
+                    UpdateLife();
+                    m_energySource.Charge -= Time.deltaTime * 15f;
+                    m_energySource.Outline.OutlineWidth = 2f * (m_energySource.Charge / m_energySource.m_initialCharge);
+                }
+            }
+        }
+
     }
 
 

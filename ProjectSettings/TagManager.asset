@@ -7,6 +7,7 @@ TagManager:
   - Socket_Hot
   - Socket_Neutral
   - Hook
+  - Environment
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Player
   - SocketPorts
   - Hooks
-  - 
+  - Environment
   - 
   - 
   - 

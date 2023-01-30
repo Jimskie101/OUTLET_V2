@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     //Components
     CharacterController m_cc;
     InputHandler m_inputHandler;
+    PlayerScript m_playerScript;
 
     //GameObjects and Transforms
     [SerializeField] Animator m_animator;
@@ -90,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
     public void Initializer()
     {
         m_cc = GetComponent<CharacterController>();
+        m_playerScript = GetComponent<PlayerScript>();
         m_groundChecker = GameObject.Find("GroundChecker").transform;
     }
 
@@ -238,6 +240,8 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(m_groundChecker.position, m_groundCheckSphereRadius);
     }
 
+
+    bool m_deadAlready = false;
     private void AnimationUpdate()
     {
         if (m_inputDir != Vector3.zero && IsGrounded)
@@ -256,6 +260,12 @@ public class PlayerMovement : MonoBehaviour
         else if (!m_isRunning || !IsGrounded || m_inputDir == Vector3.zero)
         {
             m_animator.SetBool("running", false);
+        }
+        if (m_playerScript.isDead && !m_deadAlready)
+        {
+            m_deadAlready = true;
+            m_animator.SetTrigger("dead");
+            Managers.Instance.InputHandler.DisableAllInGameInput();
         }
     }
 

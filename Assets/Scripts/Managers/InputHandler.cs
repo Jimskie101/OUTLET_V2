@@ -34,7 +34,7 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.UI.Pause.performed += ctx => Managers.Instance.UIManager.PauseGame();
     }
 
-
+    
 
     private void OnEnable()
     {
@@ -53,6 +53,21 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.OnHook.Disable();
     }
 
+    //Disable All Game Inputs except Menu
+    public void DisableAllInGameInput()
+    {
+        m_inputMaster.Player.Disable();
+        m_inputMaster.Camera.Disable();
+        m_inputMaster.Wires.Disable();
+        m_inputMaster.OnHook.Disable();
+    }
+     public void EnableAllInGameInput()
+    {
+        m_inputMaster.Player.Enable();
+        m_inputMaster.Camera.Enable();
+        m_inputMaster.Wires.Enable();
+        m_inputMaster.OnHook.Enable();
+    }
 
     //Status of PlayerMovement Script
     public void PlayerMovementEnabled()

@@ -25,6 +25,7 @@ public class Wires : MonoBehaviour
     private Vector3 m_currentWirePosition;
     private Vector3 m_targetPoint;
     private Vector3 m_wireBasePosition;
+    Vector3 m_direction;
 
 
 
@@ -75,6 +76,14 @@ public class Wires : MonoBehaviour
         m_targetPoint = m_wireBase.GetTargetPoint();
         m_wireBasePosition = transform.position;
         var up = Quaternion.LookRotation((m_targetPoint - m_wireBasePosition).normalized) * Vector3.up;
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, m_direction, out hit))
+        {
+            m_targetPoint = hit.point;
+            m_direction = (transform.position - m_targetPoint).normalized;
+            m_lineRenderer.SetPosition(1, m_targetPoint);
+        }
 
         m_currentWirePosition = Vector3.Lerp(m_currentWirePosition, m_targetPoint, Time.deltaTime * m_duration);
 

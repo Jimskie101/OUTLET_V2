@@ -11,11 +11,11 @@ public class LightController : MonoBehaviour
     //Reference Fields
     [SerializeField] Light m_pointLight;
     Material [] m_bulbMaterial;
-    public MeshRenderer Bulb;
+    public SkinnedMeshRenderer Bulb;
 
 
     //Private Variables
-
+    
 
     //Serialized Fields
     [SerializeField] float m_initialLightValue;
@@ -32,7 +32,7 @@ public class LightController : MonoBehaviour
     private void OnEnable()
     {
         m_bulbMaterial = Bulb.materials;
-        m_bulbColor = m_bulbMaterial[0].GetColor("_EmissionColor");
+        m_bulbColor = m_bulbMaterial[1].GetColor("_EmissionColor");
         EmissionUpdate();
     }
 
@@ -42,7 +42,7 @@ public class LightController : MonoBehaviour
 
     public void EmissionUpdate()
     {
-        m_bulbMaterial[0].SetColor("_EmissionColor", m_bulbColor * BulbIntensity);
+        m_bulbMaterial[1].SetColor("_EmissionColor", m_bulbColor * BulbIntensity);
     }
 
 
