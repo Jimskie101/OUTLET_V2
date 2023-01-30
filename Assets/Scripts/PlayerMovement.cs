@@ -148,11 +148,7 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         GroundCheck();
-        if (IsGrounded && m_velocity.y < 0)
-        {
-            m_velocity.y = -2f;
-        }
-
+       
 
 
 

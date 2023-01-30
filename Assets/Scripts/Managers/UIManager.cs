@@ -154,6 +154,7 @@ public class UIManager : MonoBehaviour
     {
         if (!m_pauseScreen.activeSelf)
         {
+            Managers.Instance.CameraHandler.enabled = false;
             Time.timeScale = 0f;
             m_playerMoveScript.enabled = false;
             m_pauseScreen.SetActive(true);
@@ -161,11 +162,22 @@ public class UIManager : MonoBehaviour
         }
         else if (m_pauseScreen.activeSelf)
         {
+            Managers.Instance.CameraHandler.enabled = true;
             Time.timeScale = 1f;
             m_playerMoveScript.enabled = true;
             m_pauseScreen.SetActive(false);
 
         }
+    }
+
+    [Header("Hp Bar")]
+    [SerializeField] Image m_hpBar1;
+    [SerializeField] Image m_hpBar2;
+    //Update HP Bar in UI
+    public void UpdateHPBar(float amount)
+    {
+        m_hpBar1.fillAmount = amount;
+        m_hpBar2.fillAmount = amount;
     }
 
 }

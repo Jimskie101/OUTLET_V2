@@ -29,6 +29,7 @@ public class PlayerScript : MonoBehaviour
 
         m_lightController.LightValue = m_lightController.initialValue * LifePercentage;
         m_lightController.BulbIntensity = 1 * LifePercentage * 10;
+        Managers.Instance.UIManager.UpdateHPBar(LifePercentage);
         m_lightController.EmissionUpdate();
 
     }
