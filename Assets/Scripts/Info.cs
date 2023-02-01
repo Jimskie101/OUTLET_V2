@@ -25,7 +25,7 @@ public class Info : MonoBehaviour
     private void OnEnable()
     {
         transform.DOLocalRotate(m_rotation, 4f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
-        transform.DOLocalMoveY(transform.localPosition.y - 0.5f, 1f).SetLoops(-1, LoopType.Yoyo);
+        transform.DOLocalMoveY(transform.localPosition.y + 0.5f, 1f).SetLoops(-1, LoopType.Yoyo);
     }
 
     private void OnTriggerEnter(Collider other)
