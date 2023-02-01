@@ -246,15 +246,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (m_inputDir != Vector3.zero && IsGrounded)
         {
+            m_playerScript.PlayerStateMultiplier = 3f;
             m_animator.SetBool("walking", true);
         }
         else if (m_inputDir == Vector3.zero || !IsGrounded)
         {
+            m_playerScript.PlayerStateMultiplier = 1f;
             m_animator.SetBool("walking", false);
         }
 
         if (m_inputDir != Vector3.zero && m_isRunning && IsGrounded)
         {
+            m_playerScript.PlayerStateMultiplier = 5f;
             m_animator.SetBool("running", true);
         }
         else if (!m_isRunning || !IsGrounded || m_inputDir == Vector3.zero)

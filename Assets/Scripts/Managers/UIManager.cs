@@ -26,16 +26,30 @@ public class UIManager : MonoBehaviour
     [Header("Info/Hint UI")]
     [SerializeField] TMP_Text m_titleText;
     [SerializeField] TMP_Text m_infoText;
-    public void ShowInfo(string title, string info)
+    [SerializeField] GameObject m_uiObjectWithHint;
+    public void ShowInfo(string title ="", string info = "", bool isAControl = false, GameObject uiObj = null)
     {
         Time.timeScale = 0f;
-        if (!m_titleText.transform.parent.gameObject.activeSelf)
+        if (isAControl)
         {
-            Managers.Instance.InputHandler.PlayerMovementDisabled();
-            m_titleText.transform.parent.gameObject.SetActive(true);
-            m_titleText.text = title;
-            m_infoText.text = info;
+            if (!uiObj.activeSelf)
+            {
+                Managers.Instance.InputHandler.PlayerMovementDisabled();
+                uiObj.SetActive(true);
+                m_uiObjectWithHint = uiObj;
+            }
         }
+        else
+        {
+            if (!m_titleText.transform.parent.gameObject.activeSelf)
+            {
+                Managers.Instance.InputHandler.PlayerMovementDisabled();
+                m_titleText.transform.parent.gameObject.SetActive(true);
+                m_titleText.text = title;
+                m_infoText.text = info;
+            }
+        }
+
     }
     public void HideInfo()
     {
@@ -44,6 +58,13 @@ public class UIManager : MonoBehaviour
             Managers.Instance.InputHandler.PlayerMovementEnabled();
             m_titleText.transform.parent.gameObject.SetActive(false);
             Time.timeScale = 1f;
+        }
+        if(m_uiObjectWithHint.activeSelf)
+        {
+            Managers.Instance.InputHandler.PlayerMovementEnabled();
+            m_uiObjectWithHint.SetActive(false);
+            Time.timeScale = 1f;
+            m_uiObjectWithHint = null;
         }
 
     }

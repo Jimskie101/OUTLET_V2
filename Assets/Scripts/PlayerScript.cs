@@ -11,8 +11,9 @@ public class PlayerScript : MonoBehaviour
     //Life
     [Range(0, 1f)] public float LifePercentage = 1;
     public float DimMultiplier = 0;
+    public float PlayerStateMultiplier = 1;
     public bool isDead = false;
-
+    
 
     private void Update()
     {
@@ -42,7 +43,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (LifePercentage > 0)
         {
-            LifePercentage -= Time.deltaTime * DimMultiplier * 0.01f;
+            LifePercentage -= Time.deltaTime * (DimMultiplier * PlayerStateMultiplier)* 0.01f;
         }
         else
         {
