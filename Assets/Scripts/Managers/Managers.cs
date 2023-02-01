@@ -12,7 +12,7 @@ public class Managers : MonoBehaviour
     public CameraHandler CameraHandler;
     public CollectibleManager CollectibleManager;
     public InputHandler InputHandler;
-
+    public AudioManager AudioManager;
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -36,5 +36,6 @@ public class Managers : MonoBehaviour
         CameraHandler = GetComponentInChildren<CameraHandler>();
         CollectibleManager = GetComponentInChildren<CollectibleManager>();
         InputHandler = GetComponentInChildren<InputHandler>();
+        AudioManager = GetComponentInChildren<AudioManager>();
     }
 }

@@ -103,4 +103,18 @@ public class CameraHandler : MonoBehaviour
         else CamPosition = CameraPosition.right;
         ChangeCam();
     }
+
+
+    private void Start()
+    {
+        StartCoroutine(StartCamera());
+        
+
+    }
+    IEnumerator StartCamera()
+    {
+        yield return new WaitForSeconds(2f);
+        ChangeCam();
+
+    }
 }

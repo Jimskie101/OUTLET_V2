@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     CharacterController m_cc;
     InputHandler m_inputHandler;
     PlayerScript m_playerScript;
+    AudioManager m_audioManager;
 
     //GameObjects and Transforms
     [SerializeField] Animator m_animator;
@@ -93,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
         m_cc = GetComponent<CharacterController>();
         m_playerScript = GetComponent<PlayerScript>();
         m_groundChecker = GameObject.Find("GroundChecker").transform;
+        m_audioManager = Managers.Instance.AudioManager;
     }
 
 
@@ -211,11 +213,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+    bool m_landSoundPlayed = false;
     //Ground Checker
     private void GroundCheck()
     {
         IsGrounded = Physics.CheckSphere(m_groundChecker.position, m_groundCheckSphereRadius, m_groundLayer);
         m_animator.SetBool("grounded", IsGrounded);
+        if(IsGrounded && !m_landSoundPlayed)
+        {   
+            Debug.Log("landed");
+            m_landSoundPlayed = true;
+            m_audioManager.PlayHere("rl_walk", this.gameObject);
+        }
+        else if(!IsGrounded && m_landSoundPlayed)
+        {
+            m_landSoundPlayed = false;
+        }
     }
 
     //Jump

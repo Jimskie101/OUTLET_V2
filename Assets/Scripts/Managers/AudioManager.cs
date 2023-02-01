@@ -11,6 +11,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioMixer m_audioMixer;
 
     private AudioSource source;
+    [Header("Background Music/Sound")]
+    [SerializeField] bool m_playBGM;
+    [SerializeField] string m_bgmName;
 
 
     // Start is called before the first frame update
@@ -28,30 +31,24 @@ public class AudioManager : MonoBehaviour
 
         // if(SceneManager.GetActiveScene().buildIndex == 0)
         // Play("Life");
-
-    PlayHere("atmos", this.gameObject, true);
-    PlayHere("eerie", this.gameObject, true);
-
+        
+        if(m_playBGM)
+        {
+            PlayHere(m_bgmName, this.gameObject);
+        }
 
 
     }
 
-    public void Play(string name)
+    
+
+    public void PlayHere(string name, GameObject targetObj, bool fromObject = false, bool oneshot = false)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
             return;
-        s.source.Play();
-    }
-
-
-    public void PlayHere(string name, GameObject targetObj, bool bgm = false)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
-            return;
-        source = targetObj.GetComponent<AudioSource>();
-        if (source == null)
+        
+        if (!targetObj.TryGetComponent(out source))
             source = targetObj.AddComponent<AudioSource>();
         source.clip = s.clip;
 
@@ -60,13 +57,15 @@ public class AudioManager : MonoBehaviour
         source.loop = s.loop;
         source.outputAudioMixerGroup = m_audioMixer.FindMatchingGroups("Master")[0];
 
-        if (!bgm)
+        if (fromObject)
         {
             source.spatialBlend = 1;
             source.rolloffMode = AudioRolloffMode.Linear;
             source.maxDistance = 100f;
         }
-
+        if(oneshot)
+        source.PlayOneShot(s.clip, s.volume);
+        else
         source.Play();
     }
     public void Stop(string name)

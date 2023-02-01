@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using DG.Tweening;
 using TMPro;
 
 
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        FadeInFromBlack();
         GetResolutionData();
     }
 
@@ -60,7 +62,8 @@ public class UIManager : MonoBehaviour
             m_titleText.transform.parent.gameObject.SetActive(false);
             Time.timeScale = 1f;
         }
-        if (m_uiObjectWithHint.activeSelf)
+
+        else if (m_uiObjectWithHint.activeSelf)
         {
             Managers.Instance.InputHandler.PlayerMovementEnabled();
             m_uiObjectWithHint.transform.parent.gameObject.SetActive(false);
@@ -202,5 +205,28 @@ public class UIManager : MonoBehaviour
         m_hpBar1.fillAmount = amount;
         m_hpBar2.fillAmount = amount;
     }
+
+    [Header("Fader")]
+    [SerializeField] Image m_fadeImage;
+    [SerializeField] float m_fadeTime = 2.0f;
+    Color32 m_endColor;
+    //Fade IN
+    public void FadeInFromBlack()
+    {   
+        m_endColor = new Color32(0,0,0,0);
+        m_fadeImage.gameObject.SetActive(true);
+        m_fadeImage.DOColor(m_endColor,m_fadeTime).SetUpdate(true).
+        OnComplete(() => m_fadeImage.gameObject.SetActive(false));
+    }
+    public void FadeToBlack(bool stopTime = false)
+    {   
+        if(stopTime) Managers.Instance.InputHandler.EndStage();
+        m_endColor = new Color32(0,0,0,255);
+        m_fadeImage.gameObject.SetActive(true);
+        m_fadeImage.DOColor(m_endColor,m_fadeTime).SetUpdate(true);
+    }
+    
+
+    
 
 }

@@ -38,6 +38,7 @@ public class InputHandler : MonoBehaviour
 
     private void OnEnable()
     {
+        
         m_inputMaster.Player.Enable();
         m_inputMaster.Camera.Enable();
         m_inputMaster.Wires.Enable();
@@ -52,6 +53,19 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.UI.Disable();
         m_inputMaster.OnHook.Disable();
     }
+
+    public void EndStage()
+    {
+        m_inputMaster.Player.Disable();
+        m_inputMaster.Camera.Disable();
+        m_inputMaster.Wires.Disable();
+        m_inputMaster.UI.Disable();
+        m_inputMaster.OnHook.Disable();
+    }
+
+
+
+
 
     //Disable All Game Inputs except Menu
     public void DisableAllInGameInput()
@@ -72,12 +86,14 @@ public class InputHandler : MonoBehaviour
     //Status of PlayerMovement Script
     public void PlayerMovementEnabled()
     {
+        m_inputMaster.UI.Continue.Disable();
         m_inputMaster.Player.Enable();
         m_inputMaster.Camera.Enable();
     }
 
     public void PlayerMovementDisabled()
     {
+        m_inputMaster.UI.Continue.Enable();
         m_inputMaster.Player.Disable();
         m_inputMaster.Camera.Disable();
     }

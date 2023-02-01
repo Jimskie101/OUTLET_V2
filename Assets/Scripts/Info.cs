@@ -15,12 +15,13 @@ public class Info : MonoBehaviour
     [SerializeField] GameObject m_uiWithHint;
 
     WaitForSeconds m_reEnablerDelay;
+    
 
     private void Start()
     {
         m_uiManager = Managers.Instance.UIManager;
 
-        m_reEnablerDelay = new WaitForSeconds(2f);
+        m_reEnablerDelay = new WaitForSeconds(4f);
     }
     private void OnEnable()
     {
@@ -32,7 +33,8 @@ public class Info : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
+            
+            Managers.Instance.AudioManager.PlayHere("collect",other.gameObject,false,true);
             if (m_isAControlHint)
             {
                 m_uiManager.ShowInfo("", "", true, m_uiWithHint);
@@ -41,12 +43,10 @@ public class Info : MonoBehaviour
             {
                 m_uiManager.ShowInfo(m_title, m_info);
             }
-            foreach (Behaviour component in GetComponents<Behaviour>())
-            {
-                component.enabled = false;
-            }
+            
             GetComponent<MeshRenderer>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
+
             StartCoroutine(ReEnable());
 
 
@@ -57,7 +57,7 @@ public class Info : MonoBehaviour
 
     IEnumerator ReEnable()
     {
-
+        transform.GetComponentInChildren<ParticleSystem>().Play();
         yield return m_reEnablerDelay;
         GetComponent<MeshRenderer>().enabled = true;
         GetComponent<BoxCollider>().enabled = true;
