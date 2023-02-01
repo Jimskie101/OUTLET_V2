@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text m_titleText;
     [SerializeField] TMP_Text m_infoText;
     [SerializeField] GameObject m_uiObjectWithHint;
-    public void ShowInfo(string title ="", string info = "", bool isAControl = false, GameObject uiObj = null)
+    public void ShowInfo(string title = "", string info = "", bool isAControl = false, GameObject uiObj = null)
     {
         Time.timeScale = 0f;
         if (isAControl)
@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
             if (!uiObj.activeSelf)
             {
                 Managers.Instance.InputHandler.PlayerMovementDisabled();
+                uiObj.transform.parent.gameObject.SetActive(true);
                 uiObj.SetActive(true);
                 m_uiObjectWithHint = uiObj;
             }
@@ -59,9 +60,10 @@ public class UIManager : MonoBehaviour
             m_titleText.transform.parent.gameObject.SetActive(false);
             Time.timeScale = 1f;
         }
-        if(m_uiObjectWithHint.activeSelf)
+        if (m_uiObjectWithHint.activeSelf)
         {
             Managers.Instance.InputHandler.PlayerMovementEnabled();
+            m_uiObjectWithHint.transform.parent.gameObject.SetActive(false);
             m_uiObjectWithHint.SetActive(false);
             Time.timeScale = 1f;
             m_uiObjectWithHint = null;
