@@ -57,6 +57,7 @@ public class PlayerScript : MonoBehaviour
         if (m_hot.Connect && m_neutral.Connect)
         {
             //Action();
+            if(m_hot.Source != null)
             Regen();
         }
         else m_charging = false;
@@ -74,7 +75,7 @@ public class PlayerScript : MonoBehaviour
     private void Regen()
     {
         m_charging = true;
-        m_energySource = m_hot.Source.GetComponent<EnergySource>();
+        m_hot.Source.GetComponent<EnergySource>();
         if (m_energySource != null)
         {
             if (m_energySource.Charge > 0)

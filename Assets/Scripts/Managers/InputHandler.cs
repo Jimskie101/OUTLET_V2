@@ -7,6 +7,7 @@ public class InputHandler : MonoBehaviour
 {
     [Header("Objects with Input Activation")]
     [SerializeField] PlayerMovement m_playerMovement;
+    [SerializeField] HangingMovement m_hangingMovement;
     [SerializeField] CameraHandler m_cameraHandler;
     [SerializeField] WireBase m_hotWire;
     [SerializeField] WireBase m_neutralWire;
@@ -32,18 +33,32 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Wires.Connect_Neutral.canceled += ctx => m_neutralWire.StopGrapple();
         m_inputMaster.UI.Continue.performed += ctx => Managers.Instance.UIManager.HideInfo();
         m_inputMaster.UI.Pause.performed += ctx => Managers.Instance.UIManager.PauseGame();
+        //When Hanging Controls
+        m_inputMaster.OnHook.Movement.performed += ctx => m_hangingMovement.GetDirection(ctx.ReadValue<Vector2>());
+        m_inputMaster.OnHook.Movement.canceled += ctx => m_hangingMovement.GetDirection(Vector3.zero);
+        m_inputMaster.OnHook.Jump.performed += ctx =>
+        {
+            m_hotWire.PullPlayer = true;
+            m_neutralWire.PullPlayer = true;
+        };
+        m_inputMaster.OnHook.Jump.canceled += ctx =>
+        {
+            m_hotWire.PullPlayer = false;
+            m_neutralWire.PullPlayer = false;
+        };
+
     }
 
-    
+
 
     private void OnEnable()
     {
-        
+
         m_inputMaster.Player.Enable();
         m_inputMaster.Camera.Enable();
         m_inputMaster.Wires.Enable();
         m_inputMaster.UI.Enable();
-        m_inputMaster.OnHook.Enable();
+        m_inputMaster.OnHook.Disable();
     }
     private void OnDisable()
     {
@@ -73,14 +88,13 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Player.Disable();
         m_inputMaster.Camera.Disable();
         m_inputMaster.Wires.Disable();
-        m_inputMaster.OnHook.Disable();
     }
-     public void EnableAllInGameInput()
+    public void EnableAllInGameInput()
     {
         m_inputMaster.Player.Enable();
         m_inputMaster.Camera.Enable();
         m_inputMaster.Wires.Enable();
-        m_inputMaster.OnHook.Enable();
+
     }
 
     //Status of PlayerMovement Script
@@ -97,5 +111,17 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Player.Disable();
         m_inputMaster.Camera.Disable();
     }
+
+    public void PlayerHanging()
+    {
+        m_inputMaster.OnHook.Enable();
+        m_inputMaster.Player.Disable();
+    }
+    public void PlayerNotHanging()
+    {
+        m_inputMaster.OnHook.Disable();
+        m_inputMaster.Player.Enable();
+    }
+
 
 }

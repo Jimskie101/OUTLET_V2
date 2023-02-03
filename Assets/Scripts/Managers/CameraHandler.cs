@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class CameraHandler : MonoBehaviour
 {
-
+    GameManager m_gameManager;
     [SerializeField] PlayerMovement m_playerMovement;
     [SerializeField] CinemachineBrain m_camBrain;
     [SerializeField] CinemachineVirtualCamera m_frontCam;
@@ -31,25 +31,25 @@ public class CameraHandler : MonoBehaviour
         switch (CamPosition)
         {
             case CameraPosition.front:
-                m_playerMovement.GameDirection = PlayerMovement.Direction.front;
+                m_gameManager.GameDirection = GameManager.Direction.front;
                 m_vCamHolder.Priority = 10;
                 m_frontCam.Priority = 20;
                 m_vCamHolder = m_frontCam;
                 break;
             case CameraPosition.left:
-                m_playerMovement.GameDirection = PlayerMovement.Direction.left;
+                m_gameManager.GameDirection = GameManager.Direction.left;
                 m_vCamHolder.Priority = 10;
                 m_leftCam.Priority = 20;
                 m_vCamHolder = m_leftCam;
                 break;
             case CameraPosition.back:
-                m_playerMovement.GameDirection = PlayerMovement.Direction.back;
+                m_gameManager.GameDirection = GameManager.Direction.back;
                 m_vCamHolder.Priority = 10;
                 m_backCam.Priority = 20;
                 m_vCamHolder = m_backCam;
                 break;
             case CameraPosition.right:
-                m_playerMovement.GameDirection = PlayerMovement.Direction.right;
+                m_gameManager.GameDirection = GameManager.Direction.right;
                 m_vCamHolder.Priority = 10;
                 m_rightCam.Priority = 20;
                 m_vCamHolder = m_rightCam;
@@ -74,7 +74,7 @@ public class CameraHandler : MonoBehaviour
             {
                 m_playerMovement.enabled = true;
                 Time.timeScale = 1f;
-                m_playerMovement.ChangeGameDirection();
+                m_gameManager.ChangeGameDirection();
             }
 
         }
@@ -106,7 +106,8 @@ public class CameraHandler : MonoBehaviour
 
 
     private void Start()
-    {
+    {   
+        m_gameManager = Managers.Instance.GameManager;
         StartCoroutine(StartCamera());
         
 

@@ -16,7 +16,7 @@ public class WireBase : MonoBehaviour
     public bool Connect = false;
     public bool IsHotWire = false;
     Collider[] m_hitColliders;
-    private SpringJoint joint;
+    private SpringJoint m_joint;
     private string wireTag = "";
     private WaitForSeconds connectTime;
     [SerializeField] float m_pullPower;
@@ -31,10 +31,14 @@ public class WireBase : MonoBehaviour
         connectTime = new WaitForSeconds(0.2f);
 
     }
-
-
+    [HideInInspector]
+    public bool PullPlayer;
     void Update()
     {
+        if (m_joint.maxDistance > m_joint.minDistance && PullPlayer)
+            m_joint.maxDistance -= Time.deltaTime * m_pullPower;
+
+
         if (Connect)
             Disconnect();
         if (m_handsUp)
@@ -65,7 +69,7 @@ public class WireBase : MonoBehaviour
         if (TargetObject != null)
         {
             m_targetPoint = TargetObject.position;
-            
+
             m_handsUp = true;
             Connect = true;
             //PlayerMovementUpdate
@@ -87,12 +91,12 @@ public class WireBase : MonoBehaviour
     public void StopGrapple()
     {
         StopAllCoroutines();
-        if (joint != null)
+        if (m_joint != null)
         {
-            Destroy(joint);
+            // Destroy(joint);
             ResetFakeRigidBody();
 
-        } 
+        }
         Connect = false;
         //PlayerMovementUpdate
         m_playerMovement.ConnectedToSource = false;
@@ -156,13 +160,10 @@ public class WireBase : MonoBehaviour
 
     private void Swing()
     {
-        if (joint == null)
-        {
 
-            StartCoroutine(HookSwing());
+        StartCoroutine(HookSwing());
 
 
-        }
 
     }
 
@@ -170,53 +171,45 @@ public class WireBase : MonoBehaviour
     CharacterController m_tempCc;
     IEnumerator HookSwing()
     {
-        m_tempObj = m_playerMovement.FakeRigidBody;
+        if (m_tempObj == null)
+            m_tempObj = m_playerMovement.FakeRigidBody;
         m_tempObj.SetActive(true);
         m_tempObj.transform.position = m_playerMovement.transform.position;
         m_tempObj.transform.rotation = m_playerMovement.transform.rotation;
-        m_tempCc = m_playerMovement.GetComponent<CharacterController>();
+        if (m_tempCc == null)
+            m_tempCc = m_playerMovement.GetComponent<CharacterController>();
         m_tempCc.enabled = false;
-        m_playerMovement.transform.SetParent(m_tempObj.transform);
-        
+        m_playerMovement.transform.SetParent(m_playerMovement.FakeRigidBody.transform);
 
 
 
-        if (joint != null) Destroy(joint);
+
         yield return connectTime;
-        if (joint != null) Destroy(joint);
-        joint = m_tempObj.AddComponent<SpringJoint>();
-        joint.autoConfigureConnectedAnchor = false;
-        joint.connectedAnchor = TargetObject.position;
+        //if (joint != null) Destroy(joint);
+        if (!m_tempObj.TryGetComponent(out m_joint))
+            m_joint = m_tempObj.AddComponent<SpringJoint>();
+        m_joint.autoConfigureConnectedAnchor = false;
+        m_joint.connectedAnchor = TargetObject.position;
 
         float distanceFromPoint = Vector3.Distance(transform.position, TargetObject.position);
 
         //The distance grapple will try to keep from grapple point. 
-        joint.maxDistance = distanceFromPoint * 1f;
-        joint.minDistance = distanceFromPoint * 0.25f;
+        m_joint.maxDistance = distanceFromPoint * 1f;
+        m_joint.minDistance = distanceFromPoint * 0.25f;
 
         //Adjust these values to fit your game.
-        joint.spring = 4.5f;
-        joint.damper = 7f;
-        joint.massScale = 4.5f;
+        m_joint.spring = 4.5f;
+        m_joint.damper = 7f;
+        m_joint.massScale = 4.5f;
 
     }
 
-    public void PullPlayer()
-    {
-        if (joint != null)
-        {
-            if (joint.maxDistance > joint.minDistance)
-                joint.maxDistance -= Time.deltaTime * m_pullPower;
-        }
-
-    }
+    
     private void ResetFakeRigidBody()
     {
+        m_tempObj.SetActive(false);
         m_tempObj.transform.DetachChildren();
         m_tempCc.enabled = true;
-        m_tempObj.SetActive(false);
-        m_tempCc = null;
-        m_tempObj = null;
 
         m_playerMovement.transform.rotation = Quaternion.Euler(0, m_playerMovement.transform.rotation.y, 0);
 

@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     CharacterController m_cc;
     InputHandler m_inputHandler;
     PlayerScript m_playerScript;
+    GameManager m_gameManager;
+    
     AudioManager m_audioManager;
 
     //GameObjects and Transforms
@@ -74,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Initializer();
 
-        ChangeGameDirection();
+        m_gameManager.ChangeGameDirection();
 
     }
 
@@ -93,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
     {
         m_cc = GetComponent<CharacterController>();
         m_playerScript = GetComponent<PlayerScript>();
+        m_gameManager = Managers.Instance.GameManager;
         m_groundChecker = GameObject.Find("GroundChecker").transform;
         m_audioManager = Managers.Instance.AudioManager;
     }
@@ -106,46 +109,12 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public enum Direction
-    {
-        front,
-        left,
-        back,
-        right,
-    }
+    
 
-    public Direction GameDirection;
-    Vector3 m_xOrientation;
-    Vector3 m_zOrientation;
+   
 
 
-    //Changes the game control direction
-    [Button]
-    public void ChangeGameDirection()
-    {
-        switch (GameDirection)
-        {
-            case Direction.front:
-                m_xOrientation = Vector3.right;
-                m_zOrientation = Vector3.forward;
-                break;
-
-            case Direction.left:
-                m_xOrientation = -Vector3.forward;
-                m_zOrientation = Vector3.right;
-                break;
-
-            case Direction.back:
-                m_xOrientation = -Vector3.right;
-                m_zOrientation = -Vector3.forward;
-                break;
-
-            case Direction.right:
-                m_xOrientation = Vector3.forward;
-                m_zOrientation = -Vector3.right;
-                break;
-        }
-    }
+    
 
 
     //Moves the player
@@ -156,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        m_inputDir = m_horizontal * m_xOrientation + m_vertical * m_zOrientation;
+        m_inputDir = m_horizontal * m_gameManager.XOrientation + m_vertical * m_gameManager.ZOrientation;
 
 
 
@@ -198,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
     public bool ConnectedToSource;
     public Transform TargetSource;
     public void RotatePlayer()
-    {
+    {  
         if (m_inputDir != Vector3.zero && !ConnectedToSource)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(m_inputDir), m_rotationTime);
