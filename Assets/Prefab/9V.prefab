@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2364238168120683058}
   - component: {fileID: 2364238168120683060}
   - component: {fileID: 2364238168120683059}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 9V
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029853700897357610}
-  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 16.59, y: 1.9299936, z: 17.519999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_hot: {fileID: 2239757578402079650}
   m_neutral: {fileID: 2239757579033544442}
   Outline: {fileID: 2364238168120683060}
-  Charge: 0
+  Charge: 60
   isATask: 0
 --- !u!1 &2239757578402079652
 GameObject:

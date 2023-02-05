@@ -7,7 +7,8 @@ using Cinemachine;
 public class CameraHandler : MonoBehaviour
 {
     GameManager m_gameManager;
-    [SerializeField] PlayerMovement m_playerMovement;
+    InputHandler m_inputHandler;
+    bool m_controlsAreDown = false;
     [SerializeField] CinemachineBrain m_camBrain;
     [SerializeField] CinemachineVirtualCamera m_frontCam;
     [SerializeField] CinemachineVirtualCamera m_leftCam;
@@ -62,18 +63,20 @@ public class CameraHandler : MonoBehaviour
     {
         if (m_camBrain.IsBlending)
         {
-            if (m_playerMovement.enabled == true)
+            if (!m_controlsAreDown)
             {
-                m_playerMovement.enabled = false;
+                m_controlsAreDown = true;
                 Time.timeScale = 0f;
+                m_inputHandler.enabled = false;
             }
         }
-        if (!m_camBrain.IsBlending)
+        else if (!m_camBrain.IsBlending)
         {
-            if (m_playerMovement.enabled == false)
+            if (m_controlsAreDown)
             {
-                m_playerMovement.enabled = true;
+                m_controlsAreDown = false;
                 Time.timeScale = 1f;
+                m_inputHandler.enabled = true;
                 m_gameManager.ChangeGameDirection();
             }
 
@@ -108,6 +111,9 @@ public class CameraHandler : MonoBehaviour
     private void Start()
     {   
         m_gameManager = Managers.Instance.GameManager;
+        m_inputHandler = Managers.Instance.InputHandler;
+        //m_controlsAreDown = true;
+        m_inputHandler.enabled = false;
         StartCoroutine(StartCamera());
         
 

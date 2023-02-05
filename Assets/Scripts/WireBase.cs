@@ -35,6 +35,7 @@ public class WireBase : MonoBehaviour
     public bool PullPlayer;
     void Update()
     {
+        if(m_joint != null)
         if (m_joint.maxDistance > m_joint.minDistance && PullPlayer)
             m_joint.maxDistance -= Time.deltaTime * m_pullPower;
 

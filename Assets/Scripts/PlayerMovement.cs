@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     InputHandler m_inputHandler;
     PlayerScript m_playerScript;
     GameManager m_gameManager;
-    
+
     AudioManager m_audioManager;
 
     //GameObjects and Transforms
@@ -82,8 +82,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if(m_cc.enabled)
-        MovePlayer();
+        if (m_cc.enabled)
+            MovePlayer();
         RotatePlayer();
 
     }
@@ -98,6 +98,9 @@ public class PlayerMovement : MonoBehaviour
         m_gameManager = Managers.Instance.GameManager;
         m_groundChecker = GameObject.Find("GroundChecker").transform;
         m_audioManager = Managers.Instance.AudioManager;
+        m_dustShape = m_dust.shape;
+        m_dustEmission = m_dust.emission;
+        m_dustMain = m_dust.main;
     }
 
 
@@ -109,19 +112,19 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    
-
-   
 
 
-    
+
+
+
+
 
 
     //Moves the player
     private void MovePlayer()
     {
         GroundCheck();
-       
+
 
 
 
@@ -132,13 +135,13 @@ public class PlayerMovement : MonoBehaviour
         m_speed = IsGrounded ? Speed : Speed * 0.75f;
         m_speed = m_isRunning ? m_speed * RunSpeedMultiplier : m_speed;
 
-
         m_cc.Move(m_inputDir.normalized * m_speed * Time.deltaTime);
 
 
         if (m_canJump && IsGrounded)
         {
             m_canJump = false;
+           
             Debug.Log("Jumped");
             m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravityPullValue);
 
@@ -159,27 +162,33 @@ public class PlayerMovement : MonoBehaviour
         m_cc.Move(m_velocity * Time.deltaTime);
 
         AnimationUpdate();
+        DustParticle();
 
     }
+
+
 
     //Rotate the player
     Vector3 m_targetPos;
     public bool ConnectedToSource;
     public Transform TargetSource;
     public void RotatePlayer()
-    {  
+    {
         if (m_inputDir != Vector3.zero && !ConnectedToSource)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(m_inputDir), m_rotationTime);
+            RotateDust();
         }
         else if (ConnectedToSource)
         {
-            m_targetPos = TargetSource.position - transform.position ;
+            m_targetPos = TargetSource.position - transform.position;
             m_targetPos.y = 0;
             //Debug.DrawRay(transform.position, m_targetPos, Color.cyan);
-            
+
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(m_targetPos), m_rotationTime);
         }
+
+
 
     }
     bool m_landSoundPlayed = false;
@@ -188,13 +197,12 @@ public class PlayerMovement : MonoBehaviour
     {
         IsGrounded = Physics.CheckSphere(m_groundChecker.position, m_groundCheckSphereRadius, m_groundLayer);
         m_animator.SetBool("grounded", IsGrounded);
-        if(IsGrounded && !m_landSoundPlayed)
-        {   
-            Debug.Log("landed");
+        if (IsGrounded && !m_landSoundPlayed)
+        {
             m_landSoundPlayed = true;
             m_audioManager.PlayHere("rl_walk", this.gameObject);
         }
-        else if(!IsGrounded && m_landSoundPlayed)
+        else if (!IsGrounded && m_landSoundPlayed)
         {
             m_landSoundPlayed = false;
         }
@@ -205,6 +213,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded)
         {
+            m_jumpFX.gameObject.transform.position = transform.position;
+            m_jumpFX.Play();
+            
             m_canJump = true;
             m_animator.SetTrigger("jump");
         }
@@ -228,23 +239,33 @@ public class PlayerMovement : MonoBehaviour
     {
         if (m_inputDir != Vector3.zero && IsGrounded)
         {
-            m_playerScript.PlayerStateMultiplier = 3f;
+            m_playerScript.PlayerStateDimMultiplier = 3f;
             m_animator.SetBool("walking", true);
+            m_dustMain.startLifetime = 2f;
+            m_dustMain.simulationSpeed = 0.5f;
+
+
+
         }
         else if (m_inputDir == Vector3.zero || !IsGrounded)
         {
-            m_playerScript.PlayerStateMultiplier = 1f;
+            m_playerScript.PlayerStateDimMultiplier = 1f;
             m_animator.SetBool("walking", false);
+
+
         }
 
         if (m_inputDir != Vector3.zero && m_isRunning && IsGrounded)
         {
-            m_playerScript.PlayerStateMultiplier = 5f;
+            m_playerScript.PlayerStateDimMultiplier = 5f;
             m_animator.SetBool("running", true);
+            m_dustMain.startLifetime = 1f;
+            m_dustMain.simulationSpeed = 1f;
         }
         else if (!m_isRunning || !IsGrounded || m_inputDir == Vector3.zero)
         {
             m_animator.SetBool("running", false);
+
         }
         if (m_playerScript.isDead && !m_deadAlready)
         {
@@ -254,5 +275,35 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //Particle system that spawns foot dust
+    [Header("Particles")]
+    [SerializeField] ParticleSystem m_dust;
+    ParticleSystem.ShapeModule m_dustShape;
+    ParticleSystem.EmissionModule m_dustEmission;
+    ParticleSystem.MainModule m_dustMain;
+
+
+    private void RotateDust()
+    {
+        m_dustShape.rotation = transform.rotation.eulerAngles;
+    }
+    Vector3 m_ccMove;
+    private void DustParticle()
+    {
+        m_ccMove.x = m_inputDir.x;
+        m_ccMove.z = m_inputDir.z;
+
+        if (m_ccMove.magnitude > 0 && IsGrounded)
+        {
+            m_dustEmission.rateOverTime = 10;
+        }
+        else if (m_ccMove.magnitude <= 0 || !IsGrounded)
+        {
+            m_dustEmission.rateOverTime = 0;
+        }
+    }
+    
+
+    [SerializeField] ParticleSystem m_jumpFX;
 
 }
