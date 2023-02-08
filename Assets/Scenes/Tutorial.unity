@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731725, g: 0.13414745, b: 0.12107873, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -43503,7 +43503,7 @@ Mesh:
     firstVertex: 0
     vertexCount: 6
     localAABB:
-      m_Center: {x: 0, y: 0, z: -0.42355978}
+      m_Center: {x: 0, y: 0, z: -0.4235594}
       m_Extent: {x: 0.5, y: 0.5, z: 0.00000008940697}
   m_Shapes:
     vertices: []
@@ -43583,7 +43583,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 192
-    _typelessdata: 0000003f0000003fd7dcd8be87132231ee5528b4000080bf174e393fec42613f0000003f081ca13ed6dcd8be33ff1c32dd8738b4000080bf174e393fb8403e3f000000bf20c3aebdd4dcd8be9a7f4e3253da2bb4000080bf4f52383e9563e53e000000bf0000003fd7dcd8be00000000590224b4000080bf4f52383eec42613f0000003f000000bfd1dcd8be293dba32b95e2fb4000080bf174e393f7976113e000000bf000000bfd2dcd8be000000333c571ab4000080bf4f52383e7976113e
+    _typelessdata: 0000003f0000003fcadcd8be87132231ee5528b4000080bf174e393fec42613f0000003f081ca13ec9dcd8be33ff1c32dd8738b4000080bf174e393fb8403e3f000000bf20c3aebdc7dcd8be9a7f4e3253da2bb4000080bf4f52383e9563e53e000000bf0000003fcadcd8be00000000590224b4000080bf4f52383eec42613f0000003f000000bfc4dcd8be293dba32b95e2fb4000080bf174e393f7976113e000000bf000000bfc5dcd8be000000333c571ab4000080bf4f52383e7976113e
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -43637,7 +43637,7 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: -0.42355978}
+    m_Center: {x: 0, y: 0, z: -0.4235594}
     m_Extent: {x: 0.5, y: 0.5, z: 0.00000008940697}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
