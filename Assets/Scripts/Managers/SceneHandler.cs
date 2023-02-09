@@ -11,6 +11,10 @@ public class SceneHandler : MonoBehaviour
     {
         SceneManager.LoadScene(stage);
     }
+    public int GetCurrentScene()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
 
     
 

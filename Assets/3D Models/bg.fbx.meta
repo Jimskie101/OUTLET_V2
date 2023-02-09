@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 091118ffb04fc374dbcd275adee2f48d
+guid: f563efbaa77e64040ab325dfde98aaef
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -8,6 +8,21 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: OG Material
+    second: {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OG Material.002
+    second: {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OG Material.003
+    second: {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: recycle
     second: {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
   materials:
     materialImportMode: 2

@@ -12,10 +12,14 @@ public class UIManager : MonoBehaviour
     //Player Movement
     [SerializeField] PlayerMovement m_playerMoveScript;
     //Game Status
+    SceneHandler m_sceneHandler;
+
+    
 
 
     private void Start()
     {
+        m_sceneHandler = Managers.Instance.SceneHandler;
         FadeInFromBlack();
         GetResolutionData();
     }
@@ -36,7 +40,7 @@ public class UIManager : MonoBehaviour
         {
             if (!uiObj.activeSelf)
             {
-                Managers.Instance.InputHandler.PlayerMovementDisabled();
+                Managers.Instance.InputHandler.ShowingHint();
                 uiObj.transform.parent.gameObject.SetActive(true);
                 uiObj.SetActive(true);
                 m_uiObjectWithHint = uiObj;
@@ -46,10 +50,11 @@ public class UIManager : MonoBehaviour
         {
             if (!m_titleText.transform.parent.gameObject.activeSelf)
             {
-                Managers.Instance.InputHandler.PlayerMovementDisabled();
-                m_titleText.transform.parent.gameObject.SetActive(true);
+                Managers.Instance.InputHandler.ShowingHint();
                 m_titleText.text = title;
                 m_infoText.text = info;
+                m_titleText.transform.parent.gameObject.SetActive(true);
+                
             }
         }
 
@@ -58,14 +63,14 @@ public class UIManager : MonoBehaviour
     {
         if (m_titleText.transform.parent.gameObject.activeSelf)
         {
-            Managers.Instance.InputHandler.PlayerMovementEnabled();
+            Managers.Instance.InputHandler.UnShowingHint();
             m_titleText.transform.parent.gameObject.SetActive(false);
             Time.timeScale = 1f;
         }
 
         else if (m_uiObjectWithHint.activeSelf)
         {
-            Managers.Instance.InputHandler.PlayerMovementEnabled();
+            Managers.Instance.InputHandler.UnShowingHint();
             m_uiObjectWithHint.transform.parent.gameObject.SetActive(false);
             m_uiObjectWithHint.SetActive(false);
             Time.timeScale = 1f;
@@ -89,6 +94,14 @@ public class UIManager : MonoBehaviour
     public void StartGame()
     {
         Managers.Instance.SceneHandler.LoadStage(2);
+    }
+    public void RestartLevel()
+    {
+        m_sceneHandler.LoadStage(m_sceneHandler.GetCurrentScene());
+    }
+    public void MainMenu()
+    {
+        Managers.Instance.SceneHandler.LoadStage(1);
     }
 
     //Button Functions
@@ -182,7 +195,7 @@ public class UIManager : MonoBehaviour
         {
             Managers.Instance.CameraHandler.enabled = false;
             Time.timeScale = 0f;
-            m_playerMoveScript.enabled = false;
+            Managers.Instance.InputHandler.Pause();
             m_pauseScreen.SetActive(true);
 
         }
@@ -190,7 +203,7 @@ public class UIManager : MonoBehaviour
         {
             Managers.Instance.CameraHandler.enabled = true;
             Time.timeScale = 1f;
-            m_playerMoveScript.enabled = true;
+             Managers.Instance.InputHandler.UnPause();
             m_pauseScreen.SetActive(false);
 
         }

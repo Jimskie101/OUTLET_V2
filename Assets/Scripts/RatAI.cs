@@ -7,7 +7,8 @@ using EasyButtons;
 public class RatAI : MonoBehaviour
 {
     [SerializeField] Transform m_player;
-    [SerializeField] NavMeshAgent m_agent;
+    NavMeshAgent m_agent;
+    Animator m_ratAnimator;
     [SerializeField] Vector2 wanderRadius;
     [SerializeField] float m_attackRange;
     [SerializeField] float m_chaseRange;
@@ -33,6 +34,8 @@ public class RatAI : MonoBehaviour
     {
         m_cdTime = new WaitForSeconds(m_attackCD);
         m_damageTime = new WaitForSeconds(m_damageCD);
+        m_agent = GetComponent<NavMeshAgent>();
+        m_ratAnimator = GetComponentInChildren<Animator>();
         m_playerCc = m_player.GetComponent<CharacterController>();
         m_playerScript = m_player.GetComponent<PlayerScript>();
     }
@@ -53,6 +56,7 @@ public class RatAI : MonoBehaviour
     CharacterController m_playerCc;
     PlayerScript m_playerScript;
     [SerializeField] bool m_doneAttacking = false;
+    bool m_isMoving = false;
     private void Update()
     {
 
@@ -63,6 +67,7 @@ public class RatAI : MonoBehaviour
 
         if (m_agent.velocity == Vector3.zero && m_doneAttacking)
         {
+            
             m_agent.isStopped = false;
             m_doneAttacking = false;
             m_agent.SetDestination(m_oldPosition);
@@ -91,6 +96,7 @@ public class RatAI : MonoBehaviour
         if (m_targetDistance <= m_chaseRange && m_targetDistance > m_attackRange)
         {
             m_agent.isStopped = false;
+            if(!m_isMoving) {m_isMoving = true; m_ratAnimator.SetBool("isMoving", m_isMoving);}
             m_onChase = true;
             m_target = m_player.position;
             m_agent.SetDestination(m_player.position);
@@ -108,11 +114,16 @@ public class RatAI : MonoBehaviour
                 AttackPlayer();
                 StartCoroutine(Cooldown());
             }
+            else
+            {
+                if(m_isMoving) {m_isMoving = false; m_ratAnimator.SetBool("isMoving", m_isMoving);}
+            }
 
         }
 
         else if (m_targetDistance < m_activityRange)
         {
+            if(!m_isMoving) {m_isMoving = true; m_ratAnimator.SetBool("isMoving", m_isMoving);}
             m_agent.isStopped = false;
             if (!m_agent.pathPending)
             {
@@ -135,6 +146,7 @@ public class RatAI : MonoBehaviour
 
     IEnumerator Cooldown()
     {
+        
         yield return m_cdTime;
         m_alreadyAttacked = false;
     }
@@ -154,6 +166,7 @@ public class RatAI : MonoBehaviour
         m_agent.isStopped = false;
         m_newVelocity = Vector3.zero;
         m_newVelocity = transform.forward * m_attackForce;
+        m_ratAnimator.SetTrigger("attack");
         m_agent.velocity = m_newVelocity;
         m_doneAttacking = true;
     }
@@ -167,6 +180,7 @@ public class RatAI : MonoBehaviour
     [Button]
     private void RandomMove()
     {
+        if(!m_isMoving) {m_isMoving = true; m_ratAnimator.SetBool("isMoving", m_isMoving);}
         m_nextPos = Random.insideUnitSphere * Random.Range(wanderRadius.x, wanderRadius.y);
         m_target = m_nextPos + transform.position;
         m_agent.SetDestination(m_target);

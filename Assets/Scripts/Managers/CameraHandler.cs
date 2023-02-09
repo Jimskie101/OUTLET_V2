@@ -67,7 +67,7 @@ public class CameraHandler : MonoBehaviour
             {
                 m_controlsAreDown = true;
                 Time.timeScale = 0f;
-                m_inputHandler.enabled = false;
+                m_inputHandler.CameraRotating();
             }
         }
         else if (!m_camBrain.IsBlending)
@@ -76,7 +76,8 @@ public class CameraHandler : MonoBehaviour
             {
                 m_controlsAreDown = false;
                 Time.timeScale = 1f;
-                m_inputHandler.enabled = true;
+                
+                m_inputHandler.CameraStopped();
                 m_gameManager.ChangeGameDirection();
             }
 
@@ -112,8 +113,7 @@ public class CameraHandler : MonoBehaviour
     {   
         m_gameManager = Managers.Instance.GameManager;
         m_inputHandler = Managers.Instance.InputHandler;
-        //m_controlsAreDown = true;
-        m_inputHandler.enabled = false;
+        m_inputHandler.CameraRotating();
         StartCoroutine(StartCamera());
         
 

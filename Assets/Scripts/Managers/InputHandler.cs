@@ -79,39 +79,67 @@ public class InputHandler : MonoBehaviour
     }
 
 
-
-
-
-    //Disable All Game Inputs except Menu
-    public void DisableAllInGameInput()
+    //Ultra Disable All
+    public void PlayerDead()
     {
         m_inputMaster.Player.Disable();
         m_inputMaster.Camera.Disable();
         m_inputMaster.Wires.Disable();
+        m_inputMaster.UI.Disable();
+        m_inputMaster.OnHook.Disable();
     }
-    public void EnableAllInGameInput()
+
+
+    //Disable All Game Inputs except Menu
+    public void CameraRotating()
+    {
+        m_inputMaster.Player.Disable();
+        m_inputMaster.Camera.Disable();
+        m_inputMaster.Wires.Disable();
+        m_inputMaster.UI.Disable();
+    }
+    public void CameraStopped()
     {
         m_inputMaster.Player.Enable();
         m_inputMaster.Camera.Enable();
         m_inputMaster.Wires.Enable();
+        m_inputMaster.UI.Enable();
 
     }
 
     //Status of PlayerMovement Script
-    public void PlayerMovementEnabled()
+    public void UnShowingHint()
     {
         m_inputMaster.UI.Continue.Disable();
+        m_inputMaster.UI.Pause.Enable();
         m_inputMaster.Player.Enable();
         m_inputMaster.Camera.Enable();
     }
 
-    public void PlayerMovementDisabled()
+    public void ShowingHint()
     {
         m_inputMaster.UI.Continue.Enable();
+        m_inputMaster.UI.Pause.Disable();
         m_inputMaster.Player.Disable();
         m_inputMaster.Camera.Disable();
     }
 
+
+    public void Pause()
+    {
+        m_inputMaster.UI.Pause.Enable();
+        m_inputMaster.Player.Disable();
+        m_inputMaster.Camera.Disable();
+        m_inputMaster.Wires.Disable();
+        
+    }
+
+    public void UnPause()
+    {
+        m_inputMaster.Player.Enable();
+        m_inputMaster.Camera.Enable();
+        m_inputMaster.Wires.Enable();
+    }
     public void PlayerHanging()
     {
         m_inputMaster.OnHook.Enable();

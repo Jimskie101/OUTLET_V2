@@ -62,15 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    private void OnEnable()
-    {
-        m_inputHandler.PlayerMovementEnabled();
-    }
-
-    private void OnDisable()
-    {
-        m_inputHandler.PlayerMovementDisabled();
-    }
+    
 
     private void Start()
     {
@@ -271,7 +263,7 @@ public class PlayerMovement : MonoBehaviour
         {
             m_deadAlready = true;
             m_animator.SetTrigger("dead");
-            Managers.Instance.InputHandler.DisableAllInGameInput();
+            Managers.Instance.InputHandler.PlayerDead();
         }
     }
 
