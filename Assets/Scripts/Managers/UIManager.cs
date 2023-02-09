@@ -16,10 +16,11 @@ public class UIManager : MonoBehaviour
 
     
 
-
+    
     private void Start()
     {
         m_sceneHandler = Managers.Instance.SceneHandler;
+        m_timeForScreen = new WaitForSeconds(2f);
         FadeInFromBlack();
         GetResolutionData();
     }
@@ -130,6 +131,14 @@ public class UIManager : MonoBehaviour
     {
         m_screenPlaceholder.SetActive(false);
         m_screenPlaceholder = null;
+    }
+    [SerializeField] GameObject m_deathScreen;
+
+    WaitForSeconds m_timeForScreen;
+    public IEnumerator DeathScreen()
+    {
+        yield return m_timeForScreen;
+        m_deathScreen.SetActive(true);
     }
 
     //Settings

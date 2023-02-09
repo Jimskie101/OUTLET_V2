@@ -11,8 +11,10 @@ public class Collectible : MonoBehaviour
     /// any of the Update methods is called the first time.
     /// </summary>
     Vector3 m_rotation = new Vector3(0, 360f, 0);
+    MeshRenderer m_mesh;
     private void Start()
-    {   
+    {
+        m_mesh = GetComponentInChildren<MeshRenderer>();
         disableDelay = new WaitForSeconds(0.5f);
         m_collectibleManager = Managers.Instance.CollectibleManager;
         transform.DOLocalRotate(m_rotation, 4f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
@@ -25,14 +27,21 @@ public class Collectible : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            m_mesh.enabled = false;
+            Managers.Instance.AudioManager.PlayHere("collect",other.gameObject,false,true);
             transform.GetComponentInChildren<ParticleSystem>().Play();
             m_collectibleManager.CollectedSomething();
             StartCoroutine(Disabling());
         }
 
     }
+
+    private void OnDisable()
+    {
+        m_mesh.enabled = true;
+    }
     WaitForSeconds disableDelay;
-    
+
     IEnumerator Disabling()
     {
         yield return disableDelay;

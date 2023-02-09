@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
 
     //Components
     CharacterController m_cc;
-    InputHandler m_inputHandler;
     PlayerScript m_playerScript;
     GameManager m_gameManager;
 
@@ -56,13 +55,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        m_inputHandler = Managers.Instance.InputHandler;
+
+    }
+
+    private void OnEnable()
+    {
     }
 
 
 
-
-    
 
     private void Start()
     {
@@ -133,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         if (m_canJump && IsGrounded)
         {
             m_canJump = false;
-           
+
             Debug.Log("Jumped");
             m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravityPullValue);
 
@@ -207,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
         {
             m_jumpFX.gameObject.transform.position = transform.position;
             m_jumpFX.Play();
-            
+
             m_canJump = true;
             m_animator.SetTrigger("jump");
         }
@@ -264,6 +265,8 @@ public class PlayerMovement : MonoBehaviour
             m_deadAlready = true;
             m_animator.SetTrigger("dead");
             Managers.Instance.InputHandler.PlayerDead();
+            Managers.Instance.UIManager.FadeToBlack();
+            StartCoroutine(Managers.Instance.UIManager.DeathScreen());
         }
     }
 
@@ -294,7 +297,7 @@ public class PlayerMovement : MonoBehaviour
             m_dustEmission.rateOverTime = 0;
         }
     }
-    
+
 
     [SerializeField] ParticleSystem m_jumpFX;
 
