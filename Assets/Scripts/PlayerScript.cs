@@ -4,21 +4,38 @@ using UnityEngine;
 using EasyButtons;
 
 public class PlayerScript : MonoBehaviour
-
-{   //Components
-    [SerializeField] LightController m_lightController;
+{
+    GameManager m_gameManager;
+    //Components
+    LightController m_lightController;
 
     //Life
-    [Range(0, 1f)] public float LifePercentage = 1;
+    [SerializeField][Range(0, 1f)] private float m_lifePercentage = 1;
+    public float LifePercentage 
+    {
+        get { return m_lifePercentage;}
+        set { m_lifePercentage = m_gameManager.UnliLight ? 1 : value; }
+    }
     public float DimMultiplier = 0;
     public float PlayerStateDimMultiplier = 1;
-    public bool isDead = false;
 
+    private bool m_isDead = false;
+    public bool IsDead
+    {
+        get { return m_isDead;}
+        set { m_isDead = m_gameManager.NoDeathMode ? false : value; }
+    }
+
+
+    private void Start()
+    {
+        Initializer();
+    }
 
     private void Update()
     {
         ClosedCircuit();
-        if (!isDead && !m_charging)
+        if (!IsDead && !m_charging)
             ConsumeHealth();
 
     }
@@ -28,6 +45,7 @@ public class PlayerScript : MonoBehaviour
     private void Initializer()
     {
         m_lightController = GetComponent<LightController>();
+        m_gameManager = Managers.Instance.GameManager;
     }
     public void UpdateLife()
     {
@@ -47,7 +65,7 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            isDead = true;
+            IsDead = true;
         }
         UpdateLife();
     }

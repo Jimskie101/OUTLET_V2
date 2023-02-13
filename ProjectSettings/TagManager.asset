@@ -8,6 +8,7 @@ TagManager:
   - Socket_Neutral
   - Hook
   - Environment
+  - PuzzlePiece
   layers:
   - Default
   - TransparentFX

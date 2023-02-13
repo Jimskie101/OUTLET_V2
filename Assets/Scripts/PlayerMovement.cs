@@ -73,8 +73,61 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    [Header("Fall Damage")]
+    [SerializeField] float m_fallThresholdVelocity = 5f;
+    float startYPos = 0;
+    float endYPos = 0;
+    bool firstCall = true;
+    bool damaged = false;
+    public bool FallingDisabled;
+    float m_dimDefault;
+
+    private void FallCheck()
+    {
+        if (!IsGrounded)
+        {
+            if (transform.position.y > startYPos)
+            {
+                firstCall = true;
+            }
+
+            if (firstCall)
+            {
+                startYPos = transform.position.y;
+                firstCall = false;
+                damaged = true;
+            }
+        }
+
+        if (IsGrounded)
+        {
+            endYPos = transform.position.y;
+            if (startYPos - endYPos > m_fallThresholdVelocity)
+            {
+                if (damaged)
+                {
+                    Debug.Log("Do Damage: " + (startYPos - endYPos));
+                    m_playerScript.IsDead = true;
+                    damaged = false;
+                    firstCall = true;
+                }
+            }
+        }
+    }
+
+
+
     private void Update()
     {
+         if (!FallingDisabled)
+        {
+            FallCheck();
+        }
+        else
+        {
+            if (startYPos != 0) startYPos = 0;
+            if (endYPos != 0) endYPos = 0;
+        }
         if (m_cc.enabled)
             MovePlayer();
         RotatePlayer();
@@ -260,9 +313,11 @@ public class PlayerMovement : MonoBehaviour
             m_animator.SetBool("running", false);
 
         }
-        if (m_playerScript.isDead && !m_deadAlready)
+        if (m_playerScript.IsDead && !m_deadAlready)
         {
             m_deadAlready = true;
+            m_playerScript.LifePercentage -= 100;
+            m_playerScript.ConsumeHealth();
             m_animator.SetTrigger("dead");
             Managers.Instance.InputHandler.PlayerDead();
             Managers.Instance.UIManager.FadeToBlack();

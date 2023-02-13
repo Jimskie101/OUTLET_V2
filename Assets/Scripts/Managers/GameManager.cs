@@ -4,6 +4,16 @@ using UnityEngine;
 using EasyButtons;
 public class GameManager : MonoBehaviour
 {   
+    [Header("Tools and Cheats")]
+    //Cheats and Tools
+    public bool NoDeathMode = false;
+    public bool UnliLight = false;
+
+
+
+
+
+    
     public enum Direction
     {
         front,
@@ -11,6 +21,7 @@ public class GameManager : MonoBehaviour
         back,
         right,
     }
+    [Header("Game Camera Direction")]
     public Direction GameDirection;
     public Vector3 XOrientation;
     public Vector3 ZOrientation;
