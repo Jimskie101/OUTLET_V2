@@ -13,6 +13,11 @@ public class Managers : MonoBehaviour
     public CollectibleManager CollectibleManager;
     public InputHandler InputHandler;
     public AudioManager AudioManager;
+    public CutsceneManager CutsceneManager;
+    public CheckpointManager CheckpointManager;
+    public WaypointManager WaypointManager;
+    public SaveAndLoadManager SaveAndLoadManager;
+    public TaskManager TaskManager;
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -37,5 +42,10 @@ public class Managers : MonoBehaviour
         CollectibleManager = GetComponentInChildren<CollectibleManager>();
         InputHandler = GetComponentInChildren<InputHandler>();
         AudioManager = GetComponentInChildren<AudioManager>();
+        CheckpointManager = GetComponentInChildren<CheckpointManager>();
+        WaypointManager = GetComponentInChildren<WaypointManager>();
+        AudioManager = GetComponentInChildren<AudioManager>();
+        TaskManager = GetComponentInChildren<TaskManager>();
+        CutsceneManager = GetComponentInChildren<CutsceneManager>();
     }
 }

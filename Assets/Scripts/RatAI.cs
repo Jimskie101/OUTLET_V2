@@ -6,6 +6,13 @@ using EasyButtons;
 
 public class RatAI : MonoBehaviour
 {
+    [Space]
+    [SerializeField] Color m_statusIndicator = Color.white;
+#pragma warning disable
+    [SerializeField] string m_status;
+#pragma warning restore
+
+    [Space]
     [SerializeField] Transform m_player;
     NavMeshAgent m_agent;
     Animator m_ratAnimator;
@@ -19,7 +26,6 @@ public class RatAI : MonoBehaviour
     [SerializeField] float m_damageCD;
     Vector3 m_nextPos;
     Vector3 m_target;
-    [SerializeField] bool m_onChase = false;
     [SerializeField] bool m_alreadyAttacked = false;
     bool m_alreadyDamaged = false;
     WaitForSeconds m_cdTime;
@@ -29,6 +35,14 @@ public class RatAI : MonoBehaviour
     Vector3 m_lookPos;
     Quaternion m_rotation;
     [SerializeField] float angleToShoot = 0.01f;
+
+
+
+
+
+
+
+
 
     private void OnEnable()
     {
@@ -59,18 +73,18 @@ public class RatAI : MonoBehaviour
     bool m_isMoving = false;
     private void Update()
     {
-
-
+        m_isMoving = m_agent.velocity.sqrMagnitude == 0f ? false : true;
+        m_ratAnimator.SetBool("isMoving", m_isMoving);
 
 
         m_targetDistance = Vector3.Distance(transform.position, m_player.position);
 
         if (m_agent.velocity == Vector3.zero && m_doneAttacking)
         {
-            
+
             m_agent.isStopped = false;
             m_doneAttacking = false;
-            m_agent.SetDestination(m_oldPosition);
+            //m_agent.SetDestination(m_oldPosition);
         }
 
 
@@ -78,7 +92,7 @@ public class RatAI : MonoBehaviour
         if (m_targetDistance < m_agent.radius + m_playerCc.radius)
         {
             if (!m_alreadyDamaged)
-            {   
+            {
                 Debug.Log("PlayerDamaged");
                 m_alreadyDamaged = true;
                 m_playerScript.LifePercentage -= m_attackDamage;
@@ -96,8 +110,9 @@ public class RatAI : MonoBehaviour
         if (m_targetDistance <= m_chaseRange && m_targetDistance > m_attackRange)
         {
             m_agent.isStopped = false;
-            if(!m_isMoving) {m_isMoving = true; m_ratAnimator.SetBool("isMoving", m_isMoving);}
-            m_onChase = true;
+            // if (!m_isMoving) { m_isMoving = true; m_ratAnimator.SetBool("isMoving", m_isMoving); }
+            m_status = " Chasing";
+            m_statusIndicator = Color.green;
             m_target = m_player.position;
             m_agent.SetDestination(m_player.position);
 
@@ -116,14 +131,19 @@ public class RatAI : MonoBehaviour
             }
             else
             {
-                if(m_isMoving) {m_isMoving = false; m_ratAnimator.SetBool("isMoving", m_isMoving);}
+                // if (m_isMoving) { m_isMoving = false; m_ratAnimator.SetBool("isMoving", m_isMoving); }
             }
 
         }
 
         else if (m_targetDistance < m_activityRange)
         {
-            if(!m_isMoving) {m_isMoving = true; m_ratAnimator.SetBool("isMoving", m_isMoving);}
+            if (!m_isMoving)
+            {
+                m_isMoving = true;
+                // m_ratAnimator.SetBool("isMoving", m_isMoving);
+
+            }
             m_agent.isStopped = false;
             if (!m_agent.pathPending)
             {
@@ -132,7 +152,6 @@ public class RatAI : MonoBehaviour
                     if (!m_agent.hasPath || m_agent.velocity.sqrMagnitude == 0f)
                     {
 
-                        m_onChase = false;
                         RandomMove();
 
 
@@ -141,12 +160,19 @@ public class RatAI : MonoBehaviour
             }
 
         }
-        else m_agent.isStopped = true;
+        else
+        {
+            m_agent.isStopped = true;
+            m_status = " Neutral";
+            m_statusIndicator = Color.white;
+            m_isMoving = false;
+            // m_ratAnimator.SetBool("isMoving", m_isMoving);
+        }
     }
 
     IEnumerator Cooldown()
     {
-        
+
         yield return m_cdTime;
         m_alreadyAttacked = false;
     }
@@ -158,10 +184,12 @@ public class RatAI : MonoBehaviour
     }
 
     Vector3 m_newVelocity;
-    Vector3 m_oldPosition;
+    Vector3 m_oldPosition = Vector3.zero;
     [Button]
     private void AttackPlayer()
     {
+        m_status = " Attacking";
+        m_statusIndicator = Color.red;
         m_oldPosition = transform.position;
         m_agent.isStopped = false;
         m_newVelocity = Vector3.zero;
@@ -180,7 +208,9 @@ public class RatAI : MonoBehaviour
     [Button]
     private void RandomMove()
     {
-        if(!m_isMoving) {m_isMoving = true; m_ratAnimator.SetBool("isMoving", m_isMoving);}
+        // if (!m_isMoving) { m_isMoving = true; m_ratAnimator.SetBool("isMoving", m_isMoving); }
+        m_status = " Wandering";
+        m_statusIndicator = Color.yellow;
         m_nextPos = Random.insideUnitSphere * Random.Range(wanderRadius.x, wanderRadius.y);
         m_target = m_nextPos + transform.position;
         m_agent.SetDestination(m_target);
@@ -193,4 +223,6 @@ public class RatAI : MonoBehaviour
     }
 
 
+
 }
+

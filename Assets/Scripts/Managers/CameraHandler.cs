@@ -76,14 +76,13 @@ public class CameraHandler : MonoBehaviour
             {
                 m_controlsAreDown = false;
                 Time.timeScale = 1f;
-                
+
                 m_inputHandler.CameraStopped();
                 m_gameManager.ChangeGameDirection();
             }
 
         }
     }
-
 
 
 
@@ -110,12 +109,15 @@ public class CameraHandler : MonoBehaviour
 
 
     private void Start()
-    {   
+    {
         m_gameManager = Managers.Instance.GameManager;
         m_inputHandler = Managers.Instance.InputHandler;
-        m_inputHandler.CameraRotating();
-        StartCoroutine(StartCamera());
-        
+        if (!m_gameManager.NoCutscene)
+        {
+            m_inputHandler.CameraRotating();
+            StartCoroutine(StartCamera());
+        }
+
 
     }
     IEnumerator StartCamera()

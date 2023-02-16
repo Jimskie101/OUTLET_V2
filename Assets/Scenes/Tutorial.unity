@@ -42210,6 +42210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61adb20d9291764eb3ce4473f1c29e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDeathMode: 0
+  UnliLight: 0
+  NoCutscene: 0
   GameDirection: 0
   XOrientation: {x: 0, y: 0, z: 0}
   ZOrientation: {x: 0, y: 0, z: 0}
@@ -42400,7 +42403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &912912835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45077,7 +45080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1129267370
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58323,6 +58326,7 @@ MonoBehaviour:
   m_settingsScreen: {fileID: 1482820108}
   m_creditsScreen: {fileID: 750242767}
   m_pauseScreen: {fileID: 580938845}
+  m_deathScreen: {fileID: 0}
   m_resolutionDropdown: {fileID: 574175805}
   m_audioMixer: {fileID: 24100000, guid: 36601c427b119214e94f30c212ed0438, type: 2}
   m_hpBar1: {fileID: 1949857311}
@@ -64032,6 +64036,8 @@ MonoBehaviour:
   Speed: 4
   RunSpeedMultiplier: 2
   IsGrounded: 0
+  m_fallThresholdVelocity: 5
+  FallingDisabled: 0
   ConnectedToSource: 0
   TargetSource: {fileID: 0}
   m_dust: {fileID: 579381815}
@@ -64084,11 +64090,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdcd966b2c631345b883ff55a49345c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lightController: {fileID: 2040021647}
-  LifePercentage: 1
+  m_lifePercentage: 1
   DimMultiplier: 1
   PlayerStateDimMultiplier: 1
-  isDead: 0
   m_hot: {fileID: 521966634}
   m_neutral: {fileID: 1961353567}
   m_energySource: {fileID: 0}

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     //Cheats and Tools
     public bool NoDeathMode = false;
     public bool UnliLight = false;
+    public bool NoCutscene = false;
 
 
 
