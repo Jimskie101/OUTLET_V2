@@ -8,7 +8,7 @@ public class Keypad : MonoBehaviour
 {
     [SerializeField] Transform m_door;
     WaitForSeconds m_time;
-    Vector3 m_rotation = new Vector3(-90, 0, -129.829f);
+    Vector3 m_rotation = new Vector3(-90, 0, 255f);
     [SerializeField] ParticleSystem [] sparks;
 
     /// <summary>
@@ -27,7 +27,7 @@ public class Keypad : MonoBehaviour
         sparks = GetComponentsInChildren<ParticleSystem>();
     }
 
-
+    [Button]
     public void Activate()
     {
         
@@ -44,7 +44,7 @@ public class Keypad : MonoBehaviour
                 ps.Play();
             }
             m_done = true;
-            //Managers.Instance.CutsceneManager.PlayTimeline();
+            Managers.Instance.CutsceneManager.PlayCutscene(1);
             
             StartCoroutine(OpenDoor());
         }
@@ -53,7 +53,7 @@ public class Keypad : MonoBehaviour
     IEnumerator OpenDoor()
     {
         yield return m_time;
-        Managers.Instance.AudioManager.PlayHere("outpost_door", m_door.gameObject);
-        m_door.DOLocalRotate(m_rotation, 2f);
+        //Managers.Instance.AudioManager.PlayHere("outpost_door", m_door.gameObject);
+        m_door.DOLocalRotate(m_rotation, 2f).SetUpdate(true);
     }
 }

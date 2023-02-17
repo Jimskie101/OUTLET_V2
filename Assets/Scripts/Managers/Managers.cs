@@ -35,6 +35,7 @@ public class Managers : MonoBehaviour
     [Button]
     private void InitializeFields()
     {
+        
         GameManager = GetComponentInChildren<GameManager>();
         UIManager = GetComponentInChildren<UIManager>();
         SceneHandler = GetComponentInChildren<SceneHandler>();

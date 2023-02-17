@@ -11,9 +11,9 @@ public class PlayerScript : MonoBehaviour
 
     //Life
     [SerializeField][Range(0, 1f)] private float m_lifePercentage = 1;
-    public float LifePercentage 
+    public float LifePercentage
     {
-        get { return m_lifePercentage;}
+        get { return m_lifePercentage; }
         set { m_lifePercentage = m_gameManager.UnliLight ? 1 : value; }
     }
     public float DimMultiplier = 0;
@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     private bool m_isDead = false;
     public bool IsDead
     {
-        get { return m_isDead;}
+        get { return m_isDead; }
         set { m_isDead = m_gameManager.NoDeathMode ? false : value; }
     }
 
@@ -88,6 +88,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] WireBase m_hot;
     [SerializeField] WireBase m_neutral;
     [SerializeField] EnergySource m_energySource;
+    [SerializeField] Keypad m_keypad;
     bool m_charging;
     private void Regen()
     {
@@ -95,28 +96,35 @@ public class PlayerScript : MonoBehaviour
         if (m_hot.Source != null)
         {
             m_charging = true;
-            m_energySource = m_hot.Source.GetComponent<EnergySource>();
+
+
+            if (m_hot.Source.TryGetComponent(out m_energySource))
+            {
+                if (m_energySource.Charge > 0)
+                {
+                    if (m_lightController.LightValue < m_lightController.initialValue)
+                    {
+                        LifePercentage += Time.deltaTime * 15f * 0.01f;
+                        UpdateLife();
+                        m_energySource.Charge -= Time.deltaTime * 15f;
+                        m_energySource.Outline.OutlineWidth = 2f * (m_energySource.Charge / m_energySource.m_initialCharge);
+                    }
+                }
+            }
+            else if (m_hot.Source.TryGetComponent(out m_keypad))
+            {
+                m_keypad.Activate();
+            }
 
         }
         else
         {
             m_charging = false;
+
         }
 
 
-        if (m_energySource != null)
-        {
-            if (m_energySource.Charge > 0)
-            {
-                if (m_lightController.LightValue < m_lightController.initialValue)
-                {
-                    LifePercentage += Time.deltaTime * 15f * 0.01f;
-                    UpdateLife();
-                    m_energySource.Charge -= Time.deltaTime * 15f;
-                    m_energySource.Outline.OutlineWidth = 2f * (m_energySource.Charge / m_energySource.m_initialCharge);
-                }
-            }
-        }
+
 
     }
 

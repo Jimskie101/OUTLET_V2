@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using Cinemachine;
+using EasyButtons;
 public class CutsceneManager : MonoBehaviour
 {
     CameraHandler m_cameraHandler;
@@ -12,10 +13,16 @@ public class CutsceneManager : MonoBehaviour
         m_cameraHandler = Managers.Instance.CameraHandler;
         m_camResetTime = new WaitForSeconds(3f);
     }
-    
-    [SerializeField]
-    CinemachineVirtualCamera [] m_cutsceneCameras;
+    [SerializeField] Transform m_cameraHolder;
+    [SerializeField] CinemachineVirtualCamera [] m_cutsceneCameras;
     CinemachineVirtualCamera m_tempCamera;
+
+    [Button]
+    private void GetCustceneCameras()
+    {
+        m_cutsceneCameras = m_cameraHolder.GetComponentsInChildren<CinemachineVirtualCamera>();
+    }
+
 
 
     public void PlayCutscene(int cameraNum)
