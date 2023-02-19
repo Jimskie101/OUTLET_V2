@@ -24,7 +24,7 @@ public class PressurePlate : MonoBehaviour
 
     float m_timer;
 
-    bool m_isPressed = false;
+    [SerializeField] bool m_isPressed = false;
     bool m_shouldReset = false;
 
     float m_defaultPos;
@@ -55,30 +55,42 @@ public class PressurePlate : MonoBehaviour
 
     private void Update()
     {
+        if (m_colliderCount == 0 && m_isPressed == true)
+        {
+            Reseting(m_dir);
+        }
         if (m_shouldReset)
         {
             ResetTimer();
         }
-        else
-        if (m_timer != m_StateResetDelay)
+        else if (m_timer != m_StateResetDelay)
             m_timer = m_StateResetDelay;
     }
 
+    [SerializeField] int m_colliderCount = 0;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (((1 << other.gameObject.layer) & m_layerMask) != 0 && !m_isPressed )
+        if (m_layerMask == (m_layerMask | (1 << other.gameObject.layer)))
         {
-            m_shouldReset = false;
-            Lowering(m_dir);
+            m_colliderCount++;
+            if (!m_isPressed)
+            {
+                m_shouldReset = false;
+                Lowering(m_dir);
+            }
+
         }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (m_layerMask == (m_layerMask | (1 << other.gameObject.layer)))
         {
-            m_shouldReset = true;
+            m_colliderCount--;
+            if (m_colliderCount == 0) m_shouldReset = true;
+
         }
     }
 
@@ -96,10 +108,10 @@ public class PressurePlate : MonoBehaviour
         switch (dir)
         {
             case direction.x: transform.parent.DOLocalMoveX(m_defaultPos, m_ResetDuration).OnComplete(() => { m_isPressed = false; m_shouldReset = false; m_DoThisIfUnpressed.Invoke(); }); break;
-            case direction.y: transform.parent.DOLocalMoveY(m_defaultPos, m_ResetDuration).OnComplete(() => { m_isPressed = false; m_shouldReset = false; m_DoThisIfUnpressed.Invoke();}); break;
-            case direction.z: transform.parent.DOLocalMoveZ(m_defaultPos, m_ResetDuration).OnComplete(() => { m_isPressed = false; m_shouldReset = false; m_DoThisIfUnpressed.Invoke();}); break;
+            case direction.y: transform.parent.DOLocalMoveY(m_defaultPos, m_ResetDuration).OnComplete(() => { m_isPressed = false; m_shouldReset = false; m_DoThisIfUnpressed.Invoke(); }); break;
+            case direction.z: transform.parent.DOLocalMoveZ(m_defaultPos, m_ResetDuration).OnComplete(() => { m_isPressed = false; m_shouldReset = false; m_DoThisIfUnpressed.Invoke(); }); break;
         }
-        
+
     }
 
 
@@ -109,5 +121,6 @@ public class PressurePlate : MonoBehaviour
         m_shouldReset = false;
         m_DoThisIfPressed.Invoke();
     }
+
 
 }

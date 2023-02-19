@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Pusher : MonoBehaviour
 {
+    [SerializeField] PlayerData m_playerData;
     private CharacterController m_characterController;
     private Vector3 m_pushDirection = Vector3.zero;
-    [SerializeField] private float m_pushForce = 10f;
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class Pusher : MonoBehaviour
         m_pushDirection.y = 0f;
         m_pushDirection.Normalize();
 
-        m_rigidbody.AddForceAtPosition(m_pushDirection * m_pushForce, transform.position, ForceMode.Impulse);
+        m_rigidbody.AddForceAtPosition(m_pushDirection * m_playerData.PushForce, transform.position, ForceMode.Impulse);
         
     }
 }

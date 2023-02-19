@@ -6,6 +6,7 @@ using UnityEngine;
 public class WireBase : MonoBehaviour
 {
     [SerializeField] PlayerMovement m_playerMovement;
+    [SerializeField] Animator m_playerAnimator;
     [SerializeField] Vector3 m_targetPoint;
     [SerializeField] LayerMask m_interactableLayerMask;
     [SerializeField] float m_socketDetectionRange;
@@ -31,13 +32,10 @@ public class WireBase : MonoBehaviour
         connectTime = new WaitForSeconds(0.2f);
 
     }
-    [HideInInspector]
-    public bool PullPlayer;
+   
     void Update()
     {
-        if(m_joint != null)
-        if (m_joint.maxDistance > m_joint.minDistance && PullPlayer)
-            m_joint.maxDistance -= Time.deltaTime * m_pullPower;
+
 
 
         if (Connect)
@@ -54,6 +52,18 @@ public class WireBase : MonoBehaviour
 
     }
 
+    public void PullPlayer()
+    {
+
+        if (m_joint != null)
+            if (m_joint.maxDistance > m_joint.minDistance)
+            {
+
+                m_joint.maxDistance -= Time.deltaTime * m_pullPower;
+
+            }
+
+    }
 
 
     void Disconnect()
@@ -61,6 +71,13 @@ public class WireBase : MonoBehaviour
         if (Vector3.Distance(TargetObject.position, transform.position) > m_wireLength)
         {
             Connect = false;
+            if (m_joint != null)
+            {
+                // Destroy(joint);
+                ResetFakeRigidBody();
+
+            }
+
         }
     }
     public void StartGrapple()
@@ -172,6 +189,7 @@ public class WireBase : MonoBehaviour
     CharacterController m_tempCc;
     IEnumerator HookSwing()
     {
+
         if (m_tempObj == null)
             m_tempObj = m_playerMovement.FakeRigidBody;
         m_tempObj.SetActive(true);
@@ -192,6 +210,8 @@ public class WireBase : MonoBehaviour
         m_joint.autoConfigureConnectedAnchor = false;
         m_joint.connectedAnchor = TargetObject.position;
 
+        m_playerAnimator.SetBool("swinging", true);
+        
         float distanceFromPoint = Vector3.Distance(transform.position, TargetObject.position);
 
         //The distance grapple will try to keep from grapple point. 
@@ -205,9 +225,11 @@ public class WireBase : MonoBehaviour
 
     }
 
-    
+
     private void ResetFakeRigidBody()
     {
+        m_playerAnimator.SetBool("swinging", false);
+
         m_tempObj.SetActive(false);
         m_tempObj.transform.DetachChildren();
         m_tempCc.enabled = true;

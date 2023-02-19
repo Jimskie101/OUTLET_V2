@@ -22,9 +22,9 @@ TagManager:
   - Hooks
   - Environment
   - Hints
-  - Walls
+  - CollideCamera
   - Invisible
-  - 
+  - RigidObject
   - 
   - 
   - 

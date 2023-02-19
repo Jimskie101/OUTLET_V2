@@ -6,6 +6,7 @@ using EasyButtons;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] PlayerData m_playerData;
     //New Input System
     InputMaster m_inputMaster;
 
@@ -27,24 +28,14 @@ public class PlayerMovement : MonoBehaviour
     Vector3 m_inputDir;
     float m_speed;
     Vector3 m_rotateDir = Vector3.zero;
-    [SerializeField] float m_rotationTime;
-
-    //Jump
-    [SerializeField] float m_jumpHeight;
 
 
-    //Ground
-    [SerializeField] float m_groundCheckSphereRadius;
-    [SerializeField] LayerMask m_groundLayer;
 
-    //Gravity
-    [SerializeField] float m_gravityPullValue;
+
+
     Vector3 m_gravityVector;
     Vector3 m_velocity;
 
-    //Public PlayerStats
-    public float Speed;
-    public float RunSpeedMultiplier;
     public bool IsGrounded = false;
 
 
@@ -74,13 +65,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     [Header("Fall Damage")]
-    [SerializeField] float m_fallThresholdVelocity = 5f;
-    float startYPos = 0;
-    float endYPos = 0;
+
+    [SerializeField] float startYPos = 0;
+    [SerializeField] float endYPos = 0;
     bool firstCall = true;
     bool damaged = false;
     public bool FallingDisabled;
-    float m_dimDefault;
 
     private void FallCheck()
     {
@@ -102,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded)
         {
             endYPos = transform.position.y;
-            if (startYPos - endYPos > m_fallThresholdVelocity)
+            if (startYPos - endYPos > m_playerData.FallThresholdLimit)
             {
                 if (damaged)
                 {
@@ -119,11 +109,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-         if (!FallingDisabled)
+        if (!FallingDisabled)
         {
             FallCheck();
         }
-        else
+        if (IsGrounded)
         {
             if (startYPos != 0) startYPos = 0;
             if (endYPos != 0) endYPos = 0;
@@ -178,8 +168,8 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        m_speed = IsGrounded ? Speed : Speed * 0.75f;
-        m_speed = m_isRunning ? m_speed * RunSpeedMultiplier : m_speed;
+        m_speed = IsGrounded ? m_playerData.Speed : m_playerData.Speed * 0.75f;
+        m_speed = m_isRunning ? m_speed * m_playerData.RunSpeedMultiplier : m_speed;
 
         m_cc.Move(m_inputDir.normalized * m_speed * Time.deltaTime);
 
@@ -189,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
             m_canJump = false;
 
             Debug.Log("Jumped");
-            m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravityPullValue);
+            m_velocity.y = Mathf.Sqrt(m_playerData.JumpHeight * -2f * m_playerData.GravityPullValue);
 
             IsGrounded = false;
         }
@@ -199,8 +189,8 @@ public class PlayerMovement : MonoBehaviour
         if (!IsGrounded || m_cc.velocity.y < 0)
         {
             //Gravity
-            if (m_velocity.y > m_gravityPullValue)
-                m_velocity.y += m_gravityPullValue * Time.deltaTime;
+            if (m_velocity.y > m_playerData.GravityPullValue)
+                m_velocity.y += m_playerData.GravityPullValue * Time.deltaTime;
             m_cc.Move(m_velocity * Time.deltaTime);
             m_animator.SetBool("falling", true);
         }
@@ -220,18 +210,19 @@ public class PlayerMovement : MonoBehaviour
     public Transform TargetSource;
     public void RotatePlayer()
     {
-        if (m_inputDir != Vector3.zero && !ConnectedToSource)
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(m_inputDir), m_rotationTime);
-            RotateDust();
-        }
-        else if (ConnectedToSource)
+        if (ConnectedToSource)
         {
             m_targetPos = TargetSource.position - transform.position;
             m_targetPos.y = 0;
             //Debug.DrawRay(transform.position, m_targetPos, Color.cyan);
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(m_targetPos), m_rotationTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(m_targetPos), m_playerData.RotationTime);
+        }
+
+        else if (m_inputDir != Vector3.zero && !ConnectedToSource)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(m_inputDir), m_playerData.RotationTime);
+            RotateDust();
         }
 
 
@@ -241,7 +232,7 @@ public class PlayerMovement : MonoBehaviour
     //Ground Checker
     private void GroundCheck()
     {
-        IsGrounded = Physics.CheckSphere(m_groundChecker.position, m_groundCheckSphereRadius, m_groundLayer);
+        IsGrounded = Physics.CheckSphere(m_groundChecker.position, m_playerData.GroundCheckSphereRadius, m_playerData.GroundLayer);
         m_animator.SetBool("grounded", IsGrounded);
         if (IsGrounded && !m_landSoundPlayed)
         {
@@ -276,16 +267,19 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(m_groundChecker.position, m_groundCheckSphereRadius);
+        Gizmos.DrawWireSphere(m_groundChecker.position, m_playerData.GroundCheckSphereRadius);
     }
 
 
     bool m_deadAlready = false;
+    [HideInInspector]
+
     private void AnimationUpdate()
     {
+
         if (m_inputDir != Vector3.zero && IsGrounded)
         {
-            m_playerScript.PlayerStateDimMultiplier = 3f;
+            m_playerScript.ChangeStateMultiplier = 3f;
             m_animator.SetBool("walking", true);
             m_dustMain.startLifetime = 2f;
             m_dustMain.simulationSpeed = 0.5f;
@@ -295,7 +289,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (m_inputDir == Vector3.zero || !IsGrounded)
         {
-            m_playerScript.PlayerStateDimMultiplier = 1f;
+            m_playerScript.ChangeStateMultiplier = 1f;
             m_animator.SetBool("walking", false);
 
 
@@ -303,7 +297,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (m_inputDir != Vector3.zero && m_isRunning && IsGrounded)
         {
-            m_playerScript.PlayerStateDimMultiplier = 5f;
+            m_playerScript.ChangeStateMultiplier = 5f;
             m_animator.SetBool("running", true);
             m_dustMain.startLifetime = 1f;
             m_dustMain.simulationSpeed = 1f;

@@ -39,7 +39,7 @@ public class HangingMovement : MonoBehaviour
     }
     private void Update()
     {
-        m_player.rotation = Quaternion.identity;
+        transform.rotation = Quaternion.Euler(0, m_player.transform.rotation.eulerAngles.y, 0);
         m_movement = m_horizontal * m_gameManager.XOrientation + m_vertical * m_gameManager.ZOrientation;
     }
 

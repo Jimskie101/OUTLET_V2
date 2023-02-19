@@ -36,16 +36,8 @@ public class InputHandler : MonoBehaviour
         //When Hanging Controls
         m_inputMaster.OnHook.Movement.performed += ctx => m_hangingMovement.GetDirection(ctx.ReadValue<Vector2>());
         m_inputMaster.OnHook.Movement.canceled += ctx => m_hangingMovement.GetDirection(Vector3.zero);
-        m_inputMaster.OnHook.Jump.performed += ctx =>
-        {
-            m_hotWire.PullPlayer = true;
-            m_neutralWire.PullPlayer = true;
-        };
-        m_inputMaster.OnHook.Jump.canceled += ctx =>
-        {
-            m_hotWire.PullPlayer = false;
-            m_neutralWire.PullPlayer = false;
-        };
+        m_inputMaster.OnHook.Jump.performed += ctx => m_pulling = true;
+        m_inputMaster.OnHook.Jump.canceled += ctx => m_pulling = false;
 
     }
 
@@ -131,7 +123,7 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Player.Disable();
         m_inputMaster.Camera.Disable();
         m_inputMaster.Wires.Disable();
-        
+
     }
 
     public void UnPause()
@@ -151,5 +143,13 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Player.Enable();
     }
 
-
+    bool m_pulling = false;
+    private void Update()
+    {
+        if (m_pulling)
+        {
+            m_hotWire.PullPlayer();
+            m_neutralWire.PullPlayer();
+        }
+    }
 }

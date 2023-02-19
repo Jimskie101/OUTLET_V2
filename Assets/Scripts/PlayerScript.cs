@@ -9,6 +9,8 @@ public class PlayerScript : MonoBehaviour
     //Components
     LightController m_lightController;
 
+    [SerializeField] PlayerData m_playerData;
+
     //Life
     [SerializeField][Range(0, 1f)] private float m_lifePercentage = 1;
     public float LifePercentage
@@ -16,8 +18,7 @@ public class PlayerScript : MonoBehaviour
         get { return m_lifePercentage; }
         set { m_lifePercentage = m_gameManager.UnliLight ? 1 : value; }
     }
-    public float DimMultiplier = 0;
-    public float PlayerStateDimMultiplier = 1;
+    public float ChangeStateMultiplier = 1;
 
     private bool m_isDead = false;
     public bool IsDead
@@ -46,6 +47,7 @@ public class PlayerScript : MonoBehaviour
     {
         m_lightController = GetComponent<LightController>();
         m_gameManager = Managers.Instance.GameManager;
+        LifePercentage = m_playerData.IntialLifeValue;
     }
     public void UpdateLife()
     {
@@ -61,7 +63,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (LifePercentage > 0)
         {
-            LifePercentage -= Time.deltaTime * (DimMultiplier * PlayerStateDimMultiplier) * 0.01f;
+            LifePercentage -= Time.deltaTime * (m_playerData.DimMultiplier * ChangeStateMultiplier) * 0.01f;
         }
         else
         {

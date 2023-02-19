@@ -25,6 +25,7 @@ public class Info : MonoBehaviour
     }
     private void OnEnable()
     {
+        m_particles = null;
         transform.DOLocalRotate(m_rotation, 4f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
         transform.DOLocalMoveY(transform.localPosition.y + 0.5f, 1f).SetLoops(-1, LoopType.Yoyo);
     }
@@ -56,10 +57,12 @@ public class Info : MonoBehaviour
         }
     }
 
-
+    ParticleSystem m_particles = null;
     IEnumerator ReEnable()
-    {
-        transform.GetComponentInChildren<ParticleSystem>().Play();
+    {   
+        transform.GetComponentInChildren<ParticleSystem>();
+        if(m_particles != null)
+        m_particles.Play();
         yield return m_reEnablerDelay;
         if (TryGetComponent<MeshRenderer>(out m_mesh))
             m_mesh.enabled = true;

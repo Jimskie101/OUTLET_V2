@@ -8,7 +8,7 @@ public class Keypad : MonoBehaviour
 {
     [SerializeField] Transform m_door;
     WaitForSeconds m_time;
-    Vector3 m_rotation = new Vector3(-90, 0, 255f);
+    [SerializeField]Vector3 m_rotation = new Vector3(-90, 0, 255f);
     [SerializeField] ParticleSystem [] sparks;
 
     /// <summary>
