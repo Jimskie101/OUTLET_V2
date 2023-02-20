@@ -71,7 +71,7 @@ public class LightController : MonoBehaviour
 
     public void ChangeLightValue(float f_lightValue)
     {
-        m_pointLight.range = f_lightValue * 1.8f;
+        m_pointLight.range = f_lightValue * 5f;
         m_pointLight.intensity = f_lightValue * 0.2f;
     }
 
