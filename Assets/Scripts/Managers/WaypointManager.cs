@@ -10,8 +10,8 @@ public class WaypointManager : MonoBehaviour
     private int m_waypointCounter = -1;
 
     [SerializeField] Transform[] m_taskWaypointsList;
+    
 
-  
 
     [Button]
     public void NextWaypoint()
@@ -20,11 +20,9 @@ public class WaypointManager : MonoBehaviour
         {
             m_waypointCounter++;
             m_waypointMarker.Target = m_taskWaypointsList[m_waypointCounter];
+            
         }
-        else
-        {
-            m_waypointMarker.Target = null;
-        }
+        
 
     }
 }

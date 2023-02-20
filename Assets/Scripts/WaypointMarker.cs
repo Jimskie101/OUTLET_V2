@@ -26,13 +26,10 @@ public class WaypointMarker : MonoBehaviour
     private void Update()
     {
         if (Target != null)
-        {
+        {   if(!m_image.gameObject.activeSelf) m_image.gameObject.SetActive(true);
             Marking();
         }
-        else
-        {
-            m_image.gameObject.SetActive(false);
-        }
+        
     }
 
     public void AnimateMarker()

@@ -71,7 +71,7 @@ public class Generator : MonoBehaviour
             g.SetActive(true);
 
         foreach (Light l in m_targetLights)
-            l.DOIntensity(2, 1f).SetEase(Ease.InOutBounce);
+            l.DOIntensity(4, 1f).SetEase(Ease.InOutBounce);
 
     }
 

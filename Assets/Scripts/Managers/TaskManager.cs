@@ -15,38 +15,37 @@ public class TaskManager : MonoBehaviour
     private void OnEnable()
     {
         seq = DOTween.Sequence();
-        NextTask();
+        m_text.text = m_taskArray[m_taskNumber];
+        AnimateTask();
     }
     [Button]
-    public void NextTask(bool b_waypointOnly = false)
+    public void NextTask(bool waypointOnly = false)
     {
-        if (!b_waypointOnly)
+        if (!waypointOnly)
         {
-            m_taskNumber++;
-            SlideTween(m_textHolder, 179, -115.5f, 0.2f, 179, 142.9f, 0.5f).OnComplete(() =>
+
+            m_textHolder.DOLocalMoveY(300, 1.5f).SetEase(Ease.OutElastic).OnComplete(() =>
             {
                 m_text.text = m_taskArray[m_taskNumber];
+
                 AnimateTask();
             });
 
         }
+        else
+        {
+            Managers.Instance.WaypointManager.NextWaypoint();
+        }
 
 
-        Managers.Instance.WaypointManager.NextWaypoint();
+
     }
 
-    public Sequence SlideTween(RectTransform ui, float x, float y, float duration1, float addX, float addY, float duration2)
-    {
-        seq.Kill();
-        seq = DOTween.Sequence();
-        seq.Append(ui.DOAnchorPos(new Vector2(x, y), duration1));
-        seq.Append(ui.DOAnchorPos(new Vector2(addX, addY), duration2));
 
-        return seq;
-    }
     public void AnimateTask()
     {
 
-        SlideTween(m_textHolder, 179, -115.5f, 0.5f, 179, -65.5f, 0.2f);
+        m_textHolder.DOLocalMoveY(0, 1.5f).SetEase(Ease.InElastic).OnComplete(() =>
+        Managers.Instance.WaypointManager.NextWaypoint());
     }
 }

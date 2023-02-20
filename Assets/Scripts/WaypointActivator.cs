@@ -21,7 +21,7 @@ public class WaypointActivator : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            //m_taskManager.NextTask(m_waypointOnly);
+            m_taskManager.NextTask(m_waypointOnly);
             //Debug.Log("Task Finished");
             this.gameObject.SetActive(false);
         }
