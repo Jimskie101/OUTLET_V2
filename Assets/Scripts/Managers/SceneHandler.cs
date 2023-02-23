@@ -3,12 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using EasyButtons;
+using DG.Tweening;
 
 public class SceneHandler : MonoBehaviour
 {
+
+
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Time.timeScale = 1f;
+    }
+
+
     [Button]
     public void LoadStage(int stage)
     {
+        DOTween.KillAll();
         SceneManager.LoadScene(stage);
     }
     public int GetCurrentScene()
@@ -16,7 +37,7 @@ public class SceneHandler : MonoBehaviour
         return SceneManager.GetActiveScene().buildIndex;
     }
 
-    
+
 
     //Splash Intro Scene
     private void Start()

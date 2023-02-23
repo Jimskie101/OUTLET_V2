@@ -50,6 +50,8 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Camera.Enable();
         m_inputMaster.Wires.Enable();
         m_inputMaster.UI.Enable();
+        m_inputMaster.UI.Continue.Disable();
+
         m_inputMaster.OnHook.Disable();
     }
     private void OnDisable()
@@ -81,6 +83,17 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.OnHook.Disable();
     }
 
+    //Ultra Enable All
+    public void PlayerRespawned()
+    {
+        m_inputMaster.Player.Enable();
+        m_inputMaster.Camera.Enable();
+        m_inputMaster.Wires.Enable();
+        m_inputMaster.UI.Enable();
+        m_inputMaster.OnHook.Enable();
+    }
+
+
 
     //Disable All Game Inputs except Menu
     public void CameraRotating()
@@ -96,6 +109,7 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Camera.Enable();
         m_inputMaster.Wires.Enable();
         m_inputMaster.UI.Enable();
+        m_inputMaster.UI.Continue.Disable();
 
     }
 

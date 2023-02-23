@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03ccb0b8f5e7a541b4a02e726f68e5d, type: 3}
   m_Name: PlayerDataBackup
   m_EditorClassIdentifier: 
-  JumpHeight: 2
+  JumpHeight: 1.5
   Speed: 4
   RunSpeedMultiplier: 2
-  FallThresholdLimit: 9
+  FallThresholdLimit: 8.4
   RotationTime: 0.2
   GravityPullValue: -9.8
   GroundCheckSphereRadius: 0.31
   GroundLayer:
     serializedVersion: 2
-    m_Bits: 1032
+    m_Bits: 21512
   IntialLifeValue: 1
-  DimMultiplier: 1
+  DimMultiplier: 0.5
   PushForce: 0.3
+  WireRangeRadius: 5
+  WireLength: 10

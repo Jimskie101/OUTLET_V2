@@ -25,3 +25,5 @@ MonoBehaviour:
   IntialLifeValue: 1
   DimMultiplier: 0.5
   PushForce: 0.3
+  WireRangeRadius: 5
+  WireLength: 10

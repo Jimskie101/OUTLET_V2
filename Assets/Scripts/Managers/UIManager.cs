@@ -13,16 +13,25 @@ public class UIManager : MonoBehaviour
     [SerializeField] PlayerMovement m_playerMoveScript;
     //Game Status
     SceneHandler m_sceneHandler;
+    CheckpointManager m_checkpointManager;
 
-    
 
-    
+
+
     private void Start()
     {
         m_sceneHandler = Managers.Instance.SceneHandler;
+        m_checkpointManager = Managers.Instance.CheckpointManager;
         m_timeForScreen = new WaitForSeconds(2f);
         FadeInFromBlack();
         GetResolutionData();
+        if(m_sceneHandler.GetCurrentScene() == 1)
+        {
+            Debug.Log("Checking Saves");
+            m_load.interactable = Managers.Instance.SaveAndLoadManager.CheckJson();
+        }
+        
+        
     }
 
     public void UpdateCollectibleCount(int amount)
@@ -55,7 +64,7 @@ public class UIManager : MonoBehaviour
                 m_titleText.text = title;
                 m_infoText.text = info;
                 m_titleText.transform.parent.gameObject.SetActive(true);
-                
+
             }
         }
 
@@ -80,6 +89,32 @@ public class UIManager : MonoBehaviour
 
     }
 
+
+    [SerializeField] TMP_Text m_gameStatusText;
+    RectTransform m_gameStatusRect;
+    public void ShowGameUpdate(string statusText)
+    {
+        m_gameStatusText.gameObject.SetActive(true);
+        m_gameStatusText.text = statusText;
+        m_gameStatusRect = m_gameStatusText.GetComponent<RectTransform>();
+
+        // Fade out the text over the specified duration
+        Sequence sequence = DOTween.Sequence()
+            .Append(m_gameStatusText.DOFade(0f, 1f))
+            .Append(m_gameStatusText.DOFade(1f, 1f))
+            .Append(m_gameStatusText.DOFade(0f, 1f))
+            .Append(m_gameStatusText.DOFade(1f, 1f))
+            .Append(m_gameStatusText.DOFade(0f, 1f))
+            .SetUpdate(true)
+            .OnComplete(() => m_gameStatusText.gameObject.SetActive(false));
+
+        // Start the sequence
+        sequence.Play();
+
+
+    }
+    
+
     //Main Menu
 
     public void ExitGame()
@@ -98,15 +133,28 @@ public class UIManager : MonoBehaviour
     }
     public void RestartLevel()
     {
+        Managers.Instance.SaveAndLoadManager.ClearJson();
         m_sceneHandler.LoadStage(m_sceneHandler.GetCurrentScene());
+
     }
     public void MainMenu()
     {
         Managers.Instance.SceneHandler.LoadStage(1);
     }
-
+    public void ReturnToCheckpoint()
+    {
+        Managers.Instance.GameData.LoadingFromSave = true;
+        m_sceneHandler.LoadStage(m_sceneHandler.GetCurrentScene());
+    }
+    public void LoadGame()
+    {
+        Managers.Instance.GameData.LoadingFromSave = true;
+        m_sceneHandler.LoadStage(Managers.Instance.SaveAndLoadManager.CheckGameData.stageData.SceneNumber);
+    }
+    
     //Button Functions
     [Header("Menu Screens")]
+    [SerializeField] Button m_load;
     [SerializeField] GameObject m_levelsScreen;
     [SerializeField] GameObject m_settingsScreen;
     [SerializeField] GameObject m_creditsScreen;
@@ -133,6 +181,7 @@ public class UIManager : MonoBehaviour
         m_screenPlaceholder = null;
     }
     [SerializeField] GameObject m_deathScreen;
+    [SerializeField] GameObject m_winScreen;
 
     WaitForSeconds m_timeForScreen;
     public IEnumerator DeathScreen()
@@ -140,6 +189,13 @@ public class UIManager : MonoBehaviour
         yield return m_timeForScreen;
         m_deathScreen.SetActive(true);
     }
+    public IEnumerator WinScreen()
+    {
+        yield return m_timeForScreen;
+        m_winScreen.SetActive(true);
+    }
+
+
 
     //Settings
     [Header("Settings")]
@@ -212,7 +268,7 @@ public class UIManager : MonoBehaviour
         {
             Managers.Instance.CameraHandler.enabled = true;
             Time.timeScale = 1f;
-             Managers.Instance.InputHandler.UnPause();
+            Managers.Instance.InputHandler.UnPause();
             m_pauseScreen.SetActive(false);
 
         }
@@ -234,21 +290,21 @@ public class UIManager : MonoBehaviour
     Color32 m_endColor;
     //Fade IN
     public void FadeInFromBlack()
-    {   
-        m_endColor = new Color32(0,0,0,0);
+    {
+        m_endColor = new Color32(0, 0, 0, 0);
         m_fadeImage.gameObject.SetActive(true);
-        m_fadeImage.DOColor(m_endColor,m_fadeTime).SetUpdate(true).
+        m_fadeImage.DOColor(m_endColor, m_fadeTime).SetUpdate(true).
         OnComplete(() => m_fadeImage.gameObject.SetActive(false));
     }
     public void FadeToBlack(bool stopTime = false)
-    {   
-        if(stopTime) Managers.Instance.InputHandler.EndStage();
-        m_endColor = new Color32(0,0,0,255);
+    {
+        if (stopTime) Managers.Instance.InputHandler.EndStage();
+        m_endColor = new Color32(0, 0, 0, 255);
         m_fadeImage.gameObject.SetActive(true);
-        m_fadeImage.DOColor(m_endColor,m_fadeTime).SetUpdate(true);
+        m_fadeImage.DOColor(m_endColor, m_fadeTime).SetUpdate(true);
     }
-    
 
-    
+
+
 
 }

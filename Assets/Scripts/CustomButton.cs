@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Button : MonoBehaviour
+public class CustomButton : MonoBehaviour
 {
     /// <summary>
     /// This function is called when the object becomes enabled and active.

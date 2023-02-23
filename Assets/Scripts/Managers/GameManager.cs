@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using EasyButtons;
 public class GameManager : MonoBehaviour
-{   
+{
     [Header("Tools and Cheats")]
     //Cheats and Tools
     public bool NoDeathMode = false;
     public bool UnliLight = false;
     public bool NoCutscene = false;
 
-
-
-
-
     
+
     public enum Direction
     {
         front,

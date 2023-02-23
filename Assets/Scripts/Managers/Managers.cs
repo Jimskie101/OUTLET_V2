@@ -6,6 +6,7 @@ using EasyButtons;
 public class Managers : MonoBehaviour
 {
     public static Managers Instance { get; private set; }
+    public GameData GameData;
     public GameManager GameManager;
     public UIManager UIManager;
     public SceneHandler SceneHandler;
@@ -32,10 +33,18 @@ public class Managers : MonoBehaviour
         }
 
     }
+
+
+    private void Start()
+    {
+        InitializeFields();
+    }
+
+
     [Button]
     private void InitializeFields()
     {
-        
+        GameData = Resources.Load<GameData>("GameData");
         GameManager = GetComponentInChildren<GameManager>();
         UIManager = GetComponentInChildren<UIManager>();
         SceneHandler = GetComponentInChildren<SceneHandler>();
@@ -48,5 +57,6 @@ public class Managers : MonoBehaviour
         AudioManager = GetComponentInChildren<AudioManager>();
         TaskManager = GetComponentInChildren<TaskManager>();
         CutsceneManager = GetComponentInChildren<CutsceneManager>();
+        SaveAndLoadManager = GetComponentInChildren<SaveAndLoadManager>();
     }
 }

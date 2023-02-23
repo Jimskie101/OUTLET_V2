@@ -47,6 +47,7 @@ public class PlayerScript : MonoBehaviour
     {
         m_lightController = GetComponent<LightController>();
         m_gameManager = Managers.Instance.GameManager;
+        if(!Managers.Instance.GameData.LoadingFromSave)
         LifePercentage = m_playerData.IntialLifeValue;
     }
     public void UpdateLife()

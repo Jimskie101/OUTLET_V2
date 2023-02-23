@@ -7,26 +7,28 @@ public class PlayerData : ScriptableObject
 {
     [Header("Player Movement Settings")]
     
-    public float JumpHeight;
-    public float Speed;
-    public float RunSpeedMultiplier;
-    public float FallThresholdLimit;
-    public float RotationTime;
-    public float GravityPullValue;
-    public float GroundCheckSphereRadius;
+    public float JumpHeight = 1.5f;
+    public float Speed = 4;
+    public float RunSpeedMultiplier = 2;
+    public float FallThresholdLimit = 8.4f;
+    public float RotationTime = 0.2f;
+    public float GravityPullValue = -9.8f;
+    public float GroundCheckSphereRadius = 0.31f;
     public LayerMask GroundLayer;
 
 
 
     [Header("Player Script Settings")]
     [Range(0,1)]
-    public float IntialLifeValue;
-    public float DimMultiplier;
+    public float IntialLifeValue = 1;
+    public float DimMultiplier = 0.5f;
 
 
     [Header("Player Pusher Settings")]
-    public float PushForce;
+    public float PushForce = 0.3f;
 
-
+    [Header("Wire Settings")]
+    public float WireRangeRadius = 5;
+    public float WireLength = 10;
 
 }

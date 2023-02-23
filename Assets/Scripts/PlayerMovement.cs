@@ -319,6 +319,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+    
+
+
+
+
     //Particle system that spawns foot dust
     [Header("Particles")]
     [SerializeField] ParticleSystem m_dust;

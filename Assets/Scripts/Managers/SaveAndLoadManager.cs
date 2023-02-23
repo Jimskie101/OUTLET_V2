@@ -2,19 +2,237 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EasyButtons;
+using System.IO;
+
+//Custom Classes
+[System.Serializable]
+public class EntityData
+{
+    public int id;
+    public string name;
+    public Vector3 position;
+    public Quaternion rotation;
+}
+
+[System.Serializable]
+public class PlayerStatus
+{
+    public float lifeValue;
+    public Vector3 position;
+    public Quaternion rotation;
+}
+
+[System.Serializable]
+public class SavedGameData
+{
+    public PlayerStatus playerStatus;
+    public List<EntityData> entityData;
+    public StageData stageData;
+}
+
+[System.Serializable]
+public class StageData
+{
+    public int SceneNumber;
+    public int CheckpointActive;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 public class SaveAndLoadManager : MonoBehaviour
 {
-    public void CheckpointSave(int i_checkpointID)
+    SavedGameData m_savedGameData;
+    SavedGameData m_loadedSaveData;
+    public SavedGameData CheckGameData;
+    string m_jsonRead;
+    string m_filePathRead;
+    string m_jsonWrite;
+    string m_filePathWrite;
+    string m_jsonCheck;
+    string m_filePathCheck;
+    [SerializeField] GameObject m_player;
+    [SerializeField] PlayerStatus m_playerStatus;
+    PlayerScript m_playerScript;
+
+
+    private void Start()
     {
-        PlayerPrefs.SetInt("CurrentCheckpoint", i_checkpointID);
-        Debug.Log("Game Saved");
+
+
+
+
+        if (m_player != null)
+            m_playerScript = m_player.GetComponent<PlayerScript>();
+
+        if (Managers.Instance.GameData.LoadingFromSave)
+        {
+
+            LoadData();
+            Managers.Instance.GameData.LoadingFromSave = false;
+        }
     }
 
-    public int CheckpointLoad()
+
+    public bool CheckJson()
     {
-        Debug.Log("Game Load");
-        return PlayerPrefs.GetInt("CurrentCheckpoint");
+        m_filePathCheck = Path.Combine(Application.persistentDataPath, "OutletGameData");
+        if (File.Exists(m_filePathCheck))
+        {
+            m_jsonCheck = File.ReadAllText(m_filePathCheck);
+            CheckGameData = JsonUtility.FromJson<SavedGameData>(m_jsonCheck);
+            if (CheckGameData != null)
+            {
+                Debug.Log("There's a savefile!");
+                return true;
+            }
+            else return false;
+        }
+        else return false;
+
     }
+    private void FetchFromJson()
+    {
+        m_filePathRead = Path.Combine(Application.persistentDataPath, "OutletGameData");
+        m_jsonRead = File.ReadAllText(m_filePathRead);
+        m_loadedSaveData = JsonUtility.FromJson<SavedGameData>(m_jsonRead);
+        m_playerStatus = m_loadedSaveData.playerStatus;
+        EntityDatas = m_loadedSaveData.entityData;
+        StageData = m_loadedSaveData.stageData;
+    }
+
+    private void SaveToJson()
+    {
+        m_jsonWrite = JsonUtility.ToJson(m_savedGameData);
+        // Save the JSON string to a file
+        m_filePathWrite = Path.Combine(Application.persistentDataPath, "OutletGameData");
+        File.WriteAllText(m_filePathWrite, m_jsonWrite);
+
+        Debug.Log("Saved data to " + m_filePathWrite);
+
+    }
+    public void ClearJson()
+    {
+        m_filePathWrite = Path.Combine(Application.persistentDataPath, "OutletGameData");
+        File.WriteAllText(m_filePathWrite, "");
+    }
+
+
+    private PlayerStatus GetPlayerStatus()
+    {
+        m_playerStatus = new PlayerStatus();
+        m_playerStatus.lifeValue = m_playerScript.LifePercentage;
+        m_playerStatus.position = m_player.transform.localPosition;
+        m_playerStatus.rotation = m_playerScript.transform.localRotation;
+        return m_playerStatus;
+
+    }
+    private void LoadPlayerStatus()
+    {
+
+        m_player.transform.localPosition = m_playerStatus.position;
+        m_playerScript.transform.localRotation = m_playerStatus.rotation;
+        StartCoroutine(LifeUpdater());
+    }
+
+    public StageData StageData;
+    private StageData GetStageData()
+    {
+        StageData = new StageData();
+        StageData.SceneNumber = Managers.Instance.SceneHandler.GetCurrentScene();
+        StageData.CheckpointActive = Managers.Instance.CheckpointManager.CurrentCheckpointID;
+        return StageData;
+    }
+
+
+
+
+
+    IEnumerator LifeUpdater()
+    {
+        yield return new WaitForSeconds(0.01f);
+        m_playerScript.LifePercentage = m_playerStatus.lifeValue;
+    }
+    
+
+    public List<GameObject> Entities;
+    public List<EntityData> EntityDatas;
+
+    EntityData m_entityData;
+
+    private List<EntityData> GetEntitiesData()
+    {
+         EntityDatas.Clear();
+        foreach (GameObject g in Entities)
+        {
+            m_entityData = new EntityData();
+            m_entityData.id = Entities.IndexOf(g);
+            m_entityData.name = g.name;
+            m_entityData.position = g.transform.localPosition;
+            m_entityData.rotation = g.transform.rotation;
+            EntityDatas.Add(m_entityData);
+        }
+        return EntityDatas;
+    }
+
+
+
+    [Button]
+    public void SaveData()
+    {
+
+        Managers.Instance.UIManager.ShowGameUpdate("Checkpoint Reached");
+        m_savedGameData = new SavedGameData();
+        m_savedGameData.stageData = GetStageData();
+        m_savedGameData.playerStatus = GetPlayerStatus();
+        m_savedGameData.entityData = GetEntitiesData();
+        
+        
+       
+
+        SaveToJson();
+
+
+    }
+
+
+
+    
+    [Button]
+    public void LoadData()
+    {
+
+        FetchFromJson();
+        LoadPlayerStatus();
+        foreach (GameObject g in Entities)
+        {
+            g.transform.localPosition = EntityDatas[Entities.IndexOf(g)].position;
+            g.transform.rotation = EntityDatas[Entities.IndexOf(g)].rotation;
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

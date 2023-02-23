@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class WireBase : MonoBehaviour
 {
+    [SerializeField] PlayerData m_playerData;
     [SerializeField] PlayerMovement m_playerMovement;
     [SerializeField] Animator m_playerAnimator;
     [SerializeField] Vector3 m_targetPoint;
     [SerializeField] LayerMask m_interactableLayerMask;
-    [SerializeField] float m_socketDetectionRange;
-    [SerializeField] float m_wireLength;
     public Transform TargetObject = null;
     public Transform Source = null;
     Vector3 m_lookPosition;
@@ -68,7 +67,7 @@ public class WireBase : MonoBehaviour
 
     void Disconnect()
     {
-        if (Vector3.Distance(TargetObject.position, transform.position) > m_wireLength)
+        if (Vector3.Distance(TargetObject.position, transform.position) > m_playerData.WireLength)
         {
             Connect = false;
             if (m_joint != null)
@@ -143,7 +142,7 @@ public class WireBase : MonoBehaviour
     private void CheckSurroundings()
     {
 
-        m_hitColliders = Physics.OverlapSphere(transform.parent.position + transform.parent.transform.up * 2, m_socketDetectionRange, m_interactableLayerMask);
+        m_hitColliders = Physics.OverlapSphere(transform.parent.position + transform.parent.transform.up * 2, m_playerData.WireRangeRadius, m_interactableLayerMask);
         wireTag = IsHotWire ? "Socket_Hot" : "Socket_Neutral";
         foreach (var hitCollider in m_hitColliders)
         {
@@ -172,7 +171,7 @@ public class WireBase : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.parent.position + transform.parent.up * 2, m_socketDetectionRange);
+        Gizmos.DrawWireSphere(transform.parent.position + transform.parent.up * 2, m_playerData.WireRangeRadius);
     }
 
 
