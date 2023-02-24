@@ -11,6 +11,20 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] PlayerData m_playerData;
 
+
+    //For PowerUps
+    //For Super Jump
+    [HideInInspector] public float PowerUpJumpBoost = 0;
+    [HideInInspector] public bool LightLock = false;
+    [HideInInspector] public bool Shielded = false;
+    public bool FallingDisabled = false;
+
+    public bool JumpBoosted = false;
+    public void ResetFallingDisabledValue()
+    {
+        JumpBoosted = true;
+    }
+
     //Life
     [SerializeField][Range(0, 1f)] private float m_lifePercentage = 1;
     public float LifePercentage
@@ -35,8 +49,11 @@ public class PlayerScript : MonoBehaviour
 
     private void Update()
     {
+        
+
+
         ClosedCircuit();
-        if (!IsDead && !m_charging)
+        if (!IsDead && !m_charging && !LightLock)
             ConsumeHealth();
 
     }
@@ -126,9 +143,12 @@ public class PlayerScript : MonoBehaviour
 
         }
 
+    }
 
-
-
+    public void TakeDamage(float damageAmount)
+    {
+        if(!Shielded)
+        LifePercentage -= damageAmount;
     }
 
 

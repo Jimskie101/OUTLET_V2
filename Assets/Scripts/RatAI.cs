@@ -93,7 +93,7 @@ public class RatAI : MonoBehaviour
             {
                 Debug.Log("PlayerDamaged");
                 m_alreadyDamaged = true;
-                m_playerScript.LifePercentage -= m_ratData.AttackDamage;
+                m_playerScript.TakeDamage(m_ratData.AttackDamage);
                 StartCoroutine(DamageCooldown());
             }
 

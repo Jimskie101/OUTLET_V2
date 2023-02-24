@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float endYPos = 0;
     bool firstCall = true;
     bool damaged = false;
-    public bool FallingDisabled;
+
 
     private void FallCheck()
     {
@@ -109,10 +109,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!FallingDisabled)
+        //So the player dont die when in jumpboost and go grounded
+        if (m_playerScript.JumpBoosted)
+            if (m_playerScript.FallingDisabled && IsGrounded)
+            {
+                m_playerScript.FallingDisabled = false;
+                m_playerScript.JumpBoosted = false;
+            }
+        if (!m_playerScript.FallingDisabled)
         {
             FallCheck();
         }
+
+        
+
+
+
         if (IsGrounded)
         {
             if (startYPos != 0) startYPos = 0;
@@ -179,7 +191,7 @@ public class PlayerMovement : MonoBehaviour
             m_canJump = false;
 
             Debug.Log("Jumped");
-            m_velocity.y = Mathf.Sqrt(m_playerData.JumpHeight * -2f * m_playerData.GravityPullValue);
+            m_velocity.y = Mathf.Sqrt((m_playerData.JumpHeight + m_playerScript.PowerUpJumpBoost) * -2f * m_playerData.GravityPullValue);
 
             IsGrounded = false;
         }
@@ -320,7 +332,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    
+
 
 
 

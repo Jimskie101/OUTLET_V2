@@ -25,13 +25,13 @@ public class UIManager : MonoBehaviour
         m_timeForScreen = new WaitForSeconds(2f);
         FadeInFromBlack();
         GetResolutionData();
-        if(m_sceneHandler.GetCurrentScene() == 1)
+        if (m_sceneHandler.GetCurrentScene() == 1)
         {
             Debug.Log("Checking Saves");
             m_load.interactable = Managers.Instance.SaveAndLoadManager.CheckJson();
         }
-        
-        
+
+
     }
 
     public void UpdateCollectibleCount(int amount)
@@ -113,7 +113,38 @@ public class UIManager : MonoBehaviour
 
 
     }
-    
+
+
+    //PowerUp
+    [Header("Power Up")]
+    [SerializeField] Image powerUpLeft;
+    [SerializeField] Image powerUpRight;
+    float m_powerUpDuration;
+
+    public void PowerUpCountdown(float duration, PowerUp powerUpScript)
+    {
+         powerUpLeft.transform.parent.gameObject.SetActive(true);
+        float endValue = 0;
+        float startValue = 1;
+        // Move the value from startValue to endValue over a duration
+        DOTween.To(() => startValue, x => startValue = x, endValue, duration)
+            .OnUpdate(() =>
+            {
+                // Update any UI elements or variables that need to reflect the current value
+                // For example, if you are moving a UI slider:
+                // mySlider.value = startValue;
+                powerUpLeft.fillAmount = startValue;
+                powerUpRight.fillAmount = startValue;
+                
+            })
+            .OnComplete(() =>
+            {
+                powerUpLeft.transform.parent.gameObject.SetActive(false);
+                powerUpScript.ResetValues();
+            });
+    }
+
+
 
     //Main Menu
 
@@ -151,7 +182,7 @@ public class UIManager : MonoBehaviour
         Managers.Instance.GameData.LoadingFromSave = true;
         m_sceneHandler.LoadStage(Managers.Instance.SaveAndLoadManager.CheckGameData.stageData.SceneNumber);
     }
-    
+
     //Button Functions
     [Header("Menu Screens")]
     [SerializeField] Button m_load;

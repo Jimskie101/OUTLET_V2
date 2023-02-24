@@ -9,11 +9,11 @@ public class DisableFalling : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (disable)
-                other.transform.parent.GetComponent<PlayerMovement>().FallingDisabled = true;
+            if (disable) 
+                other.transform.parent.GetComponent<PlayerScript>().FallingDisabled = true;
             else if(!disable)
             {
-                other.transform.parent.GetComponent<PlayerMovement>().FallingDisabled = false;
+                other.transform.parent.GetComponent<PlayerScript>().FallingDisabled = false;
             }
         }
 
