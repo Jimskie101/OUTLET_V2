@@ -11,6 +11,7 @@ public class Generator : MonoBehaviour
     private void Start()
     {
         m_cutsceneManager = Managers.Instance.CutsceneManager;
+        Invoke("ObjectiveChecker", 0.1f);
     }
 
 
@@ -21,10 +22,11 @@ public class Generator : MonoBehaviour
     [SerializeField] float m_moveDuration = 0;
 
     Rigidbody m_targetRB;
+    bool m_onGoing = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("PuzzlePiece"))
+        if (other.CompareTag("PuzzlePiece") && !m_onGoing)
         {
             if (m_moveParent)
             {
@@ -38,13 +40,14 @@ public class Generator : MonoBehaviour
 
     public void MoveTargetObject(Transform targetObj)
     {
+        m_onGoing = true;
         m_defaultPosition = targetObj.localPosition;
         if (targetObj.TryGetComponent(out m_targetRB))
         {
             m_targetRB.isKinematic = true;
         }
         targetObj.DOLocalMove(m_defaultPosition - m_targetPosition, m_moveDuration)
-        .OnComplete(() => {m_puzzleIndicator.Activate(); Fixed();});
+        .OnComplete(() => { m_puzzleIndicator.Activate(); Fixed(); m_onGoing = false;});
     }
 
     [SerializeField] string m_workingSoundName;
@@ -54,6 +57,7 @@ public class Generator : MonoBehaviour
     [Button]
     public void Fixed()
     {
+        Managers.Instance.GameManager.ObjectiveCounter++;
         //Managers.Instance.AudioManager.PlayHere(m_workingSoundName, this.gameObject);
         StartCoroutine(LightUp());
         //Managers.Instance.CutsceneManager.PlayTimeline();
@@ -68,11 +72,44 @@ public class Generator : MonoBehaviour
 
         m_cutsceneManager.PlayCutscene(0);
         foreach (GameObject g in m_targetObjects)
+        {
             g.SetActive(true);
+        }
+
 
         foreach (Light l in m_targetLights)
+        {
             l.DOIntensity(4, 1f).SetEase(Ease.InOutBounce);
+        }
 
+        Managers.Instance.TaskManager.NextTask();
+        
+    }
+
+
+
+
+    //Must have for objectives
+    [SerializeField] int m_forLoadingId;
+    private void ForLoading()
+    {
+        Debug.Log("Forloading");
+        //Managers.Instance.AudioManager.PlayHere(m_workingSoundName, this.gameObject);
+        foreach (GameObject g in m_targetObjects)
+        {
+            g.SetActive(true);
+        }
+
+
+        foreach (Light l in m_targetLights)
+        {
+            l.DOIntensity(4, 0f);
+        }
+    }
+    private void ObjectiveChecker()
+    {
+        if(Managers.Instance.GameManager.ObjectiveCounter >= m_forLoadingId)
+        ForLoading();
     }
 
 

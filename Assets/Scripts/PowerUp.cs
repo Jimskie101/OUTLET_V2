@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using EasyButtons;
 
 
 enum PowerUpType
@@ -23,8 +24,10 @@ public class PowerUp : MonoBehaviour
 
      Vector3 m_rotation = new Vector3(0, 360f, 0);
     MeshRenderer m_mesh;
+    [SerializeField] MeshFilter m_meshFilter;
     private void Start()
     {
+        if(m_mesh == null)
         m_mesh = GetComponentInChildren<MeshRenderer>();
         disableDelay = new WaitForSeconds(0.5f);
         transform.DOLocalRotate(m_rotation, 4f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
@@ -90,5 +93,26 @@ public class PowerUp : MonoBehaviour
     {
         yield return disableDelay;
         this.gameObject.SetActive(false);
+    }
+
+    [SerializeField] Mesh [] m_powerupMesh;
+
+    [Button]
+    private void ChangeMesh()
+    {
+        m_meshFilter = GetComponentInChildren<MeshFilter>();
+        switch (m_powerUpType)
+        {
+            case PowerUpType.SuperJump:
+                m_meshFilter.mesh = m_powerupMesh[0];
+                ; break;
+            case PowerUpType.Shield:
+                m_meshFilter.mesh = m_powerupMesh[1];
+                ; break;
+            case PowerUpType.LightLock:
+                m_meshFilter.mesh = m_powerupMesh[2];
+                ; break;
+        }
+
     }
 }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1153241382194874164}
   - component: {fileID: 4027860344856736766}
   - component: {fileID: 3235037900307354152}
-  - component: {fileID: 3235037900307354150}
   - component: {fileID: 3235037900307354153}
   - component: {fileID: 3235037900307354151}
+  - component: {fileID: 6842164169996851693}
   m_Layer: 0
   m_Name: A
   m_TagString: Untagged
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c7e7e720d73af2440ab4223fb35f8e1e, type: 2}
+  - {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,24 +103,6 @@ CapsuleCollider:
   m_Height: 2.566156
   m_Direction: 1
   m_Center: {x: -0.0000014007092, y: -0.000000059604645, z: -0.00000014901161}
---- !u!114 &3235037900307354150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3235037900307354155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3773cedffb6f3d341b43eb605d5a6630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_initialCharge: 20
-  m_hot: {fileID: 6290384379587052636}
-  m_neutral: {fileID: 6290384378338738339}
-  Outline: {fileID: 3235037900307354153}
-  Charge: 0
-  isATask: 0
 --- !u!114 &3235037900307354153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 1
-  outlineColor: {r: 1, g: 0.9685757, b: 0, a: 1}
+  outlineColor: {r: 0.148332, g: 1, b: 0, a: 1}
   outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
@@ -155,6 +137,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6842164169996851693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235037900307354155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aa4b99b6eeb7e4a99c784e41752bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_initialCharge: 50
+  m_hot: {fileID: 6290384379587052636}
+  m_neutral: {fileID: 6290384378338738339}
+  Outline: {fileID: 3235037900307354153}
+  Charge: 0
+  isATask: 0
 --- !u!1 &6290384378338738341
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6290384378338738338}
   - component: {fileID: 6290384378338738339}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SocketNeutral
   m_TagString: Socket_Neutral
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6290384379587052639}
   - component: {fileID: 6290384379587052636}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SocketHot
   m_TagString: Socket_Hot
   m_Icon: {fileID: 0}

@@ -81,6 +81,7 @@ public class WireBase : MonoBehaviour
     }
     public void StartGrapple()
     {
+       
         if (TargetObject == null)
             CheckSurroundings();
         if (TargetObject != null)

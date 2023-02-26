@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public bool NoDeathMode = false;
     public bool UnliLight = false;
     public bool NoCutscene = false;
+    
+    public int ObjectiveCounter = 0;
+  
 
     
 

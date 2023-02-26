@@ -9,34 +9,30 @@ public class TaskManager : MonoBehaviour
     [SerializeField] RectTransform m_textHolder;
     [SerializeField] TMPro.TextMeshProUGUI m_text;
 
-    [SerializeField] private int m_taskNumber = -1;
-    Sequence seq;
+    public int TaskNumber = 0;
 
-    private void OnEnable()
+    private void Start()
     {
-        seq = DOTween.Sequence();
-        m_text.text = m_taskArray[m_taskNumber];
+        m_text.text = m_taskArray[TaskNumber];
+        Managers.Instance.WaypointManager.NextWaypoint();
         AnimateTask();
+        
     }
     [Button]
     public void NextTask(bool waypointOnly = false)
     {
+        Managers.Instance.WaypointManager.NextWaypoint();
         if (!waypointOnly)
         {
-
-            m_textHolder.DOLocalMoveY(300, 1.5f).SetEase(Ease.OutElastic).OnComplete(() =>
+            TaskNumber++;
+            m_textHolder.DOLocalMoveY(300, 1f).OnComplete(() =>
             {
-                m_text.text = m_taskArray[m_taskNumber];
+                m_text.text = m_taskArray[TaskNumber];
 
                 AnimateTask();
             });
 
         }
-        else
-        {
-            Managers.Instance.WaypointManager.NextWaypoint();
-        }
-
 
 
     }
@@ -44,8 +40,7 @@ public class TaskManager : MonoBehaviour
 
     public void AnimateTask()
     {
-
-        m_textHolder.DOLocalMoveY(0, 1.5f).SetEase(Ease.InElastic).OnComplete(() =>
-        Managers.Instance.WaypointManager.NextWaypoint());
+        
+        m_textHolder.DOLocalMoveY(0, 1.5f).SetEase(Ease.InElastic);
     }
 }

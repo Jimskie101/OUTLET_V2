@@ -250,7 +250,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c56b9f78-5a78-432f-92c8-0fc622c9583b"",
-                    ""path"": ""<XInputController>/dpad/right"",
+                    ""path"": ""<XInputController>/rightStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -272,7 +272,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ccdcd9c4-7902-4ebb-a0f9-3a02341ec9f1"",
-                    ""path"": ""<XInputController>/dpad/left"",
+                    ""path"": ""<XInputController>/rightStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

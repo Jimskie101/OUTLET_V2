@@ -30,10 +30,13 @@ public class CutsceneManager : MonoBehaviour
         m_cutsceneCameras[cameraNum].Priority = 40;
         m_tempCamera = m_cutsceneCameras[cameraNum];
         StartCoroutine(ResetCameraPriority());
+        m_cameraHandler.CutsceneIsPlaying = true;
     }
     IEnumerator ResetCameraPriority()
     {
         yield return m_camResetTime;
+        m_cameraHandler.CutsceneIsPlaying = false;
          m_tempCamera.Priority = 5;
+         
     }
 }

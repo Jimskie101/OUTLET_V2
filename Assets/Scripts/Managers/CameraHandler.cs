@@ -15,6 +15,8 @@ public class CameraHandler : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera m_backCam;
     [SerializeField] CinemachineVirtualCamera m_rightCam;
 
+    [HideInInspector] public bool CutsceneIsPlaying = false;
+
     public enum CameraPosition
     {
         front,
@@ -76,7 +78,7 @@ public class CameraHandler : MonoBehaviour
             {
                 m_controlsAreDown = false;
                 Time.timeScale = 1f;
-
+                if(!CutsceneIsPlaying)
                 m_inputHandler.CameraStopped();
                 m_gameManager.ChangeGameDirection();
             }

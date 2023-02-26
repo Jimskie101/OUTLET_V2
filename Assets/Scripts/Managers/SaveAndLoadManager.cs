@@ -35,6 +35,9 @@ public class StageData
 {
     public int SceneNumber;
     public int CheckpointActive;
+    public int WaypointActive;
+    public int TaskActive;
+    public int ObjectiveActive;
 }
 
 
@@ -152,6 +155,9 @@ public class SaveAndLoadManager : MonoBehaviour
         StageData = new StageData();
         StageData.SceneNumber = Managers.Instance.SceneHandler.GetCurrentScene();
         StageData.CheckpointActive = Managers.Instance.CheckpointManager.CurrentCheckpointID;
+        StageData.TaskActive = Managers.Instance.TaskManager.TaskNumber;
+        StageData.WaypointActive = Managers.Instance.WaypointManager.WaypointCounter;
+        StageData.ObjectiveActive = Managers.Instance.GameManager.ObjectiveCounter;
         return StageData;
     }
 
@@ -221,6 +227,9 @@ public class SaveAndLoadManager : MonoBehaviour
             g.transform.rotation = EntityDatas[Entities.IndexOf(g)].rotation;
 
         }
+        Managers.Instance.WaypointManager.WaypointCounter = StageData.WaypointActive -1;
+        Managers.Instance.TaskManager.TaskNumber = StageData.TaskActive -1;
+        Managers.Instance.GameManager.ObjectiveCounter = StageData.ObjectiveActive;
     }
 
 

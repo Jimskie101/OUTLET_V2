@@ -6,7 +6,13 @@ using UnityEngine;
 public class GameData : ScriptableObject
 {
     [Header("Main Settings")]
-    public bool LoadingFromSave = false;
-    
+    [SerializeField] bool m_loadSave = false;
 
+    public bool LoadingFromSave
+    {
+        get { return m_loadSave; }
+        set { m_loadSave = m_lockGameData ? true : value; }
+    }
+    [Space]
+    [SerializeField] bool m_lockGameData = false;
 }

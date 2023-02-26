@@ -5,20 +5,24 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     CheckpointManager m_checkpointManager;
+    [HideInInspector]
     public int CheckpointID;
-
+    private void OnEnable()
+    {
+        CheckpointID = int.Parse(name);
+    }
     private void Start()
     {
         m_checkpointManager = Managers.Instance.CheckpointManager;
         CheckpointID = int.Parse(name);
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (m_checkpointManager.CurrentCheckpointID < CheckpointID )
+            if (m_checkpointManager.CurrentCheckpointID < CheckpointID)
             {
                 m_checkpointManager.SetCurrentCheckpoint(CheckpointID);
                 GetComponent<BoxCollider>().enabled = false;
