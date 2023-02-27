@@ -29,6 +29,10 @@ public class WaypointMarker : MonoBehaviour
         {   if(!m_image.gameObject.activeSelf) m_image.gameObject.SetActive(true);
             Marking();
         }
+        else if(Target == null)
+        {
+            if(m_image.gameObject.activeSelf) m_image.gameObject.SetActive(false);
+        }
         
     }
 
@@ -86,4 +90,6 @@ public class WaypointMarker : MonoBehaviour
         // Change the meter text to the distance with the meter unit 'm'
         //meter.text = ((int)Vector3.Distance(target.position, transform.position)).ToString() + "m";
     }
+
+    
 }

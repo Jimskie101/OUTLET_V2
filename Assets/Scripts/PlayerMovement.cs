@@ -249,7 +249,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded && !m_landSoundPlayed)
         {
             m_landSoundPlayed = true;
-            m_audioManager.PlayHere("rl_walk", this.gameObject);
+            m_audioManager.PlayHere("rl_walk", transform.GetChild(1).gameObject);
         }
         else if (!IsGrounded && m_landSoundPlayed)
         {

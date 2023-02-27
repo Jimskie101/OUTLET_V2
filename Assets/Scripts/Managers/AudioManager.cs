@@ -42,11 +42,11 @@ public class AudioManager : MonoBehaviour
 
     
 
-    public void PlayHere(string name, GameObject targetObj, bool fromObject = false, bool oneshot = false)
+    public AudioSource PlayHere(string name, GameObject targetObj, bool fromObject = false, bool oneshot = false)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
-            return;
+            return null;
         
         if (!targetObj.TryGetComponent(out source))
             source = targetObj.AddComponent<AudioSource>();
@@ -67,6 +67,7 @@ public class AudioManager : MonoBehaviour
         source.PlayOneShot(s.clip, s.volume);
         else
         source.Play();
+        return source;
     }
     public void Stop(string name)
     {

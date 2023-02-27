@@ -19,6 +19,7 @@ public class Rotator : MonoBehaviour
     private void Start()
     {
         waitingTime = new WaitForSeconds(2);
+        Invoke("ObjectiveChecker", 0.1f);
     }
     [Button]
     public void Activate()
@@ -26,6 +27,9 @@ public class Rotator : MonoBehaviour
         if (!m_isDone)
         {
             m_isDone = true;
+            //Update the GameManager objectives
+            Managers.Instance.TaskManager.NextTask();
+            Managers.Instance.GameManager.ObjectiveCounter++;
             Managers.Instance.CutsceneManager.PlayCutscene(2);
             StartCoroutine(Rotating());
         }
@@ -35,7 +39,23 @@ public class Rotator : MonoBehaviour
     IEnumerator Rotating()
     {
         yield return waitingTime;
-        Managers.Instance.AudioManager.PlayHere("fence_door", this.gameObject, true);
+        Managers.Instance.AudioManager.PlayHere(m_workingSoundName, this.gameObject);
         transform.DORotate(m_targetRotation, m_rotationDuration).SetUpdate(true);
+    }
+
+    [SerializeField] string m_workingSoundName;
+    //Must have for objectives
+    [SerializeField] int m_forLoadingId;
+    private void ForLoading()
+    {
+        m_isDone = true;
+        Debug.Log("Forloading");
+        transform.DORotate(m_targetRotation, 0f).SetUpdate(true);
+
+    }
+    private void ObjectiveChecker()
+    {
+        if (Managers.Instance.GameManager.ObjectiveCounter >= m_forLoadingId)
+            ForLoading();
     }
 }

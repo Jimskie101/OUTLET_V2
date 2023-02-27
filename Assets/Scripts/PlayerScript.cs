@@ -49,7 +49,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Update()
     {
-        
+
 
 
         ClosedCircuit();
@@ -64,8 +64,8 @@ public class PlayerScript : MonoBehaviour
     {
         m_lightController = GetComponent<LightController>();
         m_gameManager = Managers.Instance.GameManager;
-        if(!Managers.Instance.GameData.LoadingFromSave)
-        LifePercentage = m_playerData.IntialLifeValue;
+        if (!Managers.Instance.GameData.LoadingFromSave)
+            LifePercentage = m_playerData.IntialLifeValue;
     }
     public void UpdateLife()
     {
@@ -97,7 +97,12 @@ public class PlayerScript : MonoBehaviour
             //Action();
             Regen();
         }
-        else m_charging = false;
+        else {
+            m_charging = false;
+            StopSound();
+        }
+
+
 
 
 
@@ -109,6 +114,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] WireBase m_neutral;
     [SerializeField] EnergySource m_energySource;
     [SerializeField] Keypad m_keypad;
+    AudioSource m_audioSrc;
     bool m_charging;
     private void Regen()
     {
@@ -124,12 +130,25 @@ public class PlayerScript : MonoBehaviour
                 {
                     if (m_lightController.LightValue < m_lightController.initialValue)
                     {
+                        if (m_audioSrc == null)
+                        {
+                            Managers.Instance.AudioManager.PlayHere("electric", this.gameObject);
+                            TryGetComponent(out m_audioSrc);
+                        }
+                        if (m_audioSrc != null && !m_audioSrc.isPlaying)
+                        {
+                           Managers.Instance.AudioManager.PlayHere("electric", this.gameObject);
+                        }
+
+
                         LifePercentage += Time.deltaTime * 15f * 0.01f;
                         UpdateLife();
                         m_energySource.Charge -= Time.deltaTime * 15f;
                         m_energySource.Outline.OutlineWidth = 2f * (m_energySource.Charge / m_energySource.m_initialCharge);
                     }
+                    else StopSound();
                 }
+                else StopSound();
             }
             else if (m_hot.Source.TryGetComponent(out m_keypad))
             {
@@ -140,6 +159,7 @@ public class PlayerScript : MonoBehaviour
         else
         {
             m_charging = false;
+            StopSound();
 
         }
 
@@ -147,9 +167,16 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        if(!Shielded)
-        LifePercentage -= damageAmount;
+        if (!Shielded)
+            LifePercentage -= damageAmount;
     }
 
+    private void StopSound()
+    {
+        if (m_audioSrc != null && m_audioSrc.isPlaying)
+        {
+            m_audioSrc.Stop();
+        }
+    }
 
 }

@@ -57,8 +57,11 @@ public class Generator : MonoBehaviour
     [Button]
     public void Fixed()
     {
+        //Update the GameManager objectives
         Managers.Instance.GameManager.ObjectiveCounter++;
-        //Managers.Instance.AudioManager.PlayHere(m_workingSoundName, this.gameObject);
+
+        
+        Managers.Instance.AudioManager.PlayHere(m_workingSoundName, this.gameObject, true);
         StartCoroutine(LightUp());
         //Managers.Instance.CutsceneManager.PlayTimeline();
         //GetComponent<Outline>().enabled = false;
@@ -94,7 +97,7 @@ public class Generator : MonoBehaviour
     private void ForLoading()
     {
         Debug.Log("Forloading");
-        //Managers.Instance.AudioManager.PlayHere(m_workingSoundName, this.gameObject);
+        Managers.Instance.AudioManager.PlayHere(m_workingSoundName, this.gameObject, true);
         foreach (GameObject g in m_targetObjects)
         {
             g.SetActive(true);

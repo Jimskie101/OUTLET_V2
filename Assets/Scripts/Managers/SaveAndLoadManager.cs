@@ -228,7 +228,7 @@ public class SaveAndLoadManager : MonoBehaviour
 
         }
         Managers.Instance.WaypointManager.WaypointCounter = StageData.WaypointActive -1;
-        Managers.Instance.TaskManager.TaskNumber = StageData.TaskActive -1;
+        Managers.Instance.TaskManager.TaskNumber = StageData.TaskActive;
         Managers.Instance.GameManager.ObjectiveCounter = StageData.ObjectiveActive;
     }
 

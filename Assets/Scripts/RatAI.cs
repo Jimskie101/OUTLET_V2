@@ -29,6 +29,7 @@ public class RatAI : MonoBehaviour
     Quaternion m_rotation;
     [SerializeField] float angleToLook = 0.01f;
 
+    AudioSource m_audioSrc;
 
 
 
@@ -50,9 +51,9 @@ public class RatAI : MonoBehaviour
         m_ratAnimator = GetComponentInChildren<Animator>();
         m_playerCc = m_player.GetComponent<CharacterController>();
         m_playerScript = m_player.GetComponent<PlayerScript>();
+
     }
-
-
+   
 
     private bool FaceTarget(Vector3 pos)
     {
@@ -71,6 +72,9 @@ public class RatAI : MonoBehaviour
     bool m_isMoving = false;
     private void Update()
     {
+
+
+
         m_isMoving = m_agent.velocity.sqrMagnitude == 0f ? false : true;
         m_ratAnimator.SetBool("isMoving", m_isMoving);
 
@@ -136,6 +140,10 @@ public class RatAI : MonoBehaviour
 
         else if (m_targetDistance < m_ratData.ActivityRange)
         {
+            if(m_audioSrc == null)
+            m_audioSrc = Managers.Instance.AudioManager.PlayHere("rat", this.gameObject, true);
+            else m_audioSrc.Play();
+            
             if (!m_isMoving)
             {
                 m_isMoving = true;
@@ -160,6 +168,10 @@ public class RatAI : MonoBehaviour
         }
         else
         {
+            if(m_audioSrc != null)
+            m_audioSrc.Stop();
+            
+            
             m_agent.isStopped = true;
             m_status = " Neutral";
             m_statusIndicator = Color.white;
