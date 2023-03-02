@@ -12,6 +12,10 @@ public class WaypointActivator : MonoBehaviour
     private void Start()
     {
         m_taskManager = Managers.Instance.TaskManager;
+        if(int.Parse(this.name) < Managers.Instance.WaypointManager.WaypointCounter)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
     /// <summary>
     /// OnTriggerEnter is called when the Collider other enters the trigger.

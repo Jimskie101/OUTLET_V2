@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4397001237439703961}
   - component: {fileID: 4397001237439703956}
   - component: {fileID: 6389924373444460307}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: CarBattery
   m_TagString: Untagged
   m_Icon: {fileID: 0}

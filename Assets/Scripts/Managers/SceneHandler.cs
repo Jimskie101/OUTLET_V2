@@ -8,7 +8,7 @@ using DG.Tweening;
 public class SceneHandler : MonoBehaviour
 {
 
-
+    int m_sceneIndex = 0;
 
     void OnEnable()
     {
@@ -41,9 +41,13 @@ public class SceneHandler : MonoBehaviour
 
     //Splash Intro Scene
     private void Start()
-    {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+    {   
+        m_sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (m_sceneIndex == 0)
             IntroScene();
+        if (m_sceneIndex == 2)
+            Cinematics1();
+        
     }
 
     float secondsLeft = 0;
@@ -61,4 +65,34 @@ public class SceneHandler : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
+
+    public void Cinematics1()
+    {
+        StartCoroutine(DelayLoadLevel(90));
+        IEnumerator DelayLoadLevel(float seconds)
+        {
+            secondsLeft = seconds;
+            do
+            {
+                yield return waitForSeconds;
+            } while (--secondsLeft > 0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+    bool m_working = false;
+    private void Update()
+    {
+        if(m_sceneIndex == 2 && !m_working)
+        {
+            if(Input.GetButtonDown("Jump"))
+            {
+                m_working = true;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
+    }
+
+
+
+
 }

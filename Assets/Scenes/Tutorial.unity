@@ -16078,10 +16078,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc8de772eb9a3945a08c74d5496d046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameData: {fileID: 0}
+  GameData: {fileID: 11400000, guid: fd1c2895eeecd7c48a226a91d2b63f31, type: 2}
   GameManager: {fileID: 880238415}
   UIManager: {fileID: 1987420162}
-  SceneHandler: {fileID: 0}
+  SceneHandler: {fileID: 971423876}
   CameraHandler: {fileID: 454835378}
   CollectibleManager: {fileID: 1792330820}
   InputHandler: {fileID: 1718888329}
@@ -22201,6 +22201,7 @@ MonoBehaviour:
   m_leftCam: {fileID: 1879222662}
   m_backCam: {fileID: 383980053}
   m_rightCam: {fileID: 110662331}
+  CutsceneIsPlaying: 0
   CamPosition: 0
   m_vCamHolder: {fileID: 2141484195}
 --- !u!1 &469868868
@@ -47902,6 +47903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fd719b988b42140ab12d064b4a84ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_player: {fileID: 0}
+  m_train: {fileID: 0}
 --- !u!4 &787229781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2064439740958096186, guid: 39a2db94f83bb524298735a046d37d78,
@@ -49434,6 +49437,8 @@ MonoBehaviour:
   NoDeathMode: 0
   UnliLight: 0
   NoCutscene: 0
+  ObjectiveCounter: 0
+  CollectibleCount: 0
   GameDirection: 0
   XOrientation: {x: 0, y: 0, z: 0}
   ZOrientation: {x: 0, y: 0, z: 0}
@@ -64870,7 +64875,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5bda6a514d57c04f96e96d026b5a118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollectedDevices: 0
+  CollectedItems: 0
+  m_collectibleParent: {fileID: 0}
+  m_collectibles: []
 --- !u!65 &1793906564
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -73434,10 +73441,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerMoveScript: {fileID: 2040021645}
+  m_collectibleText: {fileID: 0}
   m_titleText: {fileID: 970092906}
   m_infoText: {fileID: 861241978}
   m_uiObjectWithHint: {fileID: 1427867586}
   m_gameStatusText: {fileID: 0}
+  m_powerUpBar: []
   m_load: {fileID: 0}
   m_levelsScreen: {fileID: 1576276059}
   m_settingsScreen: {fileID: 1482820108}
@@ -79499,7 +79508,6 @@ MonoBehaviour:
   IsGrounded: 0
   startYPos: 0
   endYPos: 0
-  FallingDisabled: 0
   ConnectedToSource: 0
   TargetSource: {fileID: 0}
   m_dust: {fileID: 579381815}
@@ -79553,6 +79561,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerData: {fileID: 11400000, guid: 29e6047e46975f34e878230838d43b08, type: 2}
+  PowerUpJumpBoost: 0
+  LightLock: 0
+  Shielded: 0
+  FallingDisabled: 0
+  JumpBoosted: 0
   m_lifePercentage: 1
   ChangeStateMultiplier: 1
   m_hot: {fileID: 521966634}

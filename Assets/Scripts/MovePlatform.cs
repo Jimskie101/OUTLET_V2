@@ -6,6 +6,11 @@ using EasyButtons;
 
 public class MovePlatform : MonoBehaviour
 {
+    [SerializeField] bool m_runOnEnable;
+    [SerializeField] bool m_move;
+    [SerializeField] bool m_rotate;
+    [SerializeField] bool m_parent = false;
+    Transform m_transform;
     [Header("Mover")]
     [SerializeField] Vector3 m_targetPosition;
     [SerializeField] Vector3 m_defaultPosition;
@@ -17,19 +22,37 @@ public class MovePlatform : MonoBehaviour
     [SerializeField] float m_rotateDuration = 0;
 
 
-    [Button]
-    public void MoveMe()
+    private void OnEnable()
     {
-        transform.DOLocalMove(m_targetPosition, m_moveDuration);
+        m_transform = m_parent ? transform.parent : transform;
+
+        if (m_runOnEnable)
+        {
+            if (m_move)
+            {
+                MoveMe();
+            }
+            if (m_rotate)
+            {
+                RotateToTarget();
+            }
+        }
+
+    }
+
+    [Button]
+    public void MoveMe(bool update = false)
+    {
+        m_transform.DOLocalMove(m_targetPosition, m_moveDuration).SetUpdate(update);;
     }
     public void PutMeBack()
     {
-        transform.DOLocalMove(m_defaultPosition, m_moveDuration);
+        m_transform.DOLocalMove(m_defaultPosition, m_moveDuration);
     }
 
     public void RotateToTarget()
     {
-        transform.DOLocalRotate(m_targetRotation, m_rotateDuration);
+        m_transform.DOLocalRotate(m_targetRotation, m_rotateDuration);
     }
     public void RotateToOrigin()
     {

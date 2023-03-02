@@ -933,11 +933,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerMoveScript: {fileID: 0}
+  m_collectibleText: {fileID: 0}
   m_titleText: {fileID: 0}
   m_infoText: {fileID: 0}
   m_uiObjectWithHint: {fileID: 0}
   m_gameStatusText: {fileID: 0}
-  powerUpBar: {fileID: 0}
+  m_powerUpBar: []
   m_load: {fileID: 1262795326}
   m_levelsScreen: {fileID: 3650036359613658970}
   m_settingsScreen: {fileID: 3650036359347288814}
@@ -2582,6 +2583,10 @@ MonoBehaviour:
     stageData:
       SceneNumber: 0
       CheckpointActive: 0
+      WaypointActive: 0
+      TaskActive: 0
+      ObjectiveActive: 0
+      CollectibleActive: 0
   m_player: {fileID: 0}
   m_playerStatus:
     lifeValue: 0
@@ -2590,6 +2595,10 @@ MonoBehaviour:
   StageData:
     SceneNumber: 0
     CheckpointActive: 0
+    WaypointActive: 0
+    TaskActive: 0
+    ObjectiveActive: 0
+    CollectibleActive: 0
   Entities: []
   EntityDatas: []
 --- !u!1 &1172276450

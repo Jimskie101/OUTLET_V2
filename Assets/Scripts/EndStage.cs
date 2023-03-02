@@ -20,4 +20,21 @@ public class EndStage : MonoBehaviour
             Managers.Instance.SceneHandler.LoadStage(Managers.Instance.SceneHandler.GetCurrentScene() +1);
         }
     }
+
+    [SerializeField] Transform m_player;
+    [SerializeField] MovePlatform m_train;
+    public void FirstEnd()
+    {
+        Managers.Instance.CutsceneManager.PlayCutscene(4);
+        Managers.Instance.TaskManager.NextTask();
+        StartCoroutine(MoveTrain());
+    }
+    IEnumerator MoveTrain()
+    {
+        m_player.GetComponent<CharacterController>().enabled = false;
+        m_player.SetParent(transform);
+        yield return new WaitForSeconds(2f);
+        m_train.MoveMe(true);
+        Managers.Instance.UIManager.FadeToBlack(true);
+    }
 }

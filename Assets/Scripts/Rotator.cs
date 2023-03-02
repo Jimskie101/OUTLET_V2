@@ -8,6 +8,8 @@ public class Rotator : MonoBehaviour
 {
     [SerializeField] Vector3 m_targetRotation;
     [SerializeField] float m_rotationDuration;
+    [SerializeField] bool m_awakeActivate = false; 
+    [SerializeField] int m_cutsceneIndex = 0; 
 
     WaitForSeconds waitingTime;
     bool m_isDone = false;
@@ -20,7 +22,12 @@ public class Rotator : MonoBehaviour
     {
         waitingTime = new WaitForSeconds(2);
         Invoke("ObjectiveChecker", 0.1f);
+        if(m_awakeActivate)
+        {
+            Activate();
+        }
     }
+
     [Button]
     public void Activate()
     {
@@ -28,9 +35,13 @@ public class Rotator : MonoBehaviour
         {
             m_isDone = true;
             //Update the GameManager objectives
-            Managers.Instance.TaskManager.NextTask();
-            Managers.Instance.GameManager.ObjectiveCounter++;
-            Managers.Instance.CutsceneManager.PlayCutscene(2);
+            if (m_forLoadingId > Managers.Instance.GameManager.ObjectiveCounter)
+            {
+                Managers.Instance.TaskManager.NextTask();
+                Managers.Instance.GameManager.ObjectiveCounter++;
+                Managers.Instance.CutsceneManager.PlayCutscene(m_cutsceneIndex);
+            }
+
             StartCoroutine(Rotating());
         }
     }

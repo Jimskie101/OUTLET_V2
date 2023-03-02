@@ -6,6 +6,7 @@ using UnityEngine;
 public class PowerUpData : ScriptableObject
 {
     [Header("PowerUp Settings")]
+    public float RespawnTime;
     [Header("Jump PowerUp")]
     public float JumpBoostDuration;
     public float JumpAddedValue;

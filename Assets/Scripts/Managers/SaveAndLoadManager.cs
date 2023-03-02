@@ -38,6 +38,7 @@ public class StageData
     public int WaypointActive;
     public int TaskActive;
     public int ObjectiveActive;
+    public int CollectibleActive;
 }
 
 
@@ -158,6 +159,7 @@ public class SaveAndLoadManager : MonoBehaviour
         StageData.TaskActive = Managers.Instance.TaskManager.TaskNumber;
         StageData.WaypointActive = Managers.Instance.WaypointManager.WaypointCounter;
         StageData.ObjectiveActive = Managers.Instance.GameManager.ObjectiveCounter;
+        StageData.CollectibleActive = Managers.Instance.GameManager.CollectibleCount;
         return StageData;
     }
 
@@ -230,6 +232,8 @@ public class SaveAndLoadManager : MonoBehaviour
         Managers.Instance.WaypointManager.WaypointCounter = StageData.WaypointActive -1;
         Managers.Instance.TaskManager.TaskNumber = StageData.TaskActive;
         Managers.Instance.GameManager.ObjectiveCounter = StageData.ObjectiveActive;
+        Managers.Instance.GameManager.CollectibleCount = StageData.CollectibleActive;
+        Managers.Instance.CollectibleManager.CollectedItems = StageData.CollectibleActive;
     }
 
 

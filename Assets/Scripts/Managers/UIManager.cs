@@ -34,9 +34,12 @@ public class UIManager : MonoBehaviour
 
     }
 
+    [SerializeField] TMP_Text m_collectibleText;
     public void UpdateCollectibleCount(int amount)
     {
-
+        
+        m_collectibleText.text = amount < 10 ? "Postcards Collected:  "+ amount +"/10" :"Postcards Collected: "+ amount +"/10";
+        
     }
 
     [Header("Info/Hint UI")]
@@ -351,7 +354,7 @@ public class UIManager : MonoBehaviour
         m_fadeImage.DOColor(m_endColor, m_fadeTime).SetUpdate(true);
     }
 
-
-
+    
+   
 
 }

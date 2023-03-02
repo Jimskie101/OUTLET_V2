@@ -21,15 +21,18 @@ public class PowerUp : MonoBehaviour
 
 
     WaitForSeconds disableDelay;
+    WaitForSeconds m_reEnablerDelay;
 
-     Vector3 m_rotation = new Vector3(0, 360f, 0);
+    Vector3 m_rotation = new Vector3(0, 360f, 0);
     MeshRenderer m_mesh;
     [SerializeField] MeshFilter m_meshFilter;
     private void Start()
     {
-        if(m_mesh == null)
-        m_mesh = GetComponentInChildren<MeshRenderer>();
+        m_particles = transform.GetComponentInChildren<ParticleSystem>();
+        if (m_mesh == null)
+            m_mesh = GetComponentInChildren<MeshRenderer>();
         disableDelay = new WaitForSeconds(0.5f);
+        m_reEnablerDelay = new WaitForSeconds(m_powerUpData.RespawnTime);
         transform.DOLocalRotate(m_rotation, 4f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
     }
 
@@ -58,11 +61,11 @@ public class PowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             m_mesh.enabled = false;
-            Managers.Instance.AudioManager.PlayHere("collect",other.gameObject,false,true);
-            transform.GetComponentInChildren<ParticleSystem>().Play();
-            StartCoroutine(Disabling());
+            Managers.Instance.AudioManager.PlayHere("collect", other.gameObject, false, true);
+            m_particles.Play();
             if (other.TryGetComponent(out m_playerScript))
                 ApplyEffect();
+            StartCoroutine(Disabling());
         }
     }
 
@@ -89,13 +92,31 @@ public class PowerUp : MonoBehaviour
         m_mesh.enabled = true;
     }
 
+    [SerializeField] SphereCollider m_sphereCollider;
     IEnumerator Disabling()
     {
         yield return disableDelay;
-        this.gameObject.SetActive(false);
+        if (transform.GetChild(1).TryGetComponent<MeshRenderer>(out m_mesh))
+            m_mesh.enabled = false;
+        if (TryGetComponent<SphereCollider>(out m_sphereCollider))
+            m_sphereCollider.enabled = false;
+        StartCoroutine(ReEnable());
+    }
+    ParticleSystem m_particles = null;
+    IEnumerator ReEnable()
+    {
+        transform.GetComponentInChildren<ParticleSystem>();
+        if (m_particles != null)
+            m_particles.Play();
+        yield return m_reEnablerDelay;
+        if (transform.GetChild(1).TryGetComponent<MeshRenderer>(out m_mesh))
+            m_mesh.enabled = true;
+        if (TryGetComponent<SphereCollider>(out m_sphereCollider))
+            m_sphereCollider.enabled = true;
+
     }
 
-    [SerializeField] Mesh [] m_powerupMesh;
+    [SerializeField] Mesh[] m_powerupMesh;
 
     [Button]
     private void ChangeMesh()

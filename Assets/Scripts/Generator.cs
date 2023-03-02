@@ -20,19 +20,34 @@ public class Generator : MonoBehaviour
     [SerializeField] Vector3 m_targetPosition;
     [SerializeField] Vector3 m_defaultPosition;
     [SerializeField] float m_moveDuration = 0;
+    [SerializeField] int m_collisionNeeded = 1;
 
     Rigidbody m_targetRB;
     bool m_onGoing = false;
-
+    [SerializeField] int m_collisionCounter = 1;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PuzzlePiece") && !m_onGoing)
         {
-            if (m_moveParent)
+            m_collisionCounter++;
+            if (m_collisionNeeded <= m_collisionCounter)
             {
-                MoveTargetObject(other.transform.parent);
+                if (m_moveParent)
+                {
+                    MoveTargetObject(other.transform.parent);
+                }
+                else MoveTargetObject(other.transform);
             }
-            else MoveTargetObject(other.transform);
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("PuzzlePiece"))
+        {
+            m_collisionCounter--;
+
         }
     }
 
@@ -47,7 +62,7 @@ public class Generator : MonoBehaviour
             m_targetRB.isKinematic = true;
         }
         targetObj.DOLocalMove(m_defaultPosition - m_targetPosition, m_moveDuration)
-        .OnComplete(() => { m_puzzleIndicator.Activate(); Fixed(); m_onGoing = false;});
+        .OnComplete(() => { m_puzzleIndicator.Activate(); Fixed(); m_onGoing = false; });
     }
 
     [SerializeField] string m_workingSoundName;
@@ -60,7 +75,7 @@ public class Generator : MonoBehaviour
         //Update the GameManager objectives
         Managers.Instance.GameManager.ObjectiveCounter++;
 
-        
+
         Managers.Instance.AudioManager.PlayHere(m_workingSoundName, this.gameObject, true);
         StartCoroutine(LightUp());
         //Managers.Instance.CutsceneManager.PlayTimeline();
@@ -68,12 +83,12 @@ public class Generator : MonoBehaviour
 
     }
 
-
+    [SerializeField] int m_cutsceneIndex = 0    ;
     IEnumerator LightUp()
     {
         yield return new WaitForSeconds(2f);
 
-        m_cutsceneManager.PlayCutscene(0);
+        m_cutsceneManager.PlayCutscene(m_cutsceneIndex);
         foreach (GameObject g in m_targetObjects)
         {
             g.SetActive(true);
@@ -86,7 +101,7 @@ public class Generator : MonoBehaviour
         }
 
         Managers.Instance.TaskManager.NextTask();
-        
+
     }
 
 
@@ -111,8 +126,8 @@ public class Generator : MonoBehaviour
     }
     private void ObjectiveChecker()
     {
-        if(Managers.Instance.GameManager.ObjectiveCounter >= m_forLoadingId)
-        ForLoading();
+        if (Managers.Instance.GameManager.ObjectiveCounter >= m_forLoadingId)
+            ForLoading();
     }
 
 

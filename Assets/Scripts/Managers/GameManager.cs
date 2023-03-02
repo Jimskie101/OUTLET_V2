@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     
     public int ObjectiveCounter = 0;
   
-
+    public int CollectibleCount = 0; 
     
 
     public enum Direction
