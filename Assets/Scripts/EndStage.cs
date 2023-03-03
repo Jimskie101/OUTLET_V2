@@ -31,6 +31,7 @@ public class EndStage : MonoBehaviour
     }
     IEnumerator MoveTrain()
     {
+        Managers.Instance.AudioManager.PlayHere("train", transform.parent.gameObject, true);
         m_player.GetComponent<CharacterController>().enabled = false;
         m_player.SetParent(transform);
         yield return new WaitForSeconds(2f);
