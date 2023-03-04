@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0056310591004d46a9700703ebe2ed4, type: 3}
   m_Name: RatData
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 20
   AngularSpeed: 120
   Acceleration: 12
   WanderRadius: {x: 2, y: 5}
   AttackRange: 5
   ChaseRange: 20
-  ActivityRange: 40
+  ActivityRange: 1000
   AttackForce: 10
   AttackCooldown: 1
   AttackDamage: 0.1

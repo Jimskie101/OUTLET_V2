@@ -67,6 +67,7 @@ public class AudioManager : MonoBehaviour
         source.PlayOneShot(s.clip, s.volume);
         else
         source.Play();
+        //Debug.Log("" + targetObj.name + " - " + s.name);
         return source;
     }
     public void Stop(string name)

@@ -37,9 +37,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text m_collectibleText;
     public void UpdateCollectibleCount(int amount)
     {
-        
-        m_collectibleText.text = amount < 10 ? "Postcards Collected:  "+ amount +"/10" :"Postcards Collected: "+ amount +"/10";
-        
+
+        m_collectibleText.text = amount < 10 ? "Postcards Collected:  " + amount + "/10" : "Postcards Collected: " + amount + "/10";
+
     }
 
     [Header("Info/Hint UI")]
@@ -74,6 +74,10 @@ public class UIManager : MonoBehaviour
     }
     public void HideInfo()
     {
+        if(m_triviaObject != null)
+        HideTrivia();  
+        if(m_posterObject != null)
+        HidePoster();
         if (m_titleText.transform.parent.gameObject.activeSelf)
         {
             Managers.Instance.InputHandler.UnShowingHint();
@@ -91,6 +95,64 @@ public class UIManager : MonoBehaviour
         }
 
     }
+
+    [Header("Trivia/Collectible UI")]
+    [SerializeField] Image m_triviaImage;
+    [SerializeField] GameObject m_triviaObject;
+
+    public void ShowTrivia(Sprite image)
+    {
+        if (!m_triviaObject.activeSelf)
+        {
+            Time.timeScale = 0f;
+            Managers.Instance.InputHandler.ShowingHint();
+            m_triviaImage.sprite = image;
+            m_triviaObject.SetActive(true);
+        }
+
+
+    }
+    public void HideTrivia()
+    {
+        if (m_triviaObject.activeSelf)
+        {
+            Time.timeScale = 1f;
+            Managers.Instance.InputHandler.UnShowingHint();
+            m_triviaObject.SetActive(false);
+        }
+
+    }
+
+
+    [Header("Posters UI")]
+    [SerializeField] Image m_posterImage;
+    [SerializeField] GameObject m_posterObject;
+
+    public void ShowPoster(Sprite image)
+    {
+        if (!m_posterObject.activeSelf)
+        {
+            Time.timeScale = 0f;
+            Managers.Instance.InputHandler.ShowingHint();
+            m_posterImage.sprite = image;
+            m_posterObject.SetActive(true);
+        }
+
+
+    }
+    public void HidePoster()
+    {
+        if (m_posterObject.activeSelf)
+        {
+            Time.timeScale = 1f;
+            Managers.Instance.InputHandler.UnShowingHint();
+            m_posterObject.SetActive(false);
+        }
+
+    }
+
+
+
 
 
     [SerializeField] TMP_Text m_gameStatusText;
@@ -140,27 +202,27 @@ public class UIManager : MonoBehaviour
             {
                 p.powerUpParent.SetActive(true);
                 float endValue = 0;
-        float startValue = 1;
-        // Move the value from startValue to endValue over a duration
-        DOTween.To(() => startValue, x => startValue = x, endValue, duration)
-            .OnUpdate(() =>
-            {
-                // Update any UI elements or variables that need to reflect the current value
-                // For example, if you are moving a UI slider:
-                // mySlider.value = startValue;
-                p.powerUpLeft.fillAmount = startValue;
-                p.powerUpRight.fillAmount = startValue;
+                float startValue = 1;
+                // Move the value from startValue to endValue over a duration
+                DOTween.To(() => startValue, x => startValue = x, endValue, duration)
+                    .OnUpdate(() =>
+                    {
+                        // Update any UI elements or variables that need to reflect the current value
+                        // For example, if you are moving a UI slider:
+                        // mySlider.value = startValue;
+                        p.powerUpLeft.fillAmount = startValue;
+                        p.powerUpRight.fillAmount = startValue;
 
-            })
-            .OnComplete(() =>
-            {
-                p.powerUpParent.SetActive(false);
-                powerUpScript.ResetValues();
-            });
+                    })
+                    .OnComplete(() =>
+                    {
+                        p.powerUpParent.SetActive(false);
+                        powerUpScript.ResetValues();
+                    });
                 break;
             }
         }
-        
+
     }
 
 
@@ -354,7 +416,7 @@ public class UIManager : MonoBehaviour
         m_fadeImage.DOColor(m_endColor, m_fadeTime).SetUpdate(true);
     }
 
-    
-   
+
+
 
 }

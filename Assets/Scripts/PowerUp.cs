@@ -61,7 +61,7 @@ public class PowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             m_mesh.enabled = false;
-            Managers.Instance.AudioManager.PlayHere("collect", other.gameObject, false, true);
+            Managers.Instance.AudioManager.PlayHere("collect", this.gameObject, false, true);
             m_particles.Play();
             if (other.TryGetComponent(out m_playerScript))
                 ApplyEffect();

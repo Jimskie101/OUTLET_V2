@@ -7,8 +7,11 @@ public class CollectibleManager : MonoBehaviour
 {
     UIManager m_uiManager;
     public int CollectedItems = 0;
+    public int Posters = 0;
     [SerializeField] Transform m_collectibleParent;
+    [SerializeField] Transform m_posterParent;
     [SerializeField] Collectible [] m_collectibles;
+    [SerializeField] Collectible [] m_posterObjects;
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -16,14 +19,22 @@ public class CollectibleManager : MonoBehaviour
     private void Start()
     {
         m_uiManager = Managers.Instance.UIManager;
-        if(m_collectibleParent != null )Invoke("CollectibleEnabler",0.1f);
+        if(m_collectibleParent != null )
+        Invoke("CollectibleEnabler",0.1f);
+        if(m_posterParent != null )
+        Invoke("PosterEnabler",0.1f);
     }
     [Button]
     private void GetCollectibles()
     {
-        m_collectibles = m_collectibleParent.GetComponentsInChildren<Collectible>();
+        m_collectibles = m_collectibleParent.GetComponentsInChildren<Collectible>(true);
     }
-
+    [Button]
+    private void GetPosters()
+    {
+        m_posterObjects = m_posterParent.GetComponentsInChildren<Collectible>(true);
+    }
+    
     private void CollectibleEnabler()
     {
         for(int i = 9; i > CollectedItems -1 ; i--)
@@ -33,10 +44,36 @@ public class CollectibleManager : MonoBehaviour
          m_uiManager.UpdateCollectibleCount(CollectedItems);
     }
 
+    private void PosterEnabler()
+    {
+        for(int i = 4; i > Posters -1 ; i--)
+        {
+            m_posterObjects[i].gameObject.SetActive(true);
+        }
+    }
+
+
+    [SerializeField] Sprite [] m_collectibleTrivias;
+    [SerializeField] Sprite [] m_posters;
+    
     public void CollectedSomething()
     {
+
+        Managers.Instance.UIManager.ShowTrivia(m_collectibleTrivias[CollectedItems]);
         CollectedItems++;
+
         m_uiManager.UpdateCollectibleCount(CollectedItems);
         Managers.Instance.GameManager.CollectibleCount = CollectedItems;
+    }
+
+    public void CollectedPoster()
+    {
+
+        Managers.Instance.UIManager.ShowPoster(m_posters[Posters]);
+        Posters++;
+
+        m_uiManager.UpdateCollectibleCount(CollectedItems);
+        Managers.Instance.GameManager.PostersCount = Posters;
+        Managers.Instance.UIManager.ShowGameUpdate("Poster Collected");
     }
 }

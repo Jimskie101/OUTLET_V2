@@ -52,7 +52,7 @@ public class WaypointManager : MonoBehaviour
 
     }
 
-    Transform m_tempTarget;
+    [SerializeField] Transform m_tempTarget;
     public void HideMarker(bool hidden)
     {
         if (hidden)

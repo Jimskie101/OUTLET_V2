@@ -281,7 +281,9 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(m_groundChecker.position, m_playerData.GroundCheckSphereRadius);
     }
-
+    private void OnDisable() {
+        m_inputDir = Vector3.zero;
+    }
 
     bool m_deadAlready = false;
     [HideInInspector]

@@ -12,6 +12,8 @@ public class Collectible : MonoBehaviour
     /// </summary>
     Vector3 m_rotation = new Vector3(0, 360f, 0);
     MeshRenderer m_mesh;
+
+    [SerializeField] bool m_isPoster = false;
     private void Start()
     {
         m_mesh = GetComponentInChildren<MeshRenderer>();
@@ -28,9 +30,12 @@ public class Collectible : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             m_mesh.enabled = false;
-            Managers.Instance.AudioManager.PlayHere("collect",other.gameObject,false,true);
+            Managers.Instance.AudioManager.PlayHere("collect",this.gameObject,false,true);
             transform.GetComponentInChildren<ParticleSystem>().Play();
+            if(!m_isPoster)
             m_collectibleManager.CollectedSomething();
+            else
+            m_collectibleManager.CollectedPoster();
             StartCoroutine(Disabling());
         }
 

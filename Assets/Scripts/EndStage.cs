@@ -31,11 +31,15 @@ public class EndStage : MonoBehaviour
     }
     IEnumerator MoveTrain()
     {
-        Managers.Instance.AudioManager.PlayHere("train", transform.parent.gameObject, true);
         m_player.GetComponent<CharacterController>().enabled = false;
+        m_player.GetComponent<PlayerMovement>().enabled = false;
         m_player.SetParent(transform);
         yield return new WaitForSeconds(2f);
+        Managers.Instance.AudioManager.PlayHere("train", transform.parent.gameObject, false , true);
         m_train.MoveMe(true);
         Managers.Instance.UIManager.FadeToBlack(true);
+        StartCoroutine(Managers.Instance.UIManager.WinScreen());
     }
+
+   
 }

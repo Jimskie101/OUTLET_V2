@@ -51,6 +51,7 @@ public class RatAI : MonoBehaviour
         m_ratAnimator = GetComponentInChildren<Animator>();
         m_playerCc = m_player.GetComponent<CharacterController>();
         m_playerScript = m_player.GetComponent<PlayerScript>();
+        SetRatValues();
 
     }
    
@@ -86,6 +87,7 @@ public class RatAI : MonoBehaviour
 
             m_agent.isStopped = false;
             m_doneAttacking = false;
+            if(m_oldPosition != Vector3.zero)
             m_agent.SetDestination(m_oldPosition);
         }
 

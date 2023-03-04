@@ -36,7 +36,7 @@ public class Info : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
 
-            Managers.Instance.AudioManager.PlayHere("collect", other.gameObject, false, true);
+            Managers.Instance.AudioManager.PlayHere("collect", this.gameObject, false, true);
             if (m_isAControlHint)
             {
                 m_uiManager.ShowInfo("", "", true, m_uiWithHint);

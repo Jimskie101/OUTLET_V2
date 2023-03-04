@@ -24,6 +24,7 @@ public class CheckpointManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         foreach (Checkpoint c in m_checkpoints)
         {
+            CurrentCheckpointID = Managers.Instance.SaveAndLoadManager.StageData.CheckpointActive;
             if (Managers.Instance.SaveAndLoadManager.StageData.CheckpointActive < c.CheckpointID)
             {
                 c.gameObject.SetActive(true);

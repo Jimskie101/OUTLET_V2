@@ -16,7 +16,7 @@ public class TaskManager : MonoBehaviour
         m_text.text = m_taskArray[TaskNumber];
         Managers.Instance.WaypointManager.NextWaypoint();
         AnimateTask();
-        
+
     }
     [Button]
     public void NextTask(bool waypointOnly = false)
@@ -27,9 +27,13 @@ public class TaskManager : MonoBehaviour
             TaskNumber++;
             m_textHolder.DOLocalMoveY(300, 1f).OnComplete(() =>
             {
-                m_text.text = m_taskArray[TaskNumber];
+                if (TaskNumber < m_taskArray.Length)
+                {
+                    m_text.text = m_taskArray[TaskNumber];
 
-                AnimateTask();
+                    AnimateTask();
+                }
+
             });
 
         }
@@ -40,7 +44,7 @@ public class TaskManager : MonoBehaviour
 
     public void AnimateTask()
     {
-        
+
         m_textHolder.DOLocalMoveY(0, 1.5f).SetEase(Ease.InElastic);
     }
 }

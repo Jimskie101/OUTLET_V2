@@ -947,6 +947,10 @@ MonoBehaviour:
   m_titleText: {fileID: 0}
   m_infoText: {fileID: 0}
   m_uiObjectWithHint: {fileID: 0}
+  m_triviaImage: {fileID: 0}
+  m_triviaObject: {fileID: 0}
+  m_posterImage: {fileID: 0}
+  m_posterObject: {fileID: 0}
   m_gameStatusText: {fileID: 0}
   m_powerUpBar: []
   m_load: {fileID: 1262795326}
@@ -2597,6 +2601,7 @@ MonoBehaviour:
       TaskActive: 0
       ObjectiveActive: 0
       CollectibleActive: 0
+      PostersActive: 0
   m_player: {fileID: 0}
   m_playerStatus:
     lifeValue: 0
@@ -2609,6 +2614,7 @@ MonoBehaviour:
     TaskActive: 0
     ObjectiveActive: 0
     CollectibleActive: 0
+    PostersActive: 0
   Entities: []
   EntityDatas: []
 --- !u!1 &1172276450
