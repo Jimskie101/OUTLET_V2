@@ -15,5 +15,5 @@ MonoBehaviour:
   RespawnTime: 15
   JumpBoostDuration: 5
   JumpAddedValue: 5
-  ShieldDuration: 10
+  ShieldDuration: 15
   LightLockDuration: 20

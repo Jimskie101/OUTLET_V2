@@ -54,7 +54,7 @@ public class RatAI : MonoBehaviour
         SetRatValues();
 
     }
-   
+
 
     private bool FaceTarget(Vector3 pos)
     {
@@ -71,6 +71,25 @@ public class RatAI : MonoBehaviour
     PlayerScript m_playerScript;
     [SerializeField] bool m_doneAttacking = false;
     bool m_isMoving = false;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.CompareTag("Player"))
+        {
+            if (!m_alreadyDamaged)
+            {
+                Debug.Log("PlayerDamaged");
+                m_alreadyDamaged = true;
+                m_playerScript.TakeDamage(m_ratData.AttackDamage);
+                StartCoroutine(DamageCooldown());
+            }
+
+
+        }
+    }
+
+
     private void Update()
     {
 
@@ -81,34 +100,34 @@ public class RatAI : MonoBehaviour
 
 
         m_targetDistance = Vector3.Distance(transform.position, m_player.position);
-
+        //return to attacking position
         if (m_agent.velocity == Vector3.zero && m_doneAttacking)
         {
 
             m_agent.isStopped = false;
             m_doneAttacking = false;
-            if(m_oldPosition != Vector3.zero)
-            m_agent.SetDestination(m_oldPosition);
+            if (m_oldPosition != Vector3.zero)
+                m_agent.SetDestination(m_oldPosition);
         }
 
 
-        // Check if the agent is close to the character
-        if (m_targetDistance < m_agent.radius + m_playerCc.radius)
-        {
-            if (!m_alreadyDamaged)
-            {
-                Debug.Log("PlayerDamaged");
-                m_alreadyDamaged = true;
-                m_playerScript.TakeDamage(m_ratData.AttackDamage);
-                StartCoroutine(DamageCooldown());
-            }
+        // // Check if the agent is close to the character
+        // if (m_targetDistance < m_agent.radius + m_playerCc.radius)
+        // {
+        //     if (!m_alreadyDamaged)
+        //     {
+        //         Debug.Log("PlayerDamaged");
+        //         m_alreadyDamaged = true;
+        //         m_playerScript.TakeDamage(m_ratData.AttackDamage);
+        //         StartCoroutine(DamageCooldown());
+        //     }
 
-            // Calculate push direction
-            Vector3 pushDirection = (m_playerCc.transform.position - m_agent.transform.position).normalized;
+        //     // Calculate push direction
+        //     Vector3 pushDirection = (m_playerCc.transform.position - m_agent.transform.position).normalized;
 
-            // Apply push force to the character controller
-            m_playerCc.Move(pushDirection * (m_ratData.AttackForce * .5f) * Time.deltaTime);
-        }
+        //     // Apply push force to the character controller
+        //     m_playerCc.Move(pushDirection * (m_ratData.AttackForce * .5f) * Time.deltaTime);
+        // }
 
         //if in chase range, chase player
         if (m_targetDistance <= m_ratData.ChaseRange && m_targetDistance > m_ratData.AttackRange)
@@ -142,10 +161,10 @@ public class RatAI : MonoBehaviour
 
         else if (m_targetDistance < m_ratData.ActivityRange)
         {
-            if(m_audioSrc == null)
-            m_audioSrc = Managers.Instance.AudioManager.PlayHere("rat", this.gameObject, true);
+            if (m_audioSrc == null)
+                m_audioSrc = Managers.Instance.AudioManager.PlayHere("rat", this.gameObject, true);
             else m_audioSrc.Play();
-            
+
             if (!m_isMoving)
             {
                 m_isMoving = true;
@@ -170,10 +189,10 @@ public class RatAI : MonoBehaviour
         }
         else
         {
-            if(m_audioSrc != null)
-            m_audioSrc.Stop();
-            
-            
+            if (m_audioSrc != null)
+                m_audioSrc.Stop();
+
+
             m_agent.isStopped = true;
             m_status = " Neutral";
             m_statusIndicator = Color.white;
@@ -235,12 +254,7 @@ public class RatAI : MonoBehaviour
         m_agent.SetDestination(m_target);
 
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawRay(transform.position, m_target);
-    }
-
+   
 
 
 }

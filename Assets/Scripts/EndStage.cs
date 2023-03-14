@@ -6,7 +6,7 @@ public class EndStage : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             Managers.Instance.UIManager.FadeToBlack(true);
             StartCoroutine(MoveToNextStage());

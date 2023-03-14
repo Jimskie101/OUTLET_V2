@@ -9,6 +9,7 @@ TagManager:
   - Hook
   - Environment
   - PuzzlePiece
+  - FXCollider
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - CollideCamera
   - Invisible
   - RigidObject
-  - 
-  - 
+  - FXColliders
+  - Enemies
   - 
   - 
   - 

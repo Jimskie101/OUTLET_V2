@@ -74,10 +74,10 @@ public class UIManager : MonoBehaviour
     }
     public void HideInfo()
     {
-        if(m_triviaObject != null)
-        HideTrivia();  
-        if(m_posterObject != null)
-        HidePoster();
+        if (m_triviaObject != null)
+            HideTrivia();
+        if (m_posterObject != null)
+            HidePoster();
         if (m_titleText.transform.parent.gameObject.activeSelf)
         {
             Managers.Instance.InputHandler.UnShowingHint();
@@ -194,13 +194,15 @@ public class UIManager : MonoBehaviour
     Image powerUpRight;
     float m_powerUpDuration;
 
-    public void PowerUpCountdown(float duration, PowerUp powerUpScript)
+    public void PowerUpCountdown(float duration, PowerUp powerUpScript, GameObject powerUpFX = null)
     {
         foreach (PowerUpBar p in m_powerUpBar)
         {
             if (!p.powerUpParent.activeSelf)
             {
                 p.powerUpParent.SetActive(true);
+                if (powerUpFX != null)
+                    powerUpFX.SetActive(true);
                 float endValue = 0;
                 float startValue = 1;
                 // Move the value from startValue to endValue over a duration
@@ -217,6 +219,8 @@ public class UIManager : MonoBehaviour
                     .OnComplete(() =>
                     {
                         p.powerUpParent.SetActive(false);
+                        if (powerUpFX != null)
+                            powerUpFX.SetActive(false);
                         powerUpScript.ResetValues();
                     });
                 break;

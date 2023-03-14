@@ -16,6 +16,7 @@ public class PowerUp : MonoBehaviour
 {
     [SerializeField] PowerUpData m_powerUpData;
     [SerializeField] PowerUpType m_powerUpType;
+    [SerializeField] GameObject m_powerUpFX;
     PlayerScript m_playerScript;
 
 
@@ -47,7 +48,7 @@ public class PowerUp : MonoBehaviour
                 ; break;
             case PowerUpType.Shield:
                 m_playerScript.Shielded = true;
-                Managers.Instance.UIManager.PowerUpCountdown(m_powerUpData.ShieldDuration, this)
+                Managers.Instance.UIManager.PowerUpCountdown(m_powerUpData.ShieldDuration, this, m_powerUpFX)
                 ; break;
             case PowerUpType.LightLock:
                 m_playerScript.LightLock = true;

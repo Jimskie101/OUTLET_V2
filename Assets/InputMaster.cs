@@ -53,6 +53,15 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ObjectPushPull"",
+                    ""type"": ""Button"",
+                    ""id"": ""50211816-f5a3-4284-8f50-6d51a59f2e9e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -207,6 +216,28 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bafca96e-ac8b-4588-94ff-55ec9bc3bf44"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ObjectPushPull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a7e19966-9ff4-434b-9f5f-96b8fe4eb403"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ObjectPushPull"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -588,6 +619,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_ObjectPushPull = m_Player.FindAction("ObjectPushPull", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_PreviousCamera = m_Camera.FindAction("PreviousCamera", throwIfNotFound: true);
@@ -666,6 +698,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_ObjectPushPull;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -673,6 +706,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @ObjectPushPull => m_Wrapper.m_Player_ObjectPushPull;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -691,6 +725,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @ObjectPushPull.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnObjectPushPull;
+                @ObjectPushPull.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnObjectPushPull;
+                @ObjectPushPull.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnObjectPushPull;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -704,6 +741,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
+                @ObjectPushPull.started += instance.OnObjectPushPull;
+                @ObjectPushPull.performed += instance.OnObjectPushPull;
+                @ObjectPushPull.canceled += instance.OnObjectPushPull;
             }
         }
     }
@@ -877,6 +917,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnObjectPushPull(InputAction.CallbackContext context);
     }
     public interface ICameraActions
     {
