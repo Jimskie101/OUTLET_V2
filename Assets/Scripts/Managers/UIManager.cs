@@ -187,48 +187,7 @@ public class UIManager : MonoBehaviour
         public Image powerUpRight;
     }
 
-    //PowerUp
-    [Header("Power Up")]
-    [SerializeField] PowerUpBar[] m_powerUpBar;
-    Image powerUpLeft;
-    Image powerUpRight;
-    float m_powerUpDuration;
-
-    public void PowerUpCountdown(float duration, PowerUp powerUpScript, GameObject powerUpFX = null)
-    {
-        foreach (PowerUpBar p in m_powerUpBar)
-        {
-            if (!p.powerUpParent.activeSelf)
-            {
-                p.powerUpParent.SetActive(true);
-                if (powerUpFX != null)
-                    powerUpFX.SetActive(true);
-                float endValue = 0;
-                float startValue = 1;
-                // Move the value from startValue to endValue over a duration
-                DOTween.To(() => startValue, x => startValue = x, endValue, duration)
-                    .OnUpdate(() =>
-                    {
-                        // Update any UI elements or variables that need to reflect the current value
-                        // For example, if you are moving a UI slider:
-                        // mySlider.value = startValue;
-                        p.powerUpLeft.fillAmount = startValue;
-                        p.powerUpRight.fillAmount = startValue;
-
-                    })
-                    .OnComplete(() =>
-                    {
-                        p.powerUpParent.SetActive(false);
-                        if (powerUpFX != null)
-                            powerUpFX.SetActive(false);
-                        powerUpScript.ResetValues();
-                    });
-                break;
-            }
-        }
-
-    }
-
+    
 
 
     //Main Menu

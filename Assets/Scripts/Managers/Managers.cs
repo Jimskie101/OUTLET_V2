@@ -19,6 +19,7 @@ public class Managers : MonoBehaviour
     public WaypointManager WaypointManager;
     public SaveAndLoadManager SaveAndLoadManager;
     public TaskManager TaskManager;
+    public PowerUpManager PowerUpManager;
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -58,5 +59,6 @@ public class Managers : MonoBehaviour
         TaskManager = GetComponentInChildren<TaskManager>();
         CutsceneManager = GetComponentInChildren<CutsceneManager>();
         SaveAndLoadManager = GetComponentInChildren<SaveAndLoadManager>();
+        PowerUpManager = GetComponentInChildren<PowerUpManager>();
     }
 }

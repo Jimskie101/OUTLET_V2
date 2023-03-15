@@ -35,6 +35,7 @@ public class PowerUp : MonoBehaviour
         disableDelay = new WaitForSeconds(0.5f);
         m_reEnablerDelay = new WaitForSeconds(m_powerUpData.RespawnTime);
         transform.DOLocalRotate(m_rotation, 4f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
+        m_blinkTime = new WaitForSeconds(0.25f);
     }
 
     private void ApplyEffect()
@@ -44,15 +45,15 @@ public class PowerUp : MonoBehaviour
             case PowerUpType.SuperJump:
                 m_playerScript.PowerUpJumpBoost = m_powerUpData.JumpAddedValue;
                 m_playerScript.FallingDisabled = true;
-                Managers.Instance.UIManager.PowerUpCountdown(m_powerUpData.JumpBoostDuration, this)
+                Managers.Instance.PowerUpManager.PowerUpCountdown(m_powerUpData.JumpBoostDuration, this)
                 ; break;
             case PowerUpType.Shield:
                 m_playerScript.Shielded = true;
-                Managers.Instance.UIManager.PowerUpCountdown(m_powerUpData.ShieldDuration, this, m_powerUpFX)
+                Managers.Instance.PowerUpManager.PowerUpCountdown(m_powerUpData.ShieldDuration, this, m_powerUpFX)
                 ; break;
             case PowerUpType.LightLock:
                 m_playerScript.LightLock = true;
-                Managers.Instance.UIManager.PowerUpCountdown(m_powerUpData.LightLockDuration, this)
+                Managers.Instance.PowerUpManager.PowerUpCountdown(m_powerUpData.LightLockDuration, this)
                 ; break;
         }
     }
@@ -85,8 +86,38 @@ public class PowerUp : MonoBehaviour
                 m_playerScript.LightLock = false;
                 ; break;
         }
+        StopCoroutine(BlinkBack());
+        m_powerUpFX.SetActive(false);
     }
 
+    WaitForSeconds m_blinkTime;
+    Coroutine m_blinker = null;
+    float m_blinkInterval = 0;
+    [Button]
+    public void BlinkOut(float interval)
+    {
+        if (m_blinkInterval <= 0)
+        {
+            if (m_blinker == null)
+            {
+                m_blinkInterval = interval;
+                m_powerUpFX.SetActive(false);
+                m_blinker = StartCoroutine(BlinkBack());
+            }
+        }
+        else
+        m_blinkInterval -= Time.deltaTime;
+
+
+    }
+
+    IEnumerator BlinkBack()
+    {
+        yield return m_blinkTime;
+        m_powerUpFX.SetActive(true);
+        m_blinker = null;
+        yield return null;
+    }
 
     private void OnDisable()
     {

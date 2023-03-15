@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2801430613215089559}
   - component: {fileID: 2801430613215089558}
   - component: {fileID: 2801430613215089553}
+  - component: {fileID: 620066000}
   m_Layer: 16
   m_Name: Rat
   m_TagString: Untagged
@@ -98,7 +99,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2.45
+  m_Height: 2.07
   m_Direction: 2
   m_Center: {x: 0, y: -0.25, z: 0}
 --- !u!195 &2801430613215089558
@@ -110,7 +111,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2801430613215089555}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -142,6 +143,20 @@ MonoBehaviour:
   m_alreadyAttacked: 0
   angleToLook: 0.001
   m_doneAttacking: 1
+--- !u!136 &620066000
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2801430613215089555}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.27
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.25, z: 0}
 --- !u!1001 &2801430613801875367
 PrefabInstance:
   m_ObjectHideFlags: 0

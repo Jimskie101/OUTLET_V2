@@ -43,7 +43,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 511656224960a9945857acc576171428, type: 3}
-        m_Scale: {x: 0.1, y: 0.1}
+        m_Scale: {x: 0.01, y: 0.01}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -71,7 +71,7 @@ Material:
     - _Float1: 2
     - _Float2: 3
     - _Fresnel: 75
-    - _FresnelIntensity: 61
+    - _FresnelIntensity: 74.59488
     - _FresnelWidth: 2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -104,10 +104,10 @@ Material:
     - _x: 0.063
     - _y: 0.122
     m_Colors:
-    - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.38039213, g: 0.692191, b: 1, a: 1}
+    - _MainColor: {r: 0.3803921, g: 0.692191, b: 1, a: 1}
     - _intersectColor: {r: 1, g: 0, b: 0, a: 1}
     - _node_4016: {r: 0.034482475, g: 0, b: 1, a: 1}
     - _node_5050: {r: 0, g: 0, b: 0, a: 0}
