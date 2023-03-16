@@ -46,9 +46,9 @@ public class PowerUpManager : MonoBehaviour
                         // mySlider.value = startValue;
                         p.powerUpLeft.fillAmount = startValue;
                         p.powerUpRight.fillAmount = startValue;
-                        if (startValue < 0.5f && startValue > 0.005f)
+                        if (startValue < 0.5f && startValue > 0.001f)
                         {
-                            interval = Mathf.Clamp(startValue / 0.5f, 0.05f, 1);
+                            interval = Mathf.Clamp(startValue, 0.2f, 1);
                             powerUpScript.BlinkOut(interval);
 
                         }
