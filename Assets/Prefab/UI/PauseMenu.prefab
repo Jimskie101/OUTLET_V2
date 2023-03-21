@@ -1466,7 +1466,7 @@ GameObject:
   - component: {fileID: 7420967521123837905}
   - component: {fileID: 7420967521123837904}
   m_Layer: 3
-  m_Name: ReturnToMainMenu
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1545,14 +1545,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: e9ce97b7a206dc64d90931ea044e0c72, type: 2}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 11500000, guid: 5aa4b9ead7f515e408b7aef3d0531b84, type: 3}
+        m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
         m_MethodName: 
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: Levels
           m_BoolArgument: 0
