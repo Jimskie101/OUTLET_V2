@@ -130,6 +130,10 @@ public class WireBase : MonoBehaviour
 
     public Vector3 GetTargetPoint()
     {
+        if(m_targetPoint != TargetObject.position)
+        {
+            m_targetPoint = TargetObject.position;
+        }
         return m_targetPoint;
     }
 

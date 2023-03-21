@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 using DG.Tweening;
 using TMPro;
+using System.Linq;
 
 
 public class UIManager : MonoBehaviour
@@ -276,6 +277,7 @@ public class UIManager : MonoBehaviour
     [Header("Settings")]
     [SerializeField] Dropdown m_resolutionDropdown;
     Resolution[] m_resolutions;
+    Resolution[] m_filteredResolutions;
     [SerializeField] AudioMixer m_audioMixer;
 
 
@@ -283,18 +285,23 @@ public class UIManager : MonoBehaviour
     private void GetResolutionData()
     {
         m_resolutions = Screen.resolutions;
+        m_filteredResolutions = m_resolutions.Where(resolution => {
+            float aspectRatio = (float)resolution.width / (float)resolution.height;
+            return Mathf.Approximately(aspectRatio, 16f / 9f);
+        }).ToArray();
+
         m_resolutionDropdown.ClearOptions();
 
         List<string> resolutionList = new List<string>();
 
         int currentResolutionIndex = 0;
 
-        for (int i = 0; i < m_resolutions.Length; i++)
+        for (int i = 0; i < m_filteredResolutions.Length; i++)
         {
-            string resolution = m_resolutions[i].width + "x" + m_resolutions[i].height;
+            string resolution = m_filteredResolutions[i].width + "x" + m_filteredResolutions[i].height;
             resolutionList.Add(resolution);
-            if (m_resolutions[i].width == Screen.currentResolution.width &&
-            m_resolutions[i].height == Screen.currentResolution.height)
+            if (m_filteredResolutions[i].width == Screen.currentResolution.width &&
+            m_filteredResolutions[i].height == Screen.currentResolution.height)
             {
                 currentResolutionIndex = i;
             }
@@ -307,7 +314,7 @@ public class UIManager : MonoBehaviour
     }
     public void SetResolution(int i_resolutionIndex)
     {
-        Resolution resolution = m_resolutions[i_resolutionIndex];
+        Resolution resolution = m_filteredResolutions[i_resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
