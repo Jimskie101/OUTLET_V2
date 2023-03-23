@@ -123,6 +123,7 @@ public class WireBase : MonoBehaviour
         //
         TargetObject = null;
         m_handsUp = false;
+      
     }
 
 
@@ -164,9 +165,8 @@ public class WireBase : MonoBehaviour
                 m_handsUp = true;
                 Debug.Log("Hook Detected");
                 Swing();
-
-
             }
+           
 
 
         }

@@ -3825,7 +3825,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh415070
+  m_Name: pb_Mesh29544
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8977,8 +8977,8 @@ GameObject:
   - component: {fileID: 726936226}
   - component: {fileID: 726936225}
   - component: {fileID: 726936224}
-  - component: {fileID: 726936222}
   - component: {fileID: 726936232}
+  - component: {fileID: 726936233}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -8986,19 +8986,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &726936222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726936221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd2cb1fe9c106e4889a3b17b2bd840b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_playerData: {fileID: 11400000, guid: 29e6047e46975f34e878230838d43b08, type: 2}
 --- !u!114 &726936224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9060,6 +9047,7 @@ MonoBehaviour:
   IsGrounded: 0
   startYPos: 0
   endYPos: 0
+  LockRotation: 0
   ConnectedToSource: 0
   TargetSource: {fileID: 0}
   m_dust: {fileID: 957953343}
@@ -9185,6 +9173,23 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &726936233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726936221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504348696165c944a907993935f6af22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLockDistance: 2
+  lockLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  m_playerMovement: {fileID: 726936226}
 --- !u!1 &728398700
 GameObject:
   m_ObjectHideFlags: 0
@@ -29011,7 +29016,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh414928
+  m_Name: pb_Mesh29402
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40728,7 +40733,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh412668
+  m_Name: pb_Mesh27142
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -76339,9 +76344,9 @@ GameObject:
   - component: {fileID: 7841272781256950819}
   - component: {fileID: 7841272781256950818}
   - component: {fileID: 7841272781256950820}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Moveable
-  m_TagString: Untagged
+  m_TagString: Pushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79562,7 +79567,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 48
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &7841272781256950819
 BoxCollider:

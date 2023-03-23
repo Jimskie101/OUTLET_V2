@@ -23,8 +23,9 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Player.Jump.performed += ctx => m_playerMovement.Jump();
         m_inputMaster.Player.Movement.performed += ctx => m_playerMovement.GetDirection(ctx.ReadValue<Vector2>());
         m_inputMaster.Player.Movement.canceled += ctx => m_playerMovement.GetDirection(Vector2.zero);
-        //Push Pull Object / Lock Object to hand
-        //m_inputMaster.Player.ObjectPushPull += ctx => m_playerMovement
+        // //Push Pull Object / Lock Object to hand
+        // m_inputMaster.Player.ObjectPushPull.performed += ctx => m_playerMovement.LockObject();
+        // m_inputMaster.Player.ObjectPushPull.performed += ctx => m_playerMovement.UnlockObject();
         m_inputMaster.Player.Sprint.performed += ctx => m_playerMovement.Run();
         m_inputMaster.Player.Sprint.canceled += ctx => m_playerMovement.Walk();
         m_inputMaster.Camera.NextCamera.performed += ctx => m_cameraHandler.NextCam();

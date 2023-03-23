@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
+    public bool LockRotation = false;
 
     private void Update()
     {
@@ -132,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (m_cc.enabled)
             MovePlayer();
+        if(!LockRotation)
         RotatePlayer();
 
     }
@@ -369,5 +370,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     [SerializeField] ParticleSystem m_jumpFX;
+
+
 
 }
