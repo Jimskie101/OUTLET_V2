@@ -55,6 +55,8 @@ public class OperationRoom : MonoBehaviour
 
     public void MoveTargetObject(Transform targetObj)
     {
+        Managers.Instance.GameManager.Player.GetComponent<LockAndPullObject>().UnlockObject();
+        targetObj.tag = "Environment";
         m_onGoing = true;
         m_defaultPosition = targetObj.localPosition;
         if (targetObj.TryGetComponent(out m_targetRB))

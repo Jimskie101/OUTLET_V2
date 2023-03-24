@@ -22775,6 +22775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61adb20d9291764eb3ce4473f1c29e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   NoDeathMode: 0
   UnliLight: 0
   NoCutscene: 1
@@ -32675,6 +32676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerMoveScript: {fileID: 726936226}
+  LoadingBar: {fileID: 0}
   m_collectibleText: {fileID: 728398702}
   m_titleText: {fileID: 593917715}
   m_infoText: {fileID: 1829012089}

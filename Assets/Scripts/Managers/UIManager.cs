@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     SceneHandler m_sceneHandler;
     CheckpointManager m_checkpointManager;
 
-
+    public Image LoadingBar;
 
 
     private void Start()
@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
         m_checkpointManager = Managers.Instance.CheckpointManager;
         m_timeForScreen = new WaitForSeconds(2f);
         FadeInFromBlack();
+        if(m_sceneHandler.GetCurrentSceneName() != "Loading" && !m_sceneHandler.GetSceneValueByName("Loading").isLoaded && m_resolutionDropdown != null)
         GetResolutionData();
         if (m_sceneHandler.GetCurrentScene() == 1)
         {
@@ -188,7 +189,7 @@ public class UIManager : MonoBehaviour
         public Image powerUpRight;
     }
 
-    
+
 
 
     //Main Menu
@@ -285,11 +286,11 @@ public class UIManager : MonoBehaviour
     private void GetResolutionData()
     {
         m_resolutions = Screen.resolutions;
-        m_filteredResolutions = m_resolutions.Where(resolution => {
+        m_filteredResolutions = m_resolutions.Where(resolution =>
+        {
             float aspectRatio = (float)resolution.width / (float)resolution.height;
             return Mathf.Approximately(aspectRatio, 16f / 9f);
         }).ToArray();
-
         m_resolutionDropdown.ClearOptions();
 
         List<string> resolutionList = new List<string>();
@@ -373,17 +374,25 @@ public class UIManager : MonoBehaviour
     //Fade IN
     public void FadeInFromBlack()
     {
-        m_endColor = new Color32(0, 0, 0, 0);
-        m_fadeImage.gameObject.SetActive(true);
-        m_fadeImage.DOColor(m_endColor, m_fadeTime).SetUpdate(true).
-        OnComplete(() => m_fadeImage.gameObject.SetActive(false));
+        if (m_fadeImage != null)
+        {
+            m_endColor = new Color32(0, 0, 0, 0);
+            m_fadeImage.gameObject.SetActive(true);
+            m_fadeImage.DOColor(m_endColor, m_fadeTime).SetUpdate(true).
+            OnComplete(() => m_fadeImage.gameObject.SetActive(false));
+        }
+
     }
     public void FadeToBlack(bool stopTime = false)
     {
-        if (stopTime) Managers.Instance.InputHandler.EndStage();
-        m_endColor = new Color32(0, 0, 0, 255);
-        m_fadeImage.gameObject.SetActive(true);
-        m_fadeImage.DOColor(m_endColor, m_fadeTime).SetUpdate(true);
+        if (m_fadeImage != null)
+        {
+            if (stopTime) Managers.Instance.InputHandler.EndStage();
+            m_endColor = new Color32(0, 0, 0, 255);
+            m_fadeImage.gameObject.SetActive(true);
+            m_fadeImage.DOColor(m_endColor, m_fadeTime).SetUpdate(true);
+        }
+
     }
 
 

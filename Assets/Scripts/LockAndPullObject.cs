@@ -75,7 +75,7 @@ public class LockAndPullObject : MonoBehaviour
         }
     }
 
-    private void UnlockObject()
+    public void UnlockObject()
     {
         objectToLock.isKinematic = false;
         objectToLock = null;

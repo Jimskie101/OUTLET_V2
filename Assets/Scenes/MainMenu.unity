@@ -943,6 +943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerMoveScript: {fileID: 0}
+  LoadingBar: {fileID: 0}
   m_collectibleText: {fileID: 0}
   m_titleText: {fileID: 0}
   m_infoText: {fileID: 0}

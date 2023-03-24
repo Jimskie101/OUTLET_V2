@@ -32,6 +32,7 @@ public class Managers : MonoBehaviour
         {
             Instance = this;
         }
+        
 
     }
 

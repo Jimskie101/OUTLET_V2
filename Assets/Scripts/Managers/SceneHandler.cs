@@ -30,12 +30,56 @@ public class SceneHandler : MonoBehaviour
     public void LoadStage(int stage)
     {
         DOTween.KillAll();
-        SceneManager.LoadScene(stage);
+        Managers.Instance.GameData.NextSceneIndex = stage;
+        StartCoroutine(LoadSceneAsync());
     }
+    UIManager m_uiManager;
+    private IEnumerator LoadSceneAsync()
+    {
+        // Load the LoadingScreen scene
+        yield return SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Single);
+
+        // // Load the target scene asynchronously
+        // AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(Managers.Instance.GameData.NextSceneIndex, LoadSceneMode.Additive);
+        // asyncOperation.allowSceneActivation = false;
+
+        // // Update the progress bar while loading
+        // while (!asyncOperation.isDone)
+        // {
+        //     m_uiManager.LoadingBar.fillAmount  = Mathf.Clamp01(asyncOperation.progress / 0.9f);;
+
+        //     // Wait until the target scene is fully loaded
+        //     if (asyncOperation.progress >= 0.9f)
+        //     {
+        //         // Wait a short time to ensure the progress bar shows 100%
+        //         yield return new WaitForSeconds(1f);
+
+        //         // Activate the target scene
+        //         asyncOperation.allowSceneActivation = true;
+        //     }
+
+        //     yield return null;
+        // }
+
+        // // Unload the LoadingScreen scene
+        // SceneManager.UnloadSceneAsync("Loading");
+    }
+
+
+    
     public int GetCurrentScene()
     {
         return SceneManager.GetActiveScene().buildIndex;
     }
+    public string GetCurrentSceneName()
+    {
+        return SceneManager.GetActiveScene().name;
+    }
+    public Scene GetSceneValueByName(string sceneName)
+    {
+        return SceneManager.GetSceneByName(sceneName);
+    }
+
 
 
 
@@ -47,6 +91,8 @@ public class SceneHandler : MonoBehaviour
             IntroScene();
         if (m_sceneIndex == 2)
             Cinematics1();
+            if(GetCurrentSceneName() != "Loading" && SceneManager.GetSceneByName("Loading").isLoaded)
+            SceneManager.UnloadSceneAsync("Loading");
         
     }
 
