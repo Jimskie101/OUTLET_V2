@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using DG.Tweening;
 using EasyButtons;
 
@@ -64,7 +65,12 @@ public class OperationRoom : MonoBehaviour
             m_targetRB.isKinematic = true;
         }
         targetObj.DOLocalMove(m_defaultPosition - m_targetPosition, m_moveDuration)
-        .OnComplete(() => { m_puzzleIndicator.Activate(); Fixed(); m_onGoing = false; });
+        .OnComplete(() =>
+        {
+            //m_puzzleIndicator.Activate();
+            Fixed();
+            m_onGoing = false;
+        });
     }
 
     [SerializeField] string m_workingSoundName;
@@ -75,7 +81,7 @@ public class OperationRoom : MonoBehaviour
     public void Fixed()
     {
         //Update the GameManager objectives
-        Managers.Instance.GameManager.ObjectiveCounter++;
+        Managers.Instance.GameManager.ObjectiveCounter = m_forLoadingId;
 
 
         Managers.Instance.AudioManager.PlayHere(m_workingSoundName, this.gameObject, true);
@@ -85,7 +91,8 @@ public class OperationRoom : MonoBehaviour
 
     }
 
-    [SerializeField] int m_cutsceneIndex = 0    ;
+    [SerializeField] int m_cutsceneIndex = 0;
+    [SerializeField] float m_lightIntensity = 2f;
     IEnumerator LightUp()
     {
         yield return new WaitForSeconds(2f);
@@ -100,15 +107,15 @@ public class OperationRoom : MonoBehaviour
 
         foreach (Light l in m_targetLights)
         {
-            l.DOIntensity(0, 2f).SetEase(Ease.InOutBounce);
+            l.DOIntensity(m_lightIntensity, 2f).SetEase(Ease.InOutBack);
         }
 
-        
+        m_action.Invoke();
 
     }
 
 
-
+    [SerializeField] UnityEvent m_action;
 
     //Must have for objectives
     [SerializeField] int m_forLoadingId;
@@ -124,8 +131,10 @@ public class OperationRoom : MonoBehaviour
 
         foreach (Light l in m_targetLights)
         {
-            l.DOIntensity(4, 0f);
+            l.DOIntensity(m_lightIntensity, 0f);
         }
+        m_action.Invoke();
+
     }
     private void ObjectiveChecker()
     {

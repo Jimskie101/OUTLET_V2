@@ -32,18 +32,15 @@ public class EnergySource : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (Charge < 1 && m_hot.enabled)
-        {
-            m_hot.enabled = false;
-            m_neutral.enabled = false;
-            //m_outline.enabled = false;
-            Outline.OutlineWidth = 0;
-            if(!isTaskDone && isATask)
-            {
-                isTaskDone = true; 
-                //Managers.Instance.TaskManager.NextTask();
-                this.enabled = false;
-            }
-        }
+        
     }
+
+
+    public void Refill()
+    {
+        Charge = 1000000;
+        Outline.OutlineWidth = 2;
+        
+    }
+
 }

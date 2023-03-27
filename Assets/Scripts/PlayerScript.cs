@@ -167,8 +167,10 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        
         if (!Shielded)
             LifePercentage -= damageAmount;
+            Managers.Instance.UIManager.DamageFX();
     }
 
     private void StopSound()

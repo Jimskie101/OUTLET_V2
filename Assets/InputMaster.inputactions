@@ -588,6 +588,45 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Cinematics",
+            "id": "fccf6aa1-1047-41d2-86a8-5551cf9026ba",
+            "actions": [
+                {
+                    "name": "Skip",
+                    "type": "Button",
+                    "id": "d46e11ff-e936-4ba7-821e-5dbf726d4f4d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cf5cabac-87a2-47ab-bfae-ef97e22d7389",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "242671f5-ba53-4eea-880f-6300a2f4f61b",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

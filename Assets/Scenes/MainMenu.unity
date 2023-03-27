@@ -812,7 +812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -35.999756, y: -434.99994}
+  m_AnchoredPosition: {x: -36, y: -435}
   m_SizeDelta: {x: -1420, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &469696068
@@ -945,6 +945,10 @@ MonoBehaviour:
   m_playerMoveScript: {fileID: 0}
   LoadingBar: {fileID: 0}
   m_collectibleText: {fileID: 0}
+  m_cinematicsSkipperCircles: []
+  m_skipperEvents:
+    m_PersistentCalls:
+      m_Calls: []
   m_titleText: {fileID: 0}
   m_infoText: {fileID: 0}
   m_uiObjectWithHint: {fileID: 0}
@@ -1755,7 +1759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -35.999756, y: -351.99994}
+  m_AnchoredPosition: {x: -36, y: -352}
   m_SizeDelta: {x: -1420, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &870413521
@@ -5563,7 +5567,7 @@ MonoBehaviour:
     type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
 --- !u!114 &3650036357951854272

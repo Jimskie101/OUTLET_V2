@@ -610,6 +610,45 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Cinematics"",
+            ""id"": ""fccf6aa1-1047-41d2-86a8-5551cf9026ba"",
+            ""actions"": [
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""d46e11ff-e936-4ba7-821e-5dbf726d4f4d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""cf5cabac-87a2-47ab-bfae-ef97e22d7389"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""242671f5-ba53-4eea-880f-6300a2f4f61b"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -636,6 +675,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_OnHook = asset.FindActionMap("OnHook", throwIfNotFound: true);
         m_OnHook_Movement = m_OnHook.FindAction("Movement", throwIfNotFound: true);
         m_OnHook_Jump = m_OnHook.FindAction("Jump", throwIfNotFound: true);
+        // Cinematics
+        m_Cinematics = asset.FindActionMap("Cinematics", throwIfNotFound: true);
+        m_Cinematics_Skip = m_Cinematics.FindAction("Skip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -912,6 +954,39 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         }
     }
     public OnHookActions @OnHook => new OnHookActions(this);
+
+    // Cinematics
+    private readonly InputActionMap m_Cinematics;
+    private ICinematicsActions m_CinematicsActionsCallbackInterface;
+    private readonly InputAction m_Cinematics_Skip;
+    public struct CinematicsActions
+    {
+        private @InputMaster m_Wrapper;
+        public CinematicsActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Skip => m_Wrapper.m_Cinematics_Skip;
+        public InputActionMap Get() { return m_Wrapper.m_Cinematics; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CinematicsActions set) { return set.Get(); }
+        public void SetCallbacks(ICinematicsActions instance)
+        {
+            if (m_Wrapper.m_CinematicsActionsCallbackInterface != null)
+            {
+                @Skip.started -= m_Wrapper.m_CinematicsActionsCallbackInterface.OnSkip;
+                @Skip.performed -= m_Wrapper.m_CinematicsActionsCallbackInterface.OnSkip;
+                @Skip.canceled -= m_Wrapper.m_CinematicsActionsCallbackInterface.OnSkip;
+            }
+            m_Wrapper.m_CinematicsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Skip.started += instance.OnSkip;
+                @Skip.performed += instance.OnSkip;
+                @Skip.canceled += instance.OnSkip;
+            }
+        }
+    }
+    public CinematicsActions @Cinematics => new CinematicsActions(this);
     public interface IPlayerActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -938,5 +1013,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface ICinematicsActions
+    {
+        void OnSkip(InputAction.CallbackContext context);
     }
 }

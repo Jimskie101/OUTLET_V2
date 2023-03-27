@@ -5,17 +5,21 @@ using EasyButtons;
 public class GameManager : MonoBehaviour
 {
     public GameObject Player;
+    private void Awake()
+    {
+        Player = FindObjectOfType<PlayerScript>().gameObject;
+    }
 
     [Header("Tools and Cheats")]
     //Cheats and Tools
     public bool NoDeathMode = false;
     public bool UnliLight = false;
     public bool NoCutscene = false;
-    
+
     public int ObjectiveCounter = 0;
-  
-    public int CollectibleCount = 0; 
-    public int PostersCount = 0; 
+
+    public int CollectibleCount = 0;
+    public int PostersCount = 0;
 
 
     public enum Direction
@@ -29,7 +33,7 @@ public class GameManager : MonoBehaviour
     public Direction GameDirection;
     public Vector3 XOrientation;
     public Vector3 ZOrientation;
-    
+
     //Changes the game control direction
     [Button]
     public void ChangeGameDirection()

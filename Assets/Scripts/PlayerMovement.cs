@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
             FallCheck();
         }
 
-        
+
 
 
 
@@ -132,8 +132,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (m_cc.enabled)
             MovePlayer();
-        if(!LockRotation)
-        RotatePlayer();
+        if (!LockRotation)
+            RotatePlayer();
 
     }
 
@@ -183,7 +183,7 @@ public class PlayerMovement : MonoBehaviour
 
         m_speed = IsGrounded ? m_playerData.Speed : m_playerData.Speed * 0.75f;
         m_speed = m_isRunning ? m_speed * m_playerData.RunSpeedMultiplier : m_speed;
-
+       
         m_cc.Move(m_inputDir.normalized * m_speed * Time.deltaTime);
 
 
@@ -272,6 +272,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+
+
     //Run
     public void Run() { m_isRunning = true; }
     public void Walk() { m_isRunning = false; }
@@ -282,16 +284,19 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(m_groundChecker.position, m_playerData.GroundCheckSphereRadius);
     }
-    private void OnDisable() {
+    private void OnDisable()
+    {
         m_inputDir = Vector3.zero;
     }
 
     bool m_deadAlready = false;
     [HideInInspector]
+    public bool Holding = false;
 
     private void AnimationUpdate()
     {
-
+        if (Holding) m_animator.SetBool("holding", true);
+        else m_animator.SetBool("holding", false);
         if (m_inputDir != Vector3.zero && IsGrounded)
         {
             m_playerScript.ChangeStateMultiplier = 3f;

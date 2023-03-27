@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 using EasyButtons;
 using DG.Tweening;
@@ -20,6 +21,24 @@ public class SceneHandler : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    VideoPlayer m_videoPlayer;
+
+    //Splash Intro Scene
+    private void Start()
+    {
+        m_sceneIndex = GetCurrentScene();
+        m_videoPlayer = FindObjectOfType<VideoPlayer>();
+
+        if (m_videoPlayer != null && GetCurrentScene() != 0)
+            m_videoPlayer.loopPointReached += EndReached;
+        if (m_sceneIndex == 0) IntroScene();
+
+        if (GetCurrentSceneName() != "Loading" && SceneManager.GetSceneByName("Loading").isLoaded)
+            SceneManager.UnloadSceneAsync("Loading");
+
+    }
+
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Time.timeScale = 1f;
@@ -30,8 +49,10 @@ public class SceneHandler : MonoBehaviour
     public void LoadStage(int stage)
     {
         DOTween.KillAll();
+
         Managers.Instance.GameData.NextSceneIndex = stage;
-        StartCoroutine(LoadSceneAsync());
+        Managers.Instance.UIManager.FadeToBlack(false, () => StartCoroutine(LoadSceneAsync()));
+
     }
     UIManager m_uiManager;
     private IEnumerator LoadSceneAsync()
@@ -66,7 +87,7 @@ public class SceneHandler : MonoBehaviour
     }
 
 
-    
+
     public int GetCurrentScene()
     {
         return SceneManager.GetActiveScene().buildIndex;
@@ -82,19 +103,6 @@ public class SceneHandler : MonoBehaviour
 
 
 
-
-    //Splash Intro Scene
-    private void Start()
-    {   
-        m_sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (m_sceneIndex == 0)
-            IntroScene();
-        if (m_sceneIndex == 2)
-            Cinematics1();
-            if(GetCurrentSceneName() != "Loading" && SceneManager.GetSceneByName("Loading").isLoaded)
-            SceneManager.UnloadSceneAsync("Loading");
-        
-    }
 
     float secondsLeft = 0;
     WaitForSeconds waitForSeconds = new WaitForSeconds(1);
@@ -112,29 +120,33 @@ public class SceneHandler : MonoBehaviour
         }
     }
 
-    public void Cinematics1()
+    void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
-        StartCoroutine(DelayLoadLevel(90));
-        IEnumerator DelayLoadLevel(float seconds)
-        {
-            secondsLeft = seconds;
-            do
-            {
-                yield return waitForSeconds;
-            } while (--secondsLeft > 0);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        LoadStage(GetCurrentScene() + 1);
+
     }
+
+
+    // public void Cinematics1()
+    // {
+    //     StartCoroutine(DelayLoadLevel(90));
+    //     IEnumerator DelayLoadLevel(float seconds)
+    //     {
+    //         secondsLeft = seconds;
+    //         do
+    //         {
+    //             yield return waitForSeconds;
+    //         } while (--secondsLeft > 0);
+    //         LoadStage(SceneManager.GetActiveScene().buildIndex + 1);
+    //     }
+    // }
     bool m_working = false;
-    private void Update()
+    public void Skip()
     {
-        if(m_sceneIndex == 2 && !m_working)
+        if (m_videoPlayer != null && m_videoPlayer.isPlaying && !m_working)
         {
-            if(Input.GetButtonDown("Jump"))
-            {
-                m_working = true;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
+            m_working = true;
+            EndReached(m_videoPlayer);
         }
     }
 

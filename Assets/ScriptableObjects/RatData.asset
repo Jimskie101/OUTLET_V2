@@ -18,7 +18,7 @@ MonoBehaviour:
   WanderRadius: {x: 2, y: 5}
   AttackRange: 5
   ChaseRange: 20
-  ActivityRange: 1000
+  ActivityRange: 100
   AttackForce: 10
   AttackCooldown: 1
   AttackDamage: 0.1

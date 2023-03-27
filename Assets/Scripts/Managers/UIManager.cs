@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using DG.Tweening;
 using TMPro;
 using System.Linq;
-
+using EasyButtons;
 
 public class UIManager : MonoBehaviour
 {
@@ -25,8 +26,8 @@ public class UIManager : MonoBehaviour
         m_checkpointManager = Managers.Instance.CheckpointManager;
         m_timeForScreen = new WaitForSeconds(2f);
         FadeInFromBlack();
-        if(m_sceneHandler.GetCurrentSceneName() != "Loading" && !m_sceneHandler.GetSceneValueByName("Loading").isLoaded && m_resolutionDropdown != null)
-        GetResolutionData();
+        if (m_resolutionDropdown != null)
+            GetResolutionData();
         if (m_sceneHandler.GetCurrentScene() == 1)
         {
             Debug.Log("Checking Saves");
@@ -34,6 +35,29 @@ public class UIManager : MonoBehaviour
         }
 
 
+    }
+
+
+
+
+
+
+
+
+    [Header("Damage Flash")]
+    [SerializeField] Image m_damageFlash;
+    Sequence m_damageFlashSequence;
+    [Button]
+    public void DamageFX()
+    {  
+        
+         m_damageFlash.gameObject.SetActive(true);
+         m_damageFlashSequence = DOTween.Sequence()
+            .Append(m_damageFlash.DOFade(1f, 0.1f))
+            .Append(m_damageFlash.DOFade(0f, 0.2f))
+            .Append(m_damageFlash.DOFade(1f, 0.15f))
+            .Append(m_damageFlash.DOFade(0f, 0.3f)).SetEase(Ease.InOutFlash)
+            .OnComplete(() => m_damageFlash.gameObject.SetActive(false));
     }
 
     [SerializeField] TMP_Text m_collectibleText;
@@ -45,12 +69,86 @@ public class UIManager : MonoBehaviour
     }
 
     [Header("Info/Hint UI")]
+    [SerializeField] Image[] m_cinematicsSkipperCircles;
+    [SerializeField] UnityEvent m_skipperEvents;
+
+    //Cinematic Skipper
+    bool m_holdingSkip = false;
+    float m_holdingSkipTime = 3f;
+    float m_holdingTimer = 0;
+    bool m_skipped = false;
+    public void SkipperHold()
+    {
+        m_holdingSkip = true;
+    }
+    public void ResetSkipperHold()
+    {
+        m_holdingSkip = false;
+
+    }
+
+    private void UpdateCircle()
+    {
+        if (m_holdingTimer >= m_holdingSkipTime && !m_skipped)
+        {
+            m_skipped = true;
+            foreach (Image i in m_cinematicsSkipperCircles)
+            {
+                if (i.gameObject.activeSelf)
+                {
+                    
+                    i.fillAmount = 0;
+
+                }
+            }
+            m_skipperEvents.Invoke();
+        }
+        if (m_holdingTimer <= m_holdingSkipTime)
+        {
+            m_holdingTimer += Time.unscaledDeltaTime;
+            foreach (Image i in m_cinematicsSkipperCircles)
+            {
+                if (i.gameObject.activeSelf)
+                {
+                    i.fillAmount = Mathf.Clamp(m_holdingTimer / m_holdingSkipTime, 0, 1f);
+                }
+
+            }
+        }
+
+
+    }
+    private void Update()
+    {
+        if (m_holdingSkip)
+            UpdateCircle();
+        else if (!m_holdingSkip && m_holdingTimer > 0 && !m_skipped)
+        {
+            m_holdingTimer -= Time.unscaledDeltaTime * 2;
+            foreach (Image i in m_cinematicsSkipperCircles)
+            {
+                if (i.gameObject.activeSelf)
+                {
+                    i.fillAmount = Mathf.Clamp(m_holdingTimer / m_holdingSkipTime, 0, 1f); ;
+                }
+
+            }
+        }
+    }
+
+
+
+
+
+    [Header("Info/Hint UI")]
     [SerializeField] TMP_Text m_titleText;
     [SerializeField] TMP_Text m_infoText;
     [SerializeField] GameObject m_uiObjectWithHint;
     public void ShowInfo(string title = "", string info = "", bool isAControl = false, GameObject uiObj = null)
     {
         Time.timeScale = 0f;
+        m_skipped = false;
+        m_holdingTimer = 0;
         if (isAControl)
         {
             if (!uiObj.activeSelf)
@@ -107,6 +205,8 @@ public class UIManager : MonoBehaviour
         if (!m_triviaObject.activeSelf)
         {
             Time.timeScale = 0f;
+            m_skipped = false;
+            m_holdingTimer = 0;
             Managers.Instance.InputHandler.ShowingHint();
             m_triviaImage.sprite = image;
             m_triviaObject.SetActive(true);
@@ -135,6 +235,8 @@ public class UIManager : MonoBehaviour
         if (!m_posterObject.activeSelf)
         {
             Time.timeScale = 0f;
+            m_skipped = false;
+            m_holdingTimer = 0;
             Managers.Instance.InputHandler.ShowingHint();
             m_posterImage.sprite = image;
             m_posterObject.SetActive(true);
@@ -371,26 +473,35 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image m_fadeImage;
     [SerializeField] float m_fadeTime = 2.0f;
     Color32 m_endColor;
+    Tween m_faderTween = null;
     //Fade IN
     public void FadeInFromBlack()
     {
         if (m_fadeImage != null)
         {
             m_endColor = new Color32(0, 0, 0, 0);
+
+            if (m_faderTween != null) m_faderTween.Kill();
+
             m_fadeImage.gameObject.SetActive(true);
-            m_fadeImage.DOColor(m_endColor, m_fadeTime).SetUpdate(true).
+            m_faderTween = m_fadeImage.DOColor(m_endColor, m_fadeTime).SetUpdate(true).
             OnComplete(() => m_fadeImage.gameObject.SetActive(false));
         }
 
     }
-    public void FadeToBlack(bool stopTime = false)
+    public void FadeToBlack(bool stopTime = false, System.Action callback = null)
     {
         if (m_fadeImage != null)
         {
             if (stopTime) Managers.Instance.InputHandler.EndStage();
             m_endColor = new Color32(0, 0, 0, 255);
+
+            if (m_faderTween != null) m_faderTween.Kill();
+
             m_fadeImage.gameObject.SetActive(true);
-            m_fadeImage.DOColor(m_endColor, m_fadeTime).SetUpdate(true);
+
+            m_faderTween = m_fadeImage.DOColor(m_endColor, m_fadeTime).SetUpdate(true)
+            .OnComplete(() => { if (callback != null) callback(); });
         }
 
     }

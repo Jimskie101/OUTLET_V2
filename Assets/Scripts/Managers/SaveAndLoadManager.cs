@@ -71,7 +71,11 @@ public class SaveAndLoadManager : MonoBehaviour
     [SerializeField] PlayerStatus m_playerStatus;
     PlayerScript m_playerScript;
 
-
+    private void Awake()
+    {
+        try { m_player = FindObjectOfType<PlayerScript>().gameObject; }
+        catch{}
+    }
     private void Start()
     {
 
@@ -174,7 +178,7 @@ public class SaveAndLoadManager : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         m_playerScript.LifePercentage = m_playerStatus.lifeValue;
     }
-    
+
 
     public List<GameObject> Entities;
     public List<EntityData> EntityDatas;
@@ -183,7 +187,7 @@ public class SaveAndLoadManager : MonoBehaviour
 
     private List<EntityData> GetEntitiesData()
     {
-         EntityDatas.Clear();
+        EntityDatas.Clear();
         foreach (GameObject g in Entities)
         {
             m_entityData = new EntityData();
@@ -207,9 +211,9 @@ public class SaveAndLoadManager : MonoBehaviour
         m_savedGameData.stageData = GetStageData();
         m_savedGameData.playerStatus = GetPlayerStatus();
         m_savedGameData.entityData = GetEntitiesData();
-        
-        
-       
+
+
+
 
         SaveToJson();
 
@@ -218,7 +222,7 @@ public class SaveAndLoadManager : MonoBehaviour
 
 
 
-    
+
     [Button]
     public void LoadData()
     {
@@ -231,7 +235,7 @@ public class SaveAndLoadManager : MonoBehaviour
             g.transform.rotation = EntityDatas[Entities.IndexOf(g)].rotation;
 
         }
-        Managers.Instance.WaypointManager.WaypointCounter = StageData.WaypointActive -1;
+        Managers.Instance.WaypointManager.WaypointCounter = StageData.WaypointActive - 1;
         Managers.Instance.TaskManager.TaskNumber = StageData.TaskActive;
         Managers.Instance.GameManager.ObjectiveCounter = StageData.ObjectiveActive;
         Managers.Instance.GameManager.CollectibleCount = StageData.CollectibleActive;

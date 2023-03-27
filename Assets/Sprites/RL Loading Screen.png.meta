@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -120,19 +120,19 @@ TextureImporter:
       name: RL Loading Screen_1
       rect:
         serializedVersion: 2
-        x: 1354
-        y: 250
-        width: 381
-        height: 458
+        x: 1362
+        y: 260
+        width: 365
+        height: 439
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 606d7c96e260169499cff1bf26cc3772
-      internalID: 2060343495
+      spriteID: 4f2e5efd57eb2f646a904da8d362138f
+      internalID: -2061307902
       vertices: []
       indices: 
       edges: []
@@ -143,17 +143,17 @@ TextureImporter:
         serializedVersion: 2
         x: 596
         y: 145
-        width: 546
-        height: 822
+        width: 545
+        height: 820
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 479d0fe95155a6f49b184c106d513771
-      internalID: 1060596962
+      spriteID: dff7bee5a5186f242a3485102cfff9c5
+      internalID: 1109001987
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a9d542904b6b36b4793b7569de166c96
+    spriteID: 3358db1e020fba7459287f8d62c47c55
     internalID: 0
     vertices: []
     indices: 
@@ -169,11 +169,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RL Loading Screen_2: 1449947960
-      RL Loading Screen_1: 2060343495
-      RL Loading Screen_0: -1836758427
-      RL Loading Screen_4: 2126198956
-      RL Loading Screen_3: 1060596962
+      RL Loading Screen_2: -385014824
+      RL Loading Screen_1: -2061307902
+      RL Loading Screen_0: -500408136
+      RL Loading Screen_4: -1583829507
+      RL Loading Screen_3: 1109001987
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
