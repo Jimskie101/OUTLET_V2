@@ -11,6 +11,10 @@ using EasyButtons;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Publicized Objects")]
+    public Image WaypointIcon;
+
+    [Space]
     //Player Movement
     [SerializeField] PlayerMovement m_playerMoveScript;
     //Game Status
@@ -19,9 +23,14 @@ public class UIManager : MonoBehaviour
 
     public Image LoadingBar;
 
-
+    
     private void Start()
-    {
+    {   
+
+
+        if(Managers.Instance.GameManager != null)
+        Managers.Instance.GameManager.Player.TryGetComponent(out m_playerMoveScript);
+        
         m_sceneHandler = Managers.Instance.SceneHandler;
         m_checkpointManager = Managers.Instance.CheckpointManager;
         m_timeForScreen = new WaitForSeconds(2f);
@@ -37,7 +46,10 @@ public class UIManager : MonoBehaviour
 
     }
 
-
+    public void LoadStage(int index)
+    {
+        Managers.Instance.SceneHandler.LoadStage(index);
+    }
 
 
 
@@ -265,7 +277,7 @@ public class UIManager : MonoBehaviour
     {
         m_gameStatusText.gameObject.SetActive(true);
         m_gameStatusText.text = statusText;
-        m_gameStatusRect = m_gameStatusText.GetComponent<RectTransform>();
+        m_gameStatusRect = m_gameStatusText.rectTransform;
 
         // Fade out the text over the specified duration
         Sequence sequence = DOTween.Sequence()

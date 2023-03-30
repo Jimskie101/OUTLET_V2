@@ -74,7 +74,7 @@ public class SaveAndLoadManager : MonoBehaviour
     private void Awake()
     {
         try { m_player = FindObjectOfType<PlayerScript>().gameObject; }
-        catch{}
+        catch { }
     }
     private void Start()
     {
@@ -106,7 +106,11 @@ public class SaveAndLoadManager : MonoBehaviour
                 Debug.Log("There's a savefile!");
                 return true;
             }
-            else return false;
+            else
+            {
+                Debug.Log("There's no savefile found!");
+                return false;
+            }
         }
         else return false;
 

@@ -9,9 +9,11 @@ public class CutsceneManager : MonoBehaviour
     CameraHandler m_cameraHandler;
     WaitForSeconds m_camResetTime;
     
+    CinemachineBrain m_mainCamera;
     private void Start() {
         m_cameraHandler = Managers.Instance.CameraHandler;
         m_camResetTime = new WaitForSeconds(3f);
+        m_mainCamera = FindObjectOfType<Camera>().GetComponent<CinemachineBrain>();
     }
     [SerializeField] Transform m_cameraHolder;
     [SerializeField] CinemachineVirtualCamera [] m_cutsceneCameras;
@@ -27,6 +29,7 @@ public class CutsceneManager : MonoBehaviour
 
     public void PlayCutscene(int cameraNum)
     {
+        m_mainCamera.m_DefaultBlend.m_Time = 2f;
         Managers.Instance.WaypointManager.HideMarker(true);
         m_cutsceneCameras[cameraNum].Priority = 40;
         m_tempCamera = m_cutsceneCameras[cameraNum];
@@ -39,6 +42,7 @@ public class CutsceneManager : MonoBehaviour
         m_cameraHandler.CutsceneIsPlaying = false;
          m_tempCamera.Priority = 5;
          Managers.Instance.WaypointManager.HideMarker(false);
+         m_mainCamera.m_DefaultBlend.m_Time = 1f;
          
     }
 }

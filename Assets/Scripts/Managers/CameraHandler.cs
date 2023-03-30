@@ -9,6 +9,7 @@ public class CameraHandler : MonoBehaviour
     GameManager m_gameManager;
     InputHandler m_inputHandler;
     bool m_controlsAreDown = false;
+    public Camera MainCamera;
     [SerializeField] CinemachineBrain m_camBrain;
     [SerializeField] CinemachineVirtualCamera m_frontCam;
     [SerializeField] CinemachineVirtualCamera m_leftCam;
@@ -114,6 +115,7 @@ public class CameraHandler : MonoBehaviour
     {
         m_gameManager = Managers.Instance.GameManager;
         m_inputHandler = Managers.Instance.InputHandler;
+        if(m_gameManager != null)
         if (!m_gameManager.NoCutscene)
         {
             m_inputHandler.CameraRotating();

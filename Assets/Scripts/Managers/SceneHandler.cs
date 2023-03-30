@@ -29,8 +29,13 @@ public class SceneHandler : MonoBehaviour
         m_sceneIndex = GetCurrentScene();
         m_videoPlayer = FindObjectOfType<VideoPlayer>();
 
+
         if (m_videoPlayer != null && GetCurrentScene() != 0)
+        {
+            m_videoPlayer.targetCamera = FindObjectOfType<Camera>();
             m_videoPlayer.loopPointReached += EndReached;
+        }
+
         if (m_sceneIndex == 0) IntroScene();
 
         if (GetCurrentSceneName() != "Loading" && SceneManager.GetSceneByName("Loading").isLoaded)
