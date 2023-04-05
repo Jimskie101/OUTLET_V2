@@ -35,15 +35,15 @@ namespace DecalSystem {
 
         private static void Build_(MeshBuilder builder, Decal decal) {
             var objects = DecalUtils.GetAffectedObjects( decal );
-            var terrains = DecalUtils.GetAffectedTerrains( decal );
+            // var terrains = DecalUtils.GetAffectedTerrains( decal );
             var bounds = DecalUtils.GetBounds( decal );
             var worldToDecalMatrix = decal.transform.worldToLocalMatrix;
 
             var triangles1 = MeshUtils.GetTriangles( objects, worldToDecalMatrix ).Where( i => Filter( i, decal ) );
-            var triangles2 = TerrainUtils.GetTriangles( terrains, bounds, worldToDecalMatrix ).Where( i => Filter( i, decal ) );
+            // var triangles2 = TerrainUtils.GetTriangles( terrains, bounds, worldToDecalMatrix ).Where( i => Filter( i, decal ) );
 
             AddTriangles( builder, triangles1 );
-            AddTriangles( builder, triangles2 );
+            // AddTriangles( builder, triangles2 );
         }
 
 

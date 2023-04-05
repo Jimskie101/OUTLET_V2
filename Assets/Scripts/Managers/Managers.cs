@@ -20,7 +20,6 @@ public class Managers : MonoBehaviour
     public SaveAndLoadManager SaveAndLoadManager;
     public TaskManager TaskManager;
     public PowerUpManager PowerUpManager;
-    public EventsDictionary EventsDictionary;
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -62,6 +61,5 @@ public class Managers : MonoBehaviour
         CutsceneManager = GetComponentInChildren<CutsceneManager>();
         SaveAndLoadManager = GetComponentInChildren<SaveAndLoadManager>();
         PowerUpManager = GetComponentInChildren<PowerUpManager>();
-        EventsDictionary = GetComponentInChildren<EventsDictionary>();
     }
 }

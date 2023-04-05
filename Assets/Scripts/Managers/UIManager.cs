@@ -378,11 +378,13 @@ public class UIManager : MonoBehaviour
     public IEnumerator DeathScreen()
     {
         yield return m_timeForScreen;
+        m_fadeImage.gameObject.SetActive(false);
         m_deathScreen.SetActive(true);
     }
     public IEnumerator WinScreen()
     {
         yield return m_timeForScreen;
+        m_fadeImage.gameObject.SetActive(false);
         m_winScreen.SetActive(true);
     }
 

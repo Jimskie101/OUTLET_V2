@@ -61,4 +61,19 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+
+
+
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.Comma))
+        {
+            Debug.Log("Timescale Reset");
+            Time.timeScale = 1f;
+        }
+        if(Input.GetKeyDown(KeyCode.Period))
+        {
+            Debug.Log("Timescale is 2");
+            Time.timeScale = 2f;
+        }
+    }
 }

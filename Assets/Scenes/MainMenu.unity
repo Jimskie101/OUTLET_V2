@@ -572,11 +572,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 740993362180249066, guid: 5b2ed58cceb635f449a69c0a33844ca0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9021815560560378578, guid: 5b2ed58cceb635f449a69c0a33844ca0,
         type: 3}
       propertyPath: m_IsActive
@@ -827,7 +822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791881274}
   m_LocalRotation: {x: 0.0008936186, y: -0, z: -0, w: 0.99999964}
-  m_LocalPosition: {x: -1.8, y: 4, z: 0}
+  m_LocalPosition: {x: -1.8, y: 5.61, z: 0}
   m_LocalScale: {x: 3.334053, y: 3.334053, z: 3.3340526}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1711,7 +1706,7 @@ Mesh:
     firstVertex: 0
     vertexCount: 10
     localAABB:
-      m_Center: {x: 0.00013548136, y: -0.00001603365, z: 0.19833258}
+      m_Center: {x: 0.00013548136, y: -0.00001603365, z: 0.19833472}
       m_Extent: {x: 0.5, y: 0.5, z: 0.0084187165}
   m_Shapes:
     vertices: []
@@ -1729,7 +1724,7 @@ Mesh:
   m_KeepVertices: 1
   m_KeepIndices: 1
   m_IndexFormat: 0
-  m_IndexBuffer: 000001000200000002000300040005000600040006000700020001000800020008000900090008000500090005000400
+  m_IndexBuffer: 000001000200000002000300020001000400020004000500050004000600050006000700050007000800070006000900
   m_VertexData:
     serializedVersion: 3
     m_VertexCount: 10
@@ -1791,7 +1786,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 320
-    _typelessdata: e008003fe6fdff3e40e3513e41a0763cf2a6e9ba78f87fbf9b9d603fdad45b3fe108003fc63bad3ecb2e523e42a0763cd6a6e9ba78f87fbf9b9d603f47a13d3f3eeeffbe3f38ad3e56c4423e3fa0763c03a7e9ba78f87fbf72f4f53dfd9f3d3f3eeeffbee6fdff3ec878423e3fa0763ca6a6e9ba78f87fbf72f4f53ddad45b3f3eeeffbeb9a7babed60c443e41a0763c45a8e9ba78f87fbf72f4f53dd02c693ee108003f32a4babe4b77533e40a0763cd5a7e9ba78f87fbf9b9d603ff631693ee108003f0d0100bf9db6533e41a0763cf2a8e9ba78f87fbf9b9d603ffcef033e3eeeffbe0d0100bf254c443e40a0763c5ba9e9ba79f87fbf72f4f53dfcef033ee108003f13e8d63de19b523e3ca0763c68a7e9ba78f87fbf9b9d603f8604123f3eeeffbeeff23ebe9bb9433e3da0763c90a7e9ba78f87fbf72f4f53d4123b73e
+    _typelessdata: e108003fe6fdff3ecfe3513e3ea0763ce4a8e9ba78f87fbf9b9d603fdad45b3fe108003fff84d13dac9d523e3ea0763c54a8e9ba79f87fbf9b9d603fb586113f3eeeffbef824d23e31a3423e40a0763c7fa8e9ba78f87fbf72f4f53da0194b3f3eeeffbee6fdff3e5779423e3fa0763c5aa9e9ba78f87fbf72f4f53ddad45b3fe108003f7e0414be0b11533e40a0763c8da7e9ba78f87fbf9b9d603f0fcec63e3eeeffbe8c0b14be96a6433e3ca0763c94a7e9ba78f87fbf72f4f53d7ccbc63ee108003fff83c1be217e533e35a0763ccda6e9ba78f87fbf9b9d603f1b295f3ef779a63d0d0100bf34424d3e31a0763c55a7e9ba78f87fbfbb690f3ffcef033e3eeeffbe0d0100bfb54c443e35a0763c0aa8e9ba78f87fbf72f4f53dfcef033ee108003f0d0100bf2cb7533e27a0763c19a6e9ba78f87fbf9b9d603ffcef033e
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -1845,7 +1840,7 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: 0.00013548136, y: -0.00001603365, z: 0.19833258}
+    m_Center: {x: 0.00013548136, y: -0.00001603365, z: 0.19833472}
     m_Extent: {x: 0.5, y: 0.5, z: 0.0084187165}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 

@@ -47,11 +47,13 @@ public class InputHandler : MonoBehaviour
             m_inputMaster.Cinematics.Skip.canceled += ctx => Managers.Instance.UIManager.ResetSkipperHold();
         }
 
+
         try
         {
             m_playerMovement = FindObjectOfType<PlayerMovement>();
-            m_hangingMovement = m_playerMovement.GetComponent<HangingMovement>();
-            m_playerLockAndPull = m_playerMovement.GetComponent<LockAndPullObject>();
+            m_hangingMovement = FindObjectOfType<PlayerMovement>().GetComponent<HangingMovement>();
+            m_playerLockAndPull = FindObjectOfType<PlayerMovement>().GetComponent<LockAndPullObject>();
+
         }
         catch
         {
@@ -59,7 +61,7 @@ public class InputHandler : MonoBehaviour
         }
 
     }
-    
+
 
     bool m_pulling = false;
     private void Update()
@@ -70,8 +72,8 @@ public class InputHandler : MonoBehaviour
             m_neutralWire.PullPlayer();
         }
 
-       
-        
+
+
     }
 
 
@@ -80,7 +82,7 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Player.Jump.performed += ctx => m_playerMovement.Jump();
         m_inputMaster.Player.Movement.performed += ctx => m_playerMovement.GetDirection(ctx.ReadValue<Vector2>());
         m_inputMaster.Player.Movement.canceled += ctx => m_playerMovement.GetDirection(Vector2.zero);
-    
+
         m_inputMaster.Player.Sprint.performed += ctx => m_playerMovement.Run();
         m_inputMaster.Player.Sprint.canceled += ctx => m_playerMovement.Walk();
         m_inputMaster.Player.ObjectPushPull.performed += ctx => m_playerLockAndPull.LockAndUnlock();
@@ -221,5 +223,5 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Player.Enable();
     }
 
-    
+
 }

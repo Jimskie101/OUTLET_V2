@@ -41,7 +41,7 @@ public class LockAndPullObject : MonoBehaviour
             else
             {
                 // Check for collisions
-                hits = m_objectToLock.SweepTestAll(offset.normalized, offset.magnitude);
+                hits = m_objectToLock.SweepTestAll(offset.normalized, offset.magnitude, QueryTriggerInteraction.Ignore);
                 collided = false;
                 foreach (RaycastHit hit in hits)
                 {

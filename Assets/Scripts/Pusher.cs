@@ -30,7 +30,7 @@ public class Pusher : MonoBehaviour
         m_pushDirection.y = 0f;
         m_pushDirection.Normalize();
 
-        m_rigidbody.AddForceAtPosition(m_pushDirection * m_playerData.PushForce, transform.position, ForceMode.Impulse);
+        m_rigidbody.AddForceAtPosition(m_pushDirection * m_playerData.PushForce * Time.deltaTime, transform.position, ForceMode.Impulse);
         
     }
 }

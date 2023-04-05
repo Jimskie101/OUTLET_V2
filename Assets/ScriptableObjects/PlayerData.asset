@@ -24,6 +24,6 @@ MonoBehaviour:
     m_Bits: 21512
   IntialLifeValue: 1
   DimMultiplier: 0.5
-  PushForce: 0.3
+  PushForce: 75
   WireRangeRadius: 5
   WireLength: 10
