@@ -4,6 +4,14 @@ using UnityEngine;
 using EasyButtons;
 using Cinemachine;
 
+public enum CameraPosition
+{
+    front,
+    left,
+    back,
+    right,
+}
+
 public class CameraHandler : MonoBehaviour
 {
     GameManager m_gameManager;
@@ -18,42 +26,44 @@ public class CameraHandler : MonoBehaviour
 
     [HideInInspector] public bool CutsceneIsPlaying = false;
 
-    public enum CameraPosition
-    {
-        front,
-        left,
-        back,
-        right,
-    }
+
     public CameraPosition CamPosition;
     [SerializeField] CinemachineVirtualCamera m_vCamHolder;
 
     [Button]
-    private void ChangeCam()
+    public void ChangeCam()
     {
 
         switch (CamPosition)
         {
             case CameraPosition.front:
-                m_gameManager.GameDirection = GameManager.Direction.front;
+                if (m_gameManager == null)
+                    Managers.Instance.GameManager.GameDirection = Direction.front;
+                else m_gameManager.GameDirection = Direction.front;
                 m_vCamHolder.Priority = 10;
                 m_frontCam.Priority = 20;
                 m_vCamHolder = m_frontCam;
                 break;
             case CameraPosition.left:
-                m_gameManager.GameDirection = GameManager.Direction.left;
+                if (m_gameManager == null)
+                    Managers.Instance.GameManager.GameDirection = Direction.left;
+                else m_gameManager.GameDirection = Direction.left;
                 m_vCamHolder.Priority = 10;
                 m_leftCam.Priority = 20;
                 m_vCamHolder = m_leftCam;
                 break;
             case CameraPosition.back:
-                m_gameManager.GameDirection = GameManager.Direction.back;
+                if (m_gameManager == null)
+                    Managers.Instance.GameManager.GameDirection = Direction.back;
+                else m_gameManager.GameDirection = Direction.back;
                 m_vCamHolder.Priority = 10;
                 m_backCam.Priority = 20;
                 m_vCamHolder = m_backCam;
                 break;
             case CameraPosition.right:
-                m_gameManager.GameDirection = GameManager.Direction.right;
+                if (m_gameManager == null)
+                    Managers.Instance.GameManager.GameDirection = Direction.right;
+                else m_gameManager.GameDirection = Direction.right;
                 m_vCamHolder.Priority = 10;
                 m_rightCam.Priority = 20;
                 m_vCamHolder = m_rightCam;
@@ -79,8 +89,8 @@ public class CameraHandler : MonoBehaviour
             {
                 m_controlsAreDown = false;
                 Time.timeScale = 1f;
-                if(!CutsceneIsPlaying)
-                m_inputHandler.CameraStopped();
+                if (!CutsceneIsPlaying)
+                    m_inputHandler.CameraStopped();
                 m_gameManager.ChangeGameDirection();
             }
 
@@ -115,12 +125,12 @@ public class CameraHandler : MonoBehaviour
     {
         m_gameManager = Managers.Instance.GameManager;
         m_inputHandler = Managers.Instance.InputHandler;
-        if(m_gameManager != null)
-        if (!m_gameManager.NoCutscene)
-        {
-            m_inputHandler.CameraRotating();
-            StartCoroutine(StartCamera());
-        }
+        if (m_gameManager != null)
+            if (!m_gameManager.NoCutscene)
+            {
+                m_inputHandler.CameraRotating();
+                StartCoroutine(StartCamera());
+            }
 
 
     }

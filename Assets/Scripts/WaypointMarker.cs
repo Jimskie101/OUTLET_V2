@@ -11,7 +11,7 @@ public class WaypointMarker : MonoBehaviour
     [SerializeField] private RectTransform m_imageRect;
     // The target (location, enemy, etc..)
 
-    public Transform Target;
+    public Transform TargetWaypoint;
     // UI Text to display the distance
     //public Text meter;
     // To adjust the position of the icon
@@ -25,11 +25,11 @@ public class WaypointMarker : MonoBehaviour
     }
     private void Update()
     {
-        if (Target != null)
+        if (TargetWaypoint != null)
         {   if(!m_image.gameObject.activeSelf) m_image.gameObject.SetActive(true);
             Marking();
         }
-        else if(Target == null)
+        else if(TargetWaypoint == null)
         {
             if(m_image.gameObject.activeSelf) m_image.gameObject.SetActive(false);
         }
@@ -59,10 +59,10 @@ public class WaypointMarker : MonoBehaviour
         float maxY = Screen.height - minY;
 
         // Temporary variable to store the converted position from 3D world point to 2D screen point
-        Vector2 pos = Camera.main.WorldToScreenPoint(Target.position + m_offset);
+        Vector2 pos = Camera.main.WorldToScreenPoint(TargetWaypoint.position + m_offset);
 
         // Check if the target is behind us, to only show the icon once the target is in front
-        if (Vector3.Dot((Target.position - transform.position), transform.forward) < 0)
+        if (Vector3.Dot((TargetWaypoint.position - transform.position), transform.forward) < 0)
         {
             m_image.enabled = false;
             // // Check if the target is on the left side of the screen

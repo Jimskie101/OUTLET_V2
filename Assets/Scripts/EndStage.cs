@@ -9,7 +9,15 @@ public class EndStage : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Managers.Instance.UIManager.FadeToBlack(true);
-            StartCoroutine(MoveToNextStage());
+            if (Managers.Instance.SceneHandler.GetCurrentSceneName() == "Tutorial")
+            {
+                StartCoroutine(MoveToNextStage());
+            }
+            else
+            {
+                StartCoroutine(Managers.Instance.UIManager.WinScreen());
+            }
+
         }
     }
 
@@ -17,12 +25,12 @@ public class EndStage : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         {
-            Managers.Instance.SceneHandler.LoadStage(Managers.Instance.SceneHandler.GetCurrentScene() +1);
+            Managers.Instance.SceneHandler.LoadStage(Managers.Instance.SceneHandler.GetCurrentScene() + 1);
         }
     }
 
     [SerializeField] Transform m_player;
-    [SerializeField] MovePlatform m_train;
+    [SerializeField] MoverAndRotator m_train;
     public void FirstEnd()
     {
         Managers.Instance.CutsceneManager.PlayCutscene(4);
@@ -35,11 +43,11 @@ public class EndStage : MonoBehaviour
         m_player.GetComponent<PlayerMovement>().enabled = false;
         m_player.SetParent(transform);
         yield return new WaitForSeconds(2f);
-        Managers.Instance.AudioManager.PlayHere("train", transform.parent.gameObject, false , true);
-        m_train.MoveMe(true);
+        Managers.Instance.AudioManager.PlayHere("train", transform.parent.gameObject, false, true);
+        m_train.MoveMe();
         Managers.Instance.UIManager.FadeToBlack(true);
         StartCoroutine(Managers.Instance.UIManager.WinScreen());
     }
 
-   
+
 }

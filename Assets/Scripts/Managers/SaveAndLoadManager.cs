@@ -20,6 +20,7 @@ public class PlayerStatus
     public float lifeValue;
     public Vector3 position;
     public Quaternion rotation;
+    public CameraPosition camPosition;
 }
 
 [System.Serializable]
@@ -73,15 +74,7 @@ public class SaveAndLoadManager : MonoBehaviour
 
     private void Awake()
     {
-        try { m_player = FindObjectOfType<PlayerScript>().gameObject; }
-        catch { }
-    }
-    private void Start()
-    {
-
-
-
-
+        m_player = FindObjectOfType<PlayerScript>().gameObject;
         if (m_player != null)
             m_playerScript = m_player.GetComponent<PlayerScript>();
 
@@ -92,6 +85,7 @@ public class SaveAndLoadManager : MonoBehaviour
             Managers.Instance.GameData.LoadingFromSave = false;
         }
     }
+
 
 
     public bool CheckJson()
@@ -148,14 +142,17 @@ public class SaveAndLoadManager : MonoBehaviour
         m_playerStatus.lifeValue = m_playerScript.LifePercentage;
         m_playerStatus.position = m_player.transform.localPosition;
         m_playerStatus.rotation = m_playerScript.transform.localRotation;
+        m_playerStatus.camPosition = Managers.Instance.CameraHandler.CamPosition;
         return m_playerStatus;
 
     }
     private void LoadPlayerStatus()
     {
-
+        Debug.Log("playerSet");
         m_player.transform.localPosition = m_playerStatus.position;
         m_playerScript.transform.localRotation = m_playerStatus.rotation;
+        Managers.Instance.CameraHandler.CamPosition = m_playerStatus.camPosition;
+        Managers.Instance.CameraHandler.ChangeCam();
         StartCoroutine(LifeUpdater());
     }
 

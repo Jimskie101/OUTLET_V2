@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using EasyButtons;
 
-public class MovePlatform : MonoBehaviour
+public class MoverAndRotator : MonoBehaviour
 {
     [SerializeField] bool m_runOnEnable;
     [SerializeField] bool m_move;
@@ -42,9 +42,10 @@ public class MovePlatform : MonoBehaviour
     }
 
     [Button]
-    public void MoveMe(bool update = false)
+    public void MoveMe(bool forloading = false)
     {
-        m_transform.DOLocalMove(m_targetPosition, m_moveDuration).SetUpdate(update);
+        if(forloading) m_transform.DOLocalMove(m_targetPosition, 0).SetUpdate(true);
+        else m_transform.DOLocalMove(m_targetPosition, m_moveDuration).SetUpdate(true);
 
     }
     public void PutMeBack()
@@ -52,9 +53,10 @@ public class MovePlatform : MonoBehaviour
         m_transform.DOLocalMove(m_defaultPosition, m_moveDuration);
     }
 
-    public void RotateToTarget()
+    public void RotateToTarget(bool forloading = false)
     {
-        m_transform.DOLocalRotate(m_targetRotation, m_rotateDuration);
+       if(forloading) m_transform.DOLocalRotate(m_targetRotation, 0);
+       else m_transform.DOLocalRotate(m_targetRotation, m_rotateDuration);
 
     }
     public void RotateToOrigin()
@@ -62,5 +64,6 @@ public class MovePlatform : MonoBehaviour
         transform.DOLocalRotate(m_defaultRotation, m_rotateDuration);
     }
 
+    
 
 }

@@ -41,6 +41,28 @@ public class TaskManager : MonoBehaviour
 
     }
 
+    public void PrevTask(bool waypointOnly = false)
+    {
+        Managers.Instance.WaypointManager.NextWaypoint();
+        if (!waypointOnly)
+        {
+            TaskNumber--;
+            m_textHolder.DOLocalMoveY(300, 1f).OnComplete(() =>
+            {
+                if (TaskNumber < m_taskArray.Length)
+                {
+                    m_text.text = m_taskArray[TaskNumber];
+
+                    AnimateTask();
+                }
+
+            });
+
+        }
+
+
+    }
+
 
     public void AnimateTask()
     {

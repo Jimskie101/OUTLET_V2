@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EasyButtons;
+
+
+public enum Direction
+    {
+        front,
+        left,
+        back,
+        right,
+    }
 public class GameManager : MonoBehaviour
 {
     public GameObject Player;
@@ -22,13 +31,7 @@ public class GameManager : MonoBehaviour
     public int PostersCount = 0;
 
 
-    public enum Direction
-    {
-        front,
-        left,
-        back,
-        right,
-    }
+    
     [Header("Game Camera Direction")]
     public Direction GameDirection;
     public Vector3 XOrientation;

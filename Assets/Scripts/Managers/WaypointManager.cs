@@ -44,7 +44,7 @@ public class WaypointManager : MonoBehaviour
                 m_taskWaypointsList[WaypointCounter].target.gameObject.SetActive(true);
             }
 
-            m_waypointMarker.Target = m_taskWaypointsList[WaypointCounter].target;
+            m_waypointMarker.TargetWaypoint = m_taskWaypointsList[WaypointCounter].target;
 
 
         }
@@ -57,12 +57,12 @@ public class WaypointManager : MonoBehaviour
     {
         if (hidden)
         {
-            m_tempTarget = m_waypointMarker.Target;
-            m_waypointMarker.Target = null;
+            m_tempTarget = m_waypointMarker.TargetWaypoint;
+            m_waypointMarker.TargetWaypoint = null;
         }
         else
         {
-            m_waypointMarker.Target = m_tempTarget;
+            m_waypointMarker.TargetWaypoint = m_tempTarget;
             m_tempTarget = null;
         }
 

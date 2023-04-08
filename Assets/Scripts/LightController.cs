@@ -71,8 +71,8 @@ public class LightController : MonoBehaviour
 
     public void ChangeLightValue(float f_lightValue)
     {
-        m_pointLight.range = Mathf.Clamp(f_lightValue * 2.5f, 10f, 25f);
-        m_pointLight.intensity = f_lightValue * 0.2f;
+        m_pointLight.range = Mathf.Clamp(f_lightValue * 5f, 2f, 200f);
+        m_pointLight.intensity = f_lightValue * 0.01f;
     }
 
 

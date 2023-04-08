@@ -29,8 +29,9 @@ public class CutsceneManager : MonoBehaviour
 
     public void PlayCutscene(int cameraNum)
     {
-        m_mainCamera.m_DefaultBlend.m_Time = 2f;
         Managers.Instance.WaypointManager.HideMarker(true);
+        m_mainCamera.m_DefaultBlend.m_Time = 2f;
+        
         m_cutsceneCameras[cameraNum].Priority = 40;
         m_tempCamera = m_cutsceneCameras[cameraNum];
         StartCoroutine(ResetCameraPriority());
@@ -41,7 +42,6 @@ public class CutsceneManager : MonoBehaviour
         yield return m_camResetTime;
         m_cameraHandler.CutsceneIsPlaying = false;
          m_tempCamera.Priority = 5;
-         Managers.Instance.WaypointManager.HideMarker(false);
          m_mainCamera.m_DefaultBlend.m_Time = 1f;
          
     }
