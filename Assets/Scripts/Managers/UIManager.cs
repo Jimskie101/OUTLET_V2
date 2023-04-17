@@ -86,7 +86,7 @@ public class UIManager : MonoBehaviour
 
     //Cinematic Skipper
     bool m_holdingSkip = false;
-    float m_holdingSkipTime = 3f;
+    [SerializeField] float m_holdingSkipTime = 3f;
     float m_holdingTimer = 0;
     bool m_skipped = false;
     public void SkipperHold()

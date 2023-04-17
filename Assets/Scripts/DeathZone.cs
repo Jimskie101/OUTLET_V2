@@ -14,7 +14,7 @@ public class DeathZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
+            Debug.Log("Short Circuit");
             m_playerScript = other.transform.GetComponentInParent<PlayerScript>();
             
             m_playerScript.IsDead = true;

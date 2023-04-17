@@ -18,7 +18,7 @@ public class PowerUp : MonoBehaviour
     [SerializeField] PowerUpType m_powerUpType;
     [SerializeField] GameObject m_powerUpFX;
     PlayerScript m_playerScript;
-
+    AudioManager m_audioManager;
 
 
     WaitForSeconds disableDelay;
@@ -28,7 +28,8 @@ public class PowerUp : MonoBehaviour
     MeshRenderer m_mesh;
     [SerializeField] MeshFilter m_meshFilter;
     private void Start()
-    {
+    {   
+        m_audioManager = Managers.Instance.AudioManager;
         m_particles = transform.GetComponentInChildren<ParticleSystem>();
         if (m_mesh == null)
             m_mesh = GetComponentInChildren<MeshRenderer>();
@@ -37,6 +38,7 @@ public class PowerUp : MonoBehaviour
         transform.DOLocalRotate(m_rotation, 4f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
         m_blinkTimeSlow = new WaitForSeconds(0.20f);
         m_blinkTimeFast = new WaitForSeconds(0.10f);
+        m_blinkTimeFast = new WaitForSeconds(0.025f);
     }
 
     private void ApplyEffect()
@@ -95,6 +97,7 @@ public class PowerUp : MonoBehaviour
 
     WaitForSeconds m_blinkTimeSlow;
     WaitForSeconds m_blinkTimeFast;
+    WaitForSeconds m_blinkTimeFaster;
     Coroutine m_blinker = null;
     float m_blinkInterval = 0;
     [Button]
@@ -107,6 +110,8 @@ public class PowerUp : MonoBehaviour
                 m_blinkInterval = interval;
                 
                 m_powerUpFX.SetActive(false);
+                if(interval < 0.10)
+                m_blinker = StartCoroutine(BlinkBack(m_blinkTimeFaster));
                 if(interval < 0.30)
                 m_blinker = StartCoroutine(BlinkBack(m_blinkTimeFast));
                 else
@@ -123,6 +128,7 @@ public class PowerUp : MonoBehaviour
     IEnumerator BlinkBack(WaitForSeconds time)
     {
         yield return time;
+        m_audioManager.PlayHere("blip", this.gameObject, false, false);
         m_powerUpFX.SetActive(true);
         m_blinker = null;
         yield return null;

@@ -64,21 +64,21 @@ public class WaypointMarker : MonoBehaviour
         // Check if the target is behind us, to only show the icon once the target is in front
         if (Vector3.Dot((TargetWaypoint.position - transform.position), transform.forward) < 0)
         {
-            m_image.enabled = false;
-            // // Check if the target is on the left side of the screen
-            // if(pos.x < Screen.width / 2)
-            // {
-            //     // Place it on the right (Since it's behind the player, it's the opposite)
-            //     pos.x = maxX;
-            // }
-            // else
-            // {
-            //     // Place it on the left side
-            //     pos.x = minX;
-            // }
+           // m_image.enabled = false;
+            // Check if the target is on the left side of the screen
+            if(pos.x < Screen.width / 2)
+            {
+                // Place it on the right (Since it's behind the player, it's the opposite)
+                pos.x = maxX;
+            }
+            else
+            {
+                // Place it on the left side
+                pos.x = minX;
+            }
         }
         else
-            m_image.enabled = true;
+            //m_image.enabled = true;
 
 
         // Limit the X and Y positions

@@ -79,4 +79,10 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 2f;
         }
     }
+
+    [Button]
+    private void TeleportPlayerToNextWaypoint()
+    {
+        Player.transform.position = Managers.Instance.WaypointManager.NextPosition();
+    }
 }

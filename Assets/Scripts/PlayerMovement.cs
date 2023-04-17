@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float startYPos = 0;
     [SerializeField] float endYPos = 0;
-    bool firstCall = true;
+    bool m_recordY = false;
     bool damaged = false;
 
 
@@ -76,16 +76,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!IsGrounded)
         {
-            if (transform.position.y > startYPos)
-            {
-                firstCall = true;
-            }
-
-            if (firstCall)
+            if (!m_recordY || startYPos < transform.position.y)
             {
                 startYPos = transform.position.y;
-                firstCall = false;
-                damaged = true;
+                m_recordY = true;
             }
         }
 
@@ -94,13 +88,15 @@ public class PlayerMovement : MonoBehaviour
             endYPos = transform.position.y;
             if (startYPos - endYPos > m_playerData.FallThresholdLimit)
             {
-                if (damaged)
-                {
-                    Debug.Log("Do Damage: " + (startYPos - endYPos));
-                    m_playerScript.IsDead = true;
-                    damaged = false;
-                    firstCall = true;
-                }
+                Debug.Log("Do Damage: " + (startYPos - endYPos));
+                m_playerScript.IsDead = true;
+                damaged = false;
+            }
+            else
+            {
+                m_recordY = false;
+                startYPos = transform.position.y;
+                endYPos = transform.position.y;
             }
         }
     }
@@ -125,11 +121,11 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (IsGrounded)
-        {
-            if (startYPos != 0) startYPos = 0;
-            if (endYPos != 0) endYPos = 0;
-        }
+        // if (IsGrounded)
+        // {
+        //     if (startYPos != 0) startYPos = 0;
+        //     if (endYPos != 0) endYPos = 0;
+        // }
         if (m_cc.enabled)
             MovePlayer();
         if (!LockRotation)
@@ -183,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
 
         m_speed = IsGrounded ? m_playerData.Speed : m_playerData.Speed * 0.75f;
         m_speed = m_isRunning ? m_speed * m_playerData.RunSpeedMultiplier : m_speed;
-       
+
         m_cc.Move(m_inputDir.normalized * m_speed * Time.deltaTime);
 
 
@@ -210,12 +206,12 @@ public class PlayerMovement : MonoBehaviour
         else m_animator.SetBool("falling", false);
         m_cc.Move(m_velocity * Time.deltaTime);
 
-        AnimationUpdate();
+        PlayerUpdate();
         DustParticle();
 
     }
 
-    
+
 
     //Rotate the player
     Vector3 m_targetPos;
@@ -293,7 +289,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool Holding = false;
 
-    private void AnimationUpdate()
+    private void PlayerUpdate()
     {
         if (Holding) m_animator.SetBool("holding", true);
         else m_animator.SetBool("holding", false);
@@ -327,9 +323,12 @@ public class PlayerMovement : MonoBehaviour
             m_animator.SetBool("running", false);
 
         }
+
+        //If player is dead
         if (m_playerScript.IsDead && !m_deadAlready)
         {
             m_deadAlready = true;
+            m_audioManager.PlayHere("death", this.gameObject);
             m_playerScript.LifePercentage -= 100;
             m_playerScript.ConsumeHealth();
             m_animator.SetTrigger("dead");

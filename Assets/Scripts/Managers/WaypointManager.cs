@@ -68,4 +68,13 @@ public class WaypointManager : MonoBehaviour
 
 
     }
+
+    public Vector3 NextPosition()
+    {
+        
+        return m_taskWaypointsList[WaypointCounter].target.position;
+
+
+    }
+
 }

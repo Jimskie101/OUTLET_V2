@@ -37,7 +37,7 @@ public class PowerUpManager : MonoBehaviour
                     {
                         if (startValue < 0.5f && startValue > 0.001f)
                         {
-                            interval = Mathf.Clamp(startValue, 0.2f, 1);
+                            interval = Mathf.Clamp(startValue, 0.05f, 1);
                             powerUpScript.BlinkOut(interval);
 
                         }

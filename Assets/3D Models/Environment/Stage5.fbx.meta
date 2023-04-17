@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: d3b2172e79168e64aaa419848150e07e
+guid: 4be847a0ac193084f80a025e4a55eacd
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ogmat.006
+    second: {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

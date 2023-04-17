@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: d3b2172e79168e64aaa419848150e07e
+guid: 44a9fa32ed051ca44a8fde15a8269e7a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grates_MAT
+    second: {fileID: 2100000, guid: 43459c20e0f4a6444a854aa7573cd92a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OG_Material
+    second: {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
