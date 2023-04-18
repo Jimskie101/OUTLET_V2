@@ -14,7 +14,6 @@ public class MaterialChanger : MonoBehaviour
         m_targetMaterial = GetComponent<MeshRenderer>().materials[m_materialIndex];
     }
 
-    float startValue = 0;
     [Button]
     public void EnableEmission()
     {

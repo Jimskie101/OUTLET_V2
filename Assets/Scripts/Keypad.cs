@@ -68,7 +68,7 @@ public class Keypad : MonoBehaviour
     [SerializeField] int m_forLoadingId;
     private void ForLoading()
     {
-        Debug.Log("Forloading");
+        Debug.Log("Forloading",this.gameObject);
         m_door.DOLocalRotate(m_rotation, 0f).SetUpdate(true);
     }
     private void ObjectiveChecker()

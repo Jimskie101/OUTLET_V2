@@ -13,8 +13,6 @@ public class EnergySource : MonoBehaviour
 
     public float Charge;
 
-    private bool isTaskDone = false;
-    [SerializeField] bool isATask = false;
     private void OnEnable()
     {
         Charge = m_initialCharge;

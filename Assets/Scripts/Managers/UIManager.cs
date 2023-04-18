@@ -335,7 +335,7 @@ public class UIManager : MonoBehaviour
     public void ReturnToCheckpoint()
     {
         Managers.Instance.GameData.LoadingFromSave = true;
-        m_sceneHandler.LoadStage(m_sceneHandler.GetCurrentScene());
+        m_sceneHandler.LoadStage(Managers.Instance.SaveAndLoadManager.GetCheckpointSceneNumber());
     }
     public void LoadGame()
     {

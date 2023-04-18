@@ -8,10 +8,7 @@ public class EventBridge : MonoBehaviour
     [SerializeField] UnityEvent m_ActivateEvent;
     [SerializeField] UnityEvent m_DeactivateEvent;
 
-
-    [SerializeField] int m_callsCount = 0;
-    [SerializeField] int m_calls = 0;
-
+    
 
 
     

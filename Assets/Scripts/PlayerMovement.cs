@@ -69,8 +69,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float startYPos = 0;
     [SerializeField] float endYPos = 0;
     bool m_recordY = false;
-    bool damaged = false;
 
+
+    
 
     private void FallCheck()
     {
@@ -88,9 +89,8 @@ public class PlayerMovement : MonoBehaviour
             endYPos = transform.position.y;
             if (startYPos - endYPos > m_playerData.FallThresholdLimit)
             {
-                Debug.Log("Do Damage: " + (startYPos - endYPos));
+                Debug.Log("Fall Height: " + (startYPos - endYPos));
                 m_playerScript.IsDead = true;
-                damaged = false;
             }
             else
             {

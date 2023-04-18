@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EasyButtons;
+using DG.Tweening;
 
 
 public enum Direction
@@ -14,9 +15,11 @@ public enum Direction
 public class GameManager : MonoBehaviour
 {
     public GameObject Player;
+    private PlayerScript m_playerScript;
     private void Awake()
     {
         Player = FindObjectOfType<PlayerScript>().gameObject;
+        m_playerScript = Player.GetComponent<PlayerScript>();
     }
 
     [Header("Tools and Cheats")]
@@ -92,6 +95,8 @@ public class GameManager : MonoBehaviour
     [Button]
     private void TeleportPlayerToNextWaypoint()
     {
+        m_playerScript.FallingDisabled = true;
         Player.transform.position = Managers.Instance.WaypointManager.NextPosition();
+        DOVirtual.DelayedCall(1f, () => m_playerScript.FallingDisabled = false);
     }
 }

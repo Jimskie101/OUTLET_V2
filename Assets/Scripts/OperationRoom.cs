@@ -121,7 +121,7 @@ public class OperationRoom : MonoBehaviour
     [SerializeField] int m_forLoadingId;
     private void ForLoading()
     {
-        Debug.Log("Forloading");
+        Debug.Log("Forloading",this.gameObject);
         Managers.Instance.AudioManager.PlayHere(m_workingSoundName, this.gameObject, true);
         foreach (GameObject g in m_targetObjects)
         {

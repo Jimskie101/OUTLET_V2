@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EasyButtons;
 using System.IO;
+using DG.Tweening;
 
 //Custom Classes
 [System.Serializable]
@@ -49,14 +50,6 @@ public class StageData
 
 
 
-
-
-
-
-
-
-
-
 public class SaveAndLoadManager : MonoBehaviour
 {
     SavedGameData m_savedGameData;
@@ -78,6 +71,10 @@ public class SaveAndLoadManager : MonoBehaviour
         if (m_player != null)
             m_playerScript = m_player.GetComponent<PlayerScript>();
 
+
+    }
+    private void Start()
+    {
         if (Managers.Instance.GameData.LoadingFromSave)
         {
 
@@ -85,6 +82,7 @@ public class SaveAndLoadManager : MonoBehaviour
             Managers.Instance.GameData.LoadingFromSave = false;
         }
     }
+
 
 
 
@@ -148,11 +146,14 @@ public class SaveAndLoadManager : MonoBehaviour
     }
     private void LoadPlayerStatus()
     {
-        Debug.Log("playerSet");
+        m_playerScript.FallingDisabled = true;
+        Debug.Log(m_playerStatus.position);
         m_player.transform.localPosition = m_playerStatus.position;
+
         m_playerScript.transform.localRotation = m_playerStatus.rotation;
         Managers.Instance.CameraHandler.CamPosition = m_playerStatus.camPosition;
         Managers.Instance.CameraHandler.ChangeCam();
+        DOVirtual.DelayedCall(1f, () => m_playerScript.FallingDisabled = false);
         StartCoroutine(LifeUpdater());
     }
 
@@ -221,7 +222,12 @@ public class SaveAndLoadManager : MonoBehaviour
 
     }
 
+    public int GetCheckpointSceneNumber()
+    {
+        FetchFromJson();
+        return StageData.SceneNumber;
 
+    }
 
 
     [Button]
@@ -229,6 +235,8 @@ public class SaveAndLoadManager : MonoBehaviour
     {
 
         FetchFromJson();
+
+
         LoadPlayerStatus();
         foreach (GameObject g in Entities)
         {
@@ -243,6 +251,7 @@ public class SaveAndLoadManager : MonoBehaviour
         Managers.Instance.CollectibleManager.CollectedItems = StageData.CollectibleActive;
         Managers.Instance.GameManager.PostersCount = StageData.PostersActive;
         Managers.Instance.CollectibleManager.Posters = StageData.PostersActive;
+        m_player.transform.localPosition = m_playerStatus.position;
     }
 
 

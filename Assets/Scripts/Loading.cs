@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Loading : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class Loading : MonoBehaviour
 
         // Activate the target scene
         asyncOperation.allowSceneActivation = true;
-
+        
         // Unload the LoadingScreen scene
         SceneManager.UnloadSceneAsync("Loading");
     }

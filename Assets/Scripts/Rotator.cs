@@ -60,7 +60,7 @@ public class Rotator : MonoBehaviour
     private void ForLoading()
     {
         m_isDone = true;
-        Debug.Log("Forloading");
+        Debug.Log("Forloading",this.gameObject);
         transform.DORotate(m_targetRotation, 0f).SetUpdate(true);
 
     }

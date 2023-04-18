@@ -59,7 +59,7 @@ public class TriggerActivator : MonoBehaviour
     private void ForLoading()
     {
         m_objectiveDone = true;
-        Debug.Log("Forloading");
+        Debug.Log("Forloading",this.gameObject);
         m_forLoadingEvents.Invoke();
 
 
