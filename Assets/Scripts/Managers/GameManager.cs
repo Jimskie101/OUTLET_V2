@@ -78,6 +78,15 @@ public class GameManager : MonoBehaviour
             Debug.Log("Timescale is 2");
             Time.timeScale = 2f;
         }
+
+        if(Input.GetKeyDown(KeyCode.Alpha9))
+        {
+           UnliLight = !UnliLight;
+        }
+         if(Input.GetKeyDown(KeyCode.Alpha0))
+        {
+           NoDeathMode = !NoDeathMode;
+        }
     }
 
     [Button]

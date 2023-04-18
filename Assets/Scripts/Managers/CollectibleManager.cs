@@ -64,6 +64,7 @@ public class CollectibleManager : MonoBehaviour
 
         m_uiManager.UpdateCollectibleCount(CollectedItems);
         Managers.Instance.GameManager.CollectibleCount = CollectedItems;
+        Managers.Instance.UIManager.ShowGameUpdate("Postcard Collected");
     }
 
     public void CollectedPoster()
