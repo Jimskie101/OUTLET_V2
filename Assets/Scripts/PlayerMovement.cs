@@ -109,6 +109,8 @@ public class PlayerMovement : MonoBehaviour
         if (m_playerScript.JumpBoosted)
             if (m_playerScript.FallingDisabled && IsGrounded)
             {
+                startYPos = transform.position.y;
+                endYPos = transform.position.y;
                 m_playerScript.FallingDisabled = false;
                 m_playerScript.JumpBoosted = false;
             }
