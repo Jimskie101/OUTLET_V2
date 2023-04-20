@@ -23,14 +23,14 @@ public class UIManager : MonoBehaviour
 
     public Image LoadingBar;
 
-    
+
     private void Start()
-    {   
+    {
 
 
-        if(Managers.Instance.GameManager != null)
-        Managers.Instance.GameManager.Player.TryGetComponent(out m_playerMoveScript);
-        
+        if (Managers.Instance.GameManager != null)
+            Managers.Instance.GameManager.Player.TryGetComponent(out m_playerMoveScript);
+
         m_sceneHandler = Managers.Instance.SceneHandler;
         m_checkpointManager = Managers.Instance.CheckpointManager;
         m_timeForScreen = new WaitForSeconds(2f);
@@ -61,15 +61,15 @@ public class UIManager : MonoBehaviour
     Sequence m_damageFlashSequence;
     [Button]
     public void DamageFX()
-    {  
-        
-         m_damageFlash.gameObject.SetActive(true);
-         m_damageFlashSequence = DOTween.Sequence()
-            .Append(m_damageFlash.DOFade(1f, 0.1f))
-            .Append(m_damageFlash.DOFade(0f, 0.2f))
-            .Append(m_damageFlash.DOFade(1f, 0.15f))
-            .Append(m_damageFlash.DOFade(0f, 0.3f)).SetEase(Ease.InOutFlash)
-            .OnComplete(() => m_damageFlash.gameObject.SetActive(false));
+    {
+
+        m_damageFlash.gameObject.SetActive(true);
+        m_damageFlashSequence = DOTween.Sequence()
+           .Append(m_damageFlash.DOFade(1f, 0.1f))
+           .Append(m_damageFlash.DOFade(0f, 0.2f))
+           .Append(m_damageFlash.DOFade(1f, 0.15f))
+           .Append(m_damageFlash.DOFade(0f, 0.3f)).SetEase(Ease.InOutFlash)
+           .OnComplete(() => m_damageFlash.gameObject.SetActive(false));
     }
 
     [SerializeField] TMP_Text m_collectibleText;
@@ -108,7 +108,7 @@ public class UIManager : MonoBehaviour
             {
                 if (i.gameObject.activeSelf)
                 {
-                    
+
                     i.fillAmount = 0;
 
                 }
@@ -346,6 +346,7 @@ public class UIManager : MonoBehaviour
     //Button Functions
     [Header("Menu Screens")]
     [SerializeField] Button m_load;
+    [SerializeField] GameObject m_mainMenuScreen;
     [SerializeField] GameObject m_levelsScreen;
     [SerializeField] GameObject m_settingsScreen;
     [SerializeField] GameObject m_creditsScreen;
@@ -353,6 +354,12 @@ public class UIManager : MonoBehaviour
     GameObject m_screenPlaceholder;
     public void OpenLevelScreen()
     {
+        m_levelNumber = 0;
+        ActiveLevel();
+        if (m_mainMenuScreen.activeSelf)
+        {
+            m_mainMenuScreen.SetActive(false);
+        }
         m_screenPlaceholder = m_levelsScreen;
         m_levelsScreen.SetActive(true);
     }
@@ -368,9 +375,57 @@ public class UIManager : MonoBehaviour
     }
     public void BacktoMain()
     {
+        if (!m_mainMenuScreen.activeSelf)
+        {
+            m_mainMenuScreen.SetActive(true);
+        }
         m_screenPlaceholder.SetActive(false);
         m_screenPlaceholder = null;
     }
+
+    [System.Serializable]
+    public class Level
+    {
+        public GameObject m_levelButton;
+        public GameObject m_levelModel;
+    }
+
+    [SerializeField] Level[] m_levels;
+    int m_levelNumber = 0;
+    public void NextLevel()
+    {
+       if (m_levelNumber < 4)
+        {
+            m_levelNumber++;
+            ActiveLevel();
+        }
+
+    }
+    public void PrevLevel()
+    {
+        if (m_levelNumber > 0)
+        {
+            m_levelNumber--;
+            ActiveLevel();
+        }
+
+    }
+
+    public void ActiveLevel()
+    {
+        foreach (Level l in m_levels)
+        {
+            if (l.m_levelButton.activeSelf)
+            {
+                l.m_levelButton.SetActive(false);
+                l.m_levelModel.SetActive(false);
+            }
+
+        }
+        m_levels[m_levelNumber].m_levelButton.SetActive(true);
+        m_levels[m_levelNumber].m_levelModel.SetActive(true);
+    }
+
     [SerializeField] GameObject m_deathScreen;
     [SerializeField] GameObject m_winScreen;
 

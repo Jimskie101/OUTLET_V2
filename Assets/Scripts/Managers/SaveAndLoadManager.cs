@@ -67,9 +67,17 @@ public class SaveAndLoadManager : MonoBehaviour
 
     private void Awake()
     {
-        m_player = FindObjectOfType<PlayerScript>().gameObject;
-        if (m_player != null)
-            m_playerScript = m_player.GetComponent<PlayerScript>();
+        try
+        {
+            m_player = FindObjectOfType<PlayerScript>().gameObject;
+            if (m_player != null)
+                m_playerScript = m_player.GetComponent<PlayerScript>();
+        }
+        catch
+        {
+            Debug.Log("There's no player in the scene!");
+        }
+
 
 
     }

@@ -1,49 +1,9 @@
 fileFormatVersion: 2
-guid: 6d5dfe028493d8245bf53e1f7aeab75d
+guid: 9a04ca6e132e55e46b718aead5458247
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Glass_MAT
-    second: {fileID: 2100000, guid: e894870fc6a891545ac8c8be9c588356, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Lit
-    second: {fileID: 2100000, guid: 17760d92e2e82a34b8b683a226c562fd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: OG_Material
-    second: {fileID: 2100000, guid: 1bae93a07fa6a3a4c805b841dfefa3e9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Platform_MAT
-    second: {fileID: 2100000, guid: 00d9389c317f46c4da3944804d26c2ff, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rigid_MAT
-    second: {fileID: 2100000, guid: 10e0869b85b7bf4499ae14444608a022, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: a861b0bff2ec6f741bffe9e1918adc0c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert3
-    second: {fileID: 2100000, guid: f09eeaaf7ba1e824db1290aa7983d4e2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert4
-    second: {fileID: 2100000, guid: a2c4b404d1d721848884c1f400dedce5, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -72,7 +32,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1

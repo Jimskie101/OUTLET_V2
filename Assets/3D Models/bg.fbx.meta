@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: f563efbaa77e64040ab325dfde98aaef
+guid: cfa23e1060629a54aa5aeb2dc6f44440
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: OG Material
-    second: {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: OG Material.002
-    second: {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: OG Material.003
-    second: {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: recycle
-    second: {fileID: 2100000, guid: 8a2819620baecd74ab6209b126d432ff, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -52,7 +32,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
