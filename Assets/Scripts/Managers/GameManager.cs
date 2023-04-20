@@ -16,10 +16,25 @@ public class GameManager : MonoBehaviour
 {
     public GameObject Player;
     private PlayerScript m_playerScript;
+    private CharacterController m_playerCC;
     private void Awake()
     {
-        Player = FindObjectOfType<PlayerScript>().gameObject;
-        m_playerScript = Player.GetComponent<PlayerScript>();
+        
+        
+
+         try
+        {
+            Player = FindObjectOfType<PlayerScript>().gameObject;
+            if (Player != null){
+                m_playerScript = Player.GetComponent<PlayerScript>();
+                m_playerCC = Player.GetComponent<CharacterController>();
+            }
+                
+        }
+        catch
+        {
+            Debug.Log("There's no player in the scene!");
+        }
     }
 
     [Header("Tools and Cheats")]
@@ -96,7 +111,11 @@ public class GameManager : MonoBehaviour
     private void TeleportPlayerToNextWaypoint()
     {
         m_playerScript.FallingDisabled = true;
+        Debug.Log("Teleported");
+        m_playerCC.enabled = false;
         Player.transform.position = Managers.Instance.WaypointManager.NextPosition();
+        m_playerCC.enabled = true; 
+        
         DOVirtual.DelayedCall(1f, () => m_playerScript.FallingDisabled = false);
     }
 }

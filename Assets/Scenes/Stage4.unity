@@ -267,6 +267,7 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     camPosition: 0
+  m_playerCC: {fileID: 0}
   StageData:
     SceneNumber: 0
     CheckpointActive: 0
@@ -275,15 +276,7 @@ MonoBehaviour:
     ObjectiveActive: 0
     CollectibleActive: 0
     PostersActive: 0
-  Entities:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Entities: []
   EntityDatas: []
 --- !u!1 &14907732 stripped
 GameObject:

@@ -7,6 +7,9 @@ using EasyButtons;
 [CreateAssetMenu(fileName = "SceneBundle", menuName = "ScriptableObjects/SceneBundle", order = 1)]
 public class SceneBundle : ScriptableObject
 {
+#if (UNITY_EDITOR)
+
+
     public SceneAsset[] m_IncludedScenes;
     [Button]
     public void SetEditorBuildSettingsScenes()
@@ -23,6 +26,6 @@ public class SceneBundle : ScriptableObject
         // Set the Build Settings window Scene list
         EditorBuildSettings.scenes = editorBuildSettingsScenes.ToArray();
     }
-    
 
+#endif
 }

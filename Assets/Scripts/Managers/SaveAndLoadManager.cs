@@ -63,6 +63,7 @@ public class SaveAndLoadManager : MonoBehaviour
     string m_filePathCheck;
     [SerializeField] GameObject m_player;
     [SerializeField] PlayerStatus m_playerStatus;
+    [SerializeField] CharacterController m_playerCC;
     PlayerScript m_playerScript;
 
     private void Awake()
@@ -70,8 +71,11 @@ public class SaveAndLoadManager : MonoBehaviour
         try
         {
             m_player = FindObjectOfType<PlayerScript>().gameObject;
-            if (m_player != null)
+            if (m_player != null){
                 m_playerScript = m_player.GetComponent<PlayerScript>();
+                m_playerCC = m_player.GetComponent<CharacterController>();
+            }
+                
         }
         catch
         {
@@ -156,8 +160,9 @@ public class SaveAndLoadManager : MonoBehaviour
     {
         m_playerScript.FallingDisabled = true;
         Debug.Log(m_playerStatus.position);
+        m_playerCC.enabled = false;
         m_player.transform.localPosition = m_playerStatus.position;
-
+        m_playerCC.enabled = true; 
         m_playerScript.transform.localRotation = m_playerStatus.rotation;
         Managers.Instance.CameraHandler.CamPosition = m_playerStatus.camPosition;
         Managers.Instance.GameManager.ChangeGameDirection();
