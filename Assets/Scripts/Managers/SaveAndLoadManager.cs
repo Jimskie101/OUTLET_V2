@@ -160,7 +160,7 @@ public class SaveAndLoadManager : MonoBehaviour
 
         m_playerScript.transform.localRotation = m_playerStatus.rotation;
         Managers.Instance.CameraHandler.CamPosition = m_playerStatus.camPosition;
-        Managers.Instance.CameraHandler.ChangeCam();
+        Managers.Instance.GameManager.ChangeGameDirection();
         DOVirtual.DelayedCall(1f, () => m_playerScript.FallingDisabled = false);
         StartCoroutine(LifeUpdater());
     }
