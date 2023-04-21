@@ -102,8 +102,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public bool LockRotation = false;
-
-    private void Update()
+   
+    private void FixedUpdate()
     {
         //So the player dont die when in jumpboost and go grounded
         if (m_playerScript.JumpBoosted)
@@ -273,7 +273,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     //Run
-    public void Run() { m_isRunning = true; Debug.Log("Run"); }
+    public void Run() { m_isRunning = true; }
     public void Walk() { m_isRunning = false; }
 
     //Gizmos

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using DG.Tweening;
 public class InputHandler : MonoBehaviour
 {
     //New Input System
@@ -94,10 +94,10 @@ public class InputHandler : MonoBehaviour
         m_inputMaster.Wires.Connect_Neutral.canceled += ctx => m_neutralWire.StopGrapple();
 
 
-
+        DOVirtual.DelayedCall(1f, () => m_inputMaster.UI.Pause.performed += ctx => Managers.Instance.UIManager.PauseGame());
         m_inputMaster.UI.Continue.performed += ctx => Managers.Instance.UIManager.SkipperHold();
         m_inputMaster.UI.Continue.canceled += ctx => Managers.Instance.UIManager.ResetSkipperHold();
-        m_inputMaster.UI.Pause.performed += ctx => Managers.Instance.UIManager.PauseGame();
+        
         //When Hanging Controls
         m_inputMaster.OnHook.Movement.performed += ctx => m_hangingMovement.GetDirection(ctx.ReadValue<Vector2>());
         m_inputMaster.OnHook.Movement.canceled += ctx => m_hangingMovement.GetDirection(Vector3.zero);

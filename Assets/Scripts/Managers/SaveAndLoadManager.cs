@@ -93,6 +93,10 @@ public class SaveAndLoadManager : MonoBehaviour
             LoadData();
             Managers.Instance.GameData.LoadingFromSave = false;
         }
+        else{
+            Managers.Instance.CheckpointManager.SetCurrentCheckpoint(0);
+        }
+        
     }
 
 
@@ -257,7 +261,8 @@ public class SaveAndLoadManager : MonoBehaviour
             g.transform.rotation = EntityDatas[Entities.IndexOf(g)].rotation;
 
         }
-        Managers.Instance.WaypointManager.WaypointCounter = StageData.WaypointActive - 1;
+
+        Managers.Instance.WaypointManager.WaypointCounter =  StageData.WaypointActive - 1 < 0 ? -1 : StageData.WaypointActive - 1;
         Managers.Instance.TaskManager.TaskNumber = StageData.TaskActive;
         Managers.Instance.GameManager.ObjectiveCounter = StageData.ObjectiveActive;
         Managers.Instance.GameManager.CollectibleCount = StageData.CollectibleActive;
