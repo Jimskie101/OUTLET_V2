@@ -273,7 +273,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     //Run
-    public void Run() { m_isRunning = true; }
+    public void Run() { m_isRunning = true; Debug.Log("Run"); }
     public void Walk() { m_isRunning = false; }
 
     //Gizmos
@@ -295,6 +295,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Holding) m_animator.SetBool("holding", true);
         else m_animator.SetBool("holding", false);
+        
+
+        if (m_inputDir != Vector3.zero && m_isRunning && IsGrounded)
+        {
+            m_playerScript.ChangeStateMultiplier = 5f;
+            m_animator.SetBool("running", true);
+            m_dustMain.startLifetime = 1f;
+            m_dustMain.simulationSpeed = 1f;
+        }
+        else if (!m_isRunning || !IsGrounded || m_inputDir == Vector3.zero)
+        {
+            m_animator.SetBool("running", false);
+
+        }
         if (m_inputDir != Vector3.zero && IsGrounded)
         {
             m_playerScript.ChangeStateMultiplier = 3f;
@@ -310,19 +324,6 @@ public class PlayerMovement : MonoBehaviour
             m_playerScript.ChangeStateMultiplier = 1f;
             m_animator.SetBool("walking", false);
 
-
-        }
-
-        if (m_inputDir != Vector3.zero && m_isRunning && IsGrounded)
-        {
-            m_playerScript.ChangeStateMultiplier = 5f;
-            m_animator.SetBool("running", true);
-            m_dustMain.startLifetime = 1f;
-            m_dustMain.simulationSpeed = 1f;
-        }
-        else if (!m_isRunning || !IsGrounded || m_inputDir == Vector3.zero)
-        {
-            m_animator.SetBool("running", false);
 
         }
 
