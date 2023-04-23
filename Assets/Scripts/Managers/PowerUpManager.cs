@@ -18,37 +18,43 @@ public class PowerUpManager : MonoBehaviour
 
     //PowerUp
     [Header("Power Up")]
-    
+
     float m_powerUpDuration;
 
 
     public void PowerUpCountdown(float duration, PowerUp powerUpScript, GameObject powerUpFX = null)
     {
-        
-                if (powerUpFX != null)
-                    powerUpFX.SetActive(true);
-                float endValue = 0;
-                float startValue = 1;
-                float interval;
 
-                // Move the value from startValue to endValue over a duration
-                DOTween.To(() => startValue, x => startValue = x, endValue, duration)
-                    .OnUpdate(() =>
+        if (powerUpFX != null)
+            powerUpFX.SetActive(true);
+        float endValue = 0;
+        float startValue = 1;
+        float interval;
+
+        // Move the value from startValue to endValue over a duration
+        DOTween.To(() => startValue, x => startValue = x, endValue, duration)
+            .OnUpdate(() =>
+            {
+                if (startValue < 0.5f)
+                {
+
+                    if (startValue < 0.5f)
                     {
-                        if (startValue < 0.5f && startValue > 0.001f)
-                        {
-                            interval = Mathf.Clamp(startValue, 0.05f, 1);
-                            powerUpScript.BlinkOut(interval);
+                        interval = Mathf.Clamp(startValue, 0.05f, 1);
+                        powerUpScript.BlinkOut(interval);
 
-                        }
-                        
-                    })
-                    .OnComplete(() =>
-                    {
+                    }
 
-                        powerUpScript.ResetValues();
-                    });
-        
+
+                }
+
+            })
+            .OnComplete(() =>
+            {
+                powerUpScript.m_tweener.Kill();
+                powerUpScript.ResetValues();
+            });
+
 
 
 

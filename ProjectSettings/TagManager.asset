@@ -12,6 +12,7 @@ TagManager:
   - FXCollider
   - Pushable
   - Trash
+  - PuzzleSlot
   layers:
   - Default
   - TransparentFX

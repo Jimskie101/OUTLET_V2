@@ -4,8 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 using EasyButtons;
 public class TaskManager : MonoBehaviour
-{
-    [SerializeField] string[] m_taskArray;
+{   
+    [SerializeField] [TextArea] string[] m_taskArray;
     [SerializeField] RectTransform m_textHolder;
     [SerializeField] TMPro.TextMeshProUGUI m_text;
 

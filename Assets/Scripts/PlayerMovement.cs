@@ -89,7 +89,6 @@ public class PlayerMovement : MonoBehaviour
             endYPos = transform.position.y;
             if (startYPos - endYPos > m_playerData.FallThresholdLimit)
             {
-                Debug.Log("Fall Height: " + (startYPos - endYPos));
                 m_playerScript.IsDead = true;
             }
             else

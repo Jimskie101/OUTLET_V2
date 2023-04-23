@@ -16,4 +16,5 @@ public class GameData : ScriptableObject
     [Space]
     [SerializeField] bool m_lockGameData = false;
     public int NextSceneIndex = 0;
+    public bool NoCheckpointStart = false;
 }

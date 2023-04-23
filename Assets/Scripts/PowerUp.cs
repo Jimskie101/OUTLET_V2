@@ -28,7 +28,7 @@ public class PowerUp : MonoBehaviour
     MeshRenderer m_mesh;
     [SerializeField] MeshFilter m_meshFilter;
     private void Start()
-    {   
+    {
         m_audioManager = Managers.Instance.AudioManager;
         m_particles = transform.GetComponentInChildren<ParticleSystem>();
         if (m_mesh == null)
@@ -36,9 +36,6 @@ public class PowerUp : MonoBehaviour
         disableDelay = new WaitForSeconds(0.5f);
         m_reEnablerDelay = new WaitForSeconds(m_powerUpData.RespawnTime);
         transform.DOLocalRotate(m_rotation, 4f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
-        m_blinkTimeSlow = new WaitForSeconds(0.20f);
-        m_blinkTimeFast = new WaitForSeconds(0.10f);
-        m_blinkTimeFast = new WaitForSeconds(0.025f);
     }
 
     private void ApplyEffect()
@@ -76,8 +73,7 @@ public class PowerUp : MonoBehaviour
 
     public void ResetValues()
     {
-        if(m_blinker != null)
-        StopCoroutine(m_blinker);
+
         m_powerUpFX.SetActive(false);
         switch (m_powerUpType)
         {
@@ -92,47 +88,41 @@ public class PowerUp : MonoBehaviour
                 m_playerScript.LightLock = false;
                 ; break;
         }
-        
+
     }
 
-    WaitForSeconds m_blinkTimeSlow;
-    WaitForSeconds m_blinkTimeFast;
-    WaitForSeconds m_blinkTimeFaster;
     Coroutine m_blinker = null;
     float m_blinkInterval = 0;
+    public Tween m_tweener;
     [Button]
     public void BlinkOut(float interval)
-    {
-        if (m_blinkInterval <= 0)
+    {   
+        if (!m_powerUpFX.activeSelf)
         {
-            if (m_blinker == null)
+            Managers.Instance.AudioManager.PlayHere("blip", this.gameObject, false, true);
+            
+            m_tweener = DOVirtual.DelayedCall(interval * 2,
+            () =>
             {
-                m_blinkInterval = interval;
-                
-                m_powerUpFX.SetActive(false);
-                if(interval < 0.10)
-                m_blinker = StartCoroutine(BlinkBack(m_blinkTimeFaster));
-                if(interval < 0.30)
-                m_blinker = StartCoroutine(BlinkBack(m_blinkTimeFast));
-                else
-                m_blinker = StartCoroutine(BlinkBack(m_blinkTimeSlow));
-
+                m_powerUpFX.SetActive(true);
             }
+            );
+            m_tweener = DOVirtual.DelayedCall(interval * 2,
+            () =>
+            {
+                m_powerUpFX.SetActive(false);
+            }
+            );
         }
-        else
-        m_blinkInterval -= Time.deltaTime;
+
 
 
     }
 
-    IEnumerator BlinkBack(WaitForSeconds time)
-    {
-        yield return time;
-        m_audioManager.PlayHere("blip", this.gameObject, false, false);
-        m_powerUpFX.SetActive(true);
-        m_blinker = null;
-        yield return null;
-    }
+
+
+
+
 
     private void OnDisable()
     {

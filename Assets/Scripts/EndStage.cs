@@ -8,16 +8,20 @@ public class EndStage : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Managers.Instance.UIManager.FadeToBlack(true);
-            if (Managers.Instance.SceneHandler.GetCurrentSceneName() == "Tutorial")
-            {
-                StartCoroutine(MoveToNextStage());
-            }
-            else
-            {
-                StartCoroutine(Managers.Instance.UIManager.WinScreen());
-            }
+            EndTheStage();
 
+        }
+    }
+    public void EndTheStage()
+    {
+        Managers.Instance.UIManager.FadeToBlack(true);
+        if (Managers.Instance.SceneHandler.GetCurrentSceneName() == "Tutorial")
+        {
+            StartCoroutine(MoveToNextStage());
+        }
+        else
+        {
+            StartCoroutine(Managers.Instance.UIManager.WinScreen());
         }
     }
 

@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_loadSave: 0
   m_lockGameData: 0
-  NextSceneIndex: 6
+  NextSceneIndex: 8
+  NoCheckpointStart: 1

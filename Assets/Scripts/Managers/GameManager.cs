@@ -96,14 +96,21 @@ public class GameManager : MonoBehaviour
             Debug.Log("Timescale is 2");
             Time.timeScale = 2f;
         }
-
+        
+        if(Input.GetKeyDown(KeyCode.Alpha8))
+        {
+           TeleportPlayerToNextWaypoint();
+        }
         if(Input.GetKeyDown(KeyCode.Alpha9))
         {
            UnliLight = !UnliLight;
+           Managers.Instance.UIManager.ShowGameUpdate(UnliLight ? "Cheat Activated\nUnliLight" : "Cheat Deactivated\nUnliLight");
         }
+        
          if(Input.GetKeyDown(KeyCode.Alpha0))
         {
            NoDeathMode = !NoDeathMode;
+           Managers.Instance.UIManager.ShowGameUpdate(NoDeathMode ? "Cheat Activated\nNoDeath" : "Cheat Deactivated\nNoDeath");
         }
     }
 
@@ -118,4 +125,5 @@ public class GameManager : MonoBehaviour
         
         DOVirtual.DelayedCall(1f, () => m_playerScript.FallingDisabled = false);
     }
+    
 }

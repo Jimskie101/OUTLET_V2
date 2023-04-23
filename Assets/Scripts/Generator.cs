@@ -99,7 +99,7 @@ public class Generator : MonoBehaviour
 
         foreach (Light l in m_targetLights)
         {
-            l.DOIntensity(4, 1f).SetEase(Ease.InOutBounce);
+            l.DOIntensity(4, 1f).SetEase(Ease.InOutElastic);
         }
 
         Managers.Instance.TaskManager.NextTask();

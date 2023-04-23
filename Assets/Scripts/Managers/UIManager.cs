@@ -273,14 +273,16 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] TMP_Text m_gameStatusText;
     RectTransform m_gameStatusRect;
+    Sequence m_gameUpdateSequence;
     public void ShowGameUpdate(string statusText)
     {
+        m_gameUpdateSequence.Kill();
         m_gameStatusText.gameObject.SetActive(true);
         m_gameStatusText.text = statusText;
         m_gameStatusRect = m_gameStatusText.rectTransform;
 
         // Fade out the text over the specified duration
-        Sequence sequence = DOTween.Sequence()
+        m_gameUpdateSequence = DOTween.Sequence()
             .Append(m_gameStatusText.DOFade(0f, 1f))
             .Append(m_gameStatusText.DOFade(1f, 1f))
             .Append(m_gameStatusText.DOFade(0f, 1f))
@@ -290,7 +292,7 @@ public class UIManager : MonoBehaviour
             .OnComplete(() => m_gameStatusText.gameObject.SetActive(false));
 
         // Start the sequence
-        sequence.Play();
+        m_gameUpdateSequence.Play();
 
 
     }

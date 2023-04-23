@@ -15,7 +15,7 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] Checkpoint[] m_checkpoints;
 
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(EnableCheckpoints());
     }

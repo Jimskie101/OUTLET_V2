@@ -9,12 +9,12 @@ public class LockAndPullObject : MonoBehaviour
 
     [SerializeField] private Rigidbody m_objectToLock;
     Transform m_defaultParent;
-    private bool isLocked;
+    [HideInInspector]public bool IsLocked;
 
 
     public void LockAndUnlock()
     {
-        if (isLocked)
+        if (IsLocked)
         {
             UnlockObject();
         }
@@ -28,7 +28,7 @@ public class LockAndPullObject : MonoBehaviour
     private void LateUpdate()
     {
 
-        if (isLocked && m_objectToLock != null)
+        if (IsLocked && m_objectToLock != null)
         {
             distanceToPlayer = Vector3.Distance(m_objectToLock.transform.position, transform.position);
             if (distanceToPlayer > maxLockDistance) // Set a threshold distance to automatically unlock the object
@@ -78,7 +78,7 @@ public class LockAndPullObject : MonoBehaviour
             m_objectToLock = hit.rigidbody;
             m_defaultParent = m_objectToLock.transform.parent;
             m_objectToLock.transform.SetParent(m_objectHolder);
-            isLocked = true;
+            IsLocked = true;
             m_playerMovement.LockRotation = true;
             m_playerMovement.Holding = true;
         }
@@ -95,7 +95,7 @@ public class LockAndPullObject : MonoBehaviour
 
         }
 
-        isLocked = false;
+        IsLocked = false;
         m_playerMovement.LockRotation = false;
         m_playerMovement.Holding = false;
     }

@@ -93,7 +93,7 @@ public class SaveAndLoadManager : MonoBehaviour
             LoadData();
             Managers.Instance.GameData.LoadingFromSave = false;
         }
-        else{
+        else if(!Managers.Instance.GameData.NoCheckpointStart){
             Managers.Instance.CheckpointManager.SetCurrentCheckpoint(0);
         }
         
@@ -168,7 +168,7 @@ public class SaveAndLoadManager : MonoBehaviour
         m_player.transform.localPosition = m_playerStatus.position;
         m_playerCC.enabled = true; 
         m_playerScript.transform.localRotation = m_playerStatus.rotation;
-        Managers.Instance.CameraHandler.CamPosition = m_playerStatus.camPosition;
+        //Managers.Instance.CameraHandler.CamPosition = m_playerStatus.camPosition;
         Managers.Instance.GameManager.ChangeGameDirection();
         DOVirtual.DelayedCall(1f, () => m_playerScript.FallingDisabled = false);
         StartCoroutine(LifeUpdater());
