@@ -14,17 +14,22 @@ public class CheckpointManager : MonoBehaviour
 
     [SerializeField] Checkpoint[] m_checkpoints;
 
-
-    private void OnEnable()
+    private void Awake() {
+        AddAllCheckpoints();
+    }
+     private void Start()
     {
+        
         StartCoroutine(EnableCheckpoints());
     }
-    IEnumerator EnableCheckpoints()
+    [Button]
+    public IEnumerator EnableCheckpoints()
     {
         yield return new WaitForSeconds(1f);
+        CurrentCheckpointID = Managers.Instance.SaveAndLoadManager.StageData.CheckpointActive;
         foreach (Checkpoint c in m_checkpoints)
         {
-            CurrentCheckpointID = Managers.Instance.SaveAndLoadManager.StageData.CheckpointActive;
+            
             if (Managers.Instance.SaveAndLoadManager.StageData.CheckpointActive < c.CheckpointID)
             {
                 c.gameObject.SetActive(true);

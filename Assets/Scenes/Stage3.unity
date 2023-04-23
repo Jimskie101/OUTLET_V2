@@ -1194,7 +1194,8 @@ MonoBehaviour:
   - Ride the Roomba to avoid the wet area
   - Get to the second floor
   - Go down the escalator
-  - Go to the garden and find the generator
+  - Find the box and put it in the slot inside the generator to power the mall
+  - Get inside the capsule
   - Get out of the mall
   - Climb up the footbridge
   - Keep going until you reach the end
@@ -2971,7 +2972,7 @@ PrefabInstance:
     - target: {fileID: 7117748299714984975, guid: 67d34a099c4541340a33b2591a82b167,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 51.31543
+      value: 53.48
       objectReference: {fileID: 0}
     - target: {fileID: 7117748299714984975, guid: 67d34a099c4541340a33b2591a82b167,
         type: 3}
@@ -13426,6 +13427,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853349184556679153, guid: fcaea9c3463dbb840bb77a1f2679f23b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6873871103944945298, guid: fcaea9c3463dbb840bb77a1f2679f23b,
         type: 3}
@@ -28129,7 +28135,7 @@ PrefabInstance:
     - target: {fileID: 740993360252253854, guid: 5b2ed58cceb635f449a69c0a33844ca0,
         type: 3}
       propertyPath: m_text
-      value: Swamp Sewers Completed
+      value: Abandoned City Completed
       objectReference: {fileID: 0}
     - target: {fileID: 740993360915459629, guid: 5b2ed58cceb635f449a69c0a33844ca0,
         type: 3}

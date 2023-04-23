@@ -5,13 +5,12 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     CheckpointManager m_checkpointManager;
-    [HideInInspector]
     public int CheckpointID;
     private void OnEnable()
     {
         CheckpointID = int.Parse(name);
     }
-    private void Start()
+    private void Awake()
     {
         m_checkpointManager = Managers.Instance.CheckpointManager;
         CheckpointID = int.Parse(name);

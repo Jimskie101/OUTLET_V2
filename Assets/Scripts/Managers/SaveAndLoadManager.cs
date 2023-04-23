@@ -92,9 +92,14 @@ public class SaveAndLoadManager : MonoBehaviour
 
             LoadData();
             Managers.Instance.GameData.LoadingFromSave = false;
+            
         }
         else if(!Managers.Instance.GameData.NoCheckpointStart){
             Managers.Instance.CheckpointManager.SetCurrentCheckpoint(0);
+        }
+        else if(!Managers.Instance.GameData.NoCheckpointStart)
+        {
+            StartCoroutine(Managers.Instance.CheckpointManager.EnableCheckpoints());
         }
         
     }
