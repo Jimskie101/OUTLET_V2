@@ -15,7 +15,6 @@ Assets/Scenes/Loading.unity|78b6e0b2eaca8bd4bb47471e6d28eb9b
 Assets/Scenes/MainMenu.unity|0c5d7c64b1db14e4687aab4516e55d57
 Assets/Scenes/OldStage1.unity|51ca231956e34df438735ee01caf8bf0
 Assets/Scenes/Pictorial.unity|0ad069acfb128be478760430f34efa5f
-Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Demo/Prototype Materials Demo.unity|735c40e4d7967d7458e6a4db48651d2a
 Assets/Prefab/QuickOutline/Samples/Scenes/QuickOutline.unity|f23712c79adc910408e872b127e825cf
 Assets/Scenes/SampleScene.unity|c850ee8c3b14cc8459e7e186857cf567
 Assets/Scenes/SceneTester.unity|33f3e48a685de514ca64aa374a48a93e
