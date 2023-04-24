@@ -26,16 +26,16 @@ namespace DecalSystem {
                 .ToArray();
         }
 
-        // public static Terrain[] GetAffectedTerrains(Decal decal) {
-        //     var bounds = GetBounds( decal );
-        //     var isOnlyStatic = decal.gameObject.isStatic;
+        public static Terrain[] GetAffectedTerrains(Decal decal) {
+            var bounds = GetBounds( decal );
+            var isOnlyStatic = decal.gameObject.isStatic;
 
-        //     return Terrain.activeTerrains
-        //         .Where( i => i.gameObject.isStatic || !isOnlyStatic )
-        //         .Where( i => HasLayer( decal.LayerMask, i.gameObject.layer ) )
-        //         .Where( i => bounds.Intersects( i.GetBounds() ) )
-        //         .ToArray();
-        // }
+            return Terrain.activeTerrains
+                .Where( i => i.gameObject.isStatic || !isOnlyStatic )
+                .Where( i => HasLayer( decal.LayerMask, i.gameObject.layer ) )
+                .Where( i => bounds.Intersects( i.GetBounds() ) )
+                .ToArray();
+        }
 
 
         public static Bounds GetBounds(Decal decal) {
