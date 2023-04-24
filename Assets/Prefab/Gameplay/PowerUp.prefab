@@ -62,9 +62,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_powerUpData: {fileID: 11400000, guid: 90ffe7ae16000084ca1ae721f45eb0a5, type: 2}
   m_powerUpType: 1
+  m_powerUpFX: {fileID: 0}
   m_meshFilter: {fileID: 0}
+  m_sphereCollider: {fileID: 0}
   m_powerupMesh:
-  - {fileID: 5614564639711332561, guid: b098cc35188a67e46bff7d078e9a0944, type: 3}
+  - {fileID: 4668984257482510965, guid: b098cc35188a67e46bff7d078e9a0944, type: 3}
   - {fileID: -1117082489390005245, guid: 802e547095c6a68488fd25b70caa3271, type: 3}
   - {fileID: -7434527051930761011, guid: 72b163e920d97b143b34dceed44f8e9f, type: 3}
 --- !u!1 &5934384937829911385

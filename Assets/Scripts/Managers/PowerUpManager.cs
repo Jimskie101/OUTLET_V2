@@ -29,29 +29,41 @@ public class PowerUpManager : MonoBehaviour
             powerUpFX.SetActive(true);
         float endValue = 0;
         float startValue = 1;
-        float interval;
+        float remainingTime = duration;
+        float lastRemainingTime = 0;
+        float minTime = duration * 0.0001f;
 
         // Move the value from startValue to endValue over a duration
         DOTween.To(() => startValue, x => startValue = x, endValue, duration)
             .OnUpdate(() =>
             {
-                if (startValue < 0.5f)
+                if (startValue < 0.25f)
                 {
-
-                    if (startValue < 0.5f)
+                    if (duration * startValue <= remainingTime / 2)
                     {
-                        interval = Mathf.Clamp(startValue, 0.05f, 1);
-                        powerUpScript.BlinkOut(interval);
+                        if (lastRemainingTime != remainingTime)
+                        {
+                            Debug.Log("blinked");
+                            lastRemainingTime = remainingTime;
+                            remainingTime = Mathf.Clamp(remainingTime / 2, minTime, Mathf.Infinity);
+                            powerUpScript.BlinkOut();
+                        }
 
                     }
 
-
                 }
+
+
+
+
+
+
 
             })
             .OnComplete(() =>
             {
-                powerUpScript.m_tweener.Kill();
+                if (powerUpScript.m_blinkBack != null)
+                    StopCoroutine(powerUpScript.m_blinkBack);
                 powerUpScript.ResetValues();
             });
 

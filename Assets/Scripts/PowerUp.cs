@@ -36,6 +36,7 @@ public class PowerUp : MonoBehaviour
         disableDelay = new WaitForSeconds(0.5f);
         m_reEnablerDelay = new WaitForSeconds(m_powerUpData.RespawnTime);
         transform.DOLocalRotate(m_rotation, 4f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
+        m_blinkTime = new WaitForSeconds(0.05f);
     }
 
     private void ApplyEffect()
@@ -93,30 +94,26 @@ public class PowerUp : MonoBehaviour
 
     Coroutine m_blinker = null;
     float m_blinkInterval = 0;
-    public Tween m_tweener;
+    public WaitForSeconds m_blinkTime;
+    public Coroutine m_blinkBack;
+
     [Button]
-    public void BlinkOut(float interval)
-    {   
-        if (!m_powerUpFX.activeSelf)
+    public void BlinkOut()
+    {
+        if (m_blinkBack == null)
         {
+            m_powerUpFX.SetActive(false);
             Managers.Instance.AudioManager.PlayHere("blip", this.gameObject, false, true);
-            
-            m_tweener = DOVirtual.DelayedCall(interval * 2,
-            () =>
-            {
-                m_powerUpFX.SetActive(true);
-            }
-            );
-            m_tweener = DOVirtual.DelayedCall(interval * 2,
-            () =>
-            {
-                m_powerUpFX.SetActive(false);
-            }
-            );
+            m_blinkBack = StartCoroutine(BlinkBack());
         }
 
 
-
+    }
+    IEnumerator BlinkBack()
+    {
+        yield return m_blinkTime;
+        m_powerUpFX.SetActive(true);
+        m_blinkBack = null;
     }
 
 

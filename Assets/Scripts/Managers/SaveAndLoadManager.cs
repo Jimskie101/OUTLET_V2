@@ -71,11 +71,12 @@ public class SaveAndLoadManager : MonoBehaviour
         try
         {
             m_player = FindObjectOfType<PlayerScript>().gameObject;
-            if (m_player != null){
+            if (m_player != null)
+            {
                 m_playerScript = m_player.GetComponent<PlayerScript>();
                 m_playerCC = m_player.GetComponent<CharacterController>();
             }
-                
+
         }
         catch
         {
@@ -87,19 +88,25 @@ public class SaveAndLoadManager : MonoBehaviour
     }
     private void Start()
     {
+        if (m_player != null)
+        {
+            SceneStart();
+        }
+
+
+    }
+    private void SceneStart()
+    {
         if (Managers.Instance.GameData.LoadingFromSave)
         {
 
             LoadData();
             Managers.Instance.GameData.LoadingFromSave = false;
-            
+
         }
-        else if(!Managers.Instance.GameData.NoCheckpointStart){
-            Managers.Instance.CheckpointManager.SetCurrentCheckpoint(0);
-        }
-        else if(!Managers.Instance.GameData.NoCheckpointStart)
+        else if (GetCheckpointSceneNumber() != Managers.Instance.SceneHandler.GetCurrentScene())
         {
-            StartCoroutine(Managers.Instance.CheckpointManager.EnableCheckpoints());
+            Managers.Instance.CheckpointManager.SetCurrentCheckpoint(0);
         }
         
     }
@@ -171,7 +178,7 @@ public class SaveAndLoadManager : MonoBehaviour
         Debug.Log(m_playerStatus.position);
         m_playerCC.enabled = false;
         m_player.transform.localPosition = m_playerStatus.position;
-        m_playerCC.enabled = true; 
+        m_playerCC.enabled = true;
         m_playerScript.transform.localRotation = m_playerStatus.rotation;
         //Managers.Instance.CameraHandler.CamPosition = m_playerStatus.camPosition;
         Managers.Instance.GameManager.ChangeGameDirection();
@@ -267,7 +274,7 @@ public class SaveAndLoadManager : MonoBehaviour
 
         }
 
-        Managers.Instance.WaypointManager.WaypointCounter =  StageData.WaypointActive - 1 < 0 ? -1 : StageData.WaypointActive - 1;
+        Managers.Instance.WaypointManager.WaypointCounter = StageData.WaypointActive - 1 < 0 ? -1 : StageData.WaypointActive - 1;
         Managers.Instance.TaskManager.TaskNumber = StageData.TaskActive;
         Managers.Instance.GameManager.ObjectiveCounter = StageData.ObjectiveActive;
         Managers.Instance.GameManager.CollectibleCount = StageData.CollectibleActive;
