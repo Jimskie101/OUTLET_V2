@@ -45,8 +45,11 @@ public class AudioManager : MonoBehaviour
     public AudioSource PlayHere(string name, GameObject targetObj, bool fromObject = false, bool oneshot = false)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
+        if (s == null){
+            Debug.Log("Sound not found");
             return null;
+        }
+            
         
         if (!targetObj.TryGetComponent(out source))
             source = targetObj.AddComponent<AudioSource>();

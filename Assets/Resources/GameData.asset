@@ -15,4 +15,4 @@ MonoBehaviour:
   m_loadSave: 0
   m_lockGameData: 0
   NextSceneIndex: 8
-  NoCheckpointStart: 1
+  NoCheckpointStart: 0

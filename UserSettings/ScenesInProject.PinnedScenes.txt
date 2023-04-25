@@ -1,3 +1,4 @@
+Assets/Scenes/MainMenu.unity|0c5d7c64b1db14e4687aab4516e55d57
 Assets/Scenes/Stage1.unity|6879af6cec313bf4b886dc5b7867211e
 Assets/Scenes/Stage2.unity|15af2eb74272c6343a3e7d344e7f5b05
 Assets/Scenes/Stage3.unity|3b62b3911a222a94684e22c2290779ec

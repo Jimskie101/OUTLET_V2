@@ -1191,18 +1191,17 @@ MonoBehaviour:
   - Parkour your way up to the other side of the grate fence
   - Carefully go down to the ground
   - Get inside the mall
-  - Ride the Roomba to avoid the wet area
+  - Connect and ride the Roomba to avoid the wet area
   - Get to the second floor
   - Go down the escalator
   - Find the box and put it in the slot inside the generator to power the mall
-  - Get inside the capsule
   - Get out of the mall
   - Climb up the footbridge
   - Keep going until you reach the end
   - Get inside the tower
   - Climb up the tower
   - Get inside the control center inside the tower
-  - Go inside the machine and put to box to the slot to power the computer
+  - Go inside the machine and put the box to the slot to power the computer
   - Press the red button to unlock the capsule door
   - Get inside the capsule
   m_textHolder: {fileID: 2069732786}
@@ -2111,7 +2110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &194599640
 Transform:
   m_ObjectHideFlags: 0
@@ -29546,6 +29545,7 @@ MonoBehaviour:
   m_targetRotation: {x: 0, y: 0, z: 0}
   m_defaultRotation: {x: 0, y: 0, z: 0}
   m_rotateDuration: 0
+  m_loopRotate: 0
 --- !u!65 &1691358265
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38549,6 +38549,7 @@ MonoBehaviour:
   m_targetRotation: {x: 0, y: 0, z: 0}
   m_defaultRotation: {x: 0, y: 0, z: 0}
   m_rotateDuration: 0
+  m_loopRotate: 0
 --- !u!64 &1972847336
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40075,6 +40076,7 @@ MonoBehaviour:
   m_targetRotation: {x: 0, y: 0, z: 0}
   m_defaultRotation: {x: 0, y: 0, z: 0}
   m_rotateDuration: 0
+  m_loopRotate: 0
 --- !u!64 &2064158324
 MeshCollider:
   m_ObjectHideFlags: 0

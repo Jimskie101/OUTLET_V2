@@ -6,12 +6,12 @@ using DG.Tweening;
 
 
 public enum Direction
-    {
-        front,
-        left,
-        back,
-        right,
-    }
+{
+    front,
+    left,
+    back,
+    right,
+}
 public class GameManager : MonoBehaviour
 {
     public GameObject Player;
@@ -19,17 +19,22 @@ public class GameManager : MonoBehaviour
     private CharacterController m_playerCC;
     private void Awake()
     {
-        
-        
 
-         try
+
+        if (!Application.isEditor)
+        {
+            NoDeathMode = false;
+             UnliLight = false;
+        }
+        try
         {
             Player = FindObjectOfType<PlayerScript>().gameObject;
-            if (Player != null){
+            if (Player != null)
+            {
                 m_playerScript = Player.GetComponent<PlayerScript>();
                 m_playerCC = Player.GetComponent<CharacterController>();
             }
-                
+
         }
         catch
         {
@@ -49,7 +54,7 @@ public class GameManager : MonoBehaviour
     public int PostersCount = 0;
 
 
-    
+
     [Header("Game Camera Direction")]
     public Direction GameDirection;
     public Vector3 XOrientation;
@@ -85,32 +90,33 @@ public class GameManager : MonoBehaviour
 
 
 
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.Comma))
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Comma))
         {
             Debug.Log("Timescale Reset");
             Time.timeScale = 1f;
         }
-        if(Input.GetKeyDown(KeyCode.Period))
+        if (Input.GetKeyDown(KeyCode.Period))
         {
             Debug.Log("Timescale is 2");
             Time.timeScale = 2f;
         }
-        
-        if(Input.GetKeyDown(KeyCode.Alpha8))
+
+        if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-           TeleportPlayerToNextWaypoint();
+            TeleportPlayerToNextWaypoint();
         }
-        if(Input.GetKeyDown(KeyCode.Alpha9))
+        if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-           UnliLight = !UnliLight;
-           Managers.Instance.UIManager.ShowGameUpdate(UnliLight ? "Cheat Activated\nUnliLight" : "Cheat Deactivated\nUnliLight");
+            UnliLight = !UnliLight;
+            Managers.Instance.UIManager.ShowGameUpdate(UnliLight ? "Cheat Activated\nUnliLight" : "Cheat Deactivated\nUnliLight");
         }
-        
-         if(Input.GetKeyDown(KeyCode.Alpha0))
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-           NoDeathMode = !NoDeathMode;
-           Managers.Instance.UIManager.ShowGameUpdate(NoDeathMode ? "Cheat Activated\nNoDeath" : "Cheat Deactivated\nNoDeath");
+            NoDeathMode = !NoDeathMode;
+            Managers.Instance.UIManager.ShowGameUpdate(NoDeathMode ? "Cheat Activated\nNoDeath" : "Cheat Deactivated\nNoDeath");
         }
     }
 
@@ -121,9 +127,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Teleported");
         m_playerCC.enabled = false;
         Player.transform.position = Managers.Instance.WaypointManager.NextPosition();
-        m_playerCC.enabled = true; 
-        
+        m_playerCC.enabled = true;
+
         DOVirtual.DelayedCall(1f, () => m_playerScript.FallingDisabled = false);
     }
-    
+
 }

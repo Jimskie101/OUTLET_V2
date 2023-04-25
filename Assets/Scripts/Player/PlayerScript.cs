@@ -97,7 +97,8 @@ public class PlayerScript : MonoBehaviour
             //Action();
             Regen();
         }
-        else {
+        else
+        {
             m_charging = false;
             StopSound();
         }
@@ -114,6 +115,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] WireBase m_neutral;
     [SerializeField] EnergySource m_energySource;
     [SerializeField] Keypad m_keypad;
+    [SerializeField] TerminalEvent m_terminal;
     AudioSource m_audioSrc;
     bool m_charging;
     private void Regen()
@@ -137,7 +139,7 @@ public class PlayerScript : MonoBehaviour
                         }
                         if (m_audioSrc != null && !m_audioSrc.isPlaying)
                         {
-                           Managers.Instance.AudioManager.PlayHere("electric", this.gameObject);
+                            Managers.Instance.AudioManager.PlayHere("electric", this.gameObject);
                         }
 
 
@@ -154,6 +156,10 @@ public class PlayerScript : MonoBehaviour
             {
                 m_keypad.Activate();
             }
+            else if(m_hot.Source.TryGetComponent(out m_terminal))
+            {
+                m_terminal.TerminalConnected();
+            }
 
         }
         else
@@ -167,10 +173,14 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        
+
         if (!Shielded)
+        {
             LifePercentage -= damageAmount;
+            Managers.Instance.AudioManager.PlayHere("hurt", this.gameObject, false, true);
             Managers.Instance.UIManager.DamageFX();
+        }
+
     }
 
     private void StopSound()

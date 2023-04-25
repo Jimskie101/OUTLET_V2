@@ -123,6 +123,12 @@ MonoBehaviour:
     pitch: 2
     loop: 0
     source: {fileID: 0}
+  - name: hurt
+    clip: {fileID: 8300000, guid: 8c0c5a0107c9de14bafcc3cee70747be, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   m_audioMixer: {fileID: 24100000, guid: 36601c427b119214e94f30c212ed0438, type: 2}
   m_playBGM: 1
   m_bgmName: bgm_classic

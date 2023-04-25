@@ -92,8 +92,6 @@ public class PowerUp : MonoBehaviour
 
     }
 
-    Coroutine m_blinker = null;
-    float m_blinkInterval = 0;
     public WaitForSeconds m_blinkTime;
     public Coroutine m_blinkBack;
 

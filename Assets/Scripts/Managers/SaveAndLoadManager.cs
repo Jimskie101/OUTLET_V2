@@ -108,7 +108,7 @@ public class SaveAndLoadManager : MonoBehaviour
         {
             Managers.Instance.CheckpointManager.SetCurrentCheckpoint(0);
         }
-        
+
     }
 
 
@@ -253,8 +253,15 @@ public class SaveAndLoadManager : MonoBehaviour
 
     public int GetCheckpointSceneNumber()
     {
-        FetchFromJson();
-        return StageData.SceneNumber;
+        if (CheckJson())
+        {
+            FetchFromJson();
+            return StageData.SceneNumber;
+
+        }
+        else{
+            return -11;
+        }
 
     }
 

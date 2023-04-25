@@ -20,7 +20,7 @@ public class MoverAndRotator : MonoBehaviour
     [SerializeField] Vector3 m_targetRotation;
     [SerializeField] Vector3 m_defaultRotation;
     [SerializeField] float m_rotateDuration = 0;
-
+    
 
     
     private void OnEnable()
@@ -52,7 +52,7 @@ public class MoverAndRotator : MonoBehaviour
     {
         m_transform.DOLocalMove(m_defaultPosition, m_moveDuration);
     }
-
+    [Button]
     public void RotateToTarget(bool forloading = false)
     {
        if(forloading) m_transform.DOLocalRotate(m_targetRotation, 0);
@@ -63,7 +63,12 @@ public class MoverAndRotator : MonoBehaviour
     {
         transform.DOLocalRotate(m_defaultRotation, m_rotateDuration);
     }
-
+    [Button]
+    public void RotateAndLoop(bool forloading = false)
+    {
+        if(forloading) m_transform.DOLocalRotate(m_targetRotation, 0, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
+       else m_transform.DOLocalRotate(m_targetRotation, m_rotateDuration, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
+    }
     
 
 }
