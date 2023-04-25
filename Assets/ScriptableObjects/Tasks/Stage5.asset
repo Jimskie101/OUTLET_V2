@@ -13,15 +13,9 @@ MonoBehaviour:
   m_Name: Stage5
   m_EditorClassIdentifier: 
   TasksText:
-  - Find the way to the Operation Room
-  - Put the box to the slot to light up the area
-  - Put the boxes to the slot to operate the bridge
-  - Go to the Door Control Room
-  - Attach the fuses to the slot to power the lever
-  - Switch the lever to open the Dam Door
-  - Go to the Dam Bridge Control Room
-  - Switch all lever to bring down the Main Bridge
-  - Go down and cross the bridge and go to Hydrochamber Room
-  - Find and put the boxes to the slot to power the lever on the exit
-  - Switch the lever to open the exit door
-  - Get out of the facility
+  - Go deeper in the underground facility
+  - Go up to the vent
+  - Go down the vent to the other room
+  - Find the fuse box to power the underground facilty
+  - Find the fuse box to power the underground facilty
+  - Ride the elevator underground

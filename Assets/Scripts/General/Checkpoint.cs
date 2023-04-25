@@ -8,6 +8,7 @@ public class Checkpoint : MonoBehaviour
     public int CheckpointID;
     private void OnEnable()
     {
+        m_checkpointManager = Managers.Instance.CheckpointManager;
         CheckpointID = int.Parse(name);
     }
     private void Awake()

@@ -39068,7 +39068,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349908902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 2.34, z: 8.9}
+  m_LocalPosition: {x: -0.03, y: 1.82, z: 8.9}
   m_LocalScale: {x: 2.3644488, y: 2.3644488, z: 1.63852}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39506,7 +39506,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 192
-    _typelessdata: 000000bf000000bf5123553d0000000000000000000080bfb804553e8494983e000000bfc82772be5123553d0000000000000000000080bfb804553ed11cee3efeffff3eccd7913d5123553d0000000000000000000080bfaa8d423fbafd283fffffff3e000000bf5123553d0000000000000000000080bfab8d423f8494983e0000003f0000003f5123553d0000000000000000000080bfab8d423f0b946e3f000000bf0000003f5123553d0000000000000000000080bfb804553e0b946e3f
+    _typelessdata: 000000bf000000bf5123553d0000000000000000000080bfb804553e8494983e000000bfd4c382be5123553d0000000000000000000080bfb804553eb0f8e73efeffff3e1830563d5123553d0000000000000000000080bfaa8d423faaeb253fffffff3e000000bf5123553d0000000000000000000080bfab8d423f8494983e0000003f0000003f5123553d0000000000000000000080bfab8d423f0b946e3f000000bf0000003f5123553d0000000000000000000080bfb804553e0b946e3f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -39780,6 +39780,7 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     camPosition: 0
+  m_playerCC: {fileID: 0}
   StageData:
     SceneNumber: 0
     CheckpointActive: 0
@@ -46639,7 +46640,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh572632
+  m_Name: pb_Mesh9342836
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -52053,6 +52054,7 @@ MonoBehaviour:
   m_neutral: {fileID: 1961353567}
   m_energySource: {fileID: 0}
   m_keypad: {fileID: 0}
+  m_terminal: {fileID: 0}
 --- !u!114 &2040021650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52421,7 +52423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056637202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.3502607, y: -0.48526376, z: 18.24097}
+  m_LocalPosition: {x: -5.3502607, y: -1.05, z: 18.24097}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

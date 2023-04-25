@@ -104,7 +104,7 @@ public class SaveAndLoadManager : MonoBehaviour
             Managers.Instance.GameData.LoadingFromSave = false;
 
         }
-        else if (GetCheckpointSceneNumber() != Managers.Instance.SceneHandler.GetCurrentScene())
+        else if (GetCheckpointSceneNumber() != Managers.Instance.SceneHandler.GetCurrentScene() && Managers.Instance.SceneHandler.GetCurrentScene() != 3)
         {
             Managers.Instance.CheckpointManager.SetCurrentCheckpoint(0);
         }

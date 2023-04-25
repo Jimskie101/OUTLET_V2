@@ -129,6 +129,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: loading
+    clip: {fileID: 8300000, guid: 239fe82232a08e744843105644b94b29, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   m_audioMixer: {fileID: 24100000, guid: 36601c427b119214e94f30c212ed0438, type: 2}
   m_playBGM: 1
   m_bgmName: bgm_classic

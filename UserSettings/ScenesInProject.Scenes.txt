@@ -7,7 +7,7 @@ Assets/Scenes/Cinematics5.unity|1ffb6fa500594ec438cf57e3fdc1b9ab
 Assets/Thirdparty/Simple Toon/Demo/Scenes/DemoScene1.unity|f8d2c849252e54bd08b0c224ddb18cd7
 Assets/Thirdparty/Simple Toon/Demo/Scenes/DemoScene2.unity|08dc1ccecf33249198ba2fe94fcfb8e0
 Assets/Thirdparty/Simple Toon/Demo/Scenes/DemoScene3.unity|172a3bd741ad7437a8d5a4b4ee547c58
-Assets/Editor/DecalSystem/Example/Example.unity|9eda6808c66ab1c46ab0f16df5b62ea1
+Assets/DecalSystem/Example/Example.unity|9eda6808c66ab1c46ab0f16df5b62ea1
 Assets/Editor/Joystick Pack/Examples/Example Scene.unity|414bddd31c5ea4f4c9f5d1452e5bbb41
 Assets/Thirdparty/Forcefield/Scene/HexgonFX.unity|bb80a16c89282b6469990ac15cf2135e
 Assets/Scenes/Intro.unity|a7ce30db21455314bb27632fa77fbc84
@@ -22,4 +22,3 @@ Assets/Scenes/Stage2Test.unity|1fd12f685306c1d4986c8dab88b367a7
 Assets/Scenes/Stage3Old.unity|c28e027263f869342ab460306d2ad23f
 Assets/Scenes/Stage3Old2.unity|0836113c2e798ba4d9c78b79ad6ac0fb
 Assets/Scenes/Test.unity|c90d78cdceca0004eb01520cec6b9588
-Assets/Scenes/Tutorial.unity|5ae4767c94ee1ff49a3512836a6f8f87

@@ -11,7 +11,7 @@ public class Loading : MonoBehaviour
     [SerializeField] private float minimumLoadTime = 3.0f; // The minimum amount of time to show the loading screen in seconds.
 
     private void Start()
-    {
+    {   Managers.Instance.AudioManager.PlayHere("loading", this.gameObject, false, true);
         m_uiManager = Managers.Instance.UIManager;
         
         // Load the target scene asynchronously

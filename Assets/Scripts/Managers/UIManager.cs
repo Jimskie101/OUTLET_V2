@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,9 +42,10 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log("Checking Saves");
             m_load.interactable = Managers.Instance.SaveAndLoadManager.CheckJson();
+            m_lastHomeScreen = m_mainMenuScreen;
         }
 
-
+       
     }
 
     public void LoadStage(int index)
@@ -53,8 +55,16 @@ public class UIManager : MonoBehaviour
 
 
 
+    [Header("Collectible")]
+    [SerializeField] TMP_Text m_recordText;
 
-
+    [Button]
+    private void CheckCollectibleCount()
+    {
+      
+        m_recordText.text = "Postcards Collected "+Managers.Instance.CollectibleManager.CollectedItems
+        + "/10\nPosters Collected " +Managers.Instance.CollectibleManager.Posters +"/10";
+    }
 
     [Header("Damage Flash")]
     [SerializeField] Image m_damageFlash;
@@ -358,28 +368,38 @@ public class UIManager : MonoBehaviour
     {
         m_levelNumber = 0;
         ActiveLevel();
-        if (m_mainMenuScreen.activeSelf)
+        if (m_lastHomeScreen.activeSelf)
         {
-            m_mainMenuScreen.SetActive(false);
+            m_lastHomeScreen.SetActive(false);
         }
         m_screenPlaceholder = m_levelsScreen;
         m_levelsScreen.SetActive(true);
     }
     public void OpenSettingsScreen()
     {
+        if (m_lastHomeScreen.activeSelf)
+        {
+            m_lastHomeScreen.SetActive(false);
+        }
         m_screenPlaceholder = m_settingsScreen;
         m_settingsScreen.SetActive(true);
     }
     public void OpenCreditsScreen()
     {
+        if (m_lastHomeScreen.activeSelf)
+        {
+            m_lastHomeScreen.SetActive(false);
+        }
         m_screenPlaceholder = m_creditsScreen;
         m_creditsScreen.SetActive(true);
     }
+    
+    GameObject m_lastHomeScreen;
     public void BacktoMain()
     {
-        if (!m_mainMenuScreen.activeSelf)
+        if (!m_lastHomeScreen.activeSelf)
         {
-            m_mainMenuScreen.SetActive(true);
+            m_lastHomeScreen.SetActive(true);
         }
         m_screenPlaceholder.SetActive(false);
         m_screenPlaceholder = null;
@@ -437,12 +457,15 @@ public class UIManager : MonoBehaviour
         yield return m_timeForScreen;
         m_fadeImage.gameObject.SetActive(false);
         m_deathScreen.SetActive(true);
+        m_lastHomeScreen = m_deathScreen;
     }
     public IEnumerator WinScreen()
     {
         yield return m_timeForScreen;
+        
         m_fadeImage.gameObject.SetActive(false);
         m_winScreen.SetActive(true);
+        m_lastHomeScreen = m_winScreen;
     }
 
 
@@ -518,6 +541,7 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 0f;
             Managers.Instance.InputHandler.Pause();
             m_pauseScreen.SetActive(true);
+            m_lastHomeScreen = m_pauseScreen;
 
         }
         else if (m_pauseScreen.activeSelf)
