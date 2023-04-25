@@ -64,7 +64,7 @@ MonoBehaviour:
   m_powerUpType: 1
   m_powerUpFX: {fileID: 0}
   m_meshFilter: {fileID: 0}
-  m_sphereCollider: {fileID: 0}
+  m_sphereCollider: {fileID: 5934384937114348023}
   m_powerupMesh:
   - {fileID: 4668984257482510965, guid: b098cc35188a67e46bff7d078e9a0944, type: 3}
   - {fileID: -1117082489390005245, guid: 802e547095c6a68488fd25b70caa3271, type: 3}
