@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ce112446fcd2f41af969889862306a, type: 3}
+  m_Name: Stage3
+  m_EditorClassIdentifier: 
+  TasksText:
+  - Parkour your way up to the other side of the grate fence
+  - Carefully go down to the ground
+  - Get inside the mall
+  - Connect and ride the Roomba to avoid the wet area
+  - Get to the second floor
+  - Go down the escalator
+  - Find the box and put it in the slot inside the generator to power the mall
+  - Get out of the mall
+  - Climb up the footbridge
+  - Keep going until you reach the end
+  - Get inside the tower
+  - Climb up the tower
+  - Get inside the control center inside the tower
+  - Go inside the machine and put the box to the slot to power the computer
+  - Press the red button to unlock the capsule door
+  - Get inside the capsule

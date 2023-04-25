@@ -1743,20 +1743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62966ffabc5e72a478a155019586e33c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_taskArray:
-  - Find a way inside the junkyard
-  - Put the box to the slot to fix the generator and light up the area
-  - Find a way to the outpost
-  - Short circuit the keypad
-  - FInd a way top of the control unit
-  - Open the fence gate
-  - Go to the inner yard
-  - Find the windmill generator
-  - Put the box to the slot to power the windmill generator
-  - Get to the control box
-  - Put the box to the slot to power the control box to lift the garage door
-  - Get on the train
-  - Unlock the cockpit and run the train
+  m_taskArray: {fileID: 11400000, guid: 4496fa25ea9d9ac4eb14af02740a1cb1, type: 2}
   m_textHolder: {fileID: 699953183}
   m_text: {fileID: 699953184}
   TaskNumber: 0
@@ -14098,6 +14085,7 @@ MonoBehaviour:
   m_neutral: {fileID: 1773772307}
   m_energySource: {fileID: 0}
   m_keypad: {fileID: 0}
+  m_terminal: {fileID: 0}
 --- !u!114 &726936225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56411,7 +56399,6 @@ MonoBehaviour:
   m_targetRotation: {x: 0, y: 0, z: 0}
   m_defaultRotation: {x: 0, y: 0, z: 0}
   m_rotateDuration: 0
-  m_loopRotate: 0
 --- !u!1001 &1943516971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74779,7 +74766,6 @@ MonoBehaviour:
   m_targetRotation: {x: 0, y: 0, z: 0}
   m_defaultRotation: {x: 0, y: 0, z: 0}
   m_rotateDuration: 0
-  m_loopRotate: 0
 --- !u!1 &921391927262759936
 GameObject:
   m_ObjectHideFlags: 0
@@ -99834,7 +99820,6 @@ MonoBehaviour:
   m_targetRotation: {x: 0, y: 0, z: 0}
   m_defaultRotation: {x: 0, y: 90, z: 0}
   m_rotateDuration: 1
-  m_loopRotate: 0
 --- !u!23 &6964462607348680008
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -109044,7 +109029,6 @@ MonoBehaviour:
   m_targetRotation: {x: 0, y: 0, z: 0}
   m_defaultRotation: {x: 0, y: 0, z: 0}
   m_rotateDuration: 0
-  m_loopRotate: 0
 --- !u!65 &9194509240694866262
 BoxCollider:
   m_ObjectHideFlags: 0

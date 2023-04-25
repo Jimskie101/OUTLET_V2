@@ -1338,19 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62966ffabc5e72a478a155019586e33c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_taskArray:
-  - Find the way to the Operation Room
-  - Put the box to the slot to light up the area
-  - Put the boxes to the slot to operate the bridge
-  - Go to the Door Control Room
-  - Attach the fuses to the slot to power the lever
-  - Switch the lever to open the Dam Door
-  - Go to the Dam Bridge Control Room
-  - Switch all lever to bring down the Main Bridge
-  - Go down and cross the bridge and go to Hydrochamber Room
-  - Find and put the boxes to the slot to power the lever on the exit
-  - Switch the lever to open the exit door
-  - Get out of the facility
+  m_taskArray: {fileID: 11400000, guid: ffad33d817dfab948983286a54b769f3, type: 2}
   m_textHolder: {fileID: 2069732786}
   m_text: {fileID: 231525432}
   TaskNumber: 0
@@ -10661,6 +10649,7 @@ MonoBehaviour:
   m_neutral: {fileID: 1773772307}
   m_energySource: {fileID: 0}
   m_keypad: {fileID: 0}
+  m_terminal: {fileID: 0}
 --- !u!114 &726936225
 MonoBehaviour:
   m_ObjectHideFlags: 0

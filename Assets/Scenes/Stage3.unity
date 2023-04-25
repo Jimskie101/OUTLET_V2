@@ -1187,23 +1187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62966ffabc5e72a478a155019586e33c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_taskArray:
-  - Parkour your way up to the other side of the grate fence
-  - Carefully go down to the ground
-  - Get inside the mall
-  - Connect and ride the Roomba to avoid the wet area
-  - Get to the second floor
-  - Go down the escalator
-  - Find the box and put it in the slot inside the generator to power the mall
-  - Get out of the mall
-  - Climb up the footbridge
-  - Keep going until you reach the end
-  - Get inside the tower
-  - Climb up the tower
-  - Get inside the control center inside the tower
-  - Go inside the machine and put the box to the slot to power the computer
-  - Press the red button to unlock the capsule door
-  - Get inside the capsule
+  m_taskArray: {fileID: 11400000, guid: bbdce4e2c88691e45ae04af7a4912cf4, type: 2}
   m_textHolder: {fileID: 2069732786}
   m_text: {fileID: 231525432}
   TaskNumber: 0

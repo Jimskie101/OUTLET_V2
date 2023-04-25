@@ -5,7 +5,7 @@ using DG.Tweening;
 using EasyButtons;
 public class TaskManager : MonoBehaviour
 {   
-    [SerializeField] [TextArea] string[] m_taskArray;
+    [SerializeField] Tasks m_taskArray;
     [SerializeField] RectTransform m_textHolder;
     [SerializeField] TMPro.TextMeshProUGUI m_text;
 
@@ -13,7 +13,7 @@ public class TaskManager : MonoBehaviour
 
     private void Start()
     {
-        m_text.text = m_taskArray[TaskNumber];
+        m_text.text = m_taskArray.TasksText[TaskNumber];
         Managers.Instance.WaypointManager.NextWaypoint();
         AnimateTask();
 
@@ -27,9 +27,9 @@ public class TaskManager : MonoBehaviour
             TaskNumber++;
             m_textHolder.DOLocalMoveY(300, 1f).OnComplete(() =>
             {
-                if (TaskNumber < m_taskArray.Length)
+                if (TaskNumber < m_taskArray.TasksText.Length)
                 {
-                    m_text.text = m_taskArray[TaskNumber];
+                    m_text.text = m_taskArray.TasksText[TaskNumber];
 
                     AnimateTask();
                 }
@@ -49,9 +49,9 @@ public class TaskManager : MonoBehaviour
             TaskNumber--;
             m_textHolder.DOLocalMoveY(300, 1f).OnComplete(() =>
             {
-                if (TaskNumber < m_taskArray.Length)
+                if (TaskNumber < m_taskArray.TasksText.Length)
                 {
-                    m_text.text = m_taskArray[TaskNumber];
+                    m_text.text = m_taskArray.TasksText[TaskNumber];
 
                     AnimateTask();
                 }
