@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68448454dfc4e3349af8c3b32a7c71e5, type: 3}
+  m_Name: Stage2
+  m_EditorClassIdentifier: 
+  PostCards:
+  - {fileID: 21300000, guid: c2aa3b57269fad44682b2936c5a86307, type: 3}
+  - {fileID: 21300000, guid: 480b74144db50124590507f9f6010631, type: 3}
+  - {fileID: 21300000, guid: 486d857479c47144796e009bafdaa1dd, type: 3}
+  - {fileID: 21300000, guid: 52db10aa5d6d15d47adeefccdfd58891, type: 3}
+  - {fileID: 21300000, guid: b68d545188c91d94aaaf8c0d80f5bd91, type: 3}
+  - {fileID: 21300000, guid: 5f4874ba32a26cf4a8e73f591738073a, type: 3}
+  - {fileID: 21300000, guid: 964a848e06eae044c96e448e08f70652, type: 3}
+  - {fileID: 21300000, guid: 89df0b17cbec2274ab0471488d8c25b9, type: 3}
+  - {fileID: 21300000, guid: 67f5d00528d90fa468b3896c3302f2f5, type: 3}
+  - {fileID: 21300000, guid: 605b862820c7d9b48a4136fcd58126ba, type: 3}
+  Posters:
+  - {fileID: 1423442701, guid: 2cec7c47d071af640b389c9b288011e5, type: 3}
+  - {fileID: -1892227940, guid: fa135e302e401184ea9f1cfcae125d3d, type: 3}
+  - {fileID: 1247263521, guid: aa28d219218ac954981e867a684172e2, type: 3}
+  - {fileID: 893025931, guid: cfa99c93642d9ae45a93ff0e7686b61a, type: 3}
+  - {fileID: -183432245, guid: 7fb39eb3f38e1d140bc4b83bf284c40b, type: 3}

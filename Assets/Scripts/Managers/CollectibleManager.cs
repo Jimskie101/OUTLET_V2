@@ -19,6 +19,7 @@ public class CollectibleManager : MonoBehaviour
     private void Start()
     {
         m_uiManager = Managers.Instance.UIManager;
+        GetCollectibles();
         if(m_collectibleParent != null )
         Invoke("CollectibleEnabler",0.1f);
         if(m_posterParent != null )
@@ -53,13 +54,13 @@ public class CollectibleManager : MonoBehaviour
     }
 
 
-    [SerializeField] Sprite [] m_collectibleTrivias;
-    [SerializeField] Sprite [] m_posters;
+    [SerializeField] Collectibles m_collectibleAsset;
+
     
     public void CollectedSomething()
     {
 
-        Managers.Instance.UIManager.ShowTrivia(m_collectibleTrivias[CollectedItems]);
+        Managers.Instance.UIManager.ShowTrivia(m_collectibleAsset.PostCards[CollectedItems]);
         CollectedItems++;
 
         m_uiManager.UpdateCollectibleCount(CollectedItems);
@@ -70,7 +71,7 @@ public class CollectibleManager : MonoBehaviour
     public void CollectedPoster()
     {
 
-        Managers.Instance.UIManager.ShowPoster(m_posters[Posters]);
+        Managers.Instance.UIManager.ShowPoster(m_collectibleAsset.Posters[Posters]);
         Posters++;
 
         m_uiManager.UpdateCollectibleCount(CollectedItems);

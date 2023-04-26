@@ -5,6 +5,7 @@ using EasyButtons;
 
 public class PlayerScript : MonoBehaviour
 {
+    [SerializeField] GameObject m_tempObject;
     GameManager m_gameManager;
     //Components
     LightController m_lightController;
@@ -177,7 +178,7 @@ public class PlayerScript : MonoBehaviour
         if (!Shielded)
         {
             LifePercentage -= damageAmount;
-            Managers.Instance.AudioManager.PlayHere("hurt", this.gameObject, false, true);
+            Managers.Instance.AudioManager.PlayHere("hurt", m_tempObject, false, true);
             Managers.Instance.UIManager.DamageFX();
         }
 
