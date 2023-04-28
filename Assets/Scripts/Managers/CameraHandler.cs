@@ -80,7 +80,7 @@ public class CameraHandler : MonoBehaviour
             {
                 m_controlsAreDown = true;
                 Time.timeScale = 0f;
-                m_inputHandler.CameraRotating();
+                //m_inputHandler.CameraRotating();
             }
         }
         else if (!m_camBrain.IsBlending)
