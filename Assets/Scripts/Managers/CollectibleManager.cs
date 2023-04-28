@@ -28,6 +28,7 @@ public class CollectibleManager : MonoBehaviour
     [Button]
     private void GetCollectibles()
     {
+        if(m_collectibles != null)
         m_collectibles = m_collectibleParent.GetComponentsInChildren<Collectible>(true);
     }
     [Button]
@@ -38,19 +39,26 @@ public class CollectibleManager : MonoBehaviour
     
     private void CollectibleEnabler()
     {
+        
+        if(m_collectibles != null){
         for(int i = 9; i > CollectedItems -1 ; i--)
         {
             m_collectibles[i].gameObject.SetActive(true);
         }
          m_uiManager.UpdateCollectibleCount(CollectedItems);
+        }
     }
 
     private void PosterEnabler()
     {
-        for(int i = 4; i > Posters -1 ; i--)
+        
+        if(m_collectibles != null){
+            for(int i = 4; i > Posters -1 ; i--)
         {
             m_posterObjects[i].gameObject.SetActive(true);
         }
+        }
+        
     }
 
 
