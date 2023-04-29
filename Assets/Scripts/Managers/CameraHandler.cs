@@ -74,26 +74,29 @@ public class CameraHandler : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (m_camBrain.IsBlending)
+        if (!m_gameManager.NoStopTime && !CutsceneIsPlaying)
         {
-            if (!m_controlsAreDown)
+            if (m_camBrain.IsBlending)
             {
-                m_controlsAreDown = true;
-                Time.timeScale = 0f;
-                //m_inputHandler.CameraRotating();
+                if (!m_controlsAreDown)
+                {
+                    m_controlsAreDown = true;
+                    Time.timeScale = 0f;
+                    m_inputHandler.CameraRotating();
+                }
             }
-        }
-        else if (!m_camBrain.IsBlending)
-        {
-            if (m_controlsAreDown)
+            else if (!m_camBrain.IsBlending)
             {
-                m_controlsAreDown = false;
-                Time.timeScale = 1f;
-                if (!CutsceneIsPlaying)
-                    m_inputHandler.CameraStopped();
-                m_gameManager.ChangeGameDirection();
-            }
+                if (m_controlsAreDown)
+                {
+                    m_controlsAreDown = false;
+                    Time.timeScale = 1f;
+                    if (!CutsceneIsPlaying)
+                        m_inputHandler.CameraStopped();
+                    m_gameManager.ChangeGameDirection();
+                }
 
+            }
         }
     }
 

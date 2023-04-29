@@ -164,8 +164,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
-    Vector3 m_moveDir = new Vector3(0, 1, 0);
+    Vector3 m_planeNormal = new Vector3(0,1,0);
     //Moves the player
     private void MovePlayer()
     {
@@ -175,7 +174,8 @@ public class PlayerMovement : MonoBehaviour
 
 
         //m_inputDir = m_horizontal * m_gameManager.XOrientation + m_vertical * m_gameManager.ZOrientation;
-        m_inputDir = Vector3.ProjectOnPlane(m_horizontal * Camera.main.transform.right + m_vertical * Camera.main.transform.forward, m_moveDir );
+        m_inputDir = m_gameManager.NoStopTime ? Vector3.ProjectOnPlane(m_horizontal * Camera.main.transform.right + m_vertical * Camera.main.transform.forward, m_planeNormal).normalized :
+        m_horizontal * m_gameManager.XOrientation + m_vertical * m_gameManager.ZOrientation;
 
 
 

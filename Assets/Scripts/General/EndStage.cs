@@ -14,6 +14,7 @@ public class EndStage : MonoBehaviour
     }
     public void EndTheStage()
     {
+        Managers.Instance.UIManager.CheckCollectibleCount();
         Managers.Instance.UIManager.FadeToBlack(true);
         if (Managers.Instance.SceneHandler.GetCurrentSceneName() == "Tutorial")
         {

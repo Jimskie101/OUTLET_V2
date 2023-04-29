@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     public bool NoDeathMode = false;
     public bool UnliLight = false;
     public bool NoCutscene = false;
+    public bool NoStopTime = false;
 
     public int ObjectiveCounter = 0;
 
@@ -117,6 +118,12 @@ public class GameManager : MonoBehaviour
         {
             NoDeathMode = !NoDeathMode;
             Managers.Instance.UIManager.ShowGameUpdate(NoDeathMode ? "Cheat Activated\nNoDeath" : "Cheat Deactivated\nNoDeath");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            NoStopTime = !NoStopTime;
+            Managers.Instance.UIManager.ShowGameUpdate(NoStopTime ? "Debug Update\nNoStoptime = true" : "Debug Update\nNoStoptime = false");
+        
         }
     }
 

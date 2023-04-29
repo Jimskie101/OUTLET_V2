@@ -28,7 +28,7 @@ public class CollectibleManager : MonoBehaviour
     [Button]
     private void GetCollectibles()
     {
-        if(m_collectibles != null)
+        if(m_collectibleParent != null)
         m_collectibles = m_collectibleParent.GetComponentsInChildren<Collectible>(true);
     }
     [Button]

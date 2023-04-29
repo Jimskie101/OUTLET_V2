@@ -21,7 +21,7 @@ public class InputHandler : MonoBehaviour
 
 
 
-    string[] m_CinematicsScenes = { "Cinematics1", "Cinematics2", "Cinematics3", "Cinematics4", "Cinematics5" };
+    string[] m_CinematicsScenes = { "Cinematics1", "Cinematics2","Cinematics3", "Cinematics4", "Cinematics5" };
     string m_sceneName;
     bool m_cinematicMode = false;
     private void Awake()

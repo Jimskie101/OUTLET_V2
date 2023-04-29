@@ -59,7 +59,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text m_recordText;
 
     [Button]
-    private void CheckCollectibleCount()
+    public void CheckCollectibleCount()
     {
       
         m_recordText.text = "Postcards Collected "+Managers.Instance.CollectibleManager.CollectedItems

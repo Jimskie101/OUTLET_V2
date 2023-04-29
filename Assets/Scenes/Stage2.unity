@@ -20812,6 +20812,7 @@ MonoBehaviour:
   NoDeathMode: 0
   UnliLight: 0
   NoCutscene: 1
+  NoStopTime: 1
   ObjectiveCounter: 0
   CollectibleCount: 0
   PostersCount: 0

@@ -5826,7 +5826,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh841574
+  m_Name: pb_Mesh77416
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22228,7 +22228,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh841432
+  m_Name: pb_Mesh77274
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31148,6 +31148,7 @@ MonoBehaviour:
   NoDeathMode: 0
   UnliLight: 0
   NoCutscene: 1
+  NoStopTime: 1
   ObjectiveCounter: 0
   CollectibleCount: 0
   PostersCount: 0
@@ -58003,7 +58004,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh837230
+  m_Name: pb_Mesh73078
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

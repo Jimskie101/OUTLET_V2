@@ -23242,6 +23242,7 @@ MonoBehaviour:
   NoDeathMode: 0
   UnliLight: 0
   NoCutscene: 1
+  NoStopTime: 1
   ObjectiveCounter: 0
   CollectibleCount: 0
   PostersCount: 0
@@ -42465,6 +42466,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1474036805}
     m_Modifications:
+    - target: {fileID: 7306991685442044579, guid: a4e5912f77b133b4eb97b67d80eb935d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99f5154351108474fbd21a9470bf5ec9, type: 2}
     - target: {fileID: 8261347298120117857, guid: a4e5912f77b133b4eb97b67d80eb935d,
         type: 3}
       propertyPath: m_Name
