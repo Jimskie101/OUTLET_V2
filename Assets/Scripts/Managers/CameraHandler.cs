@@ -72,33 +72,33 @@ public class CameraHandler : MonoBehaviour
 
     }
 
-    private void LateUpdate()
-    {
-        if (!m_gameManager.NoStopTime && !CutsceneIsPlaying)
-        {
-            if (m_camBrain.IsBlending)
-            {
-                if (!m_controlsAreDown)
-                {
-                    m_controlsAreDown = true;
-                    Time.timeScale = 0f;
-                    m_inputHandler.CameraRotating();
-                }
-            }
-            else if (!m_camBrain.IsBlending)
-            {
-                if (m_controlsAreDown)
-                {
-                    m_controlsAreDown = false;
-                    Time.timeScale = 1f;
-                    if (!CutsceneIsPlaying)
-                        m_inputHandler.CameraStopped();
-                    m_gameManager.ChangeGameDirection();
-                }
+    // private void LateUpdate()
+    // {
+    //     if (!m_gameManager.NoStopTime && !CutsceneIsPlaying)
+    //     {
+    //         if (m_camBrain.IsBlending)
+    //         {
+    //             if (!m_controlsAreDown)
+    //             {
+    //                 m_controlsAreDown = true;
+    //                 Time.timeScale = 0f;
+    //                 m_inputHandler.CameraRotating();
+    //             }
+    //         }
+    //         else if (!m_camBrain.IsBlending)
+    //         {
+    //             if (m_controlsAreDown)
+    //             {
+    //                 m_controlsAreDown = false;
+    //                 Time.timeScale = 1f;
+    //                 if (!CutsceneIsPlaying)
+    //                     m_inputHandler.CameraStopped();
+    //                 m_gameManager.ChangeGameDirection();
+    //             }
 
-            }
-        }
-    }
+    //         }
+    //     }
+    // }
 
 
 

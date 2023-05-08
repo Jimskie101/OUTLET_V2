@@ -119,12 +119,12 @@ public class GameManager : MonoBehaviour
             NoDeathMode = !NoDeathMode;
             Managers.Instance.UIManager.ShowGameUpdate(NoDeathMode ? "Cheat Activated\nNoDeath" : "Cheat Deactivated\nNoDeath");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            NoStopTime = !NoStopTime;
-            Managers.Instance.UIManager.ShowGameUpdate(NoStopTime ? "Debug Update\nNoStoptime = true" : "Debug Update\nNoStoptime = false");
+        // if (Input.GetKeyDown(KeyCode.Alpha7))
+        // {
+        //     NoStopTime = !NoStopTime;
+        //     Managers.Instance.UIManager.ShowGameUpdate(NoStopTime ? "Debug Update\nNoStoptime = true" : "Debug Update\nNoStoptime = false");
         
-        }
+        // }
     }
 
     [Button]

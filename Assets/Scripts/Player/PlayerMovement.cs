@@ -174,8 +174,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         //m_inputDir = m_horizontal * m_gameManager.XOrientation + m_vertical * m_gameManager.ZOrientation;
-        m_inputDir = m_gameManager.NoStopTime ? Vector3.ProjectOnPlane(m_horizontal * Camera.main.transform.right + m_vertical * Camera.main.transform.forward, m_planeNormal).normalized :
-        m_horizontal * m_gameManager.XOrientation + m_vertical * m_gameManager.ZOrientation;
+        m_inputDir = Vector3.ProjectOnPlane(m_horizontal * Camera.main.transform.right + m_vertical * Camera.main.transform.forward, m_planeNormal).normalized;
 
 
 
