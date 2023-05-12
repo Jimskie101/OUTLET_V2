@@ -234,7 +234,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: c743fc7342cf3bd48901c1f1d82f47d9,
+      objectReference: {fileID: 32900000, guid: 123d5de397b519e4182d325bba1d4205,
         type: 3}
     - target: {fileID: 6854403154738733068, guid: 5b2ed58cceb635f449a69c0a33844ca0,
         type: 3}
@@ -304,7 +304,6 @@ MonoBehaviour:
   SaveAndLoadManager: {fileID: 0}
   TaskManager: {fileID: 0}
   PowerUpManager: {fileID: 0}
-  EventsDictionary: {fileID: 0}
 --- !u!1 &517511482
 GameObject:
   m_ObjectHideFlags: 0

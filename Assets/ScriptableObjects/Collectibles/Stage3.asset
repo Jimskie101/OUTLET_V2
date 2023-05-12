@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Stage3
   m_EditorClassIdentifier: 
   PostCards:
-  - {fileID: 1423442701, guid: 2cec7c47d071af640b389c9b288011e5, type: 3}
-  - {fileID: -1892227940, guid: fa135e302e401184ea9f1cfcae125d3d, type: 3}
-  - {fileID: 1247263521, guid: aa28d219218ac954981e867a684172e2, type: 3}
-  - {fileID: 893025931, guid: cfa99c93642d9ae45a93ff0e7686b61a, type: 3}
-  - {fileID: -183432245, guid: 7fb39eb3f38e1d140bc4b83bf284c40b, type: 3}
-  - {fileID: 21300000, guid: ecf19ffb159d3e145925345312c324bd, type: 3}
-  - {fileID: 21300000, guid: c29767926c90a5642b16cb9b4010a22e, type: 3}
-  - {fileID: 21300000, guid: 1908623d07427bc4e848efcacc87d958, type: 3}
-  - {fileID: 21300000, guid: 6f0ef530d59a817449744d6b5c4259d1, type: 3}
-  - {fileID: 21300000, guid: 849964be022029f41beb54ee7b2ae720, type: 3}
+  - {fileID: 21300000, guid: a245a9d479b49b547b5df5531d83d623, type: 3}
+  - {fileID: 21300000, guid: d9f727e6a5746b641a05971d1b481383, type: 3}
+  - {fileID: 21300000, guid: 7b18785c3c72e2f4ca7803db3ad87c4a, type: 3}
+  - {fileID: 21300000, guid: 726892b399c245e4e92b31fb39b374cf, type: 3}
+  - {fileID: 21300000, guid: 72142f7c8165b8148b627fc966710c74, type: 3}
+  - {fileID: 21300000, guid: 0356039fcfba65f42af5dcb78fd40fc9, type: 3}
+  - {fileID: 21300000, guid: fbd47298fa7f137408bb72a088af5a39, type: 3}
+  - {fileID: 21300000, guid: 9da4dea2a322fd94a98fd507ad3784df, type: 3}
+  - {fileID: 21300000, guid: 43552937156c76046a34105bea399fdf, type: 3}
+  - {fileID: 21300000, guid: c72944cc800927447912c1f4c3f275ec, type: 3}
   Posters:
   - {fileID: 1423442701, guid: 2cec7c47d071af640b389c9b288011e5, type: 3}
   - {fileID: -1892227940, guid: fa135e302e401184ea9f1cfcae125d3d, type: 3}
