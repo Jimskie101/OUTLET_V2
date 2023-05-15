@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using EasyButtons;
+using UnityEngine.SceneManagement;
 
 public class RatAI : MonoBehaviour
 {
@@ -84,6 +85,7 @@ public class RatAI : MonoBehaviour
                 m_playerScript.TakeDamage(m_ratData.AttackDamage);
                 StartCoroutine(DamageCooldown());
             }
+
 
 
         }

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EasyButtons;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class CollectibleManager : MonoBehaviour
 {
@@ -67,13 +69,15 @@ public class CollectibleManager : MonoBehaviour
     
     public void CollectedSomething()
     {
-
+        
         Managers.Instance.UIManager.ShowTrivia(m_collectibleAsset.PostCards[CollectedItems]);
         CollectedItems++;
 
         m_uiManager.UpdateCollectibleCount(CollectedItems);
         Managers.Instance.GameManager.CollectibleCount = CollectedItems;
         Managers.Instance.UIManager.ShowGameUpdate("Postcard Collected");
+        
+                    
     }
 
     public void CollectedPoster()
@@ -85,5 +89,6 @@ public class CollectibleManager : MonoBehaviour
         m_uiManager.UpdateCollectibleCount(CollectedItems);
         Managers.Instance.GameManager.PostersCount = Posters;
         Managers.Instance.UIManager.ShowGameUpdate("Poster Collected");
+
     }
 }
