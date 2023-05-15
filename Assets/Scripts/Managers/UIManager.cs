@@ -557,11 +557,15 @@ public class UIManager : MonoBehaviour
     [Header("Hp Bar")]
     [SerializeField] Image m_hpBar1;
     [SerializeField] Image m_hpBar2;
+    [SerializeField] TMP_Text buhay;
+    float lol;
     //Update HP Bar in UI
     public void UpdateHPBar(float amount)
     {
         m_hpBar1.fillAmount = amount;
         m_hpBar2.fillAmount = amount;
+        lol = amount * 100;
+        buhay.text =""+  ((int)lol);
     }
 
     [Header("Fader")]
