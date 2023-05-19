@@ -84,7 +84,6 @@ public class OperationRoom : MonoBehaviour
         Managers.Instance.GameManager.ObjectiveCounter = m_forLoadingId;
 
 
-        Managers.Instance.AudioManager.PlayHere(m_workingSoundName, this.gameObject, true);
         StartCoroutine(LightUp());
         //Managers.Instance.CutsceneManager.PlayTimeline();
         //GetComponent<Outline>().enabled = false;
@@ -111,7 +110,8 @@ public class OperationRoom : MonoBehaviour
         }
 
         m_action.Invoke();
-
+        DOVirtual.DelayedCall(1.5f, ()=> Managers.Instance.AudioManager.PlayHere(m_workingSoundName, this.gameObject, false));
+        
     }
 
 

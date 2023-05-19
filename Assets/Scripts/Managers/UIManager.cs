@@ -58,13 +58,16 @@ public class UIManager : MonoBehaviour
     [Header("Collectible")]
     [SerializeField] TMP_Text m_recordText;
 
-    [Button]
-    public void CheckCollectibleCount()
+    public void UpdateCollectibleCount(int postcards = 0, int posters = 0)
     {
-      
-        m_recordText.text = "Postcards Collected "+Managers.Instance.CollectibleManager.CollectedItems
-        + "/10\nPosters Collected " +Managers.Instance.CollectibleManager.Posters +"/10";
+        if(postcards < 11  && posters < 11)
+        {
+             m_recordText.text = "Postcards Collected:  " + postcards + "/10\nPosters Collected " + posters + "/5";
+        }
+
+
     }
+   
 
     [Header("Damage Flash")]
     [SerializeField] Image m_damageFlash;
@@ -82,13 +85,7 @@ public class UIManager : MonoBehaviour
            .OnComplete(() => m_damageFlash.gameObject.SetActive(false));
     }
 
-    [SerializeField] TMP_Text m_collectibleText;
-    public void UpdateCollectibleCount(int amount)
-    {
-
-        m_collectibleText.text = amount < 10 ? "Postcards Collected:  " + amount + "/10" : "Postcards Collected: " + amount + "/10";
-
-    }
+    
 
     [Header("Info/Hint UI")]
     [SerializeField] Image[] m_cinematicsSkipperCircles;

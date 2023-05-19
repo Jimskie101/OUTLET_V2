@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         if (!Application.isEditor)
         {
             NoDeathMode = false;
-             UnliLight = false;
+            UnliLight = false;
         }
         try
         {
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
         // {
         //     NoStopTime = !NoStopTime;
         //     Managers.Instance.UIManager.ShowGameUpdate(NoStopTime ? "Debug Update\nNoStoptime = true" : "Debug Update\nNoStoptime = false");
-        
+
         // }
     }
 
@@ -139,4 +139,25 @@ public class GameManager : MonoBehaviour
         DOVirtual.DelayedCall(1f, () => m_playerScript.FallingDisabled = false);
     }
 
+    EndStage m_endStage;
+    [SerializeField] GameObject m_endStagePrefab;
+    [Button]// if pressed will end the stage immediately
+    private void FinishStage()
+    {
+        m_endStagePrefab = Resources.Load<GameObject>("EndStagePrefab");
+        m_endStage = FindObjectOfType<EndStage>();
+        if (m_endStage == null)
+        {
+            m_endStage = Instantiate(m_endStagePrefab).GetComponent<EndStage>();
+        }
+        if(Managers.Instance.SceneHandler.GetCurrentSceneName() == "Stage5")
+        {
+            m_endStage.EndGame();
+        }
+        
+        else{
+            m_endStage.EndTheStage();
+        }
+        
+    }
 }

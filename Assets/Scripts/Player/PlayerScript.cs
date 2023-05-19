@@ -159,6 +159,7 @@ public class PlayerScript : MonoBehaviour
             }
             else if(m_hot.Source.TryGetComponent(out m_terminal))
             {
+                Debug.Log("Terminal Activated");
                 m_terminal.TerminalConnected();
             }
 

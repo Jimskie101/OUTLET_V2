@@ -71,7 +71,7 @@ public class CollectibleManager : MonoBehaviour
         Managers.Instance.UIManager.ShowTrivia(m_collectibleAsset.PostCards[CollectedItems]);
         CollectedItems++;
 
-        m_uiManager.UpdateCollectibleCount(CollectedItems);
+        m_uiManager.UpdateCollectibleCount(CollectedItems, Posters);
         Managers.Instance.GameManager.CollectibleCount = CollectedItems;
         Managers.Instance.UIManager.ShowGameUpdate("Postcard Collected");
     }
@@ -82,7 +82,7 @@ public class CollectibleManager : MonoBehaviour
         Managers.Instance.UIManager.ShowPoster(m_collectibleAsset.Posters[Posters]);
         Posters++;
 
-        m_uiManager.UpdateCollectibleCount(CollectedItems);
+        m_uiManager.UpdateCollectibleCount(CollectedItems, Posters);
         Managers.Instance.GameManager.PostersCount = Posters;
         Managers.Instance.UIManager.ShowGameUpdate("Poster Collected");
     }

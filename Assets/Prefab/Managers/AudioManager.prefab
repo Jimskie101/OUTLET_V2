@@ -135,6 +135,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: sewerlights
+    clip: {fileID: 8300000, guid: 478a835f41a683343bbe5bb15c160fc8, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   m_audioMixer: {fileID: 24100000, guid: 36601c427b119214e94f30c212ed0438, type: 2}
   m_playBGM: 1
   m_bgmName: bgm_classic

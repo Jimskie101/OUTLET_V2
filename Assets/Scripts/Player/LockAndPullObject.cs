@@ -71,6 +71,7 @@ public class LockAndPullObject : MonoBehaviour
     //     }
     // }
     RaycastHit hit;
+    Vector3 m_liftableHeight;
     private void LockObject()
     {
         if (Physics.Raycast(transform.position, transform.forward + -transform.up / 1.5f, out hit, maxLockDistance, lockLayer))
@@ -78,10 +79,19 @@ public class LockAndPullObject : MonoBehaviour
             m_objectToLock = hit.rigidbody;
             m_defaultParent = m_objectToLock.transform.parent;
             m_objectToLock.transform.SetParent(m_objectHolder);
+            if(m_objectToLock.gameObject.layer == LayerMask.NameToLayer("Liftable"))
+            {
+                Debug.Log("Lifttable UP");
+                m_objectToLock.position = m_objectToLock.position + m_liftableHeight;
+                m_objectToLock.GetComponent<Rigidbody>().isKinematic = true;
+            }
             IsLocked = true;
             m_playerMovement.LockRotation = true;
             m_playerMovement.Holding = true;
         }
+    }
+    private void Start() {
+        m_liftableHeight = new Vector3(0, 1.12f, 0);
     }
 
     public void UnlockObject()
@@ -90,7 +100,7 @@ public class LockAndPullObject : MonoBehaviour
         {
             m_objectHolder.DetachChildren();
             m_objectToLock.transform.SetParent(m_defaultParent);
-
+            m_objectToLock.GetComponent<Rigidbody>().isKinematic = false;
             m_objectToLock = null;
 
         }

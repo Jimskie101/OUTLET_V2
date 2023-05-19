@@ -8369,7 +8369,7 @@ PrefabInstance:
     - target: {fileID: 5934384937114348016, guid: 9313ca962fcce71478dfaac3ef56742b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 11.65
       objectReference: {fileID: 0}
     - target: {fileID: 5934384937114348016, guid: 9313ca962fcce71478dfaac3ef56742b,
         type: 3}
@@ -9568,6 +9568,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_slotPosition: {x: 84.53, y: 18.707838, z: -27.791431}
+  m_action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1912599401}
+        m_TargetAssemblyTypeName: TriggerToEvent, Assembly-CSharp
+        m_MethodName: Called
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &668950419
 GameObject:
   m_ObjectHideFlags: 0
@@ -11693,7 +11708,7 @@ MonoBehaviour:
   m_collisionNeeded: 4
   m_collisionCounter: 0
   m_puzzleIndicator: {fileID: 0}
-  m_workingSoundName: 
+  m_workingSoundName: sewerlights
   m_targetLights:
   - {fileID: 1026591492}
   - {fileID: 849101676}
@@ -20819,6 +20834,7 @@ MonoBehaviour:
   GameDirection: 0
   XOrientation: {x: 0, y: 0, z: 0}
   ZOrientation: {x: 0, y: 0, z: 0}
+  m_endStagePrefab: {fileID: 0}
 --- !u!4 &1047937031
 Transform:
   m_ObjectHideFlags: 0
@@ -21376,6 +21392,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_slotPosition: {x: 90.57, y: 18.726017, z: -27.791399}
+  m_action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1912599401}
+        m_TargetAssemblyTypeName: TriggerToEvent, Assembly-CSharp
+        m_MethodName: Called
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1089814210
 GameObject:
   m_ObjectHideFlags: 0
@@ -25346,6 +25377,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fd719b988b42140ab12d064b4a84ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_endingEvents:
+    m_PersistentCalls:
+      m_Calls: []
+  m_finalEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_returnEvent:
+    m_PersistentCalls:
+      m_Calls: []
   m_player: {fileID: 0}
   m_train: {fileID: 0}
 --- !u!65 &1382557789

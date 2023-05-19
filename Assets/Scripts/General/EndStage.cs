@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
+using UnityEngine.Events;
+
+
 
 public class EndStage : MonoBehaviour
 {
@@ -14,7 +18,6 @@ public class EndStage : MonoBehaviour
     }
     public void EndTheStage()
     {
-        Managers.Instance.UIManager.CheckCollectibleCount();
         Managers.Instance.UIManager.FadeToBlack(true);
         if (Managers.Instance.SceneHandler.GetCurrentSceneName() == "Tutorial")
         {
@@ -25,6 +28,48 @@ public class EndStage : MonoBehaviour
             StartCoroutine(Managers.Instance.UIManager.WinScreen());
         }
     }
+
+    [SerializeField] UnityEvent m_endingEvents;
+    [SerializeField] UnityEvent m_finalEvent;
+    [SerializeField] UnityEvent m_returnEvent;
+    public void EndGame()
+    {
+        Managers.Instance.UIManager.FadeToBlack(true);
+        StartCoroutine(EndingLoad());
+
+    }
+    VideoPlayer m_endVideo;
+    IEnumerator EndingLoad()
+    {
+        yield return new WaitForSeconds(2);
+        m_endingEvents.Invoke();
+        m_endVideo = FindObjectOfType<VideoPlayer>();
+        m_endVideo.loopPointReached += EndReached;
+        Managers.Instance.UIManager.FadeInFromBlack();
+
+    }
+
+    void EndReached(UnityEngine.Video.VideoPlayer vp)
+    {
+        Managers.Instance.UIManager.FadeToBlack(true);
+        StartCoroutine(ThankYou());
+    }
+
+    IEnumerator ThankYou()
+    {
+        yield return new WaitForSeconds(2);
+        m_finalEvent.Invoke();
+        Managers.Instance.UIManager.FadeInFromBlack();
+        StartCoroutine(ReturnToMain());
+
+    }
+
+    IEnumerator ReturnToMain()
+    {
+        yield return new WaitForSeconds(7);
+        m_returnEvent.Invoke();
+    }
+
 
     IEnumerator MoveToNextStage()
     {

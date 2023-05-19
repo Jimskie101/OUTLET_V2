@@ -31155,6 +31155,7 @@ MonoBehaviour:
   GameDirection: 0
   XOrientation: {x: 0, y: 0, z: 0}
   ZOrientation: {x: 0, y: 0, z: 0}
+  m_endStagePrefab: {fileID: 0}
 --- !u!4 &1047937031
 Transform:
   m_ObjectHideFlags: 0
@@ -68264,6 +68265,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1297
       objectReference: {fileID: 0}
+    - target: {fileID: 740993361316555237, guid: 5b2ed58cceb635f449a69c0a33844ca0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 740993361624991824, guid: 5b2ed58cceb635f449a69c0a33844ca0,
         type: 3}
       propertyPath: m_RootOrder
@@ -69838,6 +69844,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.8441693
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135966539556599119, guid: 5b2ed58cceb635f449a69c0a33844ca0,
+        type: 3}
+      propertyPath: m_text
+      value: 'Postcards Collected 0/10
+
+        Posters Collected 0/10'
       objectReference: {fileID: 0}
     - target: {fileID: 3161106926339498815, guid: 5b2ed58cceb635f449a69c0a33844ca0,
         type: 3}
