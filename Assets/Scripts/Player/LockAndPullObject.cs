@@ -100,7 +100,11 @@ public class LockAndPullObject : MonoBehaviour
         {
             m_objectHolder.DetachChildren();
             m_objectToLock.transform.SetParent(m_defaultParent);
-            m_objectToLock.GetComponent<Rigidbody>().isKinematic = false;
+            if(m_objectToLock.gameObject.layer == LayerMask.NameToLayer("Liftable"))
+            {
+                m_objectToLock.GetComponent<Rigidbody>().isKinematic = false;
+            }
+            
             m_objectToLock = null;
 
         }

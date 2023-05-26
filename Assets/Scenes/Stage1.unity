@@ -3986,6 +3986,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fd719b988b42140ab12d064b4a84ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_endingEvents:
+    m_PersistentCalls:
+      m_Calls: []
+  m_finalEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_returnEvent:
+    m_PersistentCalls:
+      m_Calls: []
   m_player: {fileID: 726936231}
   m_train: {fileID: 919132149122623957}
 --- !u!1001 &229212920

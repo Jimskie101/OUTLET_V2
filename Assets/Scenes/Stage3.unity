@@ -16080,6 +16080,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fd719b988b42140ab12d064b4a84ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_endingEvents:
+    m_PersistentCalls:
+      m_Calls: []
+  m_finalEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_returnEvent:
+    m_PersistentCalls:
+      m_Calls: []
   m_player: {fileID: 0}
   m_train: {fileID: 0}
 --- !u!1 &883969435 stripped
@@ -23249,6 +23258,7 @@ MonoBehaviour:
   GameDirection: 0
   XOrientation: {x: 0, y: 0, z: 0}
   ZOrientation: {x: 0, y: 0, z: 0}
+  m_endStagePrefab: {fileID: 0}
 --- !u!4 &1047937031
 Transform:
   m_ObjectHideFlags: 0
@@ -29422,6 +29432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Intensity
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 740993362191601610, guid: 5b2ed58cceb635f449a69c0a33844ca0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b2ed58cceb635f449a69c0a33844ca0, type: 3}
